@@ -1,0 +1,22 @@
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.btn {
+	border-width: 2px;
+	font-weight: 500;
+	font-size: 14px;
+	text-transform: uppercase;
+
+	&.btn-circle {
+		border-radius: 999px;
+	}
+}
+
+table {
+	.btn {
+		padding: 1px 5px;
+	}
+}
