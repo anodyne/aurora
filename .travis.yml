@@ -19,6 +19,6 @@ install:
   - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest; fi
 
 after_install:
-	- travis_retry php artisan key:generate
+  - travis_retry php artisan key:generate
 
 script: vendor/bin/phpunit
