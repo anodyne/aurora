@@ -6,10 +6,12 @@ php:
 
 sudo: false
 
-before_script:
+before_install:
+  - travis_retry composer self-update
+
+install:
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
   - cp .env.travis .env
-  - composer self-update
-  - composer install --no-interaction --prefer-dist
   - php artisan key:generate
 
 script:
