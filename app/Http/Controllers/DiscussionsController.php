@@ -17,7 +17,7 @@ class DiscussionsController extends Controller
 			$topic = Topic::where('slug', $topic)->first()->id;
 			$discussions = Discussion::where('topic_id', $topic)->latest()->get();
 		} else {
-			$discussions = Discussion::latest()->get();
+			$discussions = Discussion::with('topic')->latest()->get();
 		}
 
 		return view('pages.discussions.index', compact('discussions'));
@@ -30,6 +30,8 @@ class DiscussionsController extends Controller
 
 	public function show($topic, Discussion $discussion)
 	{
+		$discussion->load(['author', 'replies.author', 'topic']);
+
 		return view('pages.discussions.show', compact('topic', 'discussion'));
 	}
 
