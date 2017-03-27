@@ -1,6 +1,7 @@
 <?php namespace App\Data;
 
-use Eloquent, TopicPresenter;
+use Eloquent;
+use TopicPresenter;
 use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

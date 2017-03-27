@@ -7,15 +7,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+	use Notifiable;
 
-    protected $connection = 'users';
+	protected $connection = 'users';
 	protected $fillable = ['points'];
 	protected $hidden = ['password', 'remember_token'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-    protected $presenter = UserPresenter::class;
+	protected $presenter = UserPresenter::class;
 
-    //--------------------------------------------------------------------------
+	//--------------------------------------------------------------------------
 	// Relationships
 	//--------------------------------------------------------------------------
 

@@ -1,8 +1,8 @@
 <?php namespace App\Data\Repositories;
 
-use Discussion as Model,
-	ReplyRepositoryContract,
-	DiscussionRepositoryContract;
+use Discussion as Model;
+use ReplyRepositoryContract;
+use DiscussionRepositoryContract;
 
 class DiscussionRepository extends Repository implements DiscussionRepositoryContract
 {

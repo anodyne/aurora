@@ -4,14 +4,14 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-        $this->repositoryBindings();
-    }
+	public function boot()
+	{
+		$this->repositoryBindings();
+	}
 
-    public function register()
-    {
-        if ($this->app['env'] == 'local') {
+	public function register()
+	{
+		if ($this->app['env'] == 'local') {
 			if (class_exists('Barryvdh\Debugbar\ServiceProvider')) {
 				$this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
 			}
@@ -22,15 +22,15 @@ class AppServiceProvider extends ServiceProvider
 				$this->app->register(\Laravel\Dusk\DuskServiceProvider::class);
 			}
 		}
-    }
+	}
 
-    protected function repositoryBindings()
-    {
-        $app = $this->app;
+	protected function repositoryBindings()
+	{
+		$app = $this->app;
 
-        // Build a list of repositories that should be built
+		// Build a list of repositories that should be built
 		collect(['Discussion', 'Reply'])->each(function ($binding) use (&$app) {
-            // Set the concrete and abstract names
+			// Set the concrete and abstract names
 			$abstract = "{$binding}RepositoryContract";
 			$abstractFQN = alias($abstract);
 			$concrete = alias("{$binding}Repository");
@@ -38,6 +38,6 @@ class AppServiceProvider extends ServiceProvider
 			// Bind to the container and set the alias
 			$app->bind($abstractFQN, $concrete);
 			$app->alias($abstractFQN, $abstract);
-        });
-    }
+		});
+	}
 }

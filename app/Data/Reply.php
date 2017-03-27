@@ -1,6 +1,7 @@
 <?php namespace App\Data;
 
-use Eloquent, ReplyPresenter;
+use Eloquent;
+use ReplyPresenter;
 use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

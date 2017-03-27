@@ -1,6 +1,7 @@
 <?php namespace App\Data\Repositories;
 
-use Reply as Model, ReplyRepositoryContract;
+use Reply as Model;
+use ReplyRepositoryContract;
 
 class ReplyRepository extends Repository implements ReplyRepositoryContract
 {

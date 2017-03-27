@@ -1,6 +1,7 @@
 <?php namespace App\Data\Repositories;
 
-use User as Model, UserRepositoryContract;
+use User as Model;
+use UserRepositoryContract;
 
 class UserRepository extends Repository implements UserRepositoryContract
 {

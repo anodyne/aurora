@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use Topic, Discussion;
+use Topic;
+use Discussion;
 use Illuminate\Http\Request;
 
 class TopicsController extends Controller
