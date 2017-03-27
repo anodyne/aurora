@@ -55,10 +55,10 @@ return [
         ],
 
         'users' => [
-            'driver' => 'mysql',
+            'driver' => env('DB_USERS_DRIVER', 'mysql'),
             'host' => env('DB_USERS_HOST', '127.0.0.1'),
             'port' => env('DB_USERS_PORT', '3306'),
-            'database' => env('DB_USERS_DATABASE', 'forge'),
+            'database' => env('DB_USERS_DATABASE', database_path('users.sqlite')),
             'username' => env('DB_USERS_USERNAME', 'forge'),
             'password' => env('DB_USERS_PASSWORD', ''),
             'unix_socket' => env('DB_USERS_SOCKET', ''),
