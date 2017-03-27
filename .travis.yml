@@ -15,4 +15,5 @@ install:
   - php artisan key:generate
 
 script:
-  - vendor/bin/phpunit --configuration ./phpunit.xml
+  - vendor/bin/phpunit
+  - vendor/bin/phpcs
