@@ -2,8 +2,10 @@
 <ruleset name="Aurora">
 	<description>The coding standard for Anodyne's Aurora forum system.</description>
 
-	<file>./</file>
+	<file>app</file>
+	<file>resources</file>
 
+	<exclude-pattern>*/app/CodeSniffer/*</exclude-pattern>
 	<exclude-pattern>*/tests/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 
@@ -11,5 +13,13 @@
 
 	<rule ref="PSR2">
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
+	</rule>
+	<rule ref="app/CodeSniffer/Standards/Anodyne"/>
+	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+	<rule ref="Generic.WhiteSpace.ScopeIndent">
+		<properties>
+			<property name="indent" value="4"/>
+			<property name="tabIndent" value="true"/>
+		</properties>
 	</rule>
 </ruleset>
