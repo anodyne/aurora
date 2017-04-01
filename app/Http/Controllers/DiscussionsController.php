@@ -9,7 +9,12 @@ class DiscussionsController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('auth')->except(['index', 'show']);
+		parent::__construct();
+		
+		auth()->setUser(\User::find(1));
+		view()->share('_user', auth()->user());
+
+		$this->middleware('auth')->except(['all', 'index', 'show']);
 	}
 
 	public function index(DiscussionFilters $filters)

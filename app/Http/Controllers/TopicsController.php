@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 class TopicsController extends Controller
 {
-	public function discussions(Topic $topic)
+	public function __construct()
 	{
+		parent::__construct();
+	}
 		if ($topic->exists) {
 			$discussions = $topic->discussions()->latest()->get();
 		} else {
