@@ -9,7 +9,7 @@ class Topic extends Eloquent
 {
 	use SoftDeletes, PresentableTrait;
 
-	protected $fillable = ['name', 'slug'];
+	protected $fillable = ['name', 'slug', 'parent_id', 'color'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = TopicPresenter::class;
 
@@ -17,9 +17,19 @@ class Topic extends Eloquent
 	// Relationships
 	//--------------------------------------------------------------------------
 
+	public function children()
+	{
+		return $this->hasMany(self::class, 'parent_id', 'id');
+	}
+
 	public function discussions()
 	{
 		return $this->hasMany(Discussion::class);
+	}
+
+	public function parent()
+	{
+		return $this->belongsTo(self::class, 'parent_id');
 	}
 
 	//--------------------------------------------------------------------------
