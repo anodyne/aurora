@@ -5,7 +5,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
         "laracasts/presenter": "*",
-        "nothingworks/blade-svg": "~0.1"
+        "nothingworks/blade-svg": "~0.1",
+		"forxer/Gravatar": "~1.2"
     },
 
     "require-dev": {
