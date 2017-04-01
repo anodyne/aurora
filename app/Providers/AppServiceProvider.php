@@ -6,18 +6,23 @@ class AppServiceProvider extends ServiceProvider
 {
 	public function boot()
 	{
+		// Build up the repository bindings and aliases
 		$this->repositoryBindings();
 	}
 
 	public function register()
 	{
+		// Register any service providers or bindings that should only be used
+		// in the local environment
 		if ($this->app['env'] == 'local') {
 			if (class_exists('Barryvdh\Debugbar\ServiceProvider')) {
 				$this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
 			}
 		}
 
-		if ($this->app['env'] == 'local' or $this->app['env'] == 'testing') {
+		// Register any service providers or bindings that should only be used
+		// in the testing environment
+		if ($this->app['env'] == 'testing') {
 			if (class_exists('Laravel\Dusk\DuskServiceProvider')) {
 				$this->app->register(\Laravel\Dusk\DuskServiceProvider::class);
 			}
