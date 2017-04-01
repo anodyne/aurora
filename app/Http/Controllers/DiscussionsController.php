@@ -36,7 +36,9 @@ class DiscussionsController extends Controller
 
 	public function create()
 	{
-		return view('pages.discussions.create');
+		$topics = Topic::get()->pluck('name', 'id');
+
+		return view('pages.discussions.create', compact('topics'));
 	}
 
 	public function show($topic, Discussion $discussion)
