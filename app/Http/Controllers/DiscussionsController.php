@@ -3,6 +3,7 @@
 use Topic;
 use Discussion;
 use Illuminate\Http\Request;
+use App\Filters\DiscussionFilters;
 
 class DiscussionsController extends Controller
 {
@@ -11,16 +12,21 @@ class DiscussionsController extends Controller
 		$this->middleware('auth')->except(['index', 'show']);
 	}
 
-	public function index($topic = null)
+	public function index(DiscussionFilters $filters)
 	{
-		if ($topic) {
-			$topic = Topic::where('slug', $topic)->first()->id;
-			$discussions = Discussion::where('topic_id', $topic)->latest()->get();
-		} else {
-			$discussions = Discussion::with('topic')->latest()->get();
-		}
+		// Get all the parent topics for the sidebar
+		$topics = Topic::with('children')->where('parent_id', null)->get();
 
-		return view('pages.discussions.index', compact('discussions'));
+		// Get all the discussions sorted by the latest
+		$discussions = Discussion::with([
+			'replies',
+			'replies.author',
+			'topic',
+			'topic.parent',
+			'author'
+		])->latest()->filter($filters)->get();
+
+		return view('pages.discussions.all', compact('discussions', 'topics'));
 	}
 
 	public function create()

@@ -40,4 +40,9 @@ class Discussion extends Eloquent
 	{
 		$this->replies()->create($data);
 	}
+
+	public function scopeFilter($query, $filters)
+	{
+		return $filters->apply($query);
+	}
 }
