@@ -20,3 +20,15 @@ Route::get('/', 'DiscussionsController@index')->name('home');
 Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store')->name('discussions.replies');
 
 Route::get('topics/{topic}', 'TopicsController@discussions')->name('topics.discussions');
+
+Route::get('user/{username}', function () {
+	//
+})->name('profile');
+
+Route::get('login', function () {
+	//
+})->name('auth.login');
+
+Route::get('login', function () {
+	//
+})->name('login');
