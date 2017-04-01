@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Bitter:700);
 @import url(http://fonts.googleapis.com/css?family=Exo+2:300italic,500,500italic,600,600italic);
 
-@import "_vars";
+@import "_vars", "_data-tables", "_data-lists", "_panels";
 
 body, html {
 	margin: 0;
@@ -10,13 +10,351 @@ body, html {
 	height: 100%;
 }
 
+body {
+	position: relative;
+	z-index: -100;
+	line-height: $line-height;
+
+	font-family: $font-base;
+	font-size: $font-size;
+	background: $color-body;
+	color: $color-dark;
+}
+
 .wrapper {
 	min-height: 100%;
 	position: relative;
 }
 
+nav.nav-main {
+	position: relative;
+	z-index: 100;
+	height: 40px;
+	line-height: 40px;
+
+	background: $color-nav-main;
+	color: $color-white;
+
+	ul {
+		position: relative;
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		li {
+			position: relative;
+			float: left;
+			margin: 0 0 -1px 0;
+			padding: 0;
+
+			a {
+				position: relative;
+				display: block;
+				padding: 0 25px;
+
+				font-size: $font-size-sm;
+				color: $color-gray;
+				font-family: $font-special;
+				font-weight: 500;
+
+				&:hover {
+					background: darken($color-nav-main, 1%);
+					text-decoration: none;
+					color: $color-subtle;
+				}
+
+				&.active {
+					color: #ffba00;
+					background: darken($color-nav-main, 3%);
+
+					.arrow {
+						display: block;
+					}
+				}
+
+				.arrow {
+					position: absolute;
+					z-index: 10;
+					width: 10px;
+					height: 10px;
+					bottom: -5px;
+					left: 50%;
+					margin-left: -6px;
+					display: none;
+
+					border-left: 1px solid rgba(0, 0, 0, .5);
+					border-top: 1px solid rgba(0, 0, 0, .5);
+					background: darken($color-nav-main, 3%);
+					transform: rotate(-135deg);
+					border-top-left-radius: 3px;
+				}
+
+				.badge {
+					margin-left: $spacing-sm;
+
+					font-family: $font-base;
+				}
+			}
+		}
+
+		&.dd {
+			position: absolute;
+			margin: 2px 0 0;
+			padding: 5px 0;
+
+			li {
+				float: none;
+
+				a {
+					display: block;
+					padding: 3px 20px;
+				}
+			}
+		}
+	}
+
+	.user-icon {
+		float: left;
+		margin: 0 8px 0 0;
+	}
+}
+
+header {
+	position: relative;
+	z-index: 10;
+	height: 90px;
+
+	border-top: 1px solid rgba(0, 0, 0, .5);
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+	background: $color-primary;
+
+	.brand {
+		position: relative;
+		line-height: 80px;
+
+		font-family: $font-special;
+		font-size: 32px;
+		font-weight: 600;
+		color: $color-white;
+		font-style: italic;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+		letter-spacing: 0.01em;
+		outline: none;
+
+		small {
+			font-size: 24px;
+			font-weight: 300;
+			text-transform: lowercase;
+			font-variant: small-caps;
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	nav.nav-sub {
+		position: relative;
+		z-index: 15;
+		float: left;
+
+		ul {
+			position: relative;
+			margin: 0;
+			padding: 0;
+
+			list-style: none;
+
+			li {
+				position: relative;
+				float: left;
+				margin: 0 45px 0 0;
+				padding: 0;
+
+				a {
+					line-height: 86px;
+
+					color: rgba(255, 255, 255, .6);
+					font-weight: 500;
+					font-family: $font-special;
+
+					&:hover {
+						text-decoration: none;
+						color: $color-white;
+					}
+				}
+			}
+		}
+	}
+
+	.header-search {
+		padding-top: 27px;
+
+		.btn {
+			border-radius: 0, $radius-lg, $radius-lg, 0;
+		}
+
+		.search-field {
+			border-radius: $radius-lg, 0, 0, $radius-lg;
+		}
+
+		.search-advanced {
+			float: right;
+			padding: 4px 10px 0 0;
+
+			font-size: 10px;
+			color: rgba(255, 255, 255, .65);
+		}
+	}
+}
+
+.search-forums {
+	padding: $spacing 0;
+
+	background: lighten($color-primary, 45%);
+	border-bottom: 1px solid lighten($color-primary, 35%);
+	font-family: $font-special;
+	font-weight: 500;
+	font-size: $font-size-lg;
+	font-style: italic;
+	color: $color-primary-dark;
+
+	a {
+		color: $color-primary;
+		outline: none;
+		text-decoration: underline;
+
+		&:hover {
+			color: $color-primary-light;
+		}
+
+		&:active {
+			color: $color-primary;
+			outline: none;
+		}
+	}
+
+	.form-control {
+		border: none;
+		background: transparent;
+		color: $color-primary-dark;
+		box-shadow: none;
+
+		&::-webkit-input-placeholder {
+		    color: $color-primary-light;
+		}
+		&:-moz-placeholder {
+		   color: $color-primary-light;
+		   opacity: 1;
+		}
+		&::-moz-placeholder {
+		   color: $color-primary-light;
+		   opacity: 1;
+		}
+		&:-ms-input-placeholder {
+		   color: $color-primary-light;
+		}
+	}
+
+	.input-group-addon {
+		background: transparent;
+		border: none;
+
+		svg {
+			height: 35px;
+			width: 35px;
+
+			path {
+				fill: $color-primary;
+			}
+		}
+	}
+}
+
 main {
+	margin: $spacing 0 0 0;
 	padding-bottom: $footer-height + 40px;
+
+	a  {
+		color: $color-primary;
+		outline: none;
+
+		&:hover {
+			color: $color-primary-light;
+		}
+
+		&:active {
+			color: $color-primary;
+			outline: none;
+		}
+	}
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: $spacing;
+
+		font-family: "Bitter", serif;
+		font-weight: 700;
+		color: $color-primary;
+
+		&.discussion-header {
+			margin-bottom: $spacing-sm;
+		}
+	}
+
+	h2, h3, h4 {
+		margin-top: 0;
+
+		font-family: "Exo 2", sans-serif;
+		font-weight: 500;
+		font-style: italic;
+		color: $color-primary-light;
+	}
+
+	h3 {
+		color: darken($color-primary-bright, 5%);
+	}
+
+	h4 {
+		color: $color-primary-dark;
+	}
+
+	ul, ol {
+		li {
+			margin-bottom: 5px;
+			line-height: $line-height;
+			position: relative;
+
+			font-size: $font-size;
+		}
+	}
+
+	ul {
+		list-style-type: square;
+	}
+
+	dl {
+		dt {
+			margin-top: 8px;
+			line-height: $line-height;
+
+			font-family: $font-special;
+			font-size: $font-size-md;
+			font-weight: 600;
+		}
+
+		dd {
+			margin-bottom: 2px;
+			line-height: $line-height;
+
+			font-size: $font-size;
+
+			strong {
+				font-size: $font-size;
+			}
+		}
+	}
 }
 
 footer {
@@ -59,49 +397,6 @@ footer {
 		li {
 			text-align: right;
 		}
-	}
-}
-
-body {
-	position: relative;
-	z-index: -100;
-	line-height: $line-height;
-
-	font-family: $font-base;
-	font-size: $font-size;
-	background: $color-body;
-	color: $color-dark;
-}
-
-main {
-	h1 {
-		margin-top: 0;
-		margin-bottom: $spacing;
-
-		font-family: "Bitter", serif;
-		font-weight: 700;
-		color: $color-primary;
-
-		&.discussion-header {
-			margin-bottom: $spacing-sm;
-		}
-	}
-
-	h2, h3, h4 {
-		margin-top: 0;
-
-		font-family: "Exo 2", sans-serif;
-		font-weight: 500;
-		font-style: italic;
-		color: $color-primary-light;
-	}
-
-	h3 {
-		color: darken($color-primary-bright, 5%);
-	}
-
-	h4 {
-		color: $color-primary-dark;
 	}
 }
 
@@ -162,11 +457,11 @@ svg.icon {
 .panel {
 	margin: $spacing 0;
 
-	border-radius: $border-radius;
+	border-radius: $radius;
 
 	.panel-heading {
-		border-top-left-radius: $border-radius - 1;
-		border-top-right-radius: $border-radius - 2;
+		border-top-left-radius: $radius - 1;
+		border-top-right-radius: $radius - 2;
 
 		.panel-title {
 			font-weight: 600;
@@ -189,8 +484,8 @@ svg.icon {
 	}
 
 	.panel-footer {
-		border-bottom-left-radius: $border-radius - 1;
-		border-bottom-right-radius: $border-radius - 1;
+		border-bottom-left-radius: $radius - 1;
+		border-bottom-right-radius: $radius - 1;
 
 		.btn-toolbar {
 			margin: 0;
@@ -237,7 +532,7 @@ svg.icon {
 			a {
 				color: $color-gray-blue;
 				border: 1px solid transparent;
-				border-radius: $border-radius;
+				border-radius: $radius;
 
 				path {
 					fill: $color-gray-blue;
@@ -284,7 +579,7 @@ svg.icon {
 			a {
 				color: $color-danger-dark;
 				border: 1px solid transparent;
-				border-radius: $border-radius;
+				border-radius: $radius;
 
 				path {
 					fill: $color-danger-dark;
@@ -331,7 +626,7 @@ svg.icon {
 			a {
 				color: $color-warning-dark;
 				border: 1px solid transparent;
-				border-radius: $border-radius;
+				border-radius: $radius;
 
 				path {
 					fill: $color-warning-dark;
@@ -378,7 +673,7 @@ svg.icon {
 			a {
 				color: $color-info-dark;
 				border: 1px solid transparent;
-				border-radius: $border-radius;
+				border-radius: $radius;
 
 				path {
 					fill: $color-info-dark;
@@ -425,7 +720,7 @@ svg.icon {
 			a {
 				color: $color-success-dark;
 				border: 1px solid transparent;
-				border-radius: $border-radius;
+				border-radius: $radius;
 
 				path {
 					fill: $color-success-dark;
@@ -527,7 +822,7 @@ svg.icon {
 	padding: 0 0 $spacing-sm 3px;
 
 	background-color: transparent;
-	border-radius: $border-radius;
+	border-radius: $radius;
 
 	> li {
 		> a {
@@ -536,6 +831,99 @@ svg.icon {
 			font-size: $font-size-sm;
 			font-style: italic;
 			color: $color-gray-blue;
+		}
+	}
+}
+
+.list-group {
+	margin: $spacing 0;
+
+	.list-group-item {
+		> .badge {
+			margin-top: 5px;
+		}
+
+		&:first-child {
+			border-radius: $radius $radius 0 0;
+		}
+
+		&:last-child {
+			border-radius: 0 0 $radius $radius;
+		}
+	}
+}
+
+.forum-controls {
+	.list-group {
+		border-radius: $radius;
+
+		.list-group-item {
+			font-size: $font-size-sm;
+			font-weight: 600;
+
+			em {
+				font-size: $font-size-xs;
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+.pagination {
+	> li {
+		> a, > span {
+			color: $color-primary;
+			font-family: $font-special;
+			font-weight: 500;
+
+			&:hover {
+				color: $color-primary-light;
+			}
+		}
+
+		&:first-child {
+			> a, > span {
+				border-radius: $radius 0 0 $radius;
+			}
+		}
+
+		&:last-child {
+			> a, > span {
+				border-radius: 0 $radius $radius 0;
+			}
+		}
+	}
+
+	> .active {
+		> a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
+			background-color: $color-primary;
+			font-family: $font-special;
+			font-weight: 500;
+		}
+	}
+}
+
+.discussion-summary {
+	position: relative;
+	display: inline-block;
+	margin: $spacing 0 $spacing 70px;
+	padding: $spacing-sm $spacing-lg;
+
+	border: 1px solid $color-gray-light;
+	font-size: $font-size-sm;
+	color: $color-gray-medium;
+	font-family: $font-special;
+	font-weight: 500;
+	font-style: italic;
+	border-radius: $radius;
+
+	label {
+		margin-bottom: 0;
+
+		font-weight: 500;
+
+		input[type=checkbox] {
+			margin-top: 6px;
 		}
 	}
 }
