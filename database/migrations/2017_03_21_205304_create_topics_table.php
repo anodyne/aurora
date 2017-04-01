@@ -12,6 +12,8 @@ class CreateTopicsTable extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->string('slug', 50);
+			$table->string('color', 10)->nullable();
+			$table->integer('parent_id')->nullable()->unsigned();
 
             $table->timestamps();
             $table->softDeletes();

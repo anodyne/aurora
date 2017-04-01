@@ -50,6 +50,7 @@ $factory->define(App\Data\Topic::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $name,
-        'slug' => $name
+        'slug' => $name,
+		'color' => $faker->hexcolor
     ];
 });
