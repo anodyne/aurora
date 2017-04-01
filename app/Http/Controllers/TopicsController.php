@@ -3,6 +3,7 @@
 use Topic;
 use Discussion;
 use Illuminate\Http\Request;
+use App\Filters\DiscussionFilters;
 
 class TopicsController extends Controller
 {
@@ -10,11 +11,16 @@ class TopicsController extends Controller
 	{
 		parent::__construct();
 	}
+	
+	public function discussions(Topic $topic, DiscussionFilters $filters)
+	{
+		$discussions = Discussion::latest()->filter($filters);
+
 		if ($topic->exists) {
-			$discussions = $topic->discussions()->latest()->get();
-		} else {
-			$discussions = Discussion::latest()->get();
+			$discussions->where('topic_id', $topic->id);
 		}
+
+		$discussions = $discussions->get();
 
 		return view('pages.discussions.index', compact('discussions'));
 	}
