@@ -11,8 +11,10 @@ class DiscussionsController extends Controller
 	{
 		parent::__construct();
 		
-		auth()->setUser(\User::find(1));
-		view()->share('_user', auth()->user());
+		if (app()->environment() != 'testing') {
+			auth()->setUser(\User::find(1));
+			view()->share('_user', auth()->user());
+		}
 
 		$this->middleware('auth')->except(['all', 'index', 'show']);
 	}
