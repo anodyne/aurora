@@ -36,7 +36,7 @@ class CreateDiscussionsTest extends DatabaseTestCase
 		$this->signIn();
 
 		$this->get(route('discussions.create'))
-			->assertSee('Start a New Discussion');
+			->assertSee('Start a Discussion');
 	}
 
 	/** @test **/
