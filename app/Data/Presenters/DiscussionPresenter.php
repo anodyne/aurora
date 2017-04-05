@@ -23,6 +23,11 @@ class DiscussionPresenter extends Presenter
 		]);
 	}
 
+	public function createdAt()
+	{
+		return "Started ".$this->entity->created_at->diffForHumans();
+	}
+
 	public function title()
 	{
 		return $this->entity->title;
@@ -45,8 +50,8 @@ class DiscussionPresenter extends Presenter
 	public function replyCount()
 	{
 		return partial('item-count', [
-			'count'	=> $this->entity->replies->count(),
-			'label' => Str::plural('reply', ($this->entity->replies->count())),
+			'count'	=> $this->entity->replies_count,
+			'label' => str_plural('reply', $this->entity->replies_count),
 		]);
 	}
 
@@ -57,13 +62,17 @@ class DiscussionPresenter extends Presenter
 
 	public function updatedAt()
 	{
-		return "Updated ".$this->entity->updated_at->diffForHumans();
+		if ($this->entity->replies_count > 0) {
+			return "Updated ".$this->entity->updated_at->diffForHumans();
+		}
+
+		return $this->createdAt();
 	}
 
 	public function updatedBy()
 	{
 		// Grab the author of the last reply
-		$author = ($this->entity->replies->count() > 0)
+		$author = ($this->entity->replies_count > 0)
 			? $this->entity->replies->last()->author
 			: false;
 
