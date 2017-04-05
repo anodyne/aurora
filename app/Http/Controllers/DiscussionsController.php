@@ -47,7 +47,7 @@ class DiscussionsController extends Controller
 		return view('pages.discussions.create', compact('topics'));
 	}
 
-	public function show($topic, Discussion $discussion)
+	public function show(Topic $topic, Discussion $discussion)
 	{
 		$discussion->load(['author', 'replies.author', 'topic']);
 
