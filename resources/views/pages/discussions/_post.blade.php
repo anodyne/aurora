@@ -1,6 +1,6 @@
 <div class="media">
 	<div class="media-left">
-		<a href="#" class="avatar sm" style="background-image:url(http://placehold.it/100)"></a>
+		{!! $post->author->present()->avatar(['type' => 'image', 'class' => 'avatar sm']) !!}
 	</div>
 
 	<div class="media-body">
