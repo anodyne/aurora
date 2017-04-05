@@ -51,7 +51,11 @@ class DiscussionsController extends Controller
 	{
 		$discussion->load(['author', 'replies.author', 'topic']);
 
-		return view('pages.discussions.show', compact('topic', 'discussion'));
+		return view('pages.discussions.show', [
+			'discussion' => $discussion,
+			'replies' => $discussion->replies()->paginate(1),
+			'topic' => $topic
+		]);
 	}
 
 	public function store(Request $request)
