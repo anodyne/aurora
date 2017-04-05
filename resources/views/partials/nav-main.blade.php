@@ -1,7 +1,7 @@
 <nav class="nav-main hidden-md-up">
 	<div class="container">
 		<ul>
-			<li><a href="#" class="active" data-toggle="modal" data-target="#navGlobalMobile">Help<div class="arrow"></div></a></li>
+			<li><a href="#" class="active" data-toggle="modal" data-target="#navGlobalMobile">Forum<div class="arrow"></div></a></li>
 		</ul>
 	</div>
 </nav>
