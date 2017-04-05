@@ -65,4 +65,20 @@ class ReadDiscussionsTest extends DatabaseTestCase
 			->assertSee($discussionByJohn->title)
 			->assertDontSee($discussionNotByJohn->title);
 	}
+
+	/** @test **/
+	public function a_user_can_filter_discussions_by_popularity()
+	{
+		$discussionWithTwoReplies = create('App\Data\Discussion');
+		create('App\Data\Reply', ['discussion_id' => $discussionWithTwoReplies->id], 2);
+
+		$discussionWithThreeReplies = create('App\Data\Discussion');
+		create('App\Data\Reply', ['discussion_id' => $discussionWithThreeReplies->id], 3);
+
+		$discussionWithNoReplies = $this->discussion;
+
+		$response = $this->getJson(route('home').'?popular=1')->json();
+
+		$this->assertEquals([3, 2, 0], array_column($response, 'replies_count'));
+	}
 }

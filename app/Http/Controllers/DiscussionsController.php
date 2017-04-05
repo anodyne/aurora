@@ -33,6 +33,10 @@ class DiscussionsController extends Controller
 			'author'
 		])->latest()->filter($filters)->get();
 
+		if (request()->wantsJson()) {
+			return $discussions;
+		}
+
 		return view('pages.discussions.all', compact('discussions', 'topics'));
 	}
 
