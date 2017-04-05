@@ -13,6 +13,15 @@ class Discussion extends Eloquent
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = DiscussionPresenter::class;
 
+	protected static function boot()
+	{
+		parent::boot();
+
+		static::addGlobalScope('replyCount', function ($builder) {
+			$builder->withCount('replies');
+		});
+	}
+
 	//--------------------------------------------------------------------------
 	// Relationships
 	//--------------------------------------------------------------------------
