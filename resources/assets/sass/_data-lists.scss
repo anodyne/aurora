@@ -1,6 +1,11 @@
 @import "_variables";
 
 .data-list {
+	> div:nth-child(odd) {
+		background-color: lighten($color-blue-grey-50, 2.5%);
+		border-radius: $radius;
+	}
+
 	.row {
 		margin-bottom: $spacing-lg;
 
@@ -13,7 +18,7 @@
 		margin-bottom: 0;
 		display: block;
 
-		font-size: $font-size-md;
+		font-size: $font-md;
 		font-weight: 400;
 		color: $color-gray-medium;
 
@@ -24,7 +29,7 @@
 	}
 
 	.list-item-meta {
-		font-size: $font-size-sm;
+		font-size: $font-sm;
 		font-weight: 400;
 		color: $color-gray-medium;
 
@@ -80,7 +85,7 @@
 		line-height: 1;
 
 		text-align: center;
-		font-size: $font-size-xl;
+		font-size: $font-xl;
 		font-weight: 600;
 		color: $color-dark;
 	}
@@ -89,7 +94,7 @@
 		margin-bottom: 0;
 
 		text-align: center;
-		font-size: $font-size-sm;
+		font-size: $font-sm;
 		color: $color-gray-medium;
 	}
 

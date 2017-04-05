@@ -1,11 +1,13 @@
+@import "_variables";
+
 // Bootstrap
 @import "node_modules/bootstrap/scss/bootstrap";
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
 @import url(http://fonts.googleapis.com/css?family=Bitter:700);
-@import url(http://fonts.googleapis.com/css?family=Exo+2:300italic,500,500italic,600,600italic);
+@import url(http://fonts.googleapis.com/css?family=Exo+2:300,300italic,500,500italic,600,600italic);
 
-@import "_variables", "_data-tables", "_data-lists", "_panels", "_mixins";
+@import "_data-tables", "_data-lists", "_panels", "_mixins";
 
 body, html {
 	margin: 0;
@@ -18,8 +20,6 @@ body {
 	z-index: -100;
 	line-height: $line-height;
 
-	font-family: $font-base;
-	font-size: $font-size;
 	background: $color-body;
 	color: $color-dark;
 }
@@ -204,26 +204,6 @@ header {
 			}
 		}
 	}
-
-	.header-search {
-		padding-top: 27px;
-
-		.btn {
-			border-radius: 0, $radius-lg, $radius-lg, 0;
-		}
-
-		.search-field {
-			border-radius: $radius-lg, 0, 0, $radius-lg;
-		}
-
-		.search-advanced {
-			float: right;
-			padding: 4px 10px 0 0;
-
-			font-size: 10px;
-			color: rgba(255, 255, 255, .65);
-		}
-	}
 }
 
 .search-forums {
@@ -233,7 +213,7 @@ header {
 	border-bottom: 1px solid lighten($color-primary, 35%);
 	font-family: $font-special;
 	font-weight: 500;
-	font-size: $font-size-lg;
+	font-size: $font-lg;
 	font-style: italic;
 	color: $color-primary-dark;
 
@@ -292,15 +272,27 @@ header {
 }
 
 main {
-	margin: $spacing 0 0 0;
+	margin: $spacing-lg 0 0 0;
 	padding-bottom: $footer-height + 40px;
 
 	a  {
 		color: $color-primary;
 		outline: none;
 
+		.icon {
+			path {
+				fill: $color-primary;
+			}
+		}
+
 		&:hover {
 			color: $color-primary-light;
+
+			.icon {
+				path {
+					fill: $color-primary-light;
+				}
+			}
 		}
 
 		&:active {
@@ -325,7 +317,7 @@ main {
 	h2, h3, h4 {
 		margin-top: 0;
 
-		font-family: "Exo 2", sans-serif;
+		font-family: $font-special;
 		font-weight: 500;
 		font-style: italic;
 		color: $color-primary-light;
@@ -359,7 +351,7 @@ main {
 			line-height: $line-height;
 
 			font-family: $font-special;
-			font-size: $font-size-md;
+			font-size: $font-md;
 			font-weight: 600;
 		}
 
@@ -388,7 +380,7 @@ footer {
 	background: $color-nav-main;
 	color: $color-white;
 	border-top: 1px solid rgba(0, 0, 0, .5);
-	font-size: $font-size-sm;
+	font-size: $font-sm;
 
 	h2 {
 		margin-top: 0;
@@ -396,7 +388,7 @@ footer {
 
 		font-family: $font-special;
 		font-weight: 500;
-		font-size: $font-size-lg;
+		font-size: $font-lg;
 		font-style: italic;
 		color: $color-white;
 	}
@@ -417,6 +409,10 @@ footer {
 			text-align: right;
 		}
 	}
+}
+
+.form-control {
+	font-family: $font-base;
 }
 
 svg.icon {
@@ -479,12 +475,9 @@ svg.icon {
 	border-radius: $radius;
 
 	.panel-heading {
-		border-top-left-radius: $radius - 1;
-		border-top-right-radius: $radius - 2;
-
 		.panel-title {
 			font-weight: 600;
-			font-family: "Exo 2";
+			font-family: $font-special;
 			font-style: italic;
 
 			.timestamp {
@@ -503,9 +496,6 @@ svg.icon {
 	}
 
 	.panel-footer {
-		border-bottom-left-radius: $radius - 1;
-		border-bottom-right-radius: $radius - 1;
-
 		.btn-toolbar {
 			margin: 0;
 		}
@@ -762,7 +752,7 @@ svg.icon {
 
 .media {
 	position: relative;
-	margin: $spacing-lg 0;
+	margin: 0 0 $spacing-lg 0;
 
 	.media-left {
 		padding-right: 20px;
@@ -824,12 +814,12 @@ svg.icon {
 					padding: 0;
 					line-height: 30px;
 
-					font-size: $font-size-md;
+					font-size: $font-md;
 
 					.timestamp {
 						font-weight: 400;
 						font-style: normal;
-						font-size: $font-size-sm;
+						font-size: $font-sm;
 					}
 				}
 			}
@@ -841,15 +831,20 @@ svg.icon {
 	padding: 0 0 $spacing-sm 3px;
 
 	background-color: transparent;
-	border-radius: $radius;
 
-	> li {
-		> a {
-			font-family: "Exo 2", sans-serif;
+	.breadcrumb-item {
+		a {
+			font-family: $font-special;
 			font-weight: 500;
-			font-size: $font-size-sm;
+			font-size: $font-sm;
 			font-style: italic;
 			color: $color-gray-blue;
+		}
+
+		&.active {
+			a {
+				color: $color-primary;
+			}
 		}
 	}
 }
@@ -869,51 +864,36 @@ svg.icon {
 }
 
 .forum-controls {
-	.list-group {
-		border-radius: $radius;
+	h6 {
+		padding-left: 0.15rem;
 
+		font-family: $font-special;
+		font-weight: 500;
+		font-style: italic;
+		color: $color-gray-blue;
+	}
+
+	.list-group {
 		.list-group-item {
-			font-size: $font-size-sm;
+			font-size: $font-sm;
 			font-weight: 600;
 
 			em {
-				font-size: $font-size-xs;
+				font-size: $font-xs;
 				font-weight: 400;
 			}
-		}
-	}
-}
 
-.pagination {
-	> li {
-		> a, > span {
-			color: $color-primary;
-			font-family: $font-special;
-			font-weight: 500;
-
-			&:hover {
-				color: $color-primary-light;
+			.icon {
+				margin-right: 0.75rem;
 			}
-		}
 
-		&:first-child {
-			> a, > span {
-				border-radius: $radius 0 0 $radius;
+			&.disabled {
+				.icon {
+					path {
+						fill: $gray-light;
+					}
+				}
 			}
-		}
-
-		&:last-child {
-			> a, > span {
-				border-radius: 0 $radius $radius 0;
-			}
-		}
-	}
-
-	> .active {
-		> a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
-			background-color: $color-primary;
-			font-family: $font-special;
-			font-weight: 500;
 		}
 	}
 }
@@ -925,7 +905,7 @@ svg.icon {
 	padding: $spacing-sm $spacing-lg;
 
 	border: 1px solid $color-gray-light;
-	font-size: $font-size-sm;
+	font-size: $font-sm;
 	color: $color-gray-medium;
 	font-family: $font-special;
 	font-weight: 500;
@@ -946,28 +926,7 @@ svg.icon {
 .btn {
 	font-family: $font-special;
 	font-weight: 500;
-	border-radius: $radius;
 	border-width: 2px;
-
-	&.btn-primary {
-		@include button-variant($color-white, $color-primary, $color-primary);
-	}
-
-	&.btn-outline-primary {
-		@include button-outline-variant($color-primary);
-	}
-
-	&.btn-danger {
-		@include button-variant($color-white, $color-danger-light, $color-danger-light);
-	}
-
-	&.btn-success {
-		@include button-variant($color-white, $color-success, $color-success);
-	}
-
-	&.btn-info {
-		@include button-variant($color-white, $color-info-light, $color-info-light);
-	}
 
 	&.btn-warning {
 		@include button-variant($color-warning-dark, darken($color-warning-bright, 5%), darken($color-warning-bright, 5%));
@@ -982,12 +941,20 @@ svg.icon {
 		border-color: $color-gray-light;
 	}
 
+	&.btn-outline-secondary {
+		.icon {
+			path {
+				fill: $gray-dark;
+			}
+		}
+	}
+
 	&.btn-dark {
 		@include button-variant($color-white, $color-gray-blue, $color-gray-blue);
 	}
 
 	&.btn-circle {
-		border-radius: 999px;
+		border-radius: 90rem;
 	}
 }
 
@@ -1050,3 +1017,91 @@ table {
 		}
 	}
 }
+
+/*.pagination {
+	> li {
+		> a, > span {
+			color: $color-primary;
+			font-family: $font-special;
+			font-weight: 500;
+
+			&:hover {
+				color: $color-primary-light;
+			}
+		}
+	}
+
+	> .active {
+		> a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
+			background-color: $color-primary;
+			font-family: $font-special;
+			font-weight: 500;
+		}
+	}
+}*/
+
+.page-item {
+	margin-bottom: 0;
+	margin-right: 5px;
+
+	a {
+		path {
+			fill: $color-gray-blue;
+		}
+	}
+
+	&.active {
+		.page-link {
+			background-color: $color-primary;
+		}
+	}
+
+	&.disabled {
+		path {
+			fill: #bbb;
+		}
+
+		.page-link {
+			border: none;
+			background-color: transparent;
+			font-weight: 600;
+			font-family: $font-special;
+		}
+	}
+
+	&:first-child {
+		.page-link {
+			padding-bottom: 0.19rem;
+
+			border-radius: $radius;
+		}
+	}
+
+	&:last-child {
+		.page-link {
+			padding-bottom: 0.19rem;
+
+			border-radius: $radius;
+		}
+	}
+}
+
+.page-link {
+	padding: 0.4rem 0.75rem;
+
+	background-color: transparent;
+	border: none;
+	color: $color-gray-blue;
+	border-radius: 4px;
+	font-weight: 600;
+	font-family: $font-special;
+}
+
+.font-special { font-family: $font-special; }
+
+.font-weight-3 { font-weight: 300; }
+.font-weight-4 { font-weight: 400; }
+.font-weight-5 { font-weight: 500; }
+.font-weight-6 { font-weight: 600; }
+.font-weight-7 { font-weight: 700; }
+.font-weight-9 { font-weight: 900; }
