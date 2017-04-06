@@ -3,8 +3,9 @@
 // Bootstrap
 @import "node_modules/bootstrap/scss/bootstrap";
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
-@import url(http://fonts.googleapis.com/css?family=Bitter:700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500);
 @import url(http://fonts.googleapis.com/css?family=Exo+2:300,300italic,500,500italic,600,600italic);
 
 @import "_data-tables", "_data-lists", "_panels", "_mixins";
@@ -91,6 +92,7 @@ nav.nav-main {
 			margin-left: $spacing-sm;
 
 			font-family: $font-base;
+			font-weight: 500;
 		}
 	}
 
@@ -448,7 +450,7 @@ svg.icon {
 .avatar-text {
 	margin-left: 120px;
 
-	font-weight: 600;
+	font-weight: 500;
 }
 .avatar-text-xs {
 	margin-left: 46px;
@@ -863,11 +865,11 @@ svg.icon {
 
 	.list-group {
 		.list-group-item {
-			font-size: $font-sm;
-			font-weight: 600;
+			font-size: 15px;
+			font-weight: 500;
 
 			em {
-				font-size: $font-xs;
+				font-size: 13px;
 				font-weight: 400;
 			}
 
@@ -878,7 +880,7 @@ svg.icon {
 			&.disabled {
 				.icon {
 					path {
-						fill: $gray-light;
+						fill: $list-group-disabled-color;
 					}
 				}
 			}
@@ -993,8 +995,8 @@ table {
 .label {
 	position: relative;
 
-	font-weight: 600;
-	border-radius: 2px;
+	font-weight: 400;
+	border-radius: $radius-sm;
 
 	a, a:hover, a:link, a:active, a:visited {
 		color: $color-white;
@@ -1084,7 +1086,7 @@ table {
 
 	&.disabled {
 		path {
-			fill: #bbb;
+			fill: $pagination-disabled-color;
 		}
 
 		.page-link {
@@ -1123,7 +1125,10 @@ table {
 	font-family: $font-special;
 }
 
+.text-subtle { color: $color-subtle-dark; }
+
 .font-special { font-family: $font-special; }
+.font-mono { font-family: $font-mono; }
 
 .font-weight-3 { font-weight: 300; }
 .font-weight-4 { font-weight: 400; }

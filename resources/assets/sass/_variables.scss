@@ -2,9 +2,10 @@
 
 $font-primary: helvetica, arial, sans-serif;
 $font-georgia: georgia, times, serif;
-$font-titles: "Bitter", $font-georgia;
+$font-titles: "Roboto Slab", $font-georgia;
 $font-special: "Exo 2", $font-primary;
-$font-base: "Open Sans", $font-primary;
+$font-base: "Roboto", $font-primary;
+$font-mono: "Roboto Mono", monospaced;
 $font-size: 16px;
 $font-mini: 10px;
 $font-xs: 12px;
@@ -38,6 +39,7 @@ $color-dark: #444;
 $color-facebook: #3b5998;
 $color-twitter: #55acee;
 $color-subtle: #ededed;
+$color-subtle-dark: $color-blue-grey-200;
 $color-gray: #888;
 $color-gray-dark: #666;
 $color-gray-medium: #999;
@@ -67,5 +69,10 @@ $brand-info: $color-info !default;
 $brand-warning: $color-warning !default;
 $brand-danger: $color-danger !default;
 
+$text-muted: $color-blue-grey-500;
+$list-group-disabled-color: $color-blue-grey-300;
+$pagination-disabled-color: $color-blue-grey-200;
+
 $font-family-sans-serif: $font-base !default;
 $font-family-serif: $font-titles !default;
+$font-family-monospaced: $font-mono !default;
