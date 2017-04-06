@@ -918,6 +918,11 @@ svg.icon {
 	font-weight: 500;
 	border-width: 2px;
 
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+
 	&.btn-sm {
 		height: 0.5em;
 		width: 0.5em;
@@ -936,6 +941,10 @@ svg.icon {
 				fill: $color-white;
 			}
 		}
+
+		&:focus {
+			color: $color-white;
+		}
 	}
 
 	&.btn-warning {
@@ -944,6 +953,11 @@ svg.icon {
 
 	&.btn-link {
 		color: $color-primary;
+		font-size: $font-size;
+	}
+
+	&.btn-link-secondary {
+		color: $gray-light;
 		font-size: $font-size;
 	}
 
