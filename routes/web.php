@@ -21,6 +21,8 @@ Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store
 
 Route::get('topics/{topic}', 'TopicsController@discussions')->name('topics.discussions');
 
+Route::post('replies/{reply}/favorites', 'FavoritesController@store')->name('favorites.store');
+
 Route::get('user/{username}', function () {
 	//
 })->name('profile');
