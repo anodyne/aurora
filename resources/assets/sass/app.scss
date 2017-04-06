@@ -18,7 +18,6 @@ body, html {
 body {
 	position: relative;
 	z-index: -100;
-	line-height: $line-height;
 
 	background: $color-body;
 	color: $color-dark;
@@ -38,6 +37,63 @@ nav.nav-main {
 	background: $color-nav-main;
 	color: $color-white;
 
+	a {
+		position: relative;
+		display: inline-block;
+		padding: 0 1.5rem;
+
+		font-size: $font-size-sm;
+		color: $color-gray;
+		font-family: $font-special;
+		font-weight: 500;
+
+		&:hover {
+			background: darken($color-nav-main, 1%);
+			text-decoration: none;
+			color: $color-subtle;
+
+			.user-icon {
+				.icon {
+					path {
+						fill: $color-subtle;
+					}
+				}
+			}
+		}
+
+		&.active {
+			color: #ffba00;
+			background: darken($color-nav-main, 3%);
+
+			.arrow {
+				display: block;
+			}
+		}
+
+		.arrow {
+			position: absolute;
+			z-index: 10;
+			width: 10px;
+			height: 10px;
+			bottom: -5px;
+			left: 50%;
+			margin-left: -6px;
+			display: none;
+
+			border-left: 1px solid rgba(0, 0, 0, .5);
+			border-top: 1px solid rgba(0, 0, 0, .5);
+			background: darken($color-nav-main, 3%);
+			transform: rotate(-135deg);
+			border-top-left-radius: 3px;
+		}
+
+		.badge {
+			margin-left: $spacing-sm;
+
+			font-family: $font-base;
+		}
+	}
+
 	ul {
 		position: relative;
 		margin: 0;
@@ -50,63 +106,6 @@ nav.nav-main {
 			float: left;
 			margin: 0 0 -1px 0;
 			padding: 0;
-
-			a {
-				position: relative;
-				display: block;
-				padding: 0 25px;
-
-				font-size: $font-size-sm;
-				color: $color-gray;
-				font-family: $font-special;
-				font-weight: 500;
-
-				&:hover {
-					background: darken($color-nav-main, 1%);
-					text-decoration: none;
-					color: $color-subtle;
-
-					.user-icon {
-						.icon {
-							path {
-								fill: $color-subtle;
-							}
-						}
-					}
-				}
-
-				&.active {
-					color: #ffba00;
-					background: darken($color-nav-main, 3%);
-
-					.arrow {
-						display: block;
-					}
-				}
-
-				.arrow {
-					position: absolute;
-					z-index: 10;
-					width: 10px;
-					height: 10px;
-					bottom: -5px;
-					left: 50%;
-					margin-left: -6px;
-					display: none;
-
-					border-left: 1px solid rgba(0, 0, 0, .5);
-					border-top: 1px solid rgba(0, 0, 0, .5);
-					background: darken($color-nav-main, 3%);
-					transform: rotate(-135deg);
-					border-top-left-radius: 3px;
-				}
-
-				.badge {
-					margin-left: $spacing-sm;
-
-					font-family: $font-base;
-				}
-			}
 		}
 
 		&.dd {
@@ -147,11 +146,10 @@ header {
 	background: $color-primary;
 
 	.brand {
-		position: relative;
-		line-height: 80px;
+		line-height: 1;
 
 		font-family: $font-special;
-		font-size: 32px;
+		font-size: 2rem;
 		font-weight: 600;
 		color: $color-white;
 		font-style: italic;
@@ -160,13 +158,13 @@ header {
 		outline: none;
 
 		small {
-			font-size: 24px;
+			font-size: 1.5rem;
 			font-weight: 300;
 			text-transform: lowercase;
 			font-variant: small-caps;
 		}
 
-		&:hover {
+		&:hover, &:active {
 			text-decoration: none;
 		}
 	}
@@ -174,33 +172,18 @@ header {
 	nav.nav-sub {
 		position: relative;
 		z-index: 15;
-		float: left;
 
-		ul {
-			position: relative;
-			margin: 0;
-			padding: 0;
+		a {
+			display: inline-block;
+			margin-left: 2rem;
 
-			list-style: none;
+			color: rgba(255, 255, 255, .6);
+			font-weight: 500;
+			font-family: $font-special;
 
-			li {
-				position: relative;
-				float: left;
-				margin: 0 45px 0 0;
-				padding: 0;
-
-				a {
-					line-height: 86px;
-
-					color: rgba(255, 255, 255, .6);
-					font-weight: 500;
-					font-family: $font-special;
-
-					&:hover {
-						text-decoration: none;
-						color: $color-white;
-					}
-				}
+			&:hover {
+				text-decoration: none;
+				color: $color-white;
 			}
 		}
 	}
@@ -422,6 +405,11 @@ svg.icon {
 	&.sm {
 		height: 0.5em;
 		width: 0.5em;
+	}
+
+	&.md {
+		height: 1.5em;
+		width: 1.5em;
 	}
 
 	&.lg {
@@ -924,9 +912,31 @@ svg.icon {
 }
 
 .btn {
+	line-height: 1;
+
 	font-family: $font-special;
 	font-weight: 500;
 	border-width: 2px;
+
+	&.btn-sm {
+		height: 0.5em;
+		width: 0.5em;
+	}
+
+	&.btn-lg {
+		.icon {
+			height: 1.5em;
+			width: 1.5em;
+		}
+	}
+
+	&.btn-primary {
+		.icon {
+			path {
+				fill: $color-white;
+			}
+		}
+	}
 
 	&.btn-warning {
 		@include button-variant($color-warning-dark, darken($color-warning-bright, 5%), darken($color-warning-bright, 5%));
@@ -942,9 +952,11 @@ svg.icon {
 	}
 
 	&.btn-outline-secondary {
+		color: $gray;
+
 		.icon {
 			path {
-				fill: $gray-dark;
+				fill: $gray;
 			}
 		}
 	}
@@ -1105,3 +1117,11 @@ table {
 .font-weight-6 { font-weight: 600; }
 .font-weight-7 { font-weight: 700; }
 .font-weight-9 { font-weight: 900; }
+
+.modal {
+	.modal-header {
+		.modal-title {
+			color: $color-dark;
+		}
+	}
+}

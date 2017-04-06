@@ -1,8 +1,10 @@
 @import "_variables";
 
 .data-list {
+	margin-bottom: 2rem;
+
 	> div:nth-child(odd) {
-		background-color: lighten($color-blue-grey-50, 2.5%);
+		background-color: lighten($color-blue-grey-50, 1.5%);
 		border-radius: $radius;
 	}
 

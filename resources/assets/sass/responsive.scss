@@ -15,6 +15,8 @@
 					}
 
 					.arrow {
+						bottom: -4px;
+
 						border-left: 1px solid rgba(0, 0, 0, .2);
 						border-top: 1px solid rgba(0, 0, 0, .2);
 						background: $color-nav-main;
@@ -47,9 +49,12 @@
 
 	header {
 		height: auto;
+
+		border-top: none;
 		
 		.brand {
 			display: block;
+			margin: 1rem auto;
 
 			text-align: center;
 			height: auto;
@@ -63,18 +68,13 @@
 			background: transparent;
 			border: none;
 
-			ul {
-				li {
-					display: block;
-					margin: 0;
-					float: none;
+			a {
+				display: block;
+				line-height: 2.5;
+				margin-left: 0;
 
-					text-align: center;
-
-					a {
-						line-height: 2.5;
-					}
-				}
+				text-align: center;
+				font-size: 1.15em;
 			}
 		}
 	}
@@ -125,17 +125,115 @@
 			height: 36px;
 		}
 	}
-
-	.btn {
-		font-size: 20px;
-	}
 }
 
 /* sm */
-@media (min-width: 544px) and (max-width: 767px) {}
+@media (min-width: 544px) and (max-width: 767px) {
+	nav.nav-main {
+		ul {
+			li {
+				width: 100%;
+
+				text-align: center;
+
+				a {
+					&.active {
+						background: none;
+					}
+
+					.arrow {
+						bottom: -4px;
+
+						border-left: 1px solid rgba(0, 0, 0, .2);
+						border-top: 1px solid rgba(0, 0, 0, .2);
+						background: $color-nav-main;
+					}
+				}
+			}
+		}
+	}
+
+	#navGlobalMobile {
+		ul {
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 0 0 $spacing 0;
+				padding: 0;
+
+				text-align: center;
+				list-style: none;
+
+				a {
+					font-family: $font-special;
+					font-size: $font-lg;
+					font-style: italic;
+				}
+			}
+		}
+	}
+
+	header {
+		.brand {
+			margin: 1rem auto;
+		}
+	}
+}
 
 /* md */
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+	nav.nav-main {
+		ul {
+			li {
+				width: 100%;
+
+				text-align: center;
+
+				a {
+					&.active {
+						background: none;
+					}
+
+					.arrow {
+						bottom: -4px;
+
+						border-left: 1px solid rgba(0, 0, 0, .2);
+						border-top: 1px solid rgba(0, 0, 0, .2);
+						background: $color-nav-main;
+					}
+				}
+			}
+		}
+	}
+
+	#navGlobalMobile {
+		ul {
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 0 0 $spacing 0;
+				padding: 0;
+
+				text-align: center;
+				list-style: none;
+
+				a {
+					font-family: $font-special;
+					font-size: $font-lg;
+					font-style: italic;
+				}
+			}
+		}
+	}
+
+	header {
+		.brand {
+			margin: 1rem auto;
+		}
+	}
+}
 
 /* lg */
 @media (min-width: 992px) and (max-width: 1199px) {}

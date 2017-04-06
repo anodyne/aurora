@@ -31,40 +31,13 @@
     <div class="wrapper" id="app">
 		{!! partial('nav-main') !!}
 
-		<header>
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-md-4 col-lg-5">
-						<a href="{{ route('home') }}" class="brand">Anodyne Forums</a>
-					</div>
-
-					<div class="col-xs-12 col-md-8 col-lg-7">
-						<nav class="nav-sub">
-							<ul>
-								<li><a href="{{ route('home') }}">All Discussions</a></li>
-								<li><a href="#">Leaderboard</a></li>
-
-								@if (auth()->check())
-									<li><a href="#">My Discussions</a></li>
-								@endif
-
-								<li><a href="#">Advanced Search</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
+		{!! partial('header') !!}
 
 		<div class="search-forums">
 			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="input-group">
-							<span class="input-group-addon">@icon('magnifying-glass')</span>
-							{!! Form::text('q', null, ['placeholder' => 'Search the forums', 'class' => 'form-control form-control-lg search-field']) !!}
-						</div>
-					</div>
+				<div class="input-group">
+					<span class="input-group-addon">@icon('magnifying-glass')</span>
+					{!! Form::text('q', null, ['placeholder' => 'Search the forums', 'class' => 'form-control form-control-lg search-field']) !!}
 				</div>
 			</div>
 		</div>
