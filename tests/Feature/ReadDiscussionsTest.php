@@ -59,9 +59,7 @@ class ReadDiscussionsTest extends DatabaseTestCase
 		$discussionByJohn = create('App\Data\Discussion', ['user_id' => $user->id]);
 		$discussionNotByJohn = create('App\Data\Discussion');
 
-		//d($user->id, $discussionByJohn->toArray(), $discussionNotByJohn->toArray());
-
-		$this->get(route('home').'?by='.$user->name)
+		$this->get(route('home').'?by='.$user->username)
 			->assertSee($discussionByJohn->title)
 			->assertDontSee($discussionNotByJohn->title);
 	}
