@@ -19,6 +19,6 @@ class DiscussionFilters extends Filters
 		// Clear out any existing ordering that we have
 		$this->builder->getQuery()->orders = [];
 
-		$this->builder->orderBy('replies_count', 'desc');
+		return $this->builder->orderBy('replies_count', 'desc');
 	}
 }
