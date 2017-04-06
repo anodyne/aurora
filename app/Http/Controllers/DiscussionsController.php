@@ -31,13 +31,16 @@ class DiscussionsController extends Controller
 			'topic',
 			'topic.parent',
 			'author'
-		])->latest()->filter($filters)->get();
+		])->latest()->filter($filters);
 
 		if (request()->wantsJson()) {
-			return $discussions;
+			return $discussions->get();
 		}
 
-		return view('pages.discussions.all', compact('discussions', 'topics'));
+		return view('pages.discussions.all', [
+			'discussions' => $discussions->paginate(25),
+			'topics' => $topics
+		]);
 	}
 
 	public function create()
