@@ -15,12 +15,8 @@
 				</span>
 			</div>
 		</div>
-		<div class="text-center pt-1">
-			<div class="font-special mb-0">
-				<span class="hidden-sm-down h3 font-weight-3">{{ $discussion->replies_count }}</span>
-				<span class="hidden-md-up h4 font-weight-4 ">{{ $discussion->replies_count }}</span>
-			</div>
-			<small>{{ str_plural('reply', $discussion->replies_count) }}</small>
+		<div class="text-center text-subtle font-mono mb-0 px-2 h4 font-weight-4">
+			{{ $discussion->present()->replyCount }}
 		</div>
 	</div>
 @endforeach

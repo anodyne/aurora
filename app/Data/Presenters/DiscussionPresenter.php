@@ -49,6 +49,8 @@ class DiscussionPresenter extends Presenter
 
 	public function replyCount()
 	{
+		return sprintf('%02d', number_format($this->entity->replies_count));
+
 		return partial('item-count', [
 			'count'	=> $this->entity->replies_count,
 			'label' => str_plural('reply', $this->entity->replies_count),
