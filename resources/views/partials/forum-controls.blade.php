@@ -17,7 +17,6 @@
 
 			<a href="#" class="list-group-item disabled">@icon('flash') Popular This Week</a>
 			<a href="{{ route('home') }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
-			<a href="#" class="list-group-item disabled">@icon('help-with-circle') Unanswered Questions</a>
 			<a href="#" class="list-group-item disabled">@icon('check') Answered Questions</a>
 		</div>
 
@@ -91,7 +90,6 @@
 
 					<a href="#" class="list-group-item disabled">@icon('flash') Popular This Week</a>
 					<a href="{{ route('home') }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
-					<a href="#" class="list-group-item disabled">@icon('help-with-circle') Unanswered Questions</a>
 					<a href="#" class="list-group-item disabled">@icon('check') Answered Questions</a>
 				</div>
 
