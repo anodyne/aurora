@@ -8,7 +8,8 @@ class DiscussionFilters extends Filters
 
 	protected function by($username)
 	{
-		$user = User::where('name', $username)->firstOrFail();
+		// Find the first user with the username
+		$user = User::username($username)->firstOrFail();
 		
 		return $this->builder->where('user_id', $user->id);
 	}
