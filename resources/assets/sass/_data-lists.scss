@@ -4,7 +4,7 @@
 	margin-bottom: 2rem;
 
 	> div:nth-child(odd) {
-		background-color: lighten($color-blue-grey-50, 1.5%);
+		background-color: $color-blue-grey-50;
 		border-radius: $radius;
 	}
 
