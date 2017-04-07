@@ -34,3 +34,7 @@ Route::get('login', function () {
 Route::get('login', function () {
 	//
 })->name('login');
+
+Route::get('test', function () {
+	return view('pages.test');
+});

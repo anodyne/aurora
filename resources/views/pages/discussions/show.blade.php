@@ -25,7 +25,9 @@
 				<hr>
 
 				<div class="media">
-					<div class="media-left">{!! $_user->present()->avatar(['type' => 'image', 'class' => 'avatar sm']) !!}</div>
+					<div class="media-left">
+						{!! avatar($_user)->image() !!}
+					</div>
 					<div class="media-body">
 						{!! Form::open(['route' => ['discussions.replies', $topic, $discussion]]) !!}
 							<div class="form-group">

@@ -14,15 +14,6 @@ class DiscussionPresenter extends Presenter
 		return link_to_route('profile', $this->author(), [$this->entity->author->username]);
 	}
 
-	public function authorAvatar($linkToProfile = true, $size = 'sm')
-	{
-		return $this->entity->author->present()->avatar([
-			'type' => 'link',
-			'link' => route('profile', [$this->entity->author->username]),
-			'class' => "avatar {$size}"
-		]);
-	}
-
 	public function createdAt()
 	{
 		return "Started ".$this->entity->created_at->diffForHumans();

@@ -421,8 +421,8 @@ svg.icon {
 }
 
 .avatar {
-	height: 72px;
-	width: 72px;
+	height: 50px;
+	width: 50px;
 	display: block;
 
 	background-color: transparent;
@@ -432,13 +432,18 @@ svg.icon {
 	border-radius: 50%;
 
 	&.xs {
+		height: 24px;
+		width: 24px;
+	}
+
+	&.sm {
 		height: 36px;
 		width: 36px;
 	}
 
-	&.sm {
-		height: 50px;
-		width: 50px;
+	&.md {
+		height: 72px;
+		width: 72px;
 	}
 
 	&.lg {

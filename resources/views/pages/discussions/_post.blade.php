@@ -1,6 +1,6 @@
 <div class="media">
 	<div class="media-left">
-		{!! $post->author->present()->avatar(['type' => 'image', 'class' => 'avatar sm']) !!}
+		{!! avatar($post->author)->link() !!}
 	</div>
 
 	<div class="media-body">

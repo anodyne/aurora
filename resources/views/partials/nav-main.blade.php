@@ -47,7 +47,10 @@
 
 				@if (auth()->check())
 					<div class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="user-icon">@icon('user')</span> {{ $_user->present()->name }}</a>
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle d-flex align-items-center">
+							<span class="pr-2">{!! avatar($_user)->image()->tiny() !!}</span>
+							{{ $_user->present()->name }}
+						</a>
 						<div class="dropdown-menu">
 							<a href="{{ config('anodyne.links.www') }}admin/users/{{ $_user->username }}/edit" class="dropdown-item">Edit My Profile</a>
 							<div class="dropdown-divider"></div>

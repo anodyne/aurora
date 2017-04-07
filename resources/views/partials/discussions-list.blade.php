@@ -3,8 +3,8 @@
 	<div class="d-flex align-items-start align-items-md-center justify-content-start mb-2 p-2">
 		<div class="d-flex align-items-start align-items-md-center mr-auto">
 			<div class="mr-3">
-				<div class="hidden-sm-down">{!! $discussion->present()->authorAvatar !!}</div>
-				<div class="hidden-md-up pt-2">{!! $discussion->present()->authorAvatar(true, 'xs') !!}</div>
+				<div class="hidden-sm-down">{!! avatar($discussion->author)->link() !!}</div>
+				<div class="hidden-md-up pt-2">{!! avatar($discussion->author)->link()->small() !!}</div>
 			</div>
 			<div>
 				{!! $discussion->present()->titleAsLink !!}
