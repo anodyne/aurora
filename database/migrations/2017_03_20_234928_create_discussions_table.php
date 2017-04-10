@@ -15,6 +15,7 @@ class CreateDiscussionsTable extends Migration
             $table->string('title');
             $table->longText('body');
             //$table->string('slug');
+            $table->bigInteger('answer_id')->unsigned()->nullable();
 
             $table->timestamps();
             $table->softDeletes();
