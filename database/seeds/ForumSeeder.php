@@ -14,14 +14,14 @@ class ForumSeeder extends Seeder
 
 		for ($d = 1; $d <= 50; $d++) {
 			$discussion = factory('App\Data\Discussion')->create([
-				'user_id' => $faker->numberBetween(1, 102),
+				'user_id' => $faker->numberBetween(1, 100),
                 'topic_id' => $faker->numberBetween(1, 10),
 			]);
 
 			for ($r = 0; $r <= $faker->numberBetween(0, 10); $r++) {
 				factory('App\Data\Reply')->create([
 					'discussion_id' => $discussion->id,
-					'user_id' => $faker->numberBetween(1, 102),
+					'user_id' => $faker->numberBetween(1, 100),
 				]);
 			}
 		}
