@@ -14,13 +14,9 @@ class DiscussionPresenter extends Presenter
 		return link_to_route('profile', $this->author(), [$this->entity->author->username]);
 	}
 
-	public function authorAvatar($linkToProfile = true, $size = 'sm')
+	public function createdAt()
 	{
-		return $this->entity->author->present()->avatar([
-			'type' => 'link',
-			'link' => route('profile', [$this->entity->author->username]),
-			'class' => "avatar {$size}"
-		]);
+		return "Started ".$this->entity->created_at->diffForHumans();
 	}
 
 	public function title()
@@ -44,9 +40,11 @@ class DiscussionPresenter extends Presenter
 
 	public function replyCount()
 	{
+		return sprintf('%02d', number_format($this->entity->replies_count));
+
 		return partial('item-count', [
-			'count'	=> $this->entity->replies->count(),
-			'label' => Str::plural('reply', ($this->entity->replies->count())),
+			'count'	=> $this->entity->replies_count,
+			'label' => str_plural('reply', $this->entity->replies_count),
 		]);
 	}
 
@@ -57,13 +55,17 @@ class DiscussionPresenter extends Presenter
 
 	public function updatedAt()
 	{
-		return "Updated ".$this->entity->updated_at->diffForHumans();
+		if ($this->entity->replies_count > 0) {
+			return "Updated ".$this->entity->updated_at->diffForHumans();
+		}
+
+		return $this->createdAt();
 	}
 
 	public function updatedBy()
 	{
 		// Grab the author of the last reply
-		$author = ($this->entity->replies->count() > 0)
+		$author = ($this->entity->replies_count > 0)
 			? $this->entity->replies->last()->author
 			: false;
 

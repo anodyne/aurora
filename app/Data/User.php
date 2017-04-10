@@ -37,4 +37,13 @@ class User extends Authenticatable
 	{
 		$query->where('username', $username);
 	}
+
+	//--------------------------------------------------------------------------
+	// Model Methods
+	//--------------------------------------------------------------------------
+
+	public function getRouteKeyName()
+	{
+		return 'username';
+	}
 }

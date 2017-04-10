@@ -33,6 +33,7 @@
 
 		<div class="form-group">
 			{!! Form::button("Start Discussion", ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+			<a href="{{ route('home') }}" class="btn btn-link-secondary ml-2">Cancel</a>
 		</div>
 	{!! Form::close() !!}
 @endsection

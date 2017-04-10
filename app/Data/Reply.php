@@ -28,4 +28,27 @@ class Reply extends Eloquent
 	{
 		return $this->belongsTo(Discussion::class);
 	}
+
+	public function favorites()
+	{
+		return $this->morphMany(Favorite::class, 'favorited');
+	}
+
+	//--------------------------------------------------------------------------
+	// Model Methods
+	//--------------------------------------------------------------------------
+
+	public function favorite()
+	{
+		$attributes = ['user_id' => auth()->id()];
+
+		if (! $this->favorites()->where($attributes)->exists()) {
+			return $this->favorites()->create($attributes);
+		}
+	}
+
+	public function isFavorited()
+	{
+		return $this->favorites()->where('user_id', auth()->id())->exists();
+	}
 }

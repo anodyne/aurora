@@ -255,6 +255,8 @@ return [
         'Topic' => App\Data\Topic::class,
         'TopicPresenter' => App\Data\Presenters\TopicPresenter::class,
 
+        'Favorite' => App\Data\Favorite::class,
+
     ],
 
 ];

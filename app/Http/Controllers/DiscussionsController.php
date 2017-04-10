@@ -26,14 +26,19 @@ class DiscussionsController extends Controller
 
 		// Get all the discussions sorted by the latest
 		$discussions = Discussion::with([
-			'replies',
 			'replies.author',
-			'topic',
 			'topic.parent',
 			'author'
-		])->latest()->filter($filters)->get();
+		])->latest()->filter($filters);
 
-		return view('pages.discussions.all', compact('discussions', 'topics'));
+		if (request()->wantsJson()) {
+			return $discussions->get();
+		}
+
+		return view('pages.discussions.all', [
+			'discussions' => $discussions->paginate(25),
+			'topics' => $topics
+		]);
 	}
 
 	public function create()
@@ -43,11 +48,15 @@ class DiscussionsController extends Controller
 		return view('pages.discussions.create', compact('topics'));
 	}
 
-	public function show($topic, Discussion $discussion)
+	public function show(Topic $topic, Discussion $discussion)
 	{
 		$discussion->load(['author', 'replies.author', 'topic']);
 
-		return view('pages.discussions.show', compact('topic', 'discussion'));
+		return view('pages.discussions.show', [
+			'discussion' => $discussion,
+			'replies' => $discussion->replies()->paginate(25),
+			'topic' => $topic
+		]);
 	}
 
 	public function store(Request $request)

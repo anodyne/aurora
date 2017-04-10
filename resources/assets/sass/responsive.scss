@@ -1,0 +1,308 @@
+@import "_variables", "_mixins";
+
+/* xs */
+@media (max-width: 543px) {
+	nav.nav-main {
+		ul {
+			li {
+				width: 100%;
+
+				text-align: center;
+
+				a {
+					&.active {
+						background: none;
+					}
+
+					.arrow {
+						bottom: -4px;
+
+						border-left: 1px solid rgba(0, 0, 0, .2);
+						border-top: 1px solid rgba(0, 0, 0, .2);
+						background: $color-nav-main;
+					}
+				}
+			}
+		}
+	}
+
+	#navGlobalMobile {
+		ul {
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 0 0 $spacing 0;
+				padding: 0;
+
+				text-align: center;
+				list-style: none;
+
+				a {
+					font-family: $font-special;
+					font-size: $font-lg;
+					font-style: italic;
+				}
+			}
+		}
+	}
+
+	header {
+		height: auto;
+
+		border-top: none;
+		
+		.brand {
+			display: block;
+			margin: 1rem auto;
+
+			text-align: center;
+			height: auto;
+		}
+
+		nav.nav-sub {
+			width: 100%;
+			margin-top: 0;
+			margin-bottom: $spacing;
+
+			background: transparent;
+			border: none;
+
+			a {
+				display: block;
+				line-height: 2.5;
+				margin-left: 0;
+
+				text-align: center;
+				font-size: 1.15em;
+			}
+		}
+	}
+
+	section {
+		h1 {
+			text-align: center;
+
+			small {
+				display: block;
+				margin-top: 8px;
+			}
+		}
+
+		dl {
+			dt {
+				font-size: 125%;
+			}
+		}
+	}
+
+	footer {
+		display: none;
+	}
+
+	.data-list {
+		.list-item-meta {
+			display: none;
+		}
+
+		.list-item-count {
+			padding-top: 5px;
+
+			font-size: $font-lg;
+			text-align: right !important;
+		}
+
+		.list-item-count-label {
+			display: none;
+		}
+
+		.list-item-group {
+			margin-left: 46px;
+		}
+
+		.list-item-avatar {
+			width: 36px;
+			height: 36px;
+		}
+	}
+
+	.media {
+		flex-direction: column;
+
+		.media-body {
+			.panel {
+				&:before {
+					display: none;
+				}
+
+				.panel-heading {
+					justify-content: initial;
+
+					.panel-title {
+						display: none;
+					}
+
+					.timestamp {
+						display: none;
+					}
+				}
+
+				.panel-footer {
+					flex-direction: column;
+				}
+			}
+		}
+	}
+
+	.discussion-summary {
+		display: flex !important;
+		margin: 0 0 $spacing-lg 0;
+	}
+}
+
+/* sm */
+@media (min-width: 544px) and (max-width: 767px) {
+	nav.nav-main {
+		ul {
+			li {
+				width: 100%;
+
+				text-align: center;
+
+				a {
+					&.active {
+						background: none;
+					}
+
+					.arrow {
+						bottom: -4px;
+
+						border-left: 1px solid rgba(0, 0, 0, .2);
+						border-top: 1px solid rgba(0, 0, 0, .2);
+						background: $color-nav-main;
+					}
+				}
+			}
+		}
+	}
+
+	#navGlobalMobile {
+		ul {
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 0 0 $spacing 0;
+				padding: 0;
+
+				text-align: center;
+				list-style: none;
+
+				a {
+					font-family: $font-special;
+					font-size: $font-lg;
+					font-style: italic;
+				}
+			}
+		}
+	}
+
+	header {
+		.brand {
+			margin: 1rem auto;
+		}
+	}
+
+	.media {
+		flex-direction: column;
+
+		.media-body {
+			.panel {
+				&:before {
+					display: none;
+				}
+
+				.panel-heading {
+					justify-content: initial;
+
+					.panel-title {
+						display: none;
+					}
+
+					.timestamp {
+						display: none;
+					}
+				}
+
+				.panel-footer {
+					flex-direction: column;
+				}
+			}
+		}
+	}
+
+	.discussion-summary {
+		display: flex !important;
+		margin: 0 0 $spacing-lg 0;
+	}
+}
+
+/* md */
+@media (min-width: 768px) and (max-width: 991px) {
+	nav.nav-main {
+		ul {
+			li {
+				width: 100%;
+
+				text-align: center;
+
+				a {
+					&.active {
+						background: none;
+					}
+
+					.arrow {
+						bottom: -4px;
+
+						border-left: 1px solid rgba(0, 0, 0, .2);
+						border-top: 1px solid rgba(0, 0, 0, .2);
+						background: $color-nav-main;
+					}
+				}
+			}
+		}
+	}
+
+	#navGlobalMobile {
+		ul {
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 0 0 $spacing 0;
+				padding: 0;
+
+				text-align: center;
+				list-style: none;
+
+				a {
+					font-family: $font-special;
+					font-size: $font-lg;
+					font-style: italic;
+				}
+			}
+		}
+	}
+
+	header {
+		.brand {
+			margin: 1rem auto;
+		}
+	}
+}
+
+/* lg */
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+/* xl */
+@media (min-width: 1200px) {}

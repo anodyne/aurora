@@ -8,6 +8,10 @@ class AppServiceProvider extends ServiceProvider
 	{
 		// Build up the repository bindings and aliases
 		$this->repositoryBindings();
+
+		$this->app->bind('avatar', function ($app) {
+			return new \App\Avatar;
+		});
 	}
 
 	public function register()

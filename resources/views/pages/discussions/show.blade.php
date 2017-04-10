@@ -3,21 +3,43 @@
 @section('content')
 	<h1>{{ $discussion->title }}</h1>
 
-	<ul class="breadcrumb">
-		<li><a href="{{ route('home') }}">Forum</a></li>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="{{ route('home') }}">Forum</a></li>
+	
+		@if ($topic->parent_id > 0)
+			<li class="breadcrumb-item"><a href="{{ route('topics.discussions', [$topic->parent]) }}">{{ $topic->parent->name }}</a></li>
+		@endif
+		
+		<li class="breadcrumb-item active"><a href="{{ route('topics.discussions', [$topic]) }}">{{ $topic->name }}</a></li>
+	</ol>
 
-		<li class="active"><a href="{{ route('topics.discussions', [$discussion->topic]) }}">{{ $discussion->topic->name }}</a></li>
-	</ul>
+	{!! view('pages.discussions._post-first')->with('post', $discussion) !!}
 
-	{!! view('pages.discussions._post')->with('post', $discussion) !!}
+	<div>
+		<div class="discussion-summary d-inline-flex align-items-center">
+			@icon('chat', 'text-subtle')
 
-	@each('pages.discussions._post', $discussion->replies, 'post')
+			<span class="pl-2">
+				{{ $discussion->replies_count }} {{ Str::plural('reply', $discussion->replies_count) }}
+
+				@if ($discussion->answer)
+					with 1 correct answer
+				@endif
+			</span>
+		</div>
+	</div>
+
+	@each('pages.discussions._post-reply', $replies, 'post')
+
+	{{ $replies->links() }}
 
 	@if (auth()->check())
 		<hr>
 
 		<div class="media">
-			<div class="media-left"><a href="#" class="avatar sm" style="background-image:url(http://placehold.it/100)"></a></div>
+			<div class="media-left">
+				<span class="hidden-sm-down">{!! avatar($_user)->image() !!}</span>
+			</div>
 			<div class="media-body">
 				{!! Form::open(['route' => ['discussions.replies', $topic, $discussion]]) !!}
 					<div class="form-group">

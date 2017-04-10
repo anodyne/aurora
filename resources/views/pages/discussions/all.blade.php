@@ -10,6 +10,8 @@
 
 		<div class="col-md-8 col-lg-9">
 			{!! partial('discussions-list', ['discussions' => $discussions]) !!}
+
+			{{ $discussions->appends(request()->all())->links() }}
 		</div>
 	</div>
 @endsection

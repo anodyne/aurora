@@ -6,10 +6,10 @@ abstract class Presenter extends BasePresenter
 {
 	public function createdAt()
 	{
-		return $this->entity->created_at->format();
+		return $this->entity->created_at->format('d M Y @ g:ia');
 	}
 
-	public function createdDiff()
+	public function createdAtRelative()
 	{
 		return $this->entity->created_at->diffForHumans();
 	}

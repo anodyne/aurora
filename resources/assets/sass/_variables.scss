@@ -2,16 +2,17 @@
 
 $font-primary: helvetica, arial, sans-serif;
 $font-georgia: georgia, times, serif;
-$font-titles: "Bitter", $font-georgia;
+$font-titles: "Roboto Slab", $font-georgia;
 $font-special: "Exo 2", $font-primary;
-$font-base: "Open Sans", $font-primary;
+$font-base: "Roboto", $font-primary;
+$font-mono: "Roboto Mono", monospaced;
 $font-size: 16px;
-$font-size-mini: 10px;
-$font-size-xs: 12px;
-$font-size-sm: 14px;
-$font-size-md: 18px;
-$font-size-lg: 20px;
-$font-size-xl: 28px;
+$font-mini: 10px;
+$font-xs: 12px;
+$font-sm: 14px;
+$font-md: 18px;
+$font-lg: 20px;
+$font-xl: 28px;
 
 $color-primary: #0288d1;
 $color-primary-bright: #4fc3f7;
@@ -38,6 +39,7 @@ $color-dark: #444;
 $color-facebook: #3b5998;
 $color-twitter: #55acee;
 $color-subtle: #ededed;
+$color-subtle-dark: $color-blue-grey-200;
 $color-gray: #888;
 $color-gray-dark: #666;
 $color-gray-medium: #999;
@@ -46,11 +48,51 @@ $color-gray-blue: #607d8b;
 $color-body: #fbfbfb;
 $color-nav-main: #252728;
 
-$radius: 5px;
-$radius-sm: 2.5px;
-$radius-lg: 50px;
+$radius: 0.25rem;
+$radius-sm: 0.2rem;
+$radius-lg: 0.3rem;
+$radius-xl: 5rem;
 $line-height: 1.75;
 $spacing-sm: 8px;
 $spacing: 15px;
 $spacing-lg: 30px;
 $footer-height: 200px;
+
+// Bootstrap overrides
+$border-radius: $radius !default;
+$border-radius-lg: $radius-lg !default;
+$border-radius-sm: $radius-sm !default;
+
+$brand-primary: $color-primary !default;
+$brand-success: $color-success !default;
+$brand-info: $color-info !default;
+$brand-warning: $color-warning !default;
+$brand-danger: $color-danger !default;
+
+$text-muted: $color-blue-grey-500;
+$list-group-disabled-color: $color-blue-grey-300;
+$pagination-disabled-color: $color-blue-grey-200;
+
+$font-family-sans-serif: $font-base !default;
+$font-family-serif: $font-titles !default;
+$font-family-monospaced: $font-mono !default;
+
+$panel-default-text: $color-gray-blue !default;
+$panel-default-border: $color-gray-light !default;
+$panel-default-heading-bg: $color-subtle !default;
+
+$panel-success-text: $color-success-dark !default;
+$panel-success-border: $color-success-light !default;
+$panel-success-heading-bg: $color-success-bright !default;
+
+$panel-info-text: $color-info-dark !default;
+$panel-info-border: $color-info-light !default;
+$panel-info-heading-bg: $color-info-bright !default;
+
+$panel-warning-text: $color-warning-dark !default;
+$panel-warning-border: $color-warning-light !default;
+$panel-warning-heading-bg: $color-warning-bright !default;
+
+$panel-danger-text: $color-danger !default;
+$panel-danger-border: $color-danger-light !default;
+$panel-danger-heading-bg: $color-danger-bright !default;

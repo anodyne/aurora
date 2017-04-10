@@ -1,6 +1,5 @@
 <?php namespace App\Data\Presenters;
 
-use Gravatar;
 use Markdown;
 
 class UserPresenter extends Presenter
@@ -8,22 +7,6 @@ class UserPresenter extends Presenter
 	public function answerCount()
 	{
 		return number_format($this->entity->correctAnswers()->count());
-	}
-
-	public function avatar(array $options)
-	{
-		// Figure out the default image
-		$defaultImage = (app('env') != 'local')
-			? urlencode(asset('images/avatars/no-avatar.jpg'))
-			: 'retro';
-
-		// Build the URL for the avatar
-		$url = Gravatar::image($this->entity->email, 500)."&r=pg&d={$defaultImage}";
-
-		// Merge all the options to pass them to the partial
-		$mergedOptions = $options + ['url' => $url];
-
-		return view('partials.image')->with($mergedOptions);
 	}
 
 	public function discussionCount()
