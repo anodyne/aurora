@@ -29,6 +29,8 @@
 		</div>
 	</div>
 
+	{!! view('pages.discussions._post-reply')->with('post', $discussion->answer) !!}
+
 	@each('pages.discussions._post-reply', $replies, 'post')
 
 	{{ $replies->links() }}

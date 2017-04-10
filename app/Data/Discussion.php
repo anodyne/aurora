@@ -26,6 +26,11 @@ class Discussion extends Eloquent
 	// Relationships
 	//--------------------------------------------------------------------------
 
+	public function answer()
+	{
+		return $this->hasOne(Reply::class, 'id', 'answer_id');
+	}
+
 	public function author()
 	{
 		return $this->belongsTo(User::class, 'user_id');

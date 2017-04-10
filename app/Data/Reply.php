@@ -34,6 +34,11 @@ class Reply extends Eloquent
 		return $this->morphMany(Favorite::class, 'favorited');
 	}
 
+	public function isAnswer()
+	{
+		return $this->belongsTo(Discussion::class, 'id', 'answer_id');
+	}
+
 	//--------------------------------------------------------------------------
 	// Model Methods
 	//--------------------------------------------------------------------------

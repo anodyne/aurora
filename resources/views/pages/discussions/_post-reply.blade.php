@@ -1,10 +1,11 @@
+<?php $panelClass = ($post->isAnswer) ? 'panel panel-success' : 'panel panel-default';?>
 <div class="media">
 	<div class="media-left">
 		<span class="hidden-sm-down">{!! avatar($post->author)->link() !!}</span>
 	</div>
 
 	<div class="media-body">
-		<div class="panel panel-default">
+		<div class="{{ $panelClass }}">
 			<div class="panel-heading">
 				<h3 class="panel-title mr-auto"><a href="#">{{ $post->author->name }}</a></h3>
 				<small class="timestamp text-subtle js-tooltip-top" title="{{ $post->present()->createdAt }}">Posted {{ $post->present()->createdAtRelative }}</small>
