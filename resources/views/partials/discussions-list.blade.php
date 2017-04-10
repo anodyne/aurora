@@ -15,7 +15,7 @@
 				</span>
 			</div>
 		</div>
-		<div class="text-center text-subtle font-mono mb-0 px-2 h4 font-weight-4">
+		<div class="text-center text-subtle font-special mb-0 px-2 h5 font-weight-3">
 			{{ $discussion->present()->replyCount }}
 		</div>
 	</div>
