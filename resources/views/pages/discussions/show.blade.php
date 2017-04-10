@@ -45,12 +45,27 @@
 					<div class="form-group">
 						{!! Form::textarea('body', null, ['class' => 'form-control', 'rows' => 5, 'placeholder' => 'Reply to this discussion now...']) !!}
 					</div>
+					<div class="media-body">
+						{!! Form::open(['route' => ['discussions.replies', $topic, $discussion]]) !!}
+							<div class="form-group">
+								{!! Form::textarea('body', null, ['class' => 'form-control', 'rows' => 5, 'placeholder' => 'Reply to this discussion now...']) !!}
+							</div>
 
-					<div class="form-group">
-						{!! Form::button('Reply', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+							<div class="form-group">
+								{!! Form::button('Reply', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+							</div>
+						{!! Form::close() !!}
 					</div>
-				{!! Form::close() !!}
+				</div>
+			@endif
+		</div>
+
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-block">
+					This discussion was published {{ $discussion->present()->createdDiff }} by {{ $discussion->present()->author }} and has {{ $discussion->replies_count }} {{ str_plural('reply', $discussion->replies_count) }}.
+				</div>
 			</div>
 		</div>
-	@endif
+	</div>
 @endsection

@@ -52,6 +52,14 @@ nav.nav-main {
 			background: darken($color-nav-main, 1%);
 			text-decoration: none;
 			color: $color-subtle;
+
+			.user-icon {
+				.icon {
+					path {
+						fill: $color-subtle;
+					}
+				}
+			}
 		}
 
 		&.active {
