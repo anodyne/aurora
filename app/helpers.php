@@ -7,6 +7,17 @@ if (! function_exists('alias')) {
 	}
 }
 
+if (! function_exists('avatar')) {
+	function avatar($user)
+	{
+		return app('avatar')->setUser($user);
+	}
+}
+
+// avatar($user)->link()
+// avatar($user)->link()->small()
+// avatar($user)->default('foo')->image()->large()
+
 if (! function_exists('d')) {
 	function d()
 	{
