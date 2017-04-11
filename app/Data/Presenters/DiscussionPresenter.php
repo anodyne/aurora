@@ -34,7 +34,7 @@ class DiscussionPresenter extends Presenter
 			'discussions.show',
 			$this->title(),
 			[$this->entity->topic, $this->entity],
-			['class' => "list-item-title{$status}"]
+			['class' => "title{$status}"]
 		);
 	}
 
