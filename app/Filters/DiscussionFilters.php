@@ -1,5 +1,6 @@
 <?php namespace App\Filters;
 
+use Date;
 use App\Data\User;
 
 class DiscussionFilters extends Filters
@@ -24,5 +25,17 @@ class DiscussionFilters extends Filters
 		$this->builder->getQuery()->orders = [];
 
 		return $this->builder->orderBy('replies_count', 'desc');
+	}
+
+	protected function trending()
+	{
+		// Clear out any existing ordering that we have
+		$this->builder->getQuery()->orders = [];
+
+		// Build the start date
+		$start = Date::now()->subWeek();
+
+		return $this->builder->where('created_at', '>=', $start)
+			->orderBy('replies_count', 'desc');
 	}
 }

@@ -15,7 +15,7 @@
 				<a href="#" class="list-group-item disabled">@icon('heart') My Favorites</a>
 			@endif
 
-			<a href="#" class="list-group-item disabled">@icon('flash') Popular This Week</a>
+			<a href="{{ route('home') }}?trending=1" class="list-group-item">@icon('flash') Popular This Week</a>
 			<a href="{{ route('home') }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
 			<a href="{{ route('home') }}?answered=1" class="list-group-item">@icon('check') Answered Questions</a>
 		</div>
