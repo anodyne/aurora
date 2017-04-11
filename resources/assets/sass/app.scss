@@ -737,6 +737,12 @@ svg.icon {
 					background: $color-success-bright;
 					border-color: $color-success-light;
 				}
+
+				.panel-heading {
+					.text-muted, .text-subtle {
+						color: inherit !important;
+					}
+				}
 			}
 
 			&.panel-info {
