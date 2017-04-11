@@ -28,7 +28,7 @@ class Discussion extends Eloquent
 
 	public function answer()
 	{
-		return $this->hasOne(Reply::class, 'id', 'answer_id');
+		return $this->hasOne(Reply::class, 'id', 'answer_id')->withCount('favorites');
 	}
 
 	public function author()
