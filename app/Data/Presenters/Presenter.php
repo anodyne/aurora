@@ -29,7 +29,7 @@ abstract class Presenter extends BasePresenter
 		return $this->entity->updated_at->format();
 	}
 
-	public function updatedDiff()
+	public function updatedAtRelative()
 	{
 		return $this->entity->updated_at->diffForHumans();
 	}
