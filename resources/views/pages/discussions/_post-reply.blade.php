@@ -33,12 +33,21 @@
 			</div>
 
 			<div class="panel-body">
+				@if ($post->isAnswer)
+					<span class="hidden-lg-up">{!! alert('success', 'Marked as the best answer', null, 'check') !!}</span>
+				@endif
+
 				<p>{{ $post->body }}</p>
 			</div>
 
 			@if (auth()->check())
-				<div class="panel-footer hidden-sm-down d-flex justify-content-between align-items-center">
-					<div class="btn-toolbar">
+				<div class="panel-footer d-flex justify-content-between align-items-center">
+					<div class="hidden-lg-up d-flex align-items-center justify-content-between">
+						<a href="#" class="btn d-flex align-items-center">@icon('thumbs-up')<span class="pl-1">{{ $post->favorites_count }}</span></a>
+						<a href="#" class="btn">@icon('check')</a>
+					</div>
+
+					<div class="btn-toolbar hidden-md-down">
 						<div class="btn-group">
 							@if($post->isFavorited())
 								<a href="#" class="btn btn-like js-tooltip-top d-flex align-items-center" title="Like this post">@icon('heart')<span class="pl-1">{{ $post->favorites_count }}</span></a>
@@ -60,7 +69,7 @@
 						</div>
 					</div>
 
-					<div class="btn-toolbar">
+					<div class="btn-toolbar hidden-md-down">
 						<div class="btn-group">
 							<a href="#" class="btn js-tooltip-top" title="Copy the link to this post">@icon('link')</a>
 						</div>
