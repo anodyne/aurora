@@ -3,9 +3,13 @@
 .data-list {
 	margin-bottom: 2rem;
 
-	> div:nth-child(odd) {
-		background-color: $color-blue-grey-50;
-		border-radius: $radius;
+	> div {
+		position: relative;
+
+		&:nth-child(odd) {
+			background-color: $color-blue-grey-50;
+			border-radius: $radius;
+		}
 	}
 
 	.list-item-title {
