@@ -1,5 +1,12 @@
 <?php
 
+if (! function_exists('alert')) {
+	function alert($level, $message, $header = null, $icon = null)
+	{
+		return partial('alert', compact('level', 'message', 'header', 'icon'));
+	}
+}
+
 if (! function_exists('alias')) {
 	function alias($key)
 	{
