@@ -50,7 +50,7 @@ class DiscussionsController extends Controller
 
 	public function show(Topic $topic, Discussion $discussion)
 	{
-		$discussion->load(['author', 'replies.author', 'topic']);
+		$discussion->load(['author', 'replies.author', 'topic', 'answer.author']);
 
 		return view('pages.discussions.show', [
 			'discussion' => $discussion,
