@@ -7,9 +7,29 @@
 	<div class="media-body">
 		<div class="{{ $panelClass }}">
 			<div class="panel-heading">
-				<h3 class="panel-title mr-auto"><a href="#">{{ $post->author->name }}</a></h3>
-				<small class="timestamp text-subtle js-tooltip-top" title="{{ $post->present()->createdAt }}">Posted {{ $post->present()->createdAtRelative }}</small>
-				<span class="hidden-md-up">{!! avatar($post->author)->link()->label($post->present()->createdAtRelative) !!}</span>
+				<div class="hidden-sm-down">
+					<h3 class="panel-title mr-auto"><a href="#">{{ $post->author->name }}</a></h3>
+					<small class="timestamp text-subtle js-tooltip-top" title="{{ $post->present()->createdAt }}">Posted {{ $post->present()->createdAtRelative }}</small>
+				</div>
+				<div class="hidden-md-up d-flex align-items-center justify-content-start">
+					{!! avatar($post->author)->link()->label($post->created_at->diffForHumans()) !!}
+					<div class="dropdown ml-auto">
+						<a href="#" id="dropdownMenuButton" data-toggle="dropdown">
+							@icon('dots-three-vertical')
+						</button>
+						
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="#">Edit</a>
+							<a class="dropdown-item" href="#">Delete</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Mark as Answer</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Copy Link</a>
+							<a class="dropdown-item" href="#">Message {{ $post->author->name }}</a>
+							<a class="dropdown-item" href="#">Report</a>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="panel-body">
@@ -17,7 +37,7 @@
 			</div>
 
 			@if (auth()->check())
-				<div class="panel-footer d-flex justify-content-between align-items-center">
+				<div class="panel-footer hidden-sm-down d-flex justify-content-between align-items-center">
 					<div class="btn-toolbar">
 						<div class="btn-group">
 							@if($post->isFavorited())

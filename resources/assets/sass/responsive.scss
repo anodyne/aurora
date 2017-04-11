@@ -136,19 +136,12 @@
 				}
 
 				.panel-heading {
-					justify-content: initial;
-
-					.panel-title {
-						display: none;
+					.mobile {
+						display: flex;
+						width: 100%;
+						align-items: center;
+						justify-content: space-between;
 					}
-
-					.timestamp {
-						display: none;
-					}
-				}
-
-				.panel-footer {
-					flex-direction: column;
 				}
 			}
 		}
