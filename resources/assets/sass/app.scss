@@ -1149,6 +1149,38 @@ table {
 	}
 }
 
+.answered {
+	position: absolute;
+	width: 1.5rem;
+	height: 1.5rem;
+	top: 0.3rem;
+	left: 2.45rem;
+
+	background-color: $color-success;
+	border: 0.2rem solid $color-body;
+	text-align: center;
+	border-radius: 90rem;
+
+	.icon {
+		float: left;
+		margin: 3px 0 0 3px;
+		height: 12px;
+		width: 12px;
+
+		path {
+			fill: $color-white;
+		}
+	}
+}
+
+.data-list {
+	> div:nth-child(odd) {
+		.answered {
+			border-color: $color-blue-grey-50;
+		}
+	}
+}
+
 .modal {
 	.modal-header {
 		.modal-title {
