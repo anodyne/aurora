@@ -5,7 +5,13 @@ use App\Data\User;
 
 class DiscussionFilters extends Filters
 {
-	protected $filters = ['by', 'popular'];
+	protected $filters = [
+		'by',
+		'popular',
+		'trending',
+		'answered'
+	];
+
 	protected function answered()
 	{
 		return $this->builder->where('answer_id', '!=', null);
