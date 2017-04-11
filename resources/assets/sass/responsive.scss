@@ -100,32 +100,6 @@
 		display: none;
 	}
 
-	.data-list {
-		.list-item-meta {
-			display: none;
-		}
-
-		.list-item-count {
-			padding-top: 5px;
-
-			font-size: $font-lg;
-			text-align: right !important;
-		}
-
-		.list-item-count-label {
-			display: none;
-		}
-
-		.list-item-group {
-			margin-left: 46px;
-		}
-
-		.list-item-avatar {
-			width: 36px;
-			height: 36px;
-		}
-	}
-
 	.media {
 		flex-direction: column;
 

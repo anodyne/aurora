@@ -40,6 +40,7 @@ $color-facebook: #3b5998;
 $color-twitter: #55acee;
 $color-subtle: #ededed;
 $color-subtle-dark: $color-blue-grey-200;
+$color-subtle-darker: $color-blue-grey-400;
 $color-gray: #888;
 $color-gray-dark: #666;
 $color-gray-medium: #999;
@@ -57,6 +58,21 @@ $spacing-sm: 8px;
 $spacing: 15px;
 $spacing-lg: 30px;
 $footer-height: 200px;
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space: 1rem;
+$space-md: 1.5rem;
+$space-lg: 2rem;
+
+$breakpoint-xs-min: 0;
+$breakpoint-xs-max: 543px;
+$breakpoint-sm-min: 544px;
+$breakpoint-sm-max: 767px;
+$breakpoint-md-min: 768px;
+$breakpoint-md-max: 991px;
+$breakpoint-lg-min: 992px;
+$breakpoint-lg-max: 1199px;
+$breakpoint-xl-min: 1200px;
 
 // Bootstrap overrides
 $border-radius: $radius !default;
@@ -96,3 +112,7 @@ $panel-warning-heading-bg: $color-warning-bright !default;
 $panel-danger-text: $color-danger !default;
 $panel-danger-border: $color-danger-light !default;
 $panel-danger-heading-bg: $color-danger-bright !default;
+
+$alert-success-text: $color-success-dark !default;
+$alert-success-border: $color-success-light !default;
+$alert-success-bg: $color-success-bright !default;

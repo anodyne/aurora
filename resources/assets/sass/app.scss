@@ -1145,7 +1145,7 @@ table {
 	}
 }
 
-.answered {
+/*.answered {
 	position: absolute;
 	width: 1.5rem;
 	height: 1.5rem;
@@ -1175,12 +1175,34 @@ table {
 			border-color: $color-blue-grey-50;
 		}
 	}
-}
+}*/
 
 .modal {
 	.modal-header {
 		.modal-title {
 			color: $color-dark;
 		}
+	}
+}
+
+.alert {
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&.alert-success {
+		.icon {
+			path {
+				fill: $color-success-dark;
+			}
+		}
+	}
+}
+
+form {
+	label {
+		font-weight: 500;
 	}
 }
