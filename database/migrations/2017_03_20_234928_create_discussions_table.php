@@ -12,10 +12,10 @@ class CreateDiscussionsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->integer('topic_id')->unsigned();
+            $table->bigInteger('answer_id')->unsigned()->nullable();
             $table->string('title');
             $table->longText('body');
             //$table->string('slug');
-            $table->bigInteger('answer_id')->unsigned()->nullable();
 
             $table->timestamps();
             $table->softDeletes();
