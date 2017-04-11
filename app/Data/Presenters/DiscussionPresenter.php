@@ -70,7 +70,7 @@ class DiscussionPresenter extends Presenter
 			: false;
 
 		if ($author) {
-			return "by ".link_to_route('profile', $author->present()->name, [$author->username]);
+			return link_to_route('profile', $author->present()->name, [$author->username]);
 		}
 	}
 }
