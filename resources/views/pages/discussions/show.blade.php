@@ -29,7 +29,9 @@
 		</div>
 	</div>
 
-	{!! view('pages.discussions._post-reply')->with('post', $discussion->answer) !!}
+	@if ($discussion->answer)
+		{!! view('pages.discussions._post-reply')->with('post', $discussion->answer) !!}
+	@endif
 
 	@each('pages.discussions._post-reply', $replies, 'post')
 
