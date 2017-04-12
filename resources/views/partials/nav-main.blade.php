@@ -1,7 +1,7 @@
 <nav class="nav-main hidden-lg-up">
 	<div class="container">
 		<ul>
-			<li><a href="#" class="active" data-toggle="modal" data-target="#navGlobalMobile">Anodyne Forums<div class="arrow"></div></a></li>
+			<li><a href="#" class="active logo" data-toggle="modal" data-target="#navGlobalMobile">@icon('anodyne') Forums<div class="arrow"></div></a></li>
 		</ul>
 	</div>
 </nav>
@@ -39,7 +39,7 @@
 				<a href="{{ config('anodyne.links.www') }}">Anodyne<div class="arrow"></div></a>
 				<a href="{{ config('anodyne.links.nova') }}">Nova<div class="arrow"></div></a>
 				<a href="{{ config('anodyne.links.xtras') }}">Xtras<div class="arrow"></div></a>
-				<a href="{{ route('home') }}" class="active">Forums<div class="arrow"></div></a>
+				<a href="{{ route('home') }}" class="active logo">@icon('anodyne') Forums<div class="arrow"></div></a>
 				<a href="{{ config('anodyne.links.help') }}">Help<div class="arrow"></div></a>
 			</div>
 			<div class="d-flex align-items-center">
