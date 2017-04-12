@@ -29,7 +29,7 @@
 						</span>
 					</div>
 
-					@if ($discussion->answer)
+					@if ($discussion->answer_count > 0)
 						<div class="meta-item answered">
 							@icon('check')
 							<span>answered</span>
