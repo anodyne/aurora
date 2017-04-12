@@ -5,8 +5,8 @@
 
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="{{ route('home') }}">Forum</a></li>
-	
-		@if ($topic->parent_id > 0)
+
+		@if ($topic->parent_id)
 			<li class="breadcrumb-item"><a href="{{ route('topics.discussions', [$topic->parent]) }}">{{ $topic->parent->name }}</a></li>
 		@endif
 		
