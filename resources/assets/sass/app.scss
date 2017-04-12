@@ -30,12 +30,16 @@ body {
 
 nav.nav-main {
 	position: relative;
-	z-index: 100;
+	z-index: 20;
 	height: 40px;
 	line-height: 40px;
 
 	background: $color-nav-main;
 	color: $color-white;
+
+	background: rgba(0, 0, 0, 0.2);
+	color: rgba(255, 255, 255, 0.3);
+	border-bottom: 1px solid rgb(0, 92, 142);
 
 	a {
 		position: relative;
@@ -46,6 +50,26 @@ nav.nav-main {
 		color: $color-gray;
 		font-family: $font-special;
 		font-weight: 500;
+
+		font-weight: 300;
+		color: rgba(255, 255, 255, 0.3);
+
+		&.logo {
+			display: flex;
+			align-items: center;
+
+			font-style: italic;
+
+			.icon {
+				height: 1.75rem;
+				width: 1.75rem;
+				margin-right: 0.125rem;
+
+				path {
+					fill: rgba(255, 255, 255, 1) !important;
+				}
+			}
+		}
 
 		&:hover {
 			background: darken($color-nav-main, 1%);
@@ -65,8 +89,16 @@ nav.nav-main {
 			color: #ffba00;
 			background: darken($color-nav-main, 3%);
 
+			font-weight: 500;
+			color: $color-white;
+			background: $color-primary;
+			padding-bottom: 1px;
+			border-left: 1px solid rgb(0, 92, 142);
+			border-right: 1px solid rgb(0, 92, 142);
+
 			.arrow {
 				display: block;
+				display: none;
 			}
 		}
 
@@ -145,6 +177,9 @@ header {
 	border-top: 1px solid rgba(0, 0, 0, .5);
 	border-bottom: 1px solid rgba(0, 0, 0, .2);
 	background: $color-primary;
+
+	height: auto;
+	border-top: none;
 
 	.brand {
 		line-height: 1;
@@ -1181,6 +1216,9 @@ table {
 	.modal-header {
 		.modal-title {
 			color: $color-dark;
+			font-family: $font-special;
+			font-weight: 500;
+			font-style: italic;
 		}
 	}
 }

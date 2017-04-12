@@ -3,23 +3,30 @@
 /* xs */
 @media (max-width: 543px) {
 	nav.nav-main {
+		height: 3rem;
+		line-height: 3rem;
+
 		ul {
 			li {
-				width: 100%;
+				float: none;
 
 				text-align: center;
 
 				a {
 					&.active {
-						background: none;
+						padding-bottom: 0;
+
+						font-weight: 400;
+						font-size: 1.5rem;
 					}
 
-					.arrow {
-						bottom: -4px;
+					&.logo {
+						display: inline-flex;
 
-						border-left: 1px solid rgba(0, 0, 0, .2);
-						border-top: 1px solid rgba(0, 0, 0, .2);
-						background: $color-nav-main;
+						.icon {
+							height: 2.75rem;
+							width: 2.75rem;
+						}
 					}
 				}
 			}
