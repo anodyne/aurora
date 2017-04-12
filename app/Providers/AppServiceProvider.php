@@ -12,6 +12,10 @@ class AppServiceProvider extends ServiceProvider
 		$this->app->bind('avatar', function ($app) {
 			return new \App\Avatar;
 		});
+
+		/*$this->app['cache']->rememberForever('topics', function () {
+			return \Topic::with('children')->get();
+		});*/
 	}
 
 	public function register()
