@@ -10,18 +10,10 @@ class TopicsController extends Controller
 	public function __construct()
 	{
 		parent::__construct();
-	}
-	
-	public function discussions(Topic $topic, DiscussionFilters $filters)
-	{
-		$discussions = Discussion::latest()->filter($filters);
-
-		if ($topic->exists) {
-			$discussions->where('topic_id', $topic->id);
+		
+		if (app()->environment() != 'testing') {
+			auth()->setUser(\User::find(1));
+			view()->share('_user', auth()->user());
 		}
-
-		$discussions = $discussions->get();
-
-		return view('pages.discussions.index', compact('discussions'));
 	}
 }

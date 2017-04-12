@@ -19,7 +19,7 @@ Route::get('discussions/{topic}/{discussion}', 'DiscussionsController@show')->na
 Route::get('/', 'DiscussionsController@index')->name('home');
 Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store')->name('discussions.replies');
 
-Route::get('topics/{topic}', 'TopicsController@discussions')->name('topics.discussions');
+Route::get('topics/{topic}', 'DiscussionsController@index')->name('topics.discussions');
 
 Route::post('replies/{reply}/favorites', 'FavoritesController@store')->name('favorites.store');
 

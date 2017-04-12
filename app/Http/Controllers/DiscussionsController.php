@@ -19,7 +19,7 @@ class DiscussionsController extends Controller
 		$this->middleware('auth')->except(['all', 'index', 'show']);
 	}
 
-	public function index(DiscussionFilters $filters)
+	public function index(Topic $topic = null, DiscussionFilters $filters)
 	{
 		// Get all the discussions sorted by the latest
 		$discussions = Discussion::with([
@@ -27,6 +27,10 @@ class DiscussionsController extends Controller
 			'replies.author',
 			'topic',
 		])->latest()->filter($filters);
+
+		if ($topic->exists) {
+			$discussions->where('topic_id', $topic->id);
+		}
 
 		if (request()->wantsJson()) {
 			return $discussions->get();
