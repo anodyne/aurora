@@ -20,7 +20,7 @@
 			@icon('chat', 'text-subtle')
 
 			<span class="pl-2">
-				{{ $discussion->replies_count }} {{ Str::plural('reply', $discussion->replies_count) }}
+				{{ $discussion->replies_count }} {{ str_plural('reply', $discussion->replies_count) }}
 
 				@if ($discussion->answer)
 					with 1 correct answer
