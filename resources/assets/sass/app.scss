@@ -37,9 +37,9 @@ nav.nav-main {
 	background: $color-nav-main;
 	color: $color-white;
 
-	background: rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.3);
 	color: rgba(255, 255, 255, 0.3);
-	border-bottom: 1px solid rgb(0, 92, 142);
+	border-bottom: 1px solid rgb(0, 75, 118);
 
 	a {
 		position: relative;
@@ -93,8 +93,8 @@ nav.nav-main {
 			color: $color-white;
 			background: $color-primary;
 			padding-bottom: 1px;
-			border-left: 1px solid rgb(0, 92, 142);
-			border-right: 1px solid rgb(0, 92, 142);
+			border-left: 1px solid rgb(0, 75, 118);
+			border-right: 1px solid rgb(0, 75, 118);
 
 			.arrow {
 				display: block;
@@ -174,8 +174,7 @@ header {
 	z-index: 10;
 	height: 90px;
 
-	border-top: 1px solid rgba(0, 0, 0, .5);
-	border-bottom: 1px solid rgba(0, 0, 0, .2);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 	background: $color-primary;
 
 	height: auto;
