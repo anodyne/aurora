@@ -21,9 +21,6 @@ class DiscussionsController extends Controller
 
 	public function index(DiscussionFilters $filters)
 	{
-		// Get all the parent topics for the sidebar
-		$topics = Topic::with('children')->where('parent_id', null)->get();
-
 		// Get all the discussions sorted by the latest
 		$discussions = Discussion::with([
 			'replies.author',
@@ -36,8 +33,8 @@ class DiscussionsController extends Controller
 		}
 
 		return view('pages.discussions.all', [
-			'discussions' => $discussions->paginate(25),
-			'topics' => $topics
+			'discussions' => $discussions->paginate(20),
+			'topics' => cache('topics', collect())->where('parent_id', null),
 		]);
 	}
 
