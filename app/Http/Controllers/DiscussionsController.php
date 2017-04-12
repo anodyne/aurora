@@ -16,7 +16,7 @@ class DiscussionsController extends Controller
 			view()->share('_user', auth()->user());
 		}
 
-		$this->middleware('auth')->except(['all', 'index', 'show']);
+		$this->middleware('auth')->except(['index', 'show']);
 	}
 
 	public function index(Topic $topic = null, DiscussionFilters $filters)
