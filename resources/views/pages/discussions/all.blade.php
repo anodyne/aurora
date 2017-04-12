@@ -9,9 +9,13 @@
 		</div>
 
 		<div class="col-md-8 col-lg-9">
-			{!! partial('discussions-list', ['discussions' => $discussions]) !!}
+			@if ($discussions->total() > 0)
+				{!! partial('discussions-list', ['discussions' => $discussions]) !!}
 
-			{{ $discussions->appends(request()->all())->links() }}
+				{{ $discussions->appends(request()->all())->links() }}
+			@else
+				{!! alert('warning', "No discussions found") !!}
+			@endif
 		</div>
 	</div>
 @endsection
