@@ -32,7 +32,9 @@ class Discussion extends Eloquent
 
 	public function answer()
 	{
-		return $this->hasOne(Reply::class, 'id', 'answer_id')->withCount('favorites');
+		return $this->hasOne(Reply::class, 'id', 'answer_id')
+			->with('author')
+			->withCount('favorites');
 	}
 
 	public function author()
@@ -42,7 +44,9 @@ class Discussion extends Eloquent
 
 	public function replies()
 	{
-		return $this->hasMany(Reply::class)->withCount('favorites');
+		return $this->hasMany(Reply::class)
+			->with('author')
+			->withCount('favorites');
 	}
 
 	public function topic()
