@@ -18,7 +18,7 @@ class TopicPresenter extends Presenter
 
 		return partial('item-count', [
 			'count'	=> $count,
-			'label'	=> Str::plural('discussion', $count),
+			'label'	=> str_plural('discussion', $count),
 		]);
 	}
 
