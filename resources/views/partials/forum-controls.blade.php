@@ -11,14 +11,14 @@
 			
 			@if (auth()->check())
 				<a href="#" class="list-group-item disabled">@icon('new') Unread Discussions</a>
-				<a href="{{ route('home') }}?by={{ $_user->username }}" class="list-group-item">@icon('user') My Discussions</a>
+				<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('user') My Discussions</a>
 				<a href="#" class="list-group-item disabled">@icon('heart') My Favorites</a>
 				<a href="#" class="list-group-item disabled">@icon('star') Following</a>
 			@endif
 
-			<a href="{{ route('home') }}?trending=1" class="list-group-item">@icon('flash') Popular This Week</a>
-			<a href="{{ route('home') }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
-			<a href="{{ route('home') }}?answered=1" class="list-group-item">@icon('check') Answered</a>
+			<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('flash') Popular This Week</a>
+			<a href="{{ request()->url() }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
+			<a href="{{ request()->url() }}?answered=1" class="list-group-item">@icon('check') Answered</a>
 		</div>
 
 		<h6>Or Pick a Topic</h6>
@@ -85,13 +85,13 @@
 					
 					@if (auth()->check())
 						<a href="#" class="list-group-item disabled">@icon('new') Unread Discussions</a>
-						<a href="{{ route('home') }}?by={{ $_user->username }}" class="list-group-item">@icon('user') My Discussions</a>
+						<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('user') My Discussions</a>
 						<a href="#" class="list-group-item disabled">@icon('heart') My Favorites</a>
 					@endif
 
-					<a href="#" class="list-group-item disabled">@icon('flash') Popular This Week</a>
-					<a href="{{ route('home') }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
-					<a href="#" class="list-group-item disabled">@icon('check') Answered Questions</a>
+					<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('flash') Popular This Week</a>
+					<a href="{{ request()->url() }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
+					<a href="{{ request()->url() }}?answered=1" class="list-group-item">@icon('check') Answered Questions</a>
 				</div>
 
 				<h6>Or Pick a Topic</h6>
