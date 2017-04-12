@@ -36,10 +36,6 @@ class TopicPresenter extends Presenter
 
 	public function name()
 	{
-		if ($this->entity->parent_id !== null) {
-			return $this->entity->parent->present()->name.' - '.$this->entity->name;
-		}
-
 		return $this->entity->name;
 	}
 
