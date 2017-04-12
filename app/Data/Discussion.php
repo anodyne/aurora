@@ -20,6 +20,10 @@ class Discussion extends Eloquent
 		static::addGlobalScope('replyCount', function ($builder) {
 			$builder->withCount('replies');
 		});
+
+		static::addGlobalScope('answerCount', function ($builder) {
+			$builder->withCount('answer');
+		});
 	}
 
 	//--------------------------------------------------------------------------
