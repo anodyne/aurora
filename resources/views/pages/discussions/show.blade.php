@@ -29,7 +29,7 @@
 		</div>
 	</div>
 
-	@if ($discussion->answer)
+	@if ($discussion->answer_count > 0)
 		{!! view('pages.discussions._post-reply')->with('post', $discussion->answer) !!}
 	@endif
 
