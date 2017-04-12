@@ -40,7 +40,7 @@
 						<a href="{{ route('topics.discussions', [$child]) }}" class="list-group-item justify-content-between">
 							<div>
 								{{ $child->name }}
-								<br><em class="text-muted">{{ $child->parent->name }}</em>
+								<br><em class="text-muted">{{ $topic->name }}</em>
 							</div>
 							<span class="badge badge-pill" style="background-color:{{ $child->color }}">&nbsp;</span>
 						</a>
@@ -113,7 +113,7 @@
 								<a href="{{ route('topics.discussions', [$child]) }}" class="list-group-item justify-content-between">
 									<div>
 										{{ $child->name }}
-										<br><em class="text-muted">{{ $child->parent->name }}</em>
+										<br><em class="text-muted">{{ $topic->name }}</em>
 									</div>
 									<span class="badge badge-pill" style="background-color:{{ $child->color }}">&nbsp;</span>
 								</a>
