@@ -14,11 +14,13 @@ class AppServiceProvider extends ServiceProvider
 			return new \App\Avatar;
 		});
 
-		// Put the topics into the cache if they aren't already
-		if (! $this->app['cache']->has('topics')) {
-			$this->app['cache']->rememberForever('topics', function () {
-				return \Topic::with('children')->get();
-			});
+		if ($this->app->environment() != 'testing') {
+			// Put the topics into the cache if they aren't already
+			if (! $this->app['cache']->has('topics')) {
+				$this->app['cache']->rememberForever('topics', function () {
+					return \Topic::with('children')->get();
+				});
+			}
 		}
 	}
 
