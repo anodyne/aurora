@@ -23,9 +23,7 @@ class DiscussionsController extends Controller
 	{
 		// Get all the discussions sorted by the latest
 		$discussions = Discussion::with([
-			'author',
 			'replies.author',
-			'topic',
 		])->latest()->filter($filters);
 
 		if ($topic->exists) {
@@ -49,15 +47,19 @@ class DiscussionsController extends Controller
 		return view('pages.discussions.create', compact('topics'));
 	}
 
-	public function show(Topic $topic, Discussion $discussion)
+	public function show($topic, Discussion $discussion)
 	{
-		$discussion->load(['author', 'topic', 'answer.author']);
+		//dd($discussion->answer());
 
-		return view('pages.discussions.show', [
-			'discussion' => $discussion,
-			'replies' => $discussion->replies()->paginate(20),
-			'topic' => $topic->load('parent')
-		]);
+		// Figure out if we need to load a parent topic
+		$topic = ($discussion->topic->parent_id !== null)
+			? $discussion->topic->load('parent')
+			: $discussion->topic;
+
+		// Get the replies and paginate them
+		$replies = $discussion->replies()->paginate(20);
+
+		return view('pages.discussions.show', compact('discussion', 'replies', 'topic'));
 	}
 
 	public function store(Request $request)

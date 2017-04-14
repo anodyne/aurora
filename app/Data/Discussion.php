@@ -10,6 +10,7 @@ class Discussion extends Eloquent
 	use SoftDeletes, PresentableTrait;
 
 	protected $fillable = ['title', 'body', 'user_id', 'topic_id'];
+	protected $with = ['author', 'topic'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = DiscussionPresenter::class;
 
@@ -20,22 +21,16 @@ class Discussion extends Eloquent
 		static::addGlobalScope('replyCount', function ($builder) {
 			$builder->withCount('replies');
 		});
-
-		static::addGlobalScope('answerCount', function ($builder) {
-			$builder->withCount('answer');
-		});
 	}
 
 	//--------------------------------------------------------------------------
 	// Relationships
 	//--------------------------------------------------------------------------
 
-	public function answer()
+	/*public function answer()
 	{
-		return $this->hasOne(Reply::class, 'id', 'answer_id')
-			->with('author')
-			->withCount('favorites');
-	}
+		return $this->hasOne(Reply::class, 'id', 'answer_id');
+	}*/
 
 	public function author()
 	{
@@ -44,9 +39,7 @@ class Discussion extends Eloquent
 
 	public function replies()
 	{
-		return $this->hasMany(Reply::class)
-			->with('author')
-			->withCount('favorites');
+		return $this->hasMany(Reply::class);
 	}
 
 	public function topic()
@@ -61,6 +54,16 @@ class Discussion extends Eloquent
 	public function addReply(array $data)
 	{
 		$this->replies()->create($data);
+	}
+
+	public function answer()
+	{
+		return $this->replies->where('id', $this->answer_id)->first();
+	}
+
+	public function isAnswered()
+	{
+		return $this->answer_id !== null;
 	}
 
 	public function scopeFilter($query, $filters)

@@ -2,15 +2,17 @@
 
 use Eloquent;
 use ReplyPresenter;
+use App\Favoritable;
 use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reply extends Eloquent
 {
-	use SoftDeletes, PresentableTrait;
+	use SoftDeletes, PresentableTrait, Favoritable;
 
 	protected $table = 'replies';
 	protected $fillable = ['discussion_id', 'body', 'user_id'];
+	protected $with = ['author', 'favorites'];
 	protected $touches = ['discussion'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = ReplyPresenter::class;
@@ -29,31 +31,8 @@ class Reply extends Eloquent
 		return $this->belongsTo(Discussion::class);
 	}
 
-	public function favorites()
-	{
-		return $this->morphMany(Favorite::class, 'favorited');
-	}
-
-	public function isAnswer()
+	public function isTheAnswer()
 	{
 		return $this->belongsTo(Discussion::class, 'id', 'answer_id');
-	}
-
-	//--------------------------------------------------------------------------
-	// Model Methods
-	//--------------------------------------------------------------------------
-
-	public function favorite()
-	{
-		$attributes = ['user_id' => auth()->id()];
-
-		if (! $this->favorites()->where($attributes)->exists()) {
-			return $this->favorites()->create($attributes);
-		}
-	}
-
-	public function isFavorited()
-	{
-		return $this->favorites()->where('user_id', auth()->id())->exists();
 	}
 }
