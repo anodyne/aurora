@@ -4,19 +4,22 @@ use Illuminate\Database\Seeder;
 
 class ForumDevelopmentSeeder extends Seeder
 {
+	protected $discussionCount = 50;
+	protected $replyCount = 10;
+
 	public function run()
 	{
 		$this->seedTopics();
 
 		$faker = Faker\Factory::create();
 
-		for ($d = 1; $d <= 50; $d++) {
+		for ($d = 1; $d <= $this->discussionCount; $d++) {
 			$discussion = factory('App\Data\Discussion')->create([
 				'user_id' => $faker->numberBetween(1, 100),
 				'topic_id' => $faker->numberBetween(1, 10),
 			]);
 
-			for ($r = 0; $r <= $faker->numberBetween(0, 10); $r++) {
+			for ($r = 0; $r <= $faker->numberBetween(1, $this->replyCount); $r++) {
 				factory('App\Data\Reply')->create([
 					'discussion_id' => $discussion->id,
 					'user_id' => $faker->numberBetween(1, 100),
