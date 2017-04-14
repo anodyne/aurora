@@ -9,13 +9,17 @@ class AppServiceProvider extends ServiceProvider
 		// Build up the repository bindings and aliases
 		$this->repositoryBindings();
 
+		// Bind the avatar class into the container
 		$this->app->bind('avatar', function ($app) {
 			return new \App\Avatar;
 		});
 
-		/*$this->app['cache']->rememberForever('topics', function () {
-			return \Topic::with('children')->get();
-		});*/
+		// Put the topics into the cache if they aren't already
+		if (! $this->app['cache']->has('topics')) {
+			$this->app['cache']->rememberForever('topics', function () {
+				return \Topic::with('children')->get();
+			});
+		}
 	}
 
 	public function register()
