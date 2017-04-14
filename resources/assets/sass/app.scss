@@ -892,7 +892,8 @@ svg.icon {
 
 .discussion-summary {
 	position: relative;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 	margin: 0 0 $spacing-lg 70px;
 	padding: $spacing-sm $spacing;
 
@@ -905,13 +906,19 @@ svg.icon {
 	font-style: italic;
 	border-radius: $radius-sm;
 
+	.icon {
+		margin-right: $space-sm;
+	}
+
 	label {
+		display: inline-flex;
+		align-items: center;
 		margin-bottom: 0;
 
 		font-weight: 500;
 
 		input[type=checkbox] {
-			margin-top: 6px;
+			margin-right: $space-xs;
 		}
 	}
 }
