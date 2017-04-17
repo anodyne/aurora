@@ -14,11 +14,6 @@ class DiscussionPresenter extends Presenter
 		return link_to_route('profile', $this->author(), [$this->entity->author->username]);
 	}
 
-	public function createdAt()
-	{
-		return "Started ".$this->entity->created_at->diffForHumans();
-	}
-
 	public function title()
 	{
 		return $this->entity->title;
