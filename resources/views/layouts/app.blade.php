@@ -24,7 +24,7 @@
 		<script>
 			window.Laravel = {!! json_encode([
 				'csrfToken' => csrf_token(),
-			]) !!};
+			]) !!}
 		</script>
 	</head>
 	<body>
@@ -172,6 +172,18 @@
 				$('.js-tooltip-bottom').tooltip({ placement: 'bottom' })
 				$('.js-tooltip-left').tooltip({ placement: 'left' })
 				$('.js-tooltip-right').tooltip({ placement: 'right' })
+
+				var quill = new Quill('#editor', {
+					theme: 'snow',
+					modules: {
+						toolbar: [
+							['bold', 'italic'],
+							[{ 'list': 'ordered'}, { 'list': 'bullet' }],
+							['link', 'image'],
+							['code-block']
+						]
+					}
+				})
 			})
 		</script>
 		@yield('js')

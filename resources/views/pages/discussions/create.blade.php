@@ -26,7 +26,7 @@
 			<div class="col-md-8">
 				<div class="form-group">
 					<label class="control-label">Content</label>
-					{!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => 15]) !!}
+					<div id="editor"></div>
 				</div>
 			</div>
 		</div>
@@ -37,3 +37,7 @@
 		</div>
 	{!! Form::close() !!}
 @endsection
+
+@push('styles')
+	<link href="{{ asset('css/quill.css') }}" rel="stylesheet">
+@endpush
