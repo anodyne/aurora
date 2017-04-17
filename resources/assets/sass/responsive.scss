@@ -223,6 +223,13 @@
 
 /* md */
 @media (min-width: 768px) and (max-width: 991px) {
+	.mobile {
+		display: none;
+	}
+	.desktop {
+		display: block;
+	}
+
 	nav.nav-main {
 		ul {
 			li {
@@ -276,7 +283,21 @@
 }
 
 /* lg */
-@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.mobile {
+		display: none;
+	}
+	.desktop {
+		display: block;
+	}
+}
 
 /* xl */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+	.mobile {
+		display: none;
+	}
+	.desktop {
+		display: block;
+	}
+}

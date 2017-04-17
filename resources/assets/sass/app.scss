@@ -5,6 +5,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:400);
 @import url(http://fonts.googleapis.com/css?family=Exo+2:300,300italic,500,500italic,600,600italic);
 
 @import "_data-tables", "_data-lists", "_panels", "_mixins";
@@ -502,13 +503,17 @@ svg.icon {
 
 	.panel-heading {
 		.panel-title {
-			font-weight: 600;
-			font-family: $font-special;
-			font-style: italic;
+			font-weight: 500;
+			font-family: $font-base;
+			font-style: normal;
 		}
 	}
 
 	.panel-footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
 		.btn-toolbar {
 			margin: 0;
 		}
@@ -516,11 +521,20 @@ svg.icon {
 		a {
 			line-height: 1;
 
+			border: 1px solid transparent;
+
+			&.btn {
+				display: flex;
+				align-items: center;
+			}
+
 			path {
 				fill: $color-gray-blue;
 			}
 
 			&:hover {
+				text-decoration: none;
+
 				path {
 					fill: darken($color-gray-blue, 15%);
 				}
@@ -548,22 +562,21 @@ svg.icon {
 			background-color: lighten($color-subtle, 6%);
 
 			a {
-				color: $color-gray-blue;
-				border: 1px solid transparent;
-				border-radius: $radius;
-
-				path {
-					fill: $color-gray-blue;
-				}
-
-				&:hover {
-					color: darken($color-gray-blue, 15%);
-					text-decoration: none;
-					border-color: lighten($color-gray-light, 2.5%);
-					background-color: lighten($color-subtle, 3%);
+				&.btn {
+					color: $color-gray-blue;
 
 					path {
-						fill: darken($color-gray-blue, 15%);
+						fill: $color-gray-blue;
+					}
+
+					&:hover {
+						color: darken($color-gray-blue, 15%);
+						border-color: lighten($color-gray-light, 2.5%);
+						background-color: lighten($color-subtle, 3%);
+
+						path {
+							fill: darken($color-gray-blue, 15%);
+						}
 					}
 				}
 			}
@@ -712,22 +725,24 @@ svg.icon {
 			background-color: lighten($color-success-bright, 13%);
 
 			a {
-				color: $color-success-dark;
-				border: 1px solid transparent;
-				border-radius: $radius;
-
-				path {
-					fill: $color-success-dark;
-				}
-
-				&:hover {
-					color: darken($color-success-dark, 15%);
-					text-decoration: none;
-					border-color: lighten($color-success-light, 10%);
-					background-color: lighten($color-success-bright, 6.5%);
+				&.btn {
+					color: $color-success-dark;
+					border: 1px solid transparent;
+					border-radius: $radius;
 
 					path {
-						fill: darken($color-success-dark, 15%);
+						fill: $color-success-dark;
+					}
+
+					&:hover {
+						color: darken($color-success-dark, 15%);
+						text-decoration: none;
+						border-color: lighten($color-success-light, 10%);
+						background-color: lighten($color-success-bright, 6.5%);
+
+						path {
+							fill: darken($color-success-dark, 15%);
+						}
 					}
 				}
 			}
@@ -801,18 +816,26 @@ svg.icon {
 			}
 
 			.panel-heading {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+
 				.panel-title {
 					margin-right: auto;
 					padding: 0;
 					line-height: 29px;
 
 					font-size: $font-md;
+				}
 
-					.timestamp {
-						font-weight: 400;
-						font-style: normal;
-						font-size: $font-sm;
-					}
+				.timestamp {
+					font-weight: 400;
+					font-style: normal;
+					color: $color-subtle-darker;
+				}
+
+				.dropdown {
+					margin-left: auto !important;
 				}
 			}
 		}
@@ -1249,4 +1272,49 @@ form {
 	label {
 		font-weight: 500;
 	}
+}
+
+.desktop {
+	display: none;
+}
+.mobile {
+	display: block;
+}
+
+.ql-toolbar {
+	border-color: rgba(0, 0, 0, 0.15) !important;
+	border-bottom: none !important;
+	background-color: $color-white;
+	border-top-left-radius: $radius;
+	border-top-right-radius: $radius;
+
+	.ql-stroke {
+		stroke: $color-subtle-dark !important;
+	}
+
+	.ql-fill {
+		fill: $color-subtle-dark !important;
+	}
+
+	button {
+		&:hover {
+			.ql-stroke {
+				stroke: $color-gray-blue !important;
+			}
+
+			.ql-fill {
+				fill: $color-gray-blue !important;
+			}
+		}
+	}
+}
+
+.ql-container {
+	min-height: 15rem;
+
+	background: $color-white;
+	border-bottom-left-radius: $radius;
+	border-bottom-right-radius: $radius;
+	font-size: $font-size !important;
+	color: $color-dark !important;
 }
