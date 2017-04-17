@@ -169,6 +169,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         BladeSvg\BladeSvgServiceProvider::class,
+        Indal\Markdown\MarkdownServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,6 +233,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Gravatar' => forxer\Gravatar\Gravatar::class,
 		'HTML' => Collective\Html\HtmlFacade::class,
+		'Markdown' => Indal\Markdown\Facade::class,
         'Str' => Illuminate\Support\Str::class,
 
         'Repository' => App\Data\Repositories\Repository::class,

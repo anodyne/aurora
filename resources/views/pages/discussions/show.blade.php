@@ -44,3 +44,17 @@
 		</label>
 	</div>
 @endsection
+
+@push('scripts')
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+@endpush
+
+@section('js')
+	<script>
+		$('pre').addClass('prettyprint')
+	</script>
+@endsection
+
+@push('styles')
+	<link href="{{ asset('css/prettyprint-github-v2.css') }}" rel="stylesheet">
+@endpush
