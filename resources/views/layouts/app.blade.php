@@ -173,17 +173,15 @@
 				$('.js-tooltip-left').tooltip({ placement: 'left' })
 				$('.js-tooltip-right').tooltip({ placement: 'right' })
 
-				var quill = new Quill('#editor', {
-					theme: 'snow',
-					modules: {
-						toolbar: [
-							['bold', 'italic'],
-							[{ 'list': 'ordered'}, { 'list': 'bullet' }],
-							['link', 'image'],
-							['code-block']
-						]
-					}
-				})
+				@if (session()->has('flash_message'))
+					swal({
+						title: "{{ session('flash_message.title') }}",
+						text: "{{ session('flash_message.message') }}",
+						type: "{{ session('flash_message.level') }}",
+						timer: 2250,
+						showConfirmButton: false
+					}).then(function () {}, function (dismiss) {})
+				@endif
 			})
 		</script>
 		@yield('js')
