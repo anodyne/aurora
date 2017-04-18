@@ -3,6 +3,9 @@
 // Bootstrap
 @import "node_modules/bootstrap/scss/bootstrap";
 
+// SweetAlert2
+@import "node_modules/sweetalert2/src/sweetalert2";
+
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Mono:400);
@@ -432,6 +435,16 @@ footer {
 
 .form-control {
 	font-family: $font-base;
+}
+
+.has-danger {
+	label, .form-control-feedback {
+		color: $color-danger;
+	}
+
+	.form-control {
+		border-color: $color-danger;
+	}
 }
 
 svg.icon {
@@ -972,52 +985,66 @@ svg.icon {
 		}
 	}
 
-	&.btn-primary {
-		.icon {
-			path {
-				fill: $color-white;
-			}
-		}
-
-		&:focus {
-			color: $color-white;
-		}
+	&.btn-circle {
+		border-radius: 90rem;
 	}
 
+	&.btn-primary {
+		@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+	}
+	&.btn-secondary {
+		@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+	}
+	&.btn-info {
+		@include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+	}
+	&.btn-success {
+		@include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+	}
 	&.btn-warning {
-		@include button-variant($color-warning-dark, darken($color-warning-bright, 5%), darken($color-warning-bright, 5%));
+		@include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+	}
+	&.btn-danger {
+		@include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+	}
+	&.btn-dark {
+		@include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
+	}
+
+	&.btn-outline-primary {
+		@include button-outline-variant($btn-primary-bg);
+	}
+	&.btn-outline-secondary {
+		@include button-outline-variant($btn-secondary-border, $btn-secondary-color);
+	}
+	&.btn-outline-info {
+		@include button-outline-variant($btn-info-bg);
+	}
+	&.btn-outline-success {
+		@include button-outline-variant($btn-success-bg);
+	}
+	&.btn-outline-warning {
+		@include button-outline-variant($btn-warning-bg);
+	}
+	&.btn-outline-danger {
+		@include button-outline-variant($btn-danger-bg);
+	}
+	&.btn-outline-dark {
+		@include button-outline-variant($btn-dark-bg);
+	}
+	
+	&.btn-link-secondary {
+		color: $color-blue-grey-400;
+		font-size: $font-size;
+
+		&:hover {
+			color: $color-blue-grey-600;
+		}
 	}
 
 	&.btn-link {
 		color: $color-primary;
 		font-size: $font-size;
-	}
-
-	&.btn-link-secondary {
-		color: $gray-light;
-		font-size: $font-size;
-	}
-
-	&.btn-secondary {
-		border-color: $color-gray-light;
-	}
-
-	&.btn-outline-secondary {
-		color: $gray;
-
-		.icon {
-			path {
-				fill: $gray;
-			}
-		}
-	}
-
-	&.btn-dark {
-		@include button-variant($color-white, $color-gray-blue, $color-gray-blue);
-	}
-
-	&.btn-circle {
-		border-radius: 90rem;
 	}
 
 	&.btn-like {
@@ -1035,6 +1062,10 @@ svg.icon {
 			}
 		}
 	}
+}
+
+.btn-group {
+	margin-right: $space-sm;
 }
 
 table {
@@ -1317,4 +1348,8 @@ form {
 	border-bottom-right-radius: $radius;
 	font-size: $font-size !important;
 	color: $color-dark !important;
+}
+
+.swal2-modal {
+	font-family: $font-base;
 }

@@ -35,6 +35,8 @@ window.axios.defaults.headers.common = {
 
 window.Quill = require('quill')
 
+window.swal = require('sweetalert2')
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

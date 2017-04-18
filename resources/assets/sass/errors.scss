@@ -1,0 +1,49 @@
+@import "_variables";
+
+// Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:400);
+@import url(http://fonts.googleapis.com/css?family=Exo+2:300,300italic,500,500italic,600,600italic);
+
+body, html {
+	background: $color-body;
+}
+
+.error {
+	text-align: center;
+
+	h1 {
+		padding-top: 2rem;
+		margin-bottom: 2rem;
+
+		color: $color-danger;
+		font-family: $font-titles;
+		font-weight: 400;
+		font-size: 6rem;
+	}
+
+	.icon {
+		height: 8rem !important;
+		width: 8rem !important;
+
+		path {
+			fill: $color-gray-blue;
+		}
+	}
+
+	p {
+		width: 50%;
+		margin: 2rem auto;
+
+		font-size: 2rem;
+		color: $color-gray-blue;
+	}
+
+	.btn {
+		border-width: 2px;
+		font-weight: 500;
+	}
+}

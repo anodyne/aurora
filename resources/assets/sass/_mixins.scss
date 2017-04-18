@@ -12,11 +12,23 @@ $border-radius: $radius;
 	border-color: $border;
 	//@include box-shadow($btn-box-shadow);
 
+	.icon {
+		path {
+			fill: $color;
+		}
+	}
+
 	// Hover and focus styles are shared
 	@include hover {
 		color: $color;
 		background-color: $active-background;
 		border-color: $active-border;
+
+		.icon {
+			path {
+				fill: $color;
+			}
+		}
 	}
 	&:focus,
 	&.focus {
@@ -52,10 +64,22 @@ $border-radius: $radius;
 	background-color: transparent;
 	border-color: $color;
 
+	.icon {
+		path {
+			fill: $color;
+		}
+	}
+
 	@include hover {
 		color: $color-hover;
 		background-color: $color;
 		border-color: $color;
+
+		.icon {
+			path {
+				fill: $color-hover;
+			}
+		}
 	}
 
 	&:focus,

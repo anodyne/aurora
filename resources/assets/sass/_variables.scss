@@ -128,3 +128,38 @@ $alert-warning-bg: $color-warning-bright !default;
 $alert-danger-text: $color-danger !default;
 $alert-danger-border: $color-danger-light !default;
 $alert-danger-bg: $color-danger-bright !default;
+
+$btn-primary-color: $color-white !default;
+$btn-primary-bg: $color-primary !default;
+$btn-primary-border: $color-primary !default;
+
+$btn-secondary-color: $color-gray-dark !default;
+$btn-secondary-bg: $color-white !default;
+$btn-secondary-border: #ccc !default;
+
+$btn-info-color: $color-white !default;
+$btn-info-bg: $color-info !default;
+$btn-info-border: $color-info !default;
+
+$btn-success-color: $color-white !default;
+$btn-success-bg: $color-success !default;
+$btn-success-border: $color-success !default;
+
+$btn-warning-color: $color-warning-dark !default;
+$btn-warning-bg: darken($color-warning-bright, 5%) !default;
+$btn-warning-border: darken($color-warning-bright, 5%) !default;
+
+$btn-danger-color: $color-white !default;
+$btn-danger-bg: $color-danger !default;
+$btn-danger-border: $color-danger !default;
+
+$btn-dark-color: $color-white !default;
+$btn-dark-bg: $color-gray-blue !default;
+$btn-dark-border: $color-gray-blue !default;
+
+// SweetAlert overrides
+$swal2-success: $color-success !default;
+$swal2-error: $color-danger !default;
+$swal2-warning: $color-warning !default;
+$swal2-info: $color-info !default;
+$swal2-question: $color-gray-blue !default;

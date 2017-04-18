@@ -2,5 +2,6 @@
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
   "/css/responsive.css": "/css/responsive.css",
+  "/css/errors.css": "/css/errors.css",
   "/css/quill.css": "/css/quill.css"
 }
