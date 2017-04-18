@@ -1318,3 +1318,9 @@ form {
 	font-size: $font-size !important;
 	color: $color-dark !important;
 }
+
+.hljs {
+	padding: 1rem !important;
+
+	border-radius: $radius;
+}
