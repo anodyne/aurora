@@ -46,15 +46,15 @@
 @endsection
 
 @push('scripts')
-	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+@endpush
+
+@push('styles')
+	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/solarized-dark.min.css" rel="stylesheet">
 @endpush
 
 @section('js')
 	<script>
-		$('pre').addClass('prettyprint')
+		hljs.initHighlightingOnLoad()
 	</script>
 @endsection
-
-@push('styles')
-	<link href="{{ asset('css/prettyprint-github-v2.css') }}" rel="stylesheet">
-@endpush
