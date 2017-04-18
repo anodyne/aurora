@@ -14,6 +14,11 @@ class AppServiceProvider extends ServiceProvider
 			return new \App\Avatar;
 		});
 
+		// Bind the flash notifier class into the container
+		$this->app->bind('flash', function ($app) {
+			return new \App\FlashNotifier;
+		});
+
 		if ($this->app->environment() != 'testing') {
 			// Put the topics into the cache if they aren't already
 			if (! $this->app['cache']->has('topics')) {
