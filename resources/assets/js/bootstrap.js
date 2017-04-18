@@ -33,8 +33,6 @@ window.axios.defaults.headers.common = {
 	'X-Requested-With': 'XMLHttpRequest'
 }
 
-window.Quill = require('quill')
-
 window.swal = require('sweetalert2')
 
 /**
