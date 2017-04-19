@@ -19,8 +19,6 @@ Route::get('discussions/{topic}/{discussion}', 'DiscussionsController@show')->na
 Route::get('/', 'DiscussionsController@index')->name('home');
 Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store')->name('discussions.replies');
 
-Route::get('topics/{topic}', 'DiscussionsController@index')->name('topics.discussions');
-
 Route::post('replies/{reply}/favorites', 'FavoritesController@store')->name('favorites.store');
 
 Route::get('user/{user}', 'ProfilesController@show')->name('profile');
@@ -34,8 +32,13 @@ Route::get('login', function () {
 })->name('login');
 
 Route::get('test', function () {
+	$user = User::find(1);
+
+	dd($user->discussions);
+
 	return view('pages.test');
 });
+
 Route::group(['prefix' => 'admin'], function () {
 	Route::get('topics', 'TopicsController@index')->name('topics.index');
 	Route::get('topics/create', 'TopicsController@create')->name('topics.create');
@@ -46,3 +49,5 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::post('topics', 'TopicsController@store')->name('topics.store');
 	Route::delete('topics/{topic}', 'TopicsController@destroy')->name('topics.destroy');
 });
+
+Route::get('topics/{topic}', 'DiscussionsController@index')->name('topics.discussions');
