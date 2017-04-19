@@ -23,9 +23,7 @@ Route::get('topics/{topic}', 'DiscussionsController@index')->name('topics.discus
 
 Route::post('replies/{reply}/favorites', 'FavoritesController@store')->name('favorites.store');
 
-Route::get('user/{username}', function () {
-	//
-})->name('profile');
+Route::get('user/{user}', 'ProfilesController@show')->name('profile');
 
 Route::get('login', function () {
 	//
