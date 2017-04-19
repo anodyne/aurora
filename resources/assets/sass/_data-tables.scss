@@ -26,25 +26,13 @@
 		}
 
 		.controls {
-			display: none;
-
-			.btn {
-				span {
-					display: none;
-					padding-left: 0.5rem;
-				}
-
-				&:hover {
-					span {
-						display: inline-block;
-					}
-				}
-			}
+			opacity: 0;
 		}
 
 		&:hover {
 			.controls {
-				display: block;
+				opacity: 1;
+				transition: opacity 0.5s ease-in-out;
 			}
 		}
 	}
