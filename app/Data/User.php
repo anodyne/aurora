@@ -1,13 +1,15 @@
 <?php namespace App\Data;
 
 use UserPresenter;
+use App\Authorization;
 use Illuminate\Notifications\Notifiable;
 use Laracasts\Presenter\PresentableTrait;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-	use Notifiable, PresentableTrait;
+	use Authorizable, Authorization, Notifiable, PresentableTrait;
 
 	protected $connection = 'users';
 	protected $fillable = ['points'];

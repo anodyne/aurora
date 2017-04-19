@@ -259,6 +259,9 @@ return [
 
         'Favorite' => App\Data\Favorite::class,
 
+        'Permission' => App\Data\Permission::class,
+        'Role' => App\Data\Role::class,
+
     ],
 
 ];
