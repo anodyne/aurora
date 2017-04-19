@@ -34,6 +34,22 @@ if (! function_exists('d')) {
 	}
 }
 
+if (! function_exists('flash')) {
+	function flash($level = false, $title = false, $message = false)
+	{
+		// Get the instance of the flash notifier service
+		$flash = app('flash');
+
+		// If we don't pass anything, just return the instance
+		if (! $level) {
+			return $flash;
+		}
+
+		// Use the level to create the flash message
+		$flash->{$level}($title, $message);
+	}
+}
+
 if (! function_exists('modal')) {
 	function modal(array $data)
 	{
