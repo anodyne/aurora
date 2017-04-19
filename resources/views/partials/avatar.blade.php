@@ -9,10 +9,30 @@
 	<div class="d-flex flex-column ml-3">
 		@if ($size == 'lg')
 			<span class="h1">{{ $user->name }}</span>
-			<span class="text-muted">1,650 XP</span>
+			<span class="text-muted">
+				@if ($labelContentBefore !== null)
+					{!! $labelContentBefore !!} &nbsp; &bull; &nbsp;
+				@endif
+
+				1,650 XP
+
+				@if ($labelContentAfter !== null)
+					&nbsp; &bull; &nbsp; {!! $labelContentAfter !!}
+				@endif
+			</span>
 		@elseif ($size == 'md')
 			<span class="h4">{{ $user->name }}</span>
-			<span class="text-muted">7,990 XP</span>
+			<span class="text-muted">
+				@if ($labelContentBefore !== null)
+					{!! $labelContentBefore !!} &nbsp; &bull; &nbsp;
+				@endif
+
+				1,650 XP
+
+				@if ($labelContentAfter !== null)
+					&nbsp; &bull; &nbsp; {!! $labelContentAfter !!}
+				@endif
+			</span>
 		@elseif ($size == 'sm')
 			<span class="h5 mb-0">{{ $user->name }}</span>
 		@elseif ($size == 'xs')
