@@ -167,6 +167,8 @@
 		<script src="{{ asset('js/app.js') }}"></script>
 		@stack('scripts')
 		<script>
+			window.Anodyne = <?php echo json_encode(app('anodyne')->scriptVariables());?>
+
 			$(function() {
 				$('.js-tooltip-top').tooltip({ placement: 'top' })
 				$('.js-tooltip-bottom').tooltip({ placement: 'bottom' })
