@@ -60,6 +60,12 @@
 										<div class="dropdown-menu">
 											<a href="{{ config('anodyne.links.www') }}admin/users/{{ $_user->username }}/edit" class="dropdown-item">Edit My Profile</a>
 											<div class="dropdown-divider"></div>
+
+											@if ($_user->can('forums.admin'))
+												<a href="{{ route('topics.index') }}" class="dropdown-item">Manage Topics</a>
+												<div class="dropdown-divider"></div>
+											@endif
+
 											<a href="#">Logout</a>
 										</div>
 									</div>
@@ -165,6 +171,7 @@
 
 		<!-- Scripts -->
 		<script src="{{ asset('js/app.js') }}"></script>
+		<script src="{{ asset('js/functions.js') }}"></script>
 		@stack('scripts')
 		<script>
 			window.Anodyne = <?php echo json_encode(app('anodyne')->scriptVariables());?>
