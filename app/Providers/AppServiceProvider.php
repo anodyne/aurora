@@ -9,6 +9,11 @@ class AppServiceProvider extends ServiceProvider
 		// Build up the repository bindings and aliases
 		$this->repositoryBindings();
 
+		// Bind the Anodyne class into the container
+		$this->app->singleton('anodyne', function ($app) {
+			return new \App\Anodyne;
+		});
+
 		// Bind the avatar class into the container
 		$this->app->bind('avatar', function ($app) {
 			return new \App\Avatar;
