@@ -34,6 +34,19 @@ if (! function_exists('d')) {
 	}
 }
 
+if (! function_exists('modal')) {
+	function modal(array $data)
+	{
+		return partial('modal', [
+			'id'		=> (array_key_exists('id', $data)) ? $data['id'] : false,
+			'header'	=> (array_key_exists('header', $data)) ? $data['header'] : false,
+			'body'		=> (array_key_exists('body', $data)) ? $data['body'] : false,
+			'footer'	=> (array_key_exists('footer', $data)) ? $data['footer'] : false,
+			'size'		=> (array_key_exists('size', $data)) ? $data['size'] : false,
+		]);
+	}
+}
+
 if (! function_exists('partial')) {
 	function partial($file, array $data = [])
 	{
