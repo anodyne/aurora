@@ -14,6 +14,7 @@ const { mix } = require('laravel-mix')
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/responsive.scss', 'public/css')
+   .sass('resources/assets/sass/errors.scss', 'public/css')
    .styles([
    		'node_modules/quill/dist/quill.core.css',
    		'node_modules/quill/dist/quill.snow.css'
