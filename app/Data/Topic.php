@@ -1,5 +1,6 @@
 <?php namespace App\Data;
 
+use Str;
 use Eloquent;
 use TopicPresenter;
 use Laracasts\Presenter\PresentableTrait;
@@ -9,7 +10,7 @@ class Topic extends Eloquent
 {
 	use SoftDeletes, PresentableTrait;
 
-	protected $fillable = ['name', 'slug', 'parent_id', 'color'];
+	protected $fillable = ['name', 'slug', 'parent_id', 'color', 'description'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = TopicPresenter::class;
 
@@ -39,5 +40,17 @@ class Topic extends Eloquent
 	public function getRouteKeyName()
 	{
 		return 'slug';
+	}
+
+	public function setSlugAttribute($value)
+	{
+		$this->attributes['slug'] = (empty($value))
+			? Str::slug($value)
+			: $value;
+	}
+
+	public function scopeParents($query)
+	{
+		return $query->where('parent_id', '=', null);
 	}
 }
