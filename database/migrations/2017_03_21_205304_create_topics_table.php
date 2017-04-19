@@ -12,7 +12,7 @@ class CreateTopicsTable extends Migration
             $table->increments('id');
             $table->integer('parent_id')->nullable()->unsigned();
             $table->string('name', 50);
-            $table->string('slug', 50);
+            $table->string('slug', 50)->nullable();
 			$table->string('color', 10)->nullable();
 			$table->text('description')->nullable();
 
