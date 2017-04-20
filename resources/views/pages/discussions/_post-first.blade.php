@@ -18,7 +18,13 @@
 					
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item" href="#">Edit</a>
-						<a class="dropdown-item" href="#">Delete</a>
+
+						@can('update', $post)
+							{!! Form::open(['route' => ['discussions.destroy', $post->topic, $post], 'method' => 'delete']) !!}
+								{!! Form::button('Delete Discussion', ['type' => 'submit', 'class' => 'dropdown-item']) !!}
+							{!! Form::close() !!}
+						@endcan
+
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Copy Link</a>
 						<a class="dropdown-item" href="#">Message {{ $post->author->name }}</a>
@@ -41,7 +47,13 @@
 						
 						<div class="dropdown-menu dropdown-menu-right">
 							<a class="dropdown-item" href="#">Edit</a>
-							<a class="dropdown-item" href="#">Delete</a>
+							
+							@can('update', $post)
+								{!! Form::open(['route' => ['discussions.destroy', $post->topic, $post], 'method' => 'delete']) !!}
+									{!! Form::button('Delete Discussion', ['type' => 'submit', 'class' => 'dropdown-item']) !!}
+								{!! Form::close() !!}
+							@endcan
+
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Copy Link</a>
 							<a class="dropdown-item" href="#">Message {{ $post->author->name }}</a>
