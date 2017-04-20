@@ -14,7 +14,8 @@
 Auth::routes();
 
 Route::resource('discussions', 'DiscussionsController', ['except' => ['index']]);
-Route::get('discussions/{topic}/{discussion}', 'DiscussionsController@show')->name('discussions.show');
+Route::get('discussions/{topic}/{discussion}', 'DiscussionsController@show')
+	->name('discussions.show');
 Route::delete('discussions/{topic}/{discussion}', 'DiscussionsController@destroy')
 	->name('discussions.destroy');
 
@@ -36,7 +37,7 @@ Route::get('login', function () {
 Route::get('test', function () {
 	$user = User::find(1);
 
-	dd($user->discussions);
+	dd($user->hasRole('Forum Administrator'));
 
 	return view('pages.test');
 });
