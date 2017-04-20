@@ -70,4 +70,9 @@ class Discussion extends Eloquent
 	{
 		return $filters->apply($query);
 	}
+
+	public function scopeUser($query, User $user)
+	{
+		return $query->where('user_id', '=', $user->id);
+	}
 }

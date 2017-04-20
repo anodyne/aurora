@@ -7,15 +7,11 @@
 @section('content')
 	{!! avatar($user)->image()->label('Member since '.$user->present()->createdAtRelative)->large() !!}
 
-	@foreach ($user->discussions as $discussion)
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">{{ $discussion->title }}</h4>
-			</div>
+	@if ($discussions->total() > 0)
+		{!! partial('discussions-list', ['discussions' => $discussions]) !!}
 
-			<div class="panel-body">
-				@markdown($discussion->body)
-			</div>
-		</div>
-	@endforeach
+		{{ $discussions->appends(request()->all())->links() }}
+	@else
+		{!! alert('warning', "No discussions found") !!}
+	@endif
 @endsection

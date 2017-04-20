@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use User;
+use Discussion;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -17,6 +18,12 @@ class ProfilesController extends Controller
 
 	public function show(User $user)
 	{
-		return view('pages.profiles.show', compact('user'));
+		// Get all of the discussions started by the user
+		$discussions = Discussion::user($user)->latest();
+
+		return view('pages.profiles.show', [
+			'discussions' => $discussions->paginate(20),
+			'user' => $user,
+		]);
 	}
 }
