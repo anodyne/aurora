@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-	{!! avatar($user)->image()->label('Member since '.$user->present()->createdAtRelative)->large() !!}
+	<div class="mb-4">
+		{!! avatar($user)->image()->label('Member since '.$user->present()->createdAtRelative)->large() !!}
+	</div>
 
 	@if ($discussions->total() > 0)
 		{!! partial('discussions-list', ['discussions' => $discussions]) !!}
