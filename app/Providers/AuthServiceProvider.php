@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 class AuthServiceProvider extends ServiceProvider
 {
 	protected $policies = [
+		'App\Data\Discussion' => 'App\Policies\DiscussionPolicy',
 		'App\Data\Topic' => 'App\Policies\TopicPolicy',
 	];
 

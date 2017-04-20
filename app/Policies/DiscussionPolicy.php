@@ -4,7 +4,7 @@ use App\Data\User;
 use App\Data\Discussion;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TopicPolicy
+class DiscussionPolicy
 {
 	use HandlesAuthorization;
 
@@ -15,23 +15,17 @@ class TopicPolicy
 
 	public function create(User $user)
 	{
-		return $user->can('forums.topic.create');
-	}
-
-	public function manage(User $user)
-	{
-		return $user->can('forums.topic.create')
-			or $user->can('forums.topic.update')
-			or $user->can('forums.topic.delete');
+		//return $user->can('forums.discussion.create');
 	}
 
 	public function update(User $user, Discussion $discussion)
 	{
-		return $user->can('forums.topic.edit');
+		//return $user->can('forums.discussion.update');
+		return $discussion->user_id == $user->id;
 	}
 
 	public function delete(User $user, Discussion $discussion)
 	{
-		return $user->can('forums.topic.delete');
+		//return $user->can('forums.discussion.delete');
 	}
 }
