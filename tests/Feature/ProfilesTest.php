@@ -21,7 +21,6 @@ class ProfilesTest extends DatabaseTestCase
 		$discussion = create('App\Data\Discussion', ['user_id' => $user->id]);
 
 		$this->get(route('profile', $user))
-			->assertSee($discussion->title)
-			->assertSee($discussion->body);
+			->assertSee($discussion->title);
 	}
 }

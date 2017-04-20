@@ -40,7 +40,7 @@ class ManageTopicsTest extends DatabaseTestCase
 	{
 		$this->withExceptionHandling()->signIn();
 
-		$topic = make('App\Data\Topic', $overrides);
+		$topic = create('App\Data\Topic', $overrides);
 
 		return $this->post(route('topics.store'), $topic->toArray());
 	}
