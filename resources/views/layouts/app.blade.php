@@ -58,6 +58,7 @@
 											{{ $_user->present()->name }}
 										</a>
 										<div class="dropdown-menu">
+											<a href="{{ route('profile', $_user) }}" class="dropdown-item">My Profile</a>
 											<a href="{{ config('anodyne.links.www') }}admin/users/{{ $_user->username }}/edit" class="dropdown-item">Edit My Profile</a>
 											<div class="dropdown-divider"></div>
 
