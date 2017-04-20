@@ -21,6 +21,13 @@ class AuthServiceProvider extends ServiceProvider
 				return $user->hasRole($permission->roles->all());
 			});
 		});
+
+		// Allow admins to do whatever they want
+		Gate::before(function ($user) {
+			if ($user->hasRole('Forums Administrator')) {
+				return true;
+			}
+		});
 	}
 
 	protected function getPermissions()
