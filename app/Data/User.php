@@ -23,12 +23,12 @@ class User extends Authenticatable
 
 	public function discussions()
 	{
-		return $this->setConnection('mysql')->hasMany(Discussion::class)->latest();
+		return $this->hasMany(Discussion::class)->latest();
 	}
 
 	public function replies()
 	{
-		return $this->setConnection('mysql')->hasMany(Reply::class);
+		return $this->hasMany(Reply::class);
 	}
 
 	//--------------------------------------------------------------------------
