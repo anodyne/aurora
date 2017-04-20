@@ -13,29 +13,9 @@ class AppServiceProvider extends ServiceProvider
 		// Build up the repository bindings and aliases
 		$this->repositoryBindings();
 
-		// Bind the Anodyne class into the container
-		$this->app->singleton('anodyne', function ($app) {
-			return new \App\Anodyne;
-		});
+		// Set the container bindings
+		$this->bindings();
 
-		// Bind the avatar class into the container
-		$this->app->bind('avatar', function ($app) {
-			return new \App\Avatar;
-		});
-
-		// Bind the flash notifier class into the container
-		$this->app->bind('flash', function ($app) {
-			return new \App\FlashNotifier;
-		});
-
-		if ($this->app->environment() != 'testing') {
-			// Put the topics into the cache if they aren't already
-			if (! $this->app['cache']->has('topics')) {
-				$this->app['cache']->rememberForever('topics', function () {
-					return \Topic::with('children')->get();
-				});
-			}
-		}
 		// Set the model observers
 		$this->setModelObservers();
 	}
@@ -57,6 +37,24 @@ class AppServiceProvider extends ServiceProvider
 				$this->app->register(\Laravel\Dusk\DuskServiceProvider::class);
 			}
 		}
+	}
+
+	protected function bindings()
+	{
+		// Bind the Anodyne class into the container
+		$this->app->singleton('anodyne', function ($app) {
+			return new \App\Anodyne;
+		});
+
+		// Bind the avatar class into the container
+		$this->app->bind('avatar', function ($app) {
+			return new \App\Avatar;
+		});
+
+		// Bind the flash notifier class into the container
+		$this->app->bind('flash', function ($app) {
+			return new \App\FlashNotifier;
+		});
 	}
 
 	protected function repositoryBindings()
