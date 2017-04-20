@@ -31,5 +31,9 @@ class ForumProductionSeeder extends Seeder
 		{
 			Topic::create($d);
 		}
+
+		Cache::rememberForever('topics', function () {
+			return Topic::with('children')->get();
+		});
 	}
 }
