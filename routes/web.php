@@ -15,6 +15,8 @@ Auth::routes();
 
 Route::resource('discussions', 'DiscussionsController', ['except' => ['index']]);
 Route::get('discussions/{topic}/{discussion}', 'DiscussionsController@show')->name('discussions.show');
+Route::delete('discussions/{topic}/{discussion}', 'DiscussionsController@destroy')
+	->name('discussions.destroy');
 
 Route::get('/', 'DiscussionsController@index')->name('home');
 Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store')->name('discussions.replies');

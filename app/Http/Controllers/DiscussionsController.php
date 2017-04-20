@@ -79,4 +79,19 @@ class DiscussionsController extends Controller
 
 		return redirect()->route('discussions.show', [$discussion->topic->slug, $discussion]);
 	}
+
+	public function destroy(Topic $topic, Discussion $discussion)
+	{
+		$this->authorize('update', $discussion);
+
+		$discussion->delete();
+
+		if (request()->wantsJson()) {
+			return response([], 204);
+		}
+
+		flash()->success('Discussion deleted!');
+
+		return redirect()->route('home');
+	}
 }
