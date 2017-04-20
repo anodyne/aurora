@@ -1,5 +1,9 @@
 <?php namespace App\Providers;
 
+use App\Data\Topic;
+use App\Data\Discussion;
+use App\Observers\TopicObserver;
+use App\Observers\DiscussionObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
 				});
 			}
 		}
+		// Set the model observers
+		$this->setModelObservers();
 	}
 
 	public function register()
@@ -68,5 +74,11 @@ class AppServiceProvider extends ServiceProvider
 			$app->bind($abstractFQN, $concrete);
 			$app->alias($abstractFQN, $abstract);
 		});
+	}
+
+	protected function setModelObservers()
+	{
+		Topic::observe(TopicObserver::class);
+		Discussion::observe(DiscussionObserver::class);
 	}
 }
