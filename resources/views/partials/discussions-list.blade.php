@@ -1,5 +1,5 @@
 <div class="data-list">
-@foreach ($discussions as $discussion)
+@forelse ($discussions as $discussion)
 	<div class="block">
 		<div class="item">
 			<div class="item-avatar">
@@ -39,5 +39,7 @@
 			</div>
 		</div>
 	</div>
-@endforeach
+@empty
+	{!! alert('warning', 'No discussions found.') !!}
+@endforelse
 </div>
