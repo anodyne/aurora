@@ -2,12 +2,13 @@
 
 use Eloquent;
 use DiscussionPresenter;
+use App\RecordsActivity;
 use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Discussion extends Eloquent
 {
-	use SoftDeletes, PresentableTrait;
+	use SoftDeletes, PresentableTrait, RecordsActivity;
 
 	protected $fillable = ['title', 'body', 'user_id', 'topic_id'];
 	protected $with = ['author', 'topic'];

@@ -3,7 +3,7 @@
 use Cache;
 use App\Data\Topic;
 
-class TopicObserver
+class TopicObserver extends Observer
 {
 	public function saved(Topic $topic)
 	{

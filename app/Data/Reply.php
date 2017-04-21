@@ -3,12 +3,13 @@
 use Eloquent;
 use ReplyPresenter;
 use App\Favoritable;
+use App\RecordsActivity;
 use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reply extends Eloquent
 {
-	use SoftDeletes, PresentableTrait, Favoritable;
+	use SoftDeletes, PresentableTrait, Favoritable, RecordsActivity;
 
 	protected $table = 'replies';
 	protected $fillable = ['discussion_id', 'body', 'user_id'];

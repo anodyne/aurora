@@ -1,7 +1,9 @@
 <?php namespace App\Providers;
 
+use App\Data\Reply;
 use App\Data\Topic;
 use App\Data\Discussion;
+use App\Observers\ReplyObserver;
 use App\Observers\TopicObserver;
 use App\Observers\DiscussionObserver;
 use Illuminate\Support\ServiceProvider;
@@ -76,6 +78,7 @@ class AppServiceProvider extends ServiceProvider
 
 	protected function setModelObservers()
 	{
+		Reply::observe(ReplyObserver::class);
 		Topic::observe(TopicObserver::class);
 		Discussion::observe(DiscussionObserver::class);
 	}
