@@ -39,7 +39,7 @@ class ManageTopicsTest extends DatabaseTestCase
 	/** @test **/
 	public function a_topic_requires_a_name()
 	{
-		$this->publishTopic(['name' => null])
+		$this->publishTopic(['name' => ''])
 			->assertSessionHasErrors('name');
 	}
 
