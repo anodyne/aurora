@@ -1,5 +1,6 @@
 <?php namespace Tests\Feature;
 
+use Role;
 use Tests\DatabaseTestCase;
 
 class ManageTopicsTest extends DatabaseTestCase
@@ -16,10 +17,16 @@ class ManageTopicsTest extends DatabaseTestCase
 			->assertRedirect('/login');
 	}
 
+	// an_authorized_user_can_add_topics
+	// an_unauthorized_user_cannot_add_topics
+
 	/** @test **/
 	public function an_authenticated_user_can_add_topics()
 	{
-		$this->signIn();
+		$user = create('App\Data\User');
+		$user->attachRole(Role::find(10));
+
+		$this->signIn($user);
 
 		$topic = make('App\Data\Topic');
 
@@ -38,7 +45,10 @@ class ManageTopicsTest extends DatabaseTestCase
 
 	protected function publishTopic(array $overrides = [])
 	{
-		$this->withExceptionHandling()->signIn();
+		$user = create('App\Data\User');
+		$user->attachRole(Role::find(10));
+
+		$this->withExceptionHandling()->signIn($user);
 
 		$topic = create('App\Data\Topic', $overrides);
 
