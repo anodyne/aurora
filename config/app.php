@@ -241,18 +241,18 @@ return [
 
 		'Discussion' => App\Data\Discussion::class,
         'DiscussionPresenter' => App\Data\Presenters\DiscussionPresenter::class,
-		'DiscussionRepository' => App\Data\Repositories\DiscussionRepository::class,
-        'DiscussionRepositoryContract' => App\Data\Contracts\DiscussionRepositoryContract::class,
+		//'DiscussionRepository' => App\Data\Repositories\DiscussionRepository::class,
+        //'DiscussionRepositoryContract' => App\Data\Contracts\DiscussionRepositoryContract::class,
 
 		'Reply' => App\Data\Reply::class,
         'ReplyPresenter' => App\Data\Presenters\ReplyPresenter::class,
-		'ReplyRepository' => App\Data\Repositories\ReplyRepository::class,
-        'ReplyRepositoryContract' => App\Data\Contracts\ReplyRepositoryContract::class,
+		//'ReplyRepository' => App\Data\Repositories\ReplyRepository::class,
+        //'ReplyRepositoryContract' => App\Data\Contracts\ReplyRepositoryContract::class,
 
 		'User' => App\Data\User::class,
         'UserPresenter' => App\Data\Presenters\UserPresenter::class,
-		'UserRepository' => App\Data\Repositories\UserRepository::class,
-        'UserRepositoryContract' => App\Data\Contracts\UserRepositoryContract::class,
+		//'UserRepository' => App\Data\Repositories\UserRepository::class,
+        //'UserRepositoryContract' => App\Data\Contracts\UserRepositoryContract::class,
 
         'Topic' => App\Data\Topic::class,
         'TopicPresenter' => App\Data\Presenters\TopicPresenter::class,

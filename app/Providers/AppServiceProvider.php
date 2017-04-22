@@ -1,20 +1,13 @@
 <?php namespace App\Providers;
 
-use App\Data\Reply;
-use App\Data\Topic;
-use App\Data\Discussion;
-use App\Observers\ReplyObserver;
-use App\Observers\TopicObserver;
-use App\Observers\DiscussionObserver;
+use App\Data;
+use App\Observers;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
 	public function boot()
 	{
-		// Build up the repository bindings and aliases
-		$this->repositoryBindings();
-
 		// Set the container bindings
 		$this->bindings();
 
@@ -78,8 +71,8 @@ class AppServiceProvider extends ServiceProvider
 
 	protected function setModelObservers()
 	{
-		Reply::observe(ReplyObserver::class);
-		Topic::observe(TopicObserver::class);
-		Discussion::observe(DiscussionObserver::class);
+		Data\Reply::observe(Observers\ReplyObserver::class);
+		Data\Topic::observe(Observers\TopicObserver::class);
+		Data\Discussion::observe(Observers\DiscussionObserver::class);
 	}
 }
