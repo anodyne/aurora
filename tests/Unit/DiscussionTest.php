@@ -39,6 +39,9 @@ class DiscussionTest extends DatabaseTestCase
     /** @test **/
     public function it_has_replies()
     {
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->discussion->replies);
+        $this->assertInstanceOf(
+			'Illuminate\Database\Eloquent\Collection',
+			$this->discussion->replies
+		);
     }
 }

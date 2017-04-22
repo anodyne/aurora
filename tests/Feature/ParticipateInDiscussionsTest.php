@@ -22,11 +22,11 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
         $reply = make('App\Data\Reply');
 
         $this->post(
-            route('discussions.replies', [$discussion->topic->slug, $discussion]),
+            route('discussions.replies', [$discussion->topic, $discussion]),
             $reply->toArray()
         );
 
-        $this->get(route('discussions.show', [$discussion->topic->slug, $discussion]))
+        $this->get(route('discussions.show', [$discussion->topic, $discussion]))
             ->assertSee($reply->body);
     }
 
@@ -42,11 +42,11 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
         ]);
 
         $this->post(
-            route('discussions.replies', [$discussion->topic->slug, $discussion]),
+            route('discussions.replies', [$discussion->topic, $discussion]),
             $reply->toArray()
         )->assertSessionHasErrors('body');
     }
 
-    // the_discussion_author_can_mark_a_reply_as_the_correct_answer
-    // a_user_who_is_not_the_author_cannot_set_the_answer_reply
+    // TODO: the_discussion_author_can_mark_a_reply_as_the_correct_answer
+    // TODO: a_user_who_is_not_the_author_cannot_set_the_answer_reply
 }

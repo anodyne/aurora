@@ -16,29 +16,30 @@ class ReadDiscussionsTest extends DatabaseTestCase
 	/** @test **/
 	public function a_user_can_view_all_discussions()
 	{
-		$this->get(route('home'))->assertSee($this->discussion->title);
+		$this->get(route('home'))
+			->assertSee($this->discussion->title);
 	}
 
 	/** @test **/
 	public function a_user_can_view_a_single_discussion()
 	{
-		$this->get(route('discussions.show', [$this->discussion->topic->slug, $this->discussion]))
+		$this->get(route('discussions.show', [$this->discussion->topic, $this->discussion]))
 			->assertSee($this->discussion->title);
 	}
 
 	/** @test **/
-	public function a_user_can_view_replies_associated_with_a_discussion()
+	public function a_user_can_view_discussion_replies()
 	{
 		$reply = create('App\Data\Reply', [
 			'discussion_id' => $this->discussion->id
 		]);
 
-		$this->get(route('discussions.show', [$this->discussion->topic->slug, $this->discussion]))
+		$this->get(route('discussions.show', [$this->discussion->topic, $this->discussion]))
 			->assertSee($reply->body);
 	}
 
 	/** @test **/
-	public function a_user_can_filter_discussions_according_to_a_topic()
+	public function a_user_can_filter_discussions_by_topic()
 	{
 		$topic = create('App\Data\Topic');
 		$discussionInTopic = create('App\Data\Discussion', ['topic_id' => $topic->id]);
@@ -50,7 +51,7 @@ class ReadDiscussionsTest extends DatabaseTestCase
 	}
 
 	/** @test **/
-	public function a_user_can_filter_discussions_by_any_username()
+	public function a_user_can_filter_discussions_by_user()
 	{
 		$user = create('App\Data\User');
 
@@ -80,5 +81,5 @@ class ReadDiscussionsTest extends DatabaseTestCase
 		$this->assertEquals([3, 2, 0], array_column($response, 'replies_count'));
 	}
 
-	// a_user_can_see_the_answer_to_a_discussion
+	// TODO: a_user_can_see_a_discussion_answer
 }

@@ -8,7 +8,7 @@ class FavoritesTest extends DatabaseTestCase
 	public function guests_cannot_favorite_anything()
 	{
 		$this->withExceptionHandling()
-			->post("/replies/1/favorites")
+			->post('/replies/1/favorites')
 			->assertRedirect(route('login'));
 	}
 
@@ -19,7 +19,7 @@ class FavoritesTest extends DatabaseTestCase
 
 		$reply = create('App\Data\Reply');
 
-		$this->post("/replies/{$reply->id}/favorites");
+		$this->post(route('favorites.store', $reply));
 
 		$this->assertCount(1, $reply->favorites);
 	}
@@ -32,12 +32,14 @@ class FavoritesTest extends DatabaseTestCase
 		$reply = create('App\Data\Reply');
 
 		try {
-			$this->post("/replies/{$reply->id}/favorites");
-			$this->post("/replies/{$reply->id}/favorites");
+			$this->post(route('favorites.store', $reply));
+			$this->post(route('favorites.store', $reply));
 		} catch (\Exception $e) {
 			$this->fail('Did not expect to insert the same record set twice.');
 		}
 
 		$this->assertCount(1, $reply->favorites);
 	}
+
+	// TODO: an_authenticated_user_can_unfavorite_a_reply
 }

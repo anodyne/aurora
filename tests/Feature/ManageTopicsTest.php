@@ -17,8 +17,8 @@ class ManageTopicsTest extends DatabaseTestCase
 			->assertRedirect('/login');
 	}
 
-	// an_authorized_user_can_add_topics
-	// an_unauthorized_user_cannot_add_topics
+	// TODO: an_authorized_user_can_add_topics
+	// TODO: an_unauthorized_user_cannot_add_topics
 
 	/** @test **/
 	public function an_authenticated_user_can_add_topics()
