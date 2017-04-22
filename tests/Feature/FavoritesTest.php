@@ -5,7 +5,7 @@ use Tests\DatabaseTestCase;
 class FavoritesTest extends DatabaseTestCase
 {
 	/** @test **/
-	public function guests_cannot_favorite_anything()
+	public function a_guest_cannot_favorite_anything()
 	{
 		$this->withExceptionHandling()
 			->post('/replies/1/favorites')
@@ -20,7 +20,6 @@ class FavoritesTest extends DatabaseTestCase
 		$reply = create('App\Data\Reply');
 
 		$this->post(route('favorites.store', $reply));
-
 		$this->assertCount(1, $reply->favorites);
 	}
 
@@ -41,5 +40,9 @@ class FavoritesTest extends DatabaseTestCase
 		$this->assertCount(1, $reply->favorites);
 	}
 
-	// TODO: an_authenticated_user_can_unfavorite_a_reply
+	/** @test **/
+	public function an_authenticated_user_can_unfavorite_a_reply()
+	{
+		//
+	}
 }
