@@ -67,31 +67,7 @@
 @endsection
 
 @section('modals')
-	@can('delete', $topic)
+	@can('delete', Topic::class)
 		{!! modal(['id' => "removeTopic", 'header' => 'Remove Topic']) !!}
 	@endcan
-@endsection
-
-@section('js')
-	<script>
-		var topic
-		var identifier = '#removeTopic'
-		var url = anodyneUrl("/admin/topics/" + topic + "/remove")
-		
-		$(identifier + ' .modal-content').load(url, function () {
-			$(identifier).modal('show')
-		})
-
-		$('.js-remove').on('click', function () {
-			// Do an Ajax call to grab the content for the modal
-			$.ajax({
-				url: '{{ route('topics.remove', [$topic]) }}',
-				success: function (data) {
-					$('#removeTopic .modal-content-container').html(data)
-				}
-			})
-
-			$('#removeTopic').modal('show')
-		})
-	</script>
 @endsection
