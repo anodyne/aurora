@@ -1,14 +1,14 @@
 <?php namespace App\Policies;
 
 use App\Data\User;
-use App\Data\Discussion;
+use App\Data\Topic;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TopicPolicy
 {
 	use HandlesAuthorization;
 
-	public function view(User $user, Discussion $discussion)
+	public function view(User $user, Topic $topic)
 	{
 		//
 	}
@@ -25,12 +25,12 @@ class TopicPolicy
 			or $user->can('forums.topic.delete');
 	}
 
-	public function update(User $user, Discussion $discussion)
+	public function update(User $user, Topic $topic)
 	{
 		return $user->can('forums.topic.edit');
 	}
 
-	public function delete(User $user, Discussion $discussion)
+	public function delete(User $user, Topic $topic)
 	{
 		return $user->can('forums.topic.delete');
 	}
