@@ -24,7 +24,7 @@ class AuthServiceProvider extends ServiceProvider
 
 		// Allow admins to do whatever they want
 		Gate::before(function ($user) {
-			if ($user->hasRole('Forums Administrator')) {
+			if ($user->hasRole('Forum Administrator')) {
 				return true;
 			}
 		});
