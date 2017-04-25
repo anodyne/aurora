@@ -85,7 +85,13 @@ class ManageTopicsTest extends DatabaseTestCase
 	}
 
 	/** @test **/
-	public function discussions_are_reassigned_to_a_new_topic_when_a_topic_is_deleted()
+	public function a_discussion_is_reassigned_to_a_new_topic_when_its_topic_is_deleted()
+	{
+		// TODO
+	}
+
+	/** @test **/
+	public function a_child_topic_is_reassigned_to_the_root_when_its_parent_topic_is_deleted()
 	{
 		// TODO
 	}
