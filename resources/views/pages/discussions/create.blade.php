@@ -26,7 +26,7 @@
 			<div class="col-md-8">
 				<div class="form-group">
 					<label class="control-label">Content</label>
-					<div id="editor"></div>
+					{!! Form::textarea('body', null, ['class' => 'form-control', 'rows' => 8]) !!}
 				</div>
 			</div>
 		</div>
