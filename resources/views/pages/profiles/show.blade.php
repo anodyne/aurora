@@ -9,11 +9,11 @@
 		{!! avatar($user)->image()->label('Member since '.$user->present()->createdAtRelative)->large() !!}
 	</div>
 
-	@if ($discussions->total() > 0)
-		{!! partial('discussions-list', ['discussions' => $discussions]) !!}
-
-		{{ $discussions->appends(request()->all())->links() }}
-	@else
-		{!! alert('warning', "No discussions found") !!}
-	@endif
+	@foreach ($activities as $date => $activity)
+		<h3>{{ $date }}</h3>
+		
+		@foreach ($activity as $record)
+			@include ("pages.profiles.activities.{$record->type}", ['activity' => $record])
+		@endforeach
+	@endforeach
 @endsection

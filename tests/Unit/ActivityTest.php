@@ -1,5 +1,6 @@
 <?php namespace Tests\Unit;
 
+use Date;
 use App\Data\Activity;
 use Tests\DatabaseTestCase;
 
@@ -43,5 +44,27 @@ class ActivityTest extends DatabaseTestCase
 		]);
 
 		$this->assertEquals($activity->subject->id, $reply->id);
+	}
+
+	/** @test **/
+	public function it_fetches_a_feed_for_any_user()
+	{
+		$this->signIn();
+
+		create('App\Data\Discussion', ['user_id' => auth()->id()], 2);
+
+		$feeds = Activity::user(auth()->user())->first()->update([
+			'created_at' => Date::now()->subWeek()
+		]);
+		
+		$feed = Activity::feed(auth()->user());
+
+		$this->assertTrue($feed->keys()->contains(
+			Date::now()->format('Y-m-d')
+		));
+
+		$this->assertTrue($feed->keys()->contains(
+			Date::now()->subWeek()->format('Y-m-d')
+		));
 	}
 }

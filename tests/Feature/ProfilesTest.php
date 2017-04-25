@@ -16,11 +16,11 @@ class ProfilesTest extends DatabaseTestCase
 	/** @test **/
 	public function profiles_display_all_discussions_by_the_user()
 	{
-		$user = $this->createUser();
+		$this->signIn();
 
-		$discussion = create('App\Data\Discussion', ['user_id' => $user->id]);
+		$discussion = create('App\Data\Discussion', ['user_id' => auth()->id()]);
 
-		$this->get(route('profile', $user))
+		$this->get(route('profile', auth()->user()))
 			->assertSee($discussion->title);
 	}
 }

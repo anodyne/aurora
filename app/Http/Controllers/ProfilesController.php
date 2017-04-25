@@ -2,6 +2,7 @@
 
 use User;
 use Discussion;
+use App\Data\Activity;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -18,11 +19,17 @@ class ProfilesController extends Controller
 
 	public function show(User $user)
 	{
-		// Get all of the discussions started by the user
-		$discussions = Discussion::user($user)->latest();
+		// Get all of the user's activity
+		$activities = Activity::with('subject')
+			->user($user)
+			->latest()
+			->get()
+			->groupBy(function ($activity) {
+				return $activity->created_at->format('Y-m-d');
+			});
 
 		return view('pages.profiles.show', [
-			'discussions' => $discussions->paginate(20),
+			'activities' => $activities,
 			'user' => $user,
 		]);
 	}
