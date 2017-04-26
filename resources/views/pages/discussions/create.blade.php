@@ -8,7 +8,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<label>Pick a Topic</label>
-					{!! Form::select('topic_id', $topics, null, ['class' => 'form-control', 'placeholder' => 'Choose a topic for your discussion']) !!}
+					{!! Form::topics() !!}
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 <?php namespace App\Providers;
 
+use Form;
 use App\Data;
 use App\Observers;
 use Illuminate\Support\ServiceProvider;
@@ -13,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
 
 		// Set the model observers
 		$this->setModelObservers();
+
+		// Build any macros we have
+		$this->macros();
 	}
 
 	public function register()
@@ -74,5 +78,27 @@ class AppServiceProvider extends ServiceProvider
 		Data\Reply::observe(Observers\ReplyObserver::class);
 		Data\Topic::observe(Observers\TopicObserver::class);
 		Data\Discussion::observe(Observers\DiscussionObserver::class);
+	}
+
+	protected function macros()
+	{
+		Form::macro('topics', function () {
+			$topicsArr = [];
+			$topics = Data\Topic::with('children')->parents()->get()->sortBy('name');
+
+			foreach ($topics as $parent) {
+				if ($parent->children->count() == 0) {
+					$topicsArr[$parent->id] = $parent->name;
+				} else {
+					$topicsArr[$parent->name][$parent->id] = $parent->name;
+
+					foreach ($parent->children as $child) {
+						$topicsArr[$parent->name][$child->id] = $child->name;
+					}
+				}
+			}
+
+			return Form::select('topic_id', $topicsArr, null, ['class' => 'form-control', 'placeholder' => 'Choose a topic']);
+		});
 	}
 }
