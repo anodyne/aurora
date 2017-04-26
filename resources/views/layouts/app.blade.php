@@ -112,6 +112,8 @@
 
 					@yield('content')
 				</div>
+
+				<flash message="{{ session('flash') }}"></flash>
 			</main>
 
 			<footer>

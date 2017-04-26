@@ -77,7 +77,8 @@ class DiscussionsController extends Controller
 			'body' => $request->get('body'),
 		]);
 
-		return redirect()->route('discussions.show', [$discussion->topic->slug, $discussion]);
+		return redirect()->route('discussions.show', [$discussion->topic->slug, $discussion])
+			->with('flash', 'Your discussion has been created.');
 	}
 
 	public function destroy(Topic $topic, Discussion $discussion)
@@ -90,8 +91,7 @@ class DiscussionsController extends Controller
 			return response([], 204);
 		}
 
-		flash()->success('Discussion deleted!');
-
-		return redirect()->route('home');
+		return redirect()->route('home')
+			->with('flash', 'Your discussion has been deleted.');
 	}
 }

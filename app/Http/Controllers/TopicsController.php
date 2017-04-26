@@ -50,10 +50,8 @@ class TopicsController extends Controller
 		// Create the topic
 		$topic = Topic::create($request->all());
 
-		// Set the flash message
-		flash()->success('Topic added!');
-
-		return redirect()->route('topics.index');
+		return redirect()->route('topics.index')
+			->with('flash', 'Topic added.');
 	}
 
 	public function edit(Topic $topic)
@@ -77,10 +75,8 @@ class TopicsController extends Controller
 		// Update the topic
 		$topic->update($request->all());
 
-		// Set the flash message
-		flash()->success('Topic updated!');
-
-		return redirect()->route('topics.index');
+		return redirect()->route('topics.index')
+			->with('flash', 'Topic updated.');
 	}
 
 	public function remove(Topic $topic)
@@ -112,10 +108,8 @@ class TopicsController extends Controller
 		// Delete the topic
 		$topic->delete();
 
-		// Set the flash message
-		flash()->success('Topic deleted!');
-
-		return redirect()->route('topics.index');
+		return redirect()->route('topics.index')
+			->with('flash', 'Topic deleted.');
 	}
 
 	public function restore(Topic $topic)
