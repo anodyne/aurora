@@ -80,18 +80,7 @@
 				</nav>
 
 				<div class="container">
-					<div class="d-flex align-items-center justify-content-end flex-column flex-lg-row py-4 my-4">
-						<div class="mr-lg-auto hidden-sm-down">
-							<a href="{{ route('home') }}" class="brand">Anodyne Forums</a>
-						</div>
-						<div>
-							<nav class="nav-sub">
-								<a href="{{ route('home') }}">All Discussions</a>
-								<a href="#">Leaderboard</a>
-								<a href="#">Advanced Search</a>
-							</nav>
-						</div>
-					</div>
+					@include('partials.header')
 				</div>
 			</header>
 
