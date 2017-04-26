@@ -42,15 +42,11 @@ class DiscussionsController extends Controller
 
 	public function create()
 	{
-		$topics = Topic::get()->pluck('name', 'id');
-
-		return view('pages.discussions.create', compact('topics'));
+		return view('pages.discussions.create');
 	}
 
 	public function show($topic, Discussion $discussion)
 	{
-		//dd($discussion->answer());
-
 		// Figure out if we need to load a parent topic
 		$topic = ($discussion->topic->parent_id !== null)
 			? $discussion->topic->load('parent')
