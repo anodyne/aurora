@@ -62,7 +62,7 @@ class DiscussionPresenter extends Presenter
 		// Grab the author of the last reply
 		$author = ($this->entity->replies_count > 0)
 			? $this->entity->replies->last()->author
-			: false;
+			: $this->entity->author;
 
 		if ($author) {
 			return link_to_route('profile', $author->present()->name, [$author->username]);
