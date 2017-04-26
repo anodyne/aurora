@@ -13,6 +13,9 @@ class DiscussionObserver extends Observer
 	public function deleting(Discussion $discussion)
 	{
 		// Delete all the replies
-		$discussion->replies()->delete();
+		$discussion->replies->each->delete();
+
+		// Delete all of the activity
+		$discussion->activity()->delete();
 	}
 }

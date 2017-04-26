@@ -9,4 +9,10 @@ class ReplyObserver extends Observer
 		// Record the activity for creating a reply
 		$this->recordActivity($reply, 'created');
 	}
+
+	public function deleting(Reply $reply)
+	{
+		// Delete all of the activity
+		$reply->activity()->delete();
+	}
 }

@@ -1,5 +1,6 @@
 <?php namespace Tests\Feature;
 
+use App\Data\Activity;
 use Tests\DatabaseTestCase;
 
 class ManageDiscussionsTest extends DatabaseTestCase
@@ -98,6 +99,7 @@ class ManageDiscussionsTest extends DatabaseTestCase
 
 		$this->assertSoftDeleted('discussions', ['id' => $discussion->id]);
 		$this->assertSoftDeleted('replies', ['id' => $reply->id]);
+		$this->assertEquals(0, Activity::count());
 	}
 
 	protected function publishDiscussion(array $overrides = [])
