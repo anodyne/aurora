@@ -15,16 +15,18 @@
 
 	{!! view('pages.discussions._post-first')->with('post', $discussion) !!}
 
-	<div class="discussion-summary">
-		@icon('chat', 'text-subtle')
+	<div>
+		<div class="discussion-summary">
+			@icon('chat', 'text-subtle')
 
-		<span>
-			{{ $discussion->replies_count }} {{ str_plural('reply', $discussion->replies_count) }}
+			<span>
+				{{ $discussion->replies_count }} {{ str_plural('reply', $discussion->replies_count) }}
 
-			@if ($discussion->isAnswered())
-				with 1 correct answer
-			@endif
-		</span>
+				@if ($discussion->isAnswered())
+					with 1 correct answer
+				@endif
+			</span>
+		</div>
 	</div>
 
 	@if ($discussion->isAnswered())
@@ -37,11 +39,13 @@
 
 	{{ $replies->links() }}
 
-	<div class="discussion-summary">
-		@icon('bell', 'text-subtle')
-		<label>
-			<input type="checkbox"> Notify me when there are replies to this discussion
-		</label>
+	<div>
+		<div class="discussion-summary">
+			@icon('bell', 'text-subtle')
+			<label>
+				<input type="checkbox"> Notify me when there are replies to this discussion
+			</label>
+		</div>
 	</div>
 
 	@if (auth()->check())
