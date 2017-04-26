@@ -76,9 +76,9 @@ nav.nav-main {
 		}
 
 		&:hover {
-			background: darken($color-nav-main, 1%);
+			background: rgba(255, 255, 255, 0.075);
 			text-decoration: none;
-			color: $color-subtle;
+			color: rgba(255, 255, 255, 0.65);
 
 			.user-icon {
 				.icon {
@@ -196,6 +196,16 @@ header {
 		letter-spacing: 0.01em;
 		outline: none;
 
+		.icon {
+			height: 2em;
+			width: 2em;
+			margin-right: $space-xs;
+
+			path {
+				fill: $color-white !important;
+			}
+		}
+
 		small {
 			font-size: 1.5rem;
 			font-weight: 300;
@@ -209,6 +219,8 @@ header {
 	}
 
 	nav.nav-sub {
+		display: flex;
+		align-items: center;
 		position: relative;
 		z-index: 15;
 
@@ -223,6 +235,14 @@ header {
 			&:hover {
 				text-decoration: none;
 				color: $color-white;
+			}
+		}
+
+		.btn-outline-primary {
+			@include button-outline-variant(rgba(255, 255, 255, 0.6), $color-primary);
+
+			&:hover {
+				background-color: $color-white !important;
 			}
 		}
 	}
