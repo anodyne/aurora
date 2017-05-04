@@ -1,5 +1,10 @@
-<div class="card mb-3">
-	<div class="card-block d-flex align-items-center">
-		{!! $body !!}
+<div class="cd-timeline-block">
+	<div class="cd-timeline-img cd-{{ $type }}">
+		{{ $icon }}
+	</div>
+
+	<div class="cd-timeline-content">
+		{{ $body }}
+		<span class="cd-date">{{ $date }}</span>
 	</div>
 </div>
