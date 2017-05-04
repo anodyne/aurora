@@ -97,6 +97,27 @@ class ManageTopicsTest extends DatabaseTestCase
 	}
 
 	/** @test **/
+	public function a_topic_can_be_restored()
+	{
+		$user = $this->createAdmin();
+
+		$this->signIn($user);
+
+		$topic = create('App\Data\Topic');
+
+		$topic->delete();
+
+		$this->assertSoftDeleted('topics', ['id' => $topic->id]);
+
+		$this->put(route('topics.restore', $topic));
+
+		$this->assertDatabaseHas('topics', [
+			'id' => $topic->id,
+			'deleted_at' => null
+		]);
+	}
+
+	/** @test **/
 	public function a_topic_requires_a_name()
 	{
 		$this->publishTopic(['name' => ''])
