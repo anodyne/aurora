@@ -4,6 +4,11 @@ use App\Data\Discussion;
 
 class DiscussionObserver extends Observer
 {
+	public function answered(Discussion $discussion)
+	{
+		\Log::info('Discussion answered!');
+	}
+
 	public function created(Discussion $discussion)
 	{
 		// Record the activity for creating a discussion

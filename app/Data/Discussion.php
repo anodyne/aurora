@@ -14,6 +14,7 @@ class Discussion extends Eloquent
 	protected $with = ['author', 'topic'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = DiscussionPresenter::class;
+	protected $observables = ['answered'];
 
 	protected static function boot()
 	{
