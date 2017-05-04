@@ -14,7 +14,7 @@
 					{!! $labelContentBefore !!} &nbsp; &bull; &nbsp;
 				@endif
 
-				1,650 XP
+				{{ $user->present()->points }}
 
 				@if ($labelContentAfter !== null)
 					&nbsp; &bull; &nbsp; {!! $labelContentAfter !!}
@@ -27,7 +27,7 @@
 					{!! $labelContentBefore !!} &nbsp; &bull; &nbsp;
 				@endif
 
-				1,650 XP
+				{{ $user->present()->points }}
 
 				@if ($labelContentAfter !== null)
 					&nbsp; &bull; &nbsp; {!! $labelContentAfter !!}
@@ -44,7 +44,7 @@
 					{!! $labelContentBefore !!} &nbsp; &bull; &nbsp;
 				@endif
 
-				450 XP
+				{{ $user->present()->points }}
 
 				@if ($labelContentAfter !== null)
 					&nbsp; &bull; &nbsp; {!! $labelContentAfter !!}
