@@ -258,6 +258,7 @@ return [
         'TopicPresenter' => App\Data\Presenters\TopicPresenter::class,
 
         'Favorite' => App\Data\Favorite::class,
+        'FavoritePresenter' => App\Data\Presenters\FavoritePresenter::class,
 
         'Permission' => App\Data\Permission::class,
         'Role' => App\Data\Role::class,
