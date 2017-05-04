@@ -57,17 +57,18 @@
 											<span class="pr-2">{!! avatar($_user)->image()->tiny() !!}</span>
 											{{ $_user->present()->name }}
 										</a>
-										<div class="dropdown-menu">
+										<div class="dropdown-menu dropdown-menu-right">
 											<a href="{{ route('profile', $_user) }}" class="dropdown-item">My Profile</a>
 											<a href="{{ config('anodyne.links.www') }}admin/users/{{ $_user->username }}/edit" class="dropdown-item">Edit My Profile</a>
 											<div class="dropdown-divider"></div>
 
 											@if ($_user->can('forums.admin'))
+												<h6 class="dropdown-header">Admin</h6>
 												<a href="{{ route('topics.index') }}" class="dropdown-item">Manage Topics</a>
 												<div class="dropdown-divider"></div>
 											@endif
 
-											<a href="#">Logout</a>
+											<a href="#" class="dropdown-item">Logout</a>
 										</div>
 									</div>
 								@else
