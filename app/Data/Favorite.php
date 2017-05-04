@@ -12,4 +12,9 @@ class Favorite extends Eloquent
 	protected $table = 'favorites';
 	protected $fillable = ['user_id', 'favorited_id', 'favorited_type'];
 	protected $presenter = FavoritePresenter::class;
+
+	public function favorited()
+	{
+		return $this->morphTo();
+	}
 }
