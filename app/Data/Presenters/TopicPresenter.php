@@ -28,7 +28,7 @@ class TopicPresenter extends Presenter
 			// Get the latest discussion in the topic
 			$discussion = $this->entity->discussions->first();
 
-			return $discussion->present()->updatedAt." ".$discussion->present()->updatedBy;
+			return $discussion->present()->updated('relative')." ".$discussion->present()->updatedBy;
 		}
 
 		return false;

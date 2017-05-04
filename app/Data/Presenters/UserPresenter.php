@@ -26,7 +26,7 @@ class UserPresenter extends Presenter
 
 	public function points()
 	{
-		return number_format($this->entity->points);
+		return number_format($this->entity->points).' XP';
 	}
 
 	public function postCount()
