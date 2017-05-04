@@ -22,6 +22,9 @@ Route::delete('discussions/{topic}/{discussion}', 'DiscussionsController@destroy
 Route::get('/', 'DiscussionsController@index')->name('home');
 Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store')->name('discussions.replies');
 
+Route::patch('replies/{reply}', 'RepliesController@update')->name('replies.update');
+Route::delete('replies/{reply}', 'RepliesController@destroy')->name('replies.destroy');
+
 Route::post('replies/{reply}/favorites', 'FavoritesController@store')->name('favorites.store');
 
 Route::get('user/{user}', 'ProfilesController@show')->name('profile');
@@ -35,20 +38,25 @@ Route::get('login', function () {
 })->name('login');
 
 Route::get('test', function () {
-	$user = User::find(1);
+	$discussion = Discussion::find(1);
 
-	dd($user->hasRole('Forum Administrator'));
+	dd($discussion->present()->created('time24'));
 
 	return view('pages.test');
 });
 
 Route::group(['prefix' => 'admin'], function () {
+	app('router')->bind('deletedTopic', function ($value) {
+		return App\Data\Topic::withTrashed()->where('slug', $value)->first();
+	});
+
 	Route::get('topics', 'TopicsController@index')->name('topics.index');
 	Route::get('topics/create', 'TopicsController@create')->name('topics.create');
 	Route::get('topics/{topic}/edit', 'TopicsController@edit')->name('topics.edit');
 	Route::get('topics/{topic}/remove', 'TopicsController@remove')->name('topics.remove');
 	Route::put('topics/{topic}', 'TopicsController@update')->name('topics.update');
-	Route::put('topics/{topic}/restore', 'TopicsController@restore')->name('topics.restore');
+	Route::put('topics/{deletedTopic}/restore', 'TopicsController@restore')
+		->name('topics.restore');
 	Route::post('topics', 'TopicsController@store')->name('topics.store');
 	Route::delete('topics/{topic}', 'TopicsController@destroy')->name('topics.destroy');
 });
