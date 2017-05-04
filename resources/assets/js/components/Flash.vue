@@ -11,6 +11,7 @@
 		position: fixed;
 		right: 1rem;
 		bottom: 0;
+		z-index: 1000;
 
 		box-shadow: 0 3px 9px rgba(0, 0, 0, 0.25);
 	}
