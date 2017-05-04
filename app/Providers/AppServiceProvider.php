@@ -77,6 +77,7 @@ class AppServiceProvider extends ServiceProvider
 	{
 		Data\Reply::observe(Observers\ReplyObserver::class);
 		Data\Topic::observe(Observers\TopicObserver::class);
+		Data\Favorite::observe(Observers\FavoriteObserver::class);
 		Data\Discussion::observe(Observers\DiscussionObserver::class);
 	}
 
