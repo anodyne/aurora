@@ -10,10 +10,14 @@
 	</div>
 
 	@foreach ($activities as $date => $activity)
-		<h3>{{ $date }}</h3>
-		
-		@foreach ($activity as $record)
-			@include ("pages.profiles.activities.{$record->type}", ['activity' => $record])
-		@endforeach
+		<div class="text-center">
+			<span class="cd-date-heading">{{ $date }}</span>
+		</div>
+
+		<section class="cd-timeline cd-container">
+			@foreach ($activity as $record)
+				@include ("pages.profiles.activities.{$record->type}", ['activity' => $record])
+			@endforeach
+		</section>
 	@endforeach
 @endsection

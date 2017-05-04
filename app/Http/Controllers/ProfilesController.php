@@ -25,7 +25,7 @@ class ProfilesController extends Controller
 			->latest()
 			->get()
 			->groupBy(function ($activity) {
-				return $activity->created_at->format('Y-m-d');
+				return $activity->created_at->format('d M Y');
 			});
 
 		return view('pages.profiles.show', [
