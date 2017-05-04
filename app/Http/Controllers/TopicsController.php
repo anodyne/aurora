@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use Topic;
-use Discussion;
+use App\Data\Topic;
+use App\Data\Discussion;
 use Illuminate\Http\Request;
 use App\Filters\DiscussionFilters;
 
@@ -23,7 +23,6 @@ class TopicsController extends Controller
 	{
 		$this->authorize('manage', new Topic);
 
-		// Grab all of the topics and eager load the children
 		$topics = Topic::with('children')->parents()->withTrashed()->get();
 
 		return view('pages.topics.index', compact('topics'));
@@ -33,7 +32,6 @@ class TopicsController extends Controller
 	{
 		$this->authorize('create', new Topic);
 
-		// Get only the parent topics... no infinite nesting!
 		$topics = Topic::parents()->get()->pluck('name', 'id');
 
 		return view('pages.topics.create', compact('topics'));
@@ -47,7 +45,6 @@ class TopicsController extends Controller
 			'name' => 'required',
 		]);
 
-		// Create the topic
 		$topic = Topic::create($request->all());
 
 		return redirect()->route('topics.index')
@@ -58,7 +55,6 @@ class TopicsController extends Controller
 	{
 		$this->authorize('update', $topic);
 
-		// Get only the parent topics... no infinite nesting!
 		$topics = Topic::parents()->get()->pluck('name', 'id');
 
 		return view('pages.topics.edit', compact('topic', 'topics'));
@@ -72,7 +68,6 @@ class TopicsController extends Controller
 			'name' => 'required',
 		]);
 
-		// Update the topic
 		$topic->update($request->all());
 
 		return redirect()->route('topics.index')
@@ -81,7 +76,6 @@ class TopicsController extends Controller
 
 	public function remove(Topic $topic)
 	{
-		// Get all of the topics except the one we're trying to remove
 		$topics = Topic::where('id', '!=', $topic->id)->get()->pluck('name', 'id');
 
 		if (policy($topic)->remove(auth()->user())) {
@@ -105,7 +99,6 @@ class TopicsController extends Controller
 
 		// Reassign discussions that are in this topic
 
-		// Delete the topic
 		$topic->delete();
 
 		return redirect()->route('topics.index')
@@ -116,12 +109,9 @@ class TopicsController extends Controller
 	{
 		$this->authorize('update', $topic);
 
-		// Restore the topic
 		$topic->restore();
 
-		// Set the flash message
-		flash()->success('Topic restored!');
-
-		return redirect()->route('topics.index');
+		return redirect()->route('topics.index')
+			->with('flash', 'Topic restored.');
 	}
 }
