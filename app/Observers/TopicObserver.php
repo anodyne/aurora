@@ -10,6 +10,11 @@ class TopicObserver extends Observer
 		$this->refreshCache();
 	}
 
+	public function restored(Topic $topic)
+	{
+		$this->refreshCache();
+	}
+
 	public function saved(Topic $topic)
 	{
 		$this->refreshCache();
