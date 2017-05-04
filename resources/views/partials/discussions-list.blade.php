@@ -24,7 +24,7 @@
 					<div class="meta-item timestamp">
 						@icon('clock')
 						<span>
-							{!! $discussion->present()->updatedAtRelative !!}
+							{!! $discussion->present()->updated('relative') !!}
 							by&nbsp;{!! $discussion->present()->updatedBy !!}
 						</span>
 					</div>

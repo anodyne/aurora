@@ -4,33 +4,47 @@ use Laracasts\Presenter\Presenter as BasePresenter;
 
 abstract class Presenter extends BasePresenter
 {
-	public function createdAt()
+	public function created($format = null): string
 	{
-		return $this->entity->created_at->format('d M Y @ g:ia');
+		return $this->formatDate($format, $this->entity->created_at);
 	}
 
-	public function createdAtRelative()
+	public function deleted($format = null): string
 	{
-		return $this->entity->created_at->diffForHumans();
+		return $this->formatDate($format, $this->entity->deleted_at);
 	}
 
-	public function deletedAt()
+	public function updated($format = null): string
 	{
-		return $this->entity->deleted_at->format();
+		return $this->formatDate($format, $this->entity->updated_at);
 	}
 
-	public function deletedDiff()
+	protected function formatDate($format, $entity)
 	{
-		return $this->entity->deleted_at->diffForHumans();
-	}
+		switch ($format) {
+			case 'date':
+				return $entity->format('d M Y');
+				break;
 
-	public function updatedAt()
-	{
-		return $this->entity->updated_at->format();
-	}
+			case 'raw':
+				return $entity;
+				break;
 
-	public function updatedAtRelative()
-	{
-		return $this->entity->updated_at->diffForHumans();
+			case 'relative':
+				return $entity->diffForHumans();
+				break;
+
+			case 'time':
+				return $entity->format('g:ia');
+				break;
+
+			case 'time24':
+				return $entity->format('H:i');
+				break;
+
+			default:
+				return $entity->format('d M Y @ g:ia');
+				break;
+		}
 	}
 }

@@ -7,10 +7,10 @@
 		<div class="panel panel-default">
 			<div class="panel-heading hidden-sm-down">
 				<h3 class="panel-title"><a href="{{ route('profile', [$post->author]) }}">{{ $post->author->name }}</a></h3>
-				<small class="timestamp js-tooltip-top" title="{{ $post->present()->createdAt }}">Posted {{ $post->present()->createdAtRelative }}</small>
+				<small class="timestamp js-tooltip-top" title="{{ $post->present()->created }}">Started {{ $post->present()->created('relative') }}</small>
 			</div>
 			<div class="panel-heading hidden-md-up">
-				{!! avatar($post->author)->link()->label($post->created_at->diffForHumans()) !!}
+				{!! avatar($post->author)->link()->label($post->present()->created('relative')) !!}
 				<div class="dropdown">
 					<a href="#" id="dropdownMenuButton" data-toggle="dropdown">
 						@icon('dots-three-vertical')
@@ -35,6 +35,12 @@
 
 			<div class="panel-body">
 				@markdown($post->body)
+
+				@if ($post->author->signature)
+					<div class="post-signature">
+						@markdown($post->author->signature)
+					</div>
+				@endif
 			</div>
 
 			@if (auth()->check())

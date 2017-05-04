@@ -6,7 +6,7 @@
 
 @section('content')
 	<div class="mb-4">
-		{!! avatar($user)->image()->label('Member since '.$user->present()->createdAtRelative)->large() !!}
+		{!! avatar($user)->image()->label('Member since '.$user->present()->created('relative'))->large() !!}
 	</div>
 
 	@foreach ($activities as $date => $activity)
