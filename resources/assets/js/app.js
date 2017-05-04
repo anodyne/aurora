@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap')
+var marked = require('marked')
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13,6 +14,15 @@ require('./bootstrap')
  */
 
 Vue.component('flash', require('./components/Flash.vue'))
+Vue.component('reply', require('./components/Reply.vue'))
+
+Vue.mixin({
+	methods: {
+		marked: function (input) {
+			return marked(input)
+		}
+	}
+})
 
 const app = new Vue({
 	el: '#app'
