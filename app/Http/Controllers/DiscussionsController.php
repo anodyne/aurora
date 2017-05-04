@@ -36,7 +36,7 @@ class DiscussionsController extends Controller
 
 		return view('pages.discussions.all', [
 			'discussions' => $discussions->paginate(20),
-			'topics' => cache('topics', collect())->where('parent_id', null),
+			'topics' => cache('topics', collect())->where('parent_id', null)->sortBy('name'),
 		]);
 	}
 
