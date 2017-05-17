@@ -38,10 +38,6 @@ Route::get('login', function () {
 	//
 })->name('login');
 
-Route::get('test', function () {
-	return view('pages.test');
-});
-
 Route::group(['prefix' => 'admin'], function () {
 	app('router')->bind('deletedTopic', function ($value) {
 		return App\Data\Topic::withTrashed()->where('slug', $value)->first();
@@ -59,3 +55,10 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('topics/{topic}', 'DiscussionsController@index')->name('topics.discussions');
+
+Route::get('test', function () {
+	auth()->setUser(User::find(85));
+	view()->share('_user', auth()->user());
+
+	return view('pages.test');
+});
