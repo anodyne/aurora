@@ -54,7 +54,13 @@
 @section('js')
 	<script>
 		var vm = new Vue({
-			el: "#app"
+			el: '#app',
+
+			mounted () {
+				var user = window.App.user
+
+				console.log(window.App.userAuthorization)
+			}
 		})
 	</script>
 @endsection
