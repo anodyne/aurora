@@ -125,8 +125,10 @@
 		},
 
 		computed: {
-			canCreate () {},
-			canDelete () {},
+			canDelete () {
+				return this.authorize(user => false)
+			},
+			
 			canUpdate () {
 				return this.authorize(user => this.reply.user_id == user.id)
 			},
