@@ -15,7 +15,7 @@ class ReplyPolicy
 
 	public function create(User $user)
 	{
-		//return $user->can('forums.discussion.create');
+		return true;
 	}
 
 	public function update(User $user, Reply $reply)
