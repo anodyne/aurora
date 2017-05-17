@@ -105,11 +105,15 @@ class TopicsController extends Controller
 			->with('flash', 'Topic deleted.');
 	}
 
-	public function restore(Topic $topic)
+	public function restore(Request $request, Topic $topic)
 	{
 		$this->authorize('update', $topic);
 
 		$topic->restore();
+
+		if ($request->expectsJson()) {
+			return response(['status' => 'Reply deleted']);
+		}
 
 		return redirect()->route('topics.index')
 			->with('flash', 'Topic restored.');
