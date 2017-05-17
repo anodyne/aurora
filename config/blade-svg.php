@@ -2,7 +2,7 @@
 
 return [
     'icon_path' => 'resources/assets/svg',
-    'spritesheet_path' => 'path/to/spritesheet',
+    'spritesheet_path' => 'public/svg/symbol-defs.svg',
     'inline' => true,
     'class' => 'icon',
 ];
