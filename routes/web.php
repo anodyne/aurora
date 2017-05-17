@@ -39,10 +39,6 @@ Route::get('login', function () {
 })->name('login');
 
 Route::get('test', function () {
-	$discussion = Discussion::find(1);
-
-	dd($discussion->present()->created('time24'));
-
 	return view('pages.test');
 });
 
