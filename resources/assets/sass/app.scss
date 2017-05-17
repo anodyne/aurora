@@ -509,50 +509,6 @@ svg.icon {
 	}
 }
 
-.avatar {
-	height: 50px;
-	width: 50px;
-	display: block;
-
-	background-color: transparent;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-	border-radius: 50%;
-
-	&.xs {
-		height: 24px;
-		width: 24px;
-	}
-
-	&.sm {
-		height: 36px;
-		width: 36px;
-	}
-
-	&.md {
-		height: 72px;
-		width: 72px;
-	}
-
-	&.lg {
-		height: 100px;
-		width: 100px;
-	}
-}
-
-.avatar-text {
-	margin-left: 120px;
-
-	font-weight: 500;
-}
-.avatar-text-xs {
-	margin-left: 46px;
-}
-.avatar-text-sm {
-	margin-left: 65px;
-}
-
 .panel {
 	margin: $spacing 0;
 
@@ -583,14 +539,14 @@ svg.icon {
 				align-items: center;
 			}
 
-			path {
+			.icon, .favorites-icon {
 				fill: $color-gray-blue;
 			}
 
 			&:hover {
 				text-decoration: none;
 
-				path {
+				.icon, .favorites-icon {
 					fill: darken($color-gray-blue, 15%);
 				}
 			}
@@ -611,7 +567,7 @@ svg.icon {
 				}
 			}
 
-			path {
+			.icon {
 				fill: $color-gray-blue;
 			}
 		}
@@ -624,7 +580,7 @@ svg.icon {
 				&.btn {
 					color: $color-gray-blue;
 
-					path {
+					.icon, path, .favorites-icon {
 						fill: $color-gray-blue;
 					}
 
@@ -633,8 +589,17 @@ svg.icon {
 						border-color: lighten($color-gray-light, 2.5%);
 						background-color: lighten($color-subtle, 3%);
 
-						path {
+						.icon, path, .favorites-icon {
 							fill: darken($color-gray-blue, 15%);
+						}
+					}
+
+					&.btn-liked {
+						background-color: #ededed;
+						color: $color-gray-blue;
+
+						.icon, path {
+							fill: $color-gray-blue;
 						}
 					}
 				}
@@ -769,7 +734,7 @@ svg.icon {
 				}
 			}
 
-			path {
+			path, .icon {
 				fill: $color-success-dark;
 			}
 
@@ -789,7 +754,7 @@ svg.icon {
 					border: 1px solid transparent;
 					border-radius: $radius;
 
-					path {
+					path, .icon {
 						fill: $color-success-dark;
 					}
 
@@ -799,8 +764,17 @@ svg.icon {
 						border-color: lighten($color-success-light, 10%);
 						background-color: lighten($color-success-bright, 6.5%);
 
-						path {
+						path, .icon {
 							fill: darken($color-success-dark, 15%);
+						}
+					}
+
+					&.btn-liked {
+						background-color: $color-success-bright;
+						color: $color-success-dark;
+
+						.icon, path {
+							fill: $color-success-dark;
 						}
 					}
 				}
@@ -1412,6 +1386,60 @@ form {
 	padding-top: 2rem;
 
 	border-top: 1px solid $color-subtle;
+}
+
+.avatar-container {
+	display: flex;
+	align-items: center;
+
+	.avatar-label {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.avatar {
+		height: 50px;
+		width: 50px;
+		display: block;
+
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		border-radius: 50%;
+
+		&.xs {
+			height: 24px;
+			width: 24px;
+		}
+
+		&.sm {
+			height: 36px;
+			width: 36px;
+		}
+
+		&.md {
+			height: 72px;
+			width: 72px;
+		}
+
+		&.lg {
+			height: 100px;
+			width: 100px;
+		}
+	}
+
+	.avatar-text {
+		margin-left: 120px;
+
+		font-weight: 500;
+	}
+	.avatar-text-xs {
+		margin-left: 46px;
+	}
+	.avatar-text-sm {
+		margin-left: 65px;
+	}
 }
 
 [v-cloak] {
