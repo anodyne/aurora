@@ -9,7 +9,7 @@
 		{!! avatar($user)->image()->label('Member since '.$user->present()->created('relative'))->large() !!}
 	</div>
 
-	@foreach ($activities as $date => $activity)
+	@forelse ($activities as $date => $activity)
 		<div class="text-center">
 			<span class="cd-date-heading">{{ $date }}</span>
 		</div>
@@ -19,5 +19,7 @@
 				@include ("pages.profiles.activities.{$record->type}", ['activity' => $record])
 			@endforeach
 		</section>
-	@endforeach
+	@empty
+		{!! alert('warning', "No activity found.") !!}
+	@endforelse
 @endsection
