@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center">
+<div class="avatar-container">
 @if ($type == 'link')
 	<a href="{{ $link }}" class="avatar {{ $size }}" style="background-image:url({{ $url }})"></a>
 @else
@@ -6,50 +6,66 @@
 @endif
 
 @if ($label)
-	<div class="d-flex flex-column ml-3">
+	<div>
 		@if ($size == 'lg')
-			<span class="h1">{{ $user->name }}</span>
-			<span class="text-muted">
-				@if ($labelContentBefore !== null)
-					{!! $labelContentBefore !!} &nbsp; &bull; &nbsp;
-				@endif
+			<div class="avatar-label ml-3">
+				<span class="h1">{{ $user->name }}</span>
+				<span class="text-muted">
+					@if ($labelContentBefore !== null)
+						<span>{!! $labelContentBefore !!}</span>
+						<span class="px-1">&bull;</span>
+					@endif
 
-				{{ $user->present()->points }}
+					<span>{{ $user->present()->points }}</span>
 
-				@if ($labelContentAfter !== null)
-					&nbsp; &bull; &nbsp; {!! $labelContentAfter !!}
-				@endif
-			</span>
+					@if ($labelContentAfter !== null)
+						<span class="px-1">&bull;</span>
+						<span>{!! $labelContentAfter !!}</span>
+					@endif
+				</span>
+			</div>
 		@elseif ($size == 'md')
-			<span class="h4">{{ $user->name }}</span>
-			<span class="text-muted">
-				@if ($labelContentBefore !== null)
-					{!! $labelContentBefore !!} &nbsp; &bull; &nbsp;
-				@endif
+			<div class="avatar-label ml-3">
+				<span class="h4">{{ $user->name }}</span>
+				<span class="text-muted">
+					@if ($labelContentBefore !== null)
+						<span>{!! $labelContentBefore !!}</span>
+						<span class="px-1">&bull;</span>
+					@endif
 
-				{{ $user->present()->points }}
+					<span>{{ $user->present()->points }}</span>
 
-				@if ($labelContentAfter !== null)
-					&nbsp; &bull; &nbsp; {!! $labelContentAfter !!}
-				@endif
-			</span>
+					@if ($labelContentAfter !== null)
+						<span class="px-1">&bull;</span>
+						<span>{!! $labelContentAfter !!}</span>
+					@endif
+				</span>
+			</div>
 		@elseif ($size == 'sm')
-			<span class="h5 mb-0">{{ $user->name }}</span>
+			<div class="avatar-label ml-2">
+				<span class="h5 mb-0">{{ $user->name }}</span>
+			</div>
 		@elseif ($size == 'xs')
-			<span class="h6 mb-0">{{ $user->name }}</span>
+			<div class="avatar-label ml-2">
+				<span class="h6 mb-0">{{ $user->name }}</span>
+			</div>
 		@else
-			<span class="h6 mb-1">{{ $user->name }}</span>
-			<small class="text-muted">
-				@if ($labelContentBefore !== null)
-					{!! $labelContentBefore !!} &nbsp; &bull; &nbsp;
-				@endif
+			<div class="avatar-label ml-3">
+				<span class="h6 mb-1">{{ $user->name }}</span>
+				<small class="text-muted">
+					@if ($labelContentBefore !== null)
+						<span>{!! $labelContentBefore !!}</span>
+						<span class="px-1">&bull;</span>
+					@endif
 
-				{{ $user->present()->points }}
+					<span>{{ $user->present()->points }}</span>
 
-				@if ($labelContentAfter !== null)
-					&nbsp; &bull; &nbsp; {!! $labelContentAfter !!}
-				@endif
-			</small>
+					@if ($labelContentAfter !== null)
+						<span class="px-1">&bull;</span>
+						<span>{!! $labelContentAfter !!}</span>
+					@endif
+				</small>
+			</div>
 		@endif
 	</div>
 @endif
