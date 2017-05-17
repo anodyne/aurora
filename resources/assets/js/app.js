@@ -14,7 +14,9 @@ var marked = require('marked')
  */
 
 Vue.component('flash', require('./components/Flash.vue'))
-Vue.component('reply', require('./components/Reply.vue'))
+Vue.component('avatar', require('./components/Avatar.vue'))
+Vue.component('favorite', require('./components/Favorite.vue'))
+Vue.component('discussion-view', require('./pages/Discussion.vue'))
 
 Vue.mixin({
 	methods: {
