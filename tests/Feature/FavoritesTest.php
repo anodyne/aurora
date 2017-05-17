@@ -43,6 +43,14 @@ class FavoritesTest extends DatabaseTestCase
 	/** @test **/
 	public function an_authenticated_user_can_unfavorite_a_reply()
 	{
-		//
+		$this->signIn();
+
+		$reply = create('App\Data\Reply');
+		
+		$reply->favorite();
+
+		$this->delete(route('favorites.destroy', $reply));
+		
+		$this->assertCount(0, $reply->favorites);
 	}
 }
