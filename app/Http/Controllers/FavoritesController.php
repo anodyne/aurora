@@ -20,9 +20,13 @@ class FavoritesController extends Controller
 
 	public function store(Request $request, Reply $reply)
 	{
-		// Create the favorite for the reply
 		$reply->favorite();
 
 		return back();
+	}
+
+	public function destroy(Request $request, Reply $reply)
+	{
+		$reply->unfavorite();
 	}
 }
