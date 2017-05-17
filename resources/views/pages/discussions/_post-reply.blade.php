@@ -71,11 +71,11 @@
 				@if (auth()->check())
 					<div class="panel-footer hidden-sm-down">
 						<div class="d-flex align-items-center justify-content-between">
-							<div>
-								<button type="submit" class="btn d-flex align-items-center" @click.prevent="like">
-									@icon('thumbs-up')<span class="pl-1">{{ $reply->favorites_count }}</span>
-								</button>
-							</div>
+							@if (auth()->check())
+								<div>
+									<favorite :reply="{{ $reply }}"></favorite>
+								</div>
+							@endif
 							<a href="#" class="btn">@icon('check')</a>
 						</div>
 
@@ -105,7 +105,9 @@
 					</div>
 
 					<div class="panel-footer hidden-md-up">
-						<a href="#" class="btn" @click.prevent="like">@icon('heart')<span class="pl-1">{{ $reply->favorites_count }}</span></a>
+						@if (auth()->check())
+							<favorite :reply="{{ $reply }}"></favorite>
+						@endif
 						<a href="#" class="btn">@icon('check')</a>
 					</div>
 				@endif
