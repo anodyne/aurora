@@ -16,6 +16,8 @@ class Avatar
 			'label' => false,
 			'size' => false,
 			'type' => 'link',
+			'labelContentBefore' => null,
+			'labelContentAfter' => null,
 		];
 	}
 
