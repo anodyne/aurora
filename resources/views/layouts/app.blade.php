@@ -22,8 +22,11 @@
 
 		<!-- Scripts -->
 		<script>
-			window.Laravel = {!! json_encode([
+			window.App = {!! json_encode([
 				'csrfToken' => csrf_token(),
+				'signedIn' => auth()->check(),
+				'user' => auth()->user(),
+				'siteUrl' => request()->root()
 			]) !!}
 		</script>
 	</head>
