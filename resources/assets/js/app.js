@@ -13,6 +13,18 @@ var marked = require('marked')
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.prototype.authorize = function (handler) {
+	let user = window.App.user
+	let admin = user.roles.find(role => role.name == 'Forum Administrator')
+	let moderator = user.roles.find(role => role.name == 'Forum Moderator')
+
+	if (admin || moderator) {
+		return true
+	}
+
+	return user ? handler(user) : false
+}
+
 Vue.component('flash', require('./components/Flash.vue'))
 Vue.component('avatar', require('./components/Avatar.vue'))
 Vue.component('favorite', require('./components/Favorite.vue'))

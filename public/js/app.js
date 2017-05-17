@@ -17165,17 +17165,33 @@ var _marked = __webpack_require__(172);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.prototype.authorize = function (handler) {
+	var user = window.App.user;
+	var admin = user.roles.find(function (role) {
+		return role.name == 'Forum Administrator';
+	});
+	var moderator = user.roles.find(function (role) {
+		return role.name == 'Forum Moderator';
+	});
+
+	if (admin || moderator) {
+		return true;
+	}
+
+	return user ? handler(user) : false;
+};
+
 Vue.component('flash', __webpack_require__(179));
 Vue.component('avatar', __webpack_require__(178));
 Vue.component('favorite', __webpack_require__(128));
 Vue.component('discussion-view', __webpack_require__(182));
 
 Vue.mixin({
-  methods: {
-    marked: function marked(input) {
-      return _marked(input);
-    }
-  }
+	methods: {
+		marked: function marked(input) {
+			return _marked(input);
+		}
+	}
 });
 
 /***/ }),
@@ -18460,8 +18476,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 	computed: {
-		canCreate: function canCreate() {},
-		canDelete: function canDelete() {},
+		canDelete: function canDelete() {
+			return this.authorize(function (user) {
+				return false;
+			});
+		},
 		canUpdate: function canUpdate() {
 			var _this = this;
 
@@ -18571,12 +18590,6 @@ __webpack_require__(160);
  */
 
 window.Vue = __webpack_require__(191);
-
-Vue.prototype.authorize = function (handler) {
-  var user = window.App.user;
-
-  return user ? handler(user) : false;
-};
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
