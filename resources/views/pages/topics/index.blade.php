@@ -25,9 +25,7 @@
 						</div>
 						<div class="btn-group ml-2">
 							@if ($topic->trashed())
-								{!! Form::model($topic, ['route' => ['topics.restore', $topic], 'method' => 'put']) !!}
-									<button type="submit" class="btn btn-outline-success">@icon('back-in-time')</button>
-								{!! Form::close() !!}
+								<a href="#" class="btn btn-outline-success" data-topic="{{ $topic->slug }}" @click.prevent="restore">@icon('back-in-time')</a>
 							@else
 								<a href="#" class="btn btn-outline-danger js-remove">@icon('trash')</a>
 							@endif
@@ -51,7 +49,7 @@
 
 								@if ($child->trashed())
 									<div class="btn-group ml-2">
-										<a href="#" class="btn btn-outline-success js-restore" data-topic="{{ $child->slug }}">@icon('back-in-time')</a>
+										<a href="#" class="btn btn-outline-success" data-topic="{{ $child->slug }}" @click.prevent="restore">@icon('back-in-time')</a>
 									</div>
 								@else
 									<div class="btn-group ml-2">
@@ -75,7 +73,23 @@
 
 @section('js')
 	<script>
-		$('.js-restore').click(function (e) {
+		var vm = new Vue({
+			el: '#app',
+
+			methods: {
+				restore: function () {
+					//var topic = $(this).data('topic')
+					console.log($(this.$el))
+
+					axios.put('http://forums.anodyne.dev:8888/admin/topics/' + topic + '/restore')
+
+					flash('Topic restored.')
+				}
+			}
+		})
+		console.log(vm)
+
+		/*$('.js-restore').click(function (e) {
 			e.preventDefault()
 
 			var topic = $(this).data('topic')
@@ -118,6 +132,6 @@
 					})
 				}
 			})
-		})
+		})*/
 	</script>
 @endsection
