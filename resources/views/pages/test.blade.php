@@ -50,3 +50,11 @@
 		<a href="#" class="ml-2 btn btn-outline-dark">@icon('paper-plane')</a>
 	</div>
 @endsection
+
+@section('js')
+	<script>
+		var vm = new Vue({
+			el: "#app"
+		})
+	</script>
+@endsection
