@@ -22,10 +22,14 @@ class RepliesController extends Controller
 	{
 		$this->validate($request, ['body' => 'required']);
 		
-		$discussion->addReply([
+		$reply = $discussion->addReply([
 			'body' => $request->get('body'),
 			'user_id' => auth()->id()
 		]);
+
+		if ($request->expectsJson()) {
+			return $reply->load('author');
+		}
 
 		return back()->with('flash', 'Your reply has been added.');
 	}

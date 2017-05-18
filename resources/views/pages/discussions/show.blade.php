@@ -36,38 +36,10 @@
 				{!! view('pages.discussions._post-reply', ['reply' => $discussion->answer(), 'discussion' => $discussion]) !!}
 			@endif
 
-			<replies :discussion="{{ $discussion }}" :replies="{{ $discussion->replies }}" @removed="repliesCount--"></replies>
-
-			{{ $replies->links() }}
-
-			<div>
-				<div class="discussion-summary">
-					@icon('bell', 'text-subtle')
-					<label>
-						<input type="checkbox"> Notify me when there are replies to this discussion
-					</label>
-				</div>
-			</div>
-
-			@if (auth()->check())
-				<hr>
-
-				<div class="media">
-					<div class="media-left">
-						<span class="hidden-sm-down">{!! avatar($_user)->image() !!}</span>
-					</div>
-					<div class="media-body">
-						{!! Form::open(['route' => ['discussions.replies', $topic, $discussion]]) !!}
-							<div class="form-group">
-								{!! Form::textarea('body', null, ['class' => 'form-control', 'rows' => 5, 'placeholder' => 'Reply to this discussion now...']) !!}
-							</div>
-							<div class="form-group">
-								{!! Form::button('Reply', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
-							</div>
-						{!! Form::close() !!}
-					</div>
-				</div>
-			@endif
+			<replies :discussion="{{ $discussion }}"
+					 :replies="{{ $discussion->replies }}"
+					 @added="repliesCount++"
+					 @removed="repliesCount--"></replies>
 		</div>
 	</discussion-view>
 @endsection

@@ -55,7 +55,7 @@ class Discussion extends Eloquent
 
 	public function addReply(array $data)
 	{
-		$this->replies()->create($data);
+		return $this->replies()->create($data);
 	}
 
 	public function answer()
