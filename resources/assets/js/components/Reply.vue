@@ -108,7 +108,7 @@
 
 <script>
 	import Favorite from './Favorite.vue'
-	import moment from 'moment'
+	import moment from 'moment-timezone'
 	import autosize from 'autosize'
 	import copy from 'copy-to-clipboard'
 
@@ -153,11 +153,15 @@
 			},
 
 			createdAt (format) {
+				var date = this.reply.created_at
+				var format = 'YYYY-MM-DD hh:mm:ss'
+				var timezone = window.App.timezone
+
 				if (format == 'relative') {
-					return moment(this.reply.created_at, 'YYYY-MM-DD hh:mm:ss').fromNow()
+					return moment(date, format).tz(timezone).fromNow()
 				}
 
-				return this.reply.created_at
+				return moment(date, format).tz(timezone).format('LLL')
 			},
 
 			destroy () {

@@ -25,8 +25,9 @@
 			window.App = {!! json_encode([
 				'csrfToken' => csrf_token(),
 				'signedIn' => auth()->check(),
+				'siteUrl' => request()->root(),
+				'timezone' => config('app.timezone'),
 				'user' => auth()->user(),
-				'siteUrl' => request()->root()
 			]) !!}
 		</script>
 	</head>

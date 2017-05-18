@@ -17,6 +17,7 @@
 		"marked": "^0.3",
 		"md5": "^2.2.1",
 		"moment": "^2.18",
+		"moment-timezone": "^0.5",
 		"pluralize": "^4.0",
 		"sweetalert2": "^6.6.0",
 		"vue": "^2.1"
