@@ -4,6 +4,8 @@
 			<reply :discussion="discussion" :reply="reply" @deleted="remove(index)"></reply>
 		</div>
 
+		<paginator :data-set="dataSet" @changed="fetch"></paginator>
+
 		<div>
 			<div class="discussion-summary">
 				<svg class="icon text-subtle">
@@ -15,40 +17,51 @@
 			</div>
 		</div>
 
-		<quick-reply :endpoint="endpoint" @created="add"></quick-reply>
+		<quick-reply @created="add"></quick-reply>
 	</div>
 </template>
 
 <script>
 	import Reply from './Reply.vue'
 	import QuickReply from './QuickReply.vue'
+	import collection from '../mixins/collection'
 
 	export default {
-		props: ['discussion', 'replies'],
+		props: ['discussion'],
 
 		components: { Reply, QuickReply },
 
+		mixins: [collection],
+
 		data () {
 			return {
-				endpoint: location.pathname + '/replies',
-				items: this.replies
+				dataSet: false
 			}
 		},
 
 		methods: {
-			add (reply) {
-				this.items.push(reply)
-
-				this.$emit('added')
+			fetch (page) {
+				axios.get(this.url(page)).then(this.refresh)
 			},
 
-			remove (index) {
-				this.items.splice(index, 1)
+			refresh ({data}) {
+				this.dataSet = data
+				this.items = data.data
+			},
 
-				this.$emit('removed')
+			url (page) {
+				if (! page) {
+					let query = location.search.match(/page=(\d)/)
 
-				flash('Reply was deleted.')
+					page = query ? query[1] : 1
+				}
+
+				return location.pathname + '/replies?page=' + page
 			}
+		},
+
+		created () {
+			this.fetch()
 		}
 	}
 </script>

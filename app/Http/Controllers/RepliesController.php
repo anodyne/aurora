@@ -15,7 +15,12 @@ class RepliesController extends Controller
 			view()->share('_user', auth()->user());
 		}
 		
-		$this->middleware('auth');
+		$this->middleware('auth', ['except' => 'index']);
+	}
+
+	public function index($topic, Discussion $discussion)
+	{
+		return $discussion->replies()->paginate(20);
 	}
 
 	public function store(Request $request, $topic, Discussion $discussion)

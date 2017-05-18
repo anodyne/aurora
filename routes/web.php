@@ -20,8 +20,8 @@ Route::delete('discussions/{topic}/{discussion}', 'DiscussionsController@destroy
 	->name('discussions.destroy');
 
 Route::get('/', 'DiscussionsController@index')->name('home');
+Route::get('discussions/{topic}/{discussion}/replies', 'RepliesController@index')->name('replies.index');
 Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store')->name('discussions.replies');
-
 Route::patch('replies/{reply}', 'RepliesController@update')->name('replies.update');
 Route::delete('replies/{reply}', 'RepliesController@destroy')->name('replies.destroy');
 

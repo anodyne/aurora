@@ -37,7 +37,6 @@
 			@endif
 
 			<replies :discussion="{{ $discussion }}"
-					 :replies="{{ $discussion->replies }}"
 					 @added="repliesCount++"
 					 @removed="repliesCount--"></replies>
 		</div>

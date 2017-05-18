@@ -52,10 +52,7 @@ class DiscussionsController extends Controller
 			? $discussion->topic->load('parent')
 			: $discussion->topic;
 
-		// Get the replies and paginate them
-		$replies = $discussion->replies()->paginate(20);
-
-		return view('pages.discussions.show', compact('discussion', 'replies', 'topic'));
+		return view('pages.discussions.show', compact('discussion', 'topic'));
 	}
 
 	public function store(Request $request)

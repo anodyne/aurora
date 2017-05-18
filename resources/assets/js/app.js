@@ -28,6 +28,7 @@ Vue.prototype.authorize = function (handler) {
 Vue.component('flash', require('./components/Flash.vue'))
 Vue.component('avatar', require('./components/Avatar.vue'))
 Vue.component('favorite', require('./components/Favorite.vue'))
+Vue.component('paginator', require('./components/Paginator.vue'))
 Vue.component('discussion-view', require('./pages/Discussion.vue'))
 
 Vue.mixin({

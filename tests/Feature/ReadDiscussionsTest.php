@@ -81,5 +81,17 @@ class ReadDiscussionsTest extends DatabaseTestCase
 		$this->assertEquals([3, 2, 0], array_column($response, 'replies_count'));
 	}
 
+	/** @test **/
+	public function a_user_can_request_all_replies_for_a_discussion()
+	{
+		$discussion = create('App\Data\Discussion');
+		create('App\Data\Reply', ['discussion_id' => $discussion->id], 2);
+
+		$response = $this->getJson(route('replies.index', [$discussion->topic, $discussion]))->json();
+
+		$this->assertCount(1, $response['data']);
+		$this->assertEquals(2, $response['total']);
+	}
+
 	// TODO: a_user_can_see_a_discussion_answer
 }

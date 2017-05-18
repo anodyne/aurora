@@ -1176,7 +1176,7 @@ table {
 	margin-right: 5px;
 
 	a {
-		path {
+		path, .icon {
 			fill: $color-gray-blue;
 		}
 	}
@@ -1188,7 +1188,7 @@ table {
 	}
 
 	&.disabled {
-		path {
+		path, .icon {
 			fill: $pagination-disabled-color;
 		}
 
