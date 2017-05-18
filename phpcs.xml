@@ -8,6 +8,7 @@
 	<exclude-pattern>*/app/CodeSniffer/*</exclude-pattern>
 	<exclude-pattern>*/tests/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/resources/assets/js/mixins/Collection.js</exclude-pattern>
 
 	<arg value="np"/>
 
