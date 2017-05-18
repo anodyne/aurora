@@ -37,9 +37,9 @@
 				</div>
 
 				<div class="panel-body">
-					<div v-if="editing">
+					<div v-show="editing">
 						<div class="form-group">
-							<textarea class="form-control" rows="10" v-model="body">{{ body }}</textarea>
+							<textarea class="form-control" v-model="body">{{ body }}</textarea>
 						</div>
 
 						<div class="btn-toolbar">
@@ -52,7 +52,7 @@
 						</div>
 					</div>
 
-					<div v-else>
+					<div v-show="!editing">
 						<div v-html="marked(body)"></div>
 
 						<div class="post-signature" v-if="signature">
@@ -109,6 +109,7 @@
 <script>
 	import Favorite from './Favorite.vue'
 	import moment from 'moment'
+	import autosize from 'autosize'
 	import copy from 'copy-to-clipboard'
 
 	export default {
@@ -180,6 +181,10 @@
 
 				flash('Updated the reply.')
 			}
+		},
+
+		mounted () {
+			autosize($('textarea'))
 		}
 	}
 </script>
