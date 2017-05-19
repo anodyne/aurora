@@ -13,6 +13,7 @@ class CreateDiscussionsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('topic_id')->unsigned();
             $table->bigInteger('answer_id')->unsigned()->nullable();
+            $table->integer('replies_count')->default(0);
             $table->string('title');
             $table->longText('body');
             //$table->string('slug');

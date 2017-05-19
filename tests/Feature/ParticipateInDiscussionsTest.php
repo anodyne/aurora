@@ -27,6 +27,7 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 		);
 
 		$this->assertDatabaseHas('replies', ['body' => $reply->body]);
+		$this->assertEquals(1, $discussion->fresh()->replies_count);
 	}
 
 	/** @test **/
@@ -76,6 +77,7 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 			->assertStatus(302);
 		
 		$this->assertSoftDeleted('replies', ['id' => $reply1->id]);
+		$this->assertEquals(0, $reply1->discussion->fresh()->replies_count);
 
 		$reply2 = create('App\Data\Reply');
 
@@ -85,6 +87,7 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 			->assertStatus(302);
 		
 		$this->assertSoftDeleted('replies', ['id' => $reply2->id]);
+		$this->assertEquals(0, $reply2->discussion->fresh()->replies_count);
 	}
 
 	/** @test **/

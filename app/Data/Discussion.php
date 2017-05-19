@@ -10,20 +10,11 @@ class Discussion extends Eloquent
 {
 	use SoftDeletes, PresentableTrait, RecordsActivity;
 
-	protected $fillable = ['title', 'body', 'user_id', 'topic_id'];
+	protected $fillable = ['title', 'body', 'user_id', 'topic_id', 'replies_count'];
 	protected $with = ['author', 'topic'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = DiscussionPresenter::class;
 	protected $observables = ['answered'];
-
-	protected static function boot()
-	{
-		parent::boot();
-
-		static::addGlobalScope('replyCount', function ($builder) {
-			$builder->withCount('replies');
-		});
-	}
 
 	//--------------------------------------------------------------------------
 	// Relationships
