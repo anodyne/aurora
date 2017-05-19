@@ -26,8 +26,7 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 			$reply->toArray()
 		);
 
-		$this->get(route('discussions.show', [$discussion->topic, $discussion]))
-			->assertSee($reply->body);
+		$this->assertDatabaseHas('replies', ['body' => $reply->body]);
 	}
 
 	/** @test **/

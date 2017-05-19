@@ -34,8 +34,7 @@ class ReadDiscussionsTest extends DatabaseTestCase
 			'discussion_id' => $this->discussion->id
 		]);
 
-		$this->get(route('discussions.show', [$this->discussion->topic, $this->discussion]))
-			->assertSee($reply->body);
+		$this->assertDatabaseHas('replies', ['body' => $reply->body]);
 	}
 
 	/** @test **/
@@ -89,7 +88,7 @@ class ReadDiscussionsTest extends DatabaseTestCase
 
 		$response = $this->getJson(route('replies.index', [$discussion->topic, $discussion]))->json();
 
-		$this->assertCount(1, $response['data']);
+		$this->assertCount(2, $response['data']);
 		$this->assertEquals(2, $response['total']);
 	}
 
