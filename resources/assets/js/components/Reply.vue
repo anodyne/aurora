@@ -168,6 +168,8 @@
 				axios.delete('/replies/' + this.reply.id)
 
 				this.$emit('deleted', this.reply.id)
+
+				flash('Deleted the reply')
 			},
 
 			like () {
