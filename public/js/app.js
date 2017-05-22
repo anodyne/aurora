@@ -1899,7 +1899,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(186)("./" + name);
+            __webpack_require__(185)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -4534,7 +4534,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(133)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(132)(module)))
 
 /***/ }),
 /* 1 */
@@ -4854,7 +4854,7 @@ module.exports = {
   trim: trim
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(170).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(169).Buffer))
 
 /***/ }),
 /* 2 */
@@ -4948,7 +4948,7 @@ module.exports = g;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var normalizeHeaderName = __webpack_require__(154);
+var normalizeHeaderName = __webpack_require__(153);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -5238,12 +5238,12 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var settle = __webpack_require__(146);
-var buildURL = __webpack_require__(149);
-var parseHeaders = __webpack_require__(155);
-var isURLSameOrigin = __webpack_require__(153);
+var settle = __webpack_require__(145);
+var buildURL = __webpack_require__(148);
+var parseHeaders = __webpack_require__(154);
+var isURLSameOrigin = __webpack_require__(152);
 var createError = __webpack_require__(9);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(148);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(147);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -5339,7 +5339,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(151);
+      var cookies = __webpack_require__(150);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -5462,7 +5462,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(145);
+var enhanceError = __webpack_require__(144);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -17173,7 +17173,7 @@ return zhTw;
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(158),
+  __webpack_require__(157),
   /* template */
   __webpack_require__(203),
   /* scopeId */
@@ -17181,7 +17181,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Favorite.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Favorite.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Favorite.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -17203,44 +17203,6 @@ module.exports = Component.exports
 
 /***/ }),
 /* 131 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(208)
-
-var Component = __webpack_require__(2)(
-  /* script */
-  __webpack_require__(165),
-  /* template */
-  __webpack_require__(204),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/pages/Topic.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Topic.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-b6976a82", Component.options)
-  } else {
-    hotAPI.reload("data-v-b6976a82", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -17461,7 +17423,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -17489,7 +17451,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -17498,8 +17460,8 @@ module.exports = function(module) {
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(167);
-var _marked = __webpack_require__(181);
+__webpack_require__(166);
+var _marked = __webpack_require__(180);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17523,12 +17485,12 @@ Vue.prototype.authorize = function (handler) {
 	return user ? handler(user) : false;
 };
 
-Vue.component('flash', __webpack_require__(191));
-Vue.component('avatar', __webpack_require__(190));
+Vue.component('flash', __webpack_require__(190));
+Vue.component('avatar', __webpack_require__(189));
 Vue.component('favorite', __webpack_require__(130));
 Vue.component('topics', __webpack_require__(197));
-Vue.component('paginator', __webpack_require__(192));
-Vue.component('discussion-view', __webpack_require__(196));
+Vue.component('paginator', __webpack_require__(191));
+Vue.component('discussion-view', __webpack_require__(195));
 
 Vue.mixin({
 	methods: {
@@ -17537,6 +17499,12 @@ Vue.mixin({
 		}
 	}
 });
+
+/***/ }),
+/* 134 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 135 */
@@ -17552,16 +17520,10 @@ Vue.mixin({
 
 /***/ }),
 /* 137 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	Autosize 3.0.20
+	Autosize 3.0.21
 	license: MIT
 	http://www.jacklmoore.com/autosize
 */
@@ -17721,22 +17683,24 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 			var styleHeight = Math.round(parseFloat(ta.style.height));
 			var computed = window.getComputedStyle(ta, null);
-			var actualHeight = Math.round(parseFloat(computed.height));
+
+			// Using offsetHeight as a replacement for computed.height in IE, because IE does not account use of border-box
+			var actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
 
 			// The actual height not matching the style height (set via the resize method) indicates that
-			// the max-height has been exceeded, in which case the overflow should be set to visible.
+			// the max-height has been exceeded, in which case the overflow should be allowed.
 			if (actualHeight !== styleHeight) {
-				if (computed.overflowY !== 'visible') {
-					changeOverflow('visible');
+				if (computed.overflowY === 'hidden') {
+					changeOverflow('scroll');
 					resize();
-					actualHeight = Math.round(parseFloat(window.getComputedStyle(ta, null).height));
+					actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
 				}
 			} else {
 				// Normally keep overflow set to hidden, to avoid flash of scrollbar as the textarea expands.
 				if (computed.overflowY !== 'hidden') {
 					changeOverflow('hidden');
 					resize();
-					actualHeight = Math.round(parseFloat(window.getComputedStyle(ta, null).height));
+					actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
 				}
 			}
 
@@ -17855,13 +17819,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(140);
+module.exports = __webpack_require__(139);
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17869,7 +17833,7 @@ module.exports = __webpack_require__(140);
 
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(10);
-var Axios = __webpack_require__(142);
+var Axios = __webpack_require__(141);
 var defaults = __webpack_require__(4);
 
 /**
@@ -17904,14 +17868,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(7);
-axios.CancelToken = __webpack_require__(141);
+axios.CancelToken = __webpack_require__(140);
 axios.isCancel = __webpack_require__(8);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(156);
+axios.spread = __webpack_require__(155);
 
 module.exports = axios;
 
@@ -17920,7 +17884,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17984,7 +17948,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17992,10 +17956,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(4);
 var utils = __webpack_require__(1);
-var InterceptorManager = __webpack_require__(143);
-var dispatchRequest = __webpack_require__(144);
-var isAbsoluteURL = __webpack_require__(152);
-var combineURLs = __webpack_require__(150);
+var InterceptorManager = __webpack_require__(142);
+var dispatchRequest = __webpack_require__(143);
+var isAbsoluteURL = __webpack_require__(151);
+var combineURLs = __webpack_require__(149);
 
 /**
  * Create a new instance of Axios
@@ -18076,7 +18040,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18135,14 +18099,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(1);
-var transformData = __webpack_require__(147);
+var transformData = __webpack_require__(146);
 var isCancel = __webpack_require__(8);
 var defaults = __webpack_require__(4);
 
@@ -18221,7 +18185,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18247,7 +18211,7 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 146 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18279,7 +18243,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 147 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18306,7 +18270,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18349,7 +18313,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 149 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18424,7 +18388,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 150 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18445,7 +18409,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 151 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18505,7 +18469,7 @@ module.exports = (
 
 
 /***/ }),
-/* 152 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18526,7 +18490,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 153 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18601,7 +18565,7 @@ module.exports = (
 
 
 /***/ }),
-/* 154 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18620,7 +18584,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 155 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18664,7 +18628,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 156 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18698,16 +18662,16 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 157 */
+/* 156 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_md5__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_md5__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_md5__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pluralize__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pluralize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_pluralize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_humanize_number__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_humanize_number__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_humanize_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_humanize_number__);
 //
 //
@@ -18809,7 +18773,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 158 */
+/* 157 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18864,7 +18828,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 159 */
+/* 158 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18937,7 +18901,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 160 */
+/* 159 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19011,7 +18975,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 161 */
+/* 160 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19081,14 +19045,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 162 */
+/* 161 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Reply_vue__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Reply_vue__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Reply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Reply_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__QuickReply_vue__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__QuickReply_vue__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__QuickReply_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__QuickReply_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_collection__ = __webpack_require__(11);
 //
@@ -19162,18 +19126,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 163 */
+/* 162 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Favorite_vue__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Favorite_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Favorite_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_timezone__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_timezone__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_timezone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_timezone__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_autosize__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_autosize__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_autosize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_autosize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_copy_to_clipboard__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_copy_to_clipboard__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_copy_to_clipboard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_copy_to_clipboard__);
 //
 //
@@ -19346,6 +19310,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			axios.delete('/replies/' + this.reply.id);
 
 			this.$emit('deleted', this.reply.id);
+
+			flash('Deleted the reply');
 		},
 		like: function like() {
 			axios.post('/replies/' + this.reply.id + '/favorites');
@@ -19369,14 +19335,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 164 */
+/* 163 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pluralize__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pluralize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pluralize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Replies_vue__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Replies_vue__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Replies_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Replies_vue__);
 
 
@@ -19402,19 +19368,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 165 */
+/* 164 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Topic_vue__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Topic_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Topic_vue__);
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 //
 //
 //
@@ -19468,9 +19428,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['topic', 'allTopics'],
-
-	components: { Topic: __WEBPACK_IMPORTED_MODULE_0__Topic_vue___default.a },
+	props: {
+		topic: {
+			type: Object,
+			required: true
+		},
+		allTopics: {
+			type: Array,
+			required: true
+		},
+		isChild: {
+			type: Boolean,
+			default: false
+		}
+	},
 
 	data: function data() {
 		return {
@@ -19487,25 +19458,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		isTrashed: function isTrashed() {
 			return this.topic.deleted_at != null;
 		},
+		pillClasses: function pillClasses() {
+			return ['badge', 'badge-pill', this.isChild ? 'ml-4' : ''];
+		},
 		replacementTopics: function replacementTopics() {
 			var self = this;
 
 			return self.allTopics.filter(function (topic) {
-				return topic.name != self.topic.name;
+				return topic.item.name != self.topic.name;
 			});
+		}
+	},
+
+	methods: {
+		deleteTopic: function deleteTopic() {
+			axios.delete('/admin/topics/' + this.topic.slug, {
+				data: {
+					newTopic: this.newTopic
+				}
+			});
+
+			this.deleting = false;
+			this.topic.deleted_at = __WEBPACK_IMPORTED_MODULE_0_moment___default()();
+
+			flash('Deleted the topic');
+		},
+		restore: function restore() {
+			axios.put('/admin/topics/' + this.topic.slug + '/restore');
+
+			this.topic.deleted_at = null;
 		}
 	}
 });
 
 /***/ }),
-/* 166 */
+/* 165 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Topic_vue__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Topic_vue__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Topic_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Topic_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_collection__ = __webpack_require__(11);
+//
+//
 //
 //
 //
@@ -19525,16 +19521,57 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	components: { Topic: __WEBPACK_IMPORTED_MODULE_0__Topic_vue___default.a },
 
-	mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_collection__["a" /* default */]], created: function created() {
-		this.items = this.topics;
+	mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_collection__["a" /* default */]],
+
+	data: function data() {
+		return {
+			dataSet: []
+		};
+	},
+
+
+	methods: {
+		extract: function extract(topic, isParent) {
+			var item = {
+				item: topic,
+				hasChildren: false,
+				isChild: false
+			};
+
+			if (isParent && topic.children && topic.children.length > 0) {
+				item.hasChildren = true;
+			}
+
+			if (!isParent) {
+				item.isChild = true;
+			}
+
+			return item;
+		}
+	},
+
+	created: function created() {
+		for (var t = 0; t < this.topics.length; t++) {
+			var topic = this.extract(this.topics[t], true);
+
+			this.dataSet.push(topic);
+
+			if (topic.hasChildren) {
+				for (var c = 0; c < topic.item.children.length; c++) {
+					this.dataSet.push(this.extract(topic.item.children[c], false));
+				}
+			}
+		}
+
+		this.items = this.dataSet;
 	}
 });
 
 /***/ }),
-/* 167 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window._ = __webpack_require__(180);
+window._ = __webpack_require__(179);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -19542,11 +19579,11 @@ window._ = __webpack_require__(180);
  * code may be modified to fit the specific needs of your application.
  */
 
-window.$ = window.jQuery = __webpack_require__(179);
+window.$ = window.jQuery = __webpack_require__(178);
 
-window.Tether = __webpack_require__(188);
+window.Tether = __webpack_require__(187);
 
-__webpack_require__(169);
+__webpack_require__(168);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -19562,14 +19599,14 @@ window.Vue = __webpack_require__(210);
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(139);
+window.axios = __webpack_require__(138);
 
 window.axios.defaults.headers.common = {
   'X-CSRF-TOKEN': window.App.csrfToken,
   'X-Requested-With': 'XMLHttpRequest'
 };
 
-window.swal = __webpack_require__(187);
+window.swal = __webpack_require__(186);
 
 window.events = new Vue();
 
@@ -19578,7 +19615,7 @@ window.flash = function (message) {
 };
 
 /***/ }),
-/* 168 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19699,7 +19736,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 169 */
+/* 168 */
 /***/ (function(module, exports) {
 
 /*!
@@ -23240,7 +23277,7 @@ var Popover = function ($) {
 
 
 /***/ }),
-/* 170 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23254,9 +23291,9 @@ var Popover = function ($) {
 
 
 
-var base64 = __webpack_require__(168)
-var ieee754 = __webpack_require__(177)
-var isArray = __webpack_require__(171)
+var base64 = __webpack_require__(167)
+var ieee754 = __webpack_require__(176)
+var isArray = __webpack_require__(170)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -25037,7 +25074,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 171 */
+/* 170 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -25048,13 +25085,13 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 172 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var deselectCurrent = __webpack_require__(189);
+var deselectCurrent = __webpack_require__(188);
 
 var defaultMessage = 'Copy to clipboard: #{key}, Enter';
 
@@ -25133,7 +25170,7 @@ module.exports = copy;
 
 
 /***/ }),
-/* 173 */
+/* 172 */
 /***/ (function(module, exports) {
 
 (function() {
@@ -25235,21 +25272,21 @@ module.exports = copy;
 
 
 /***/ }),
-/* 174 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)();
 exports.push([module.i, "\n.alert-flash {\n  position: fixed;\n  right: 1rem;\n  bottom: 0;\n  z-index: 1000;\n  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.25);\n}\n.fade-enter-active, .fade-leave-active {\n  transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to {\n  opacity: 0;\n}\n", ""]);
 
 /***/ }),
-/* 175 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)();
 exports.push([module.i, "\n.form-control {\n  width: auto !important;\n  color: #444;\n  border-radius: 0.25rem;\n}\n", ""]);
 
 /***/ }),
-/* 176 */
+/* 175 */
 /***/ (function(module, exports) {
 
 
@@ -25263,7 +25300,7 @@ module.exports = function(n, options){
 };
 
 /***/ }),
-/* 177 */
+/* 176 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -25353,7 +25390,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 178 */
+/* 177 */
 /***/ (function(module, exports) {
 
 /*!
@@ -25380,7 +25417,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 179 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -35640,7 +35677,7 @@ return jQuery;
 
 
 /***/ }),
-/* 180 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -52729,10 +52766,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(133)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(132)(module)))
 
 /***/ }),
-/* 181 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -54025,13 +54062,13 @@ if (true) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 182 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(){
-  var crypt = __webpack_require__(173),
+  var crypt = __webpack_require__(172),
       utf8 = __webpack_require__(12).utf8,
-      isBuffer = __webpack_require__(178),
+      isBuffer = __webpack_require__(177),
       bin = __webpack_require__(12).bin,
 
   // The core
@@ -54191,7 +54228,7 @@ if (true) {
 
 
 /***/ }),
-/* 183 */
+/* 182 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -54796,15 +54833,15 @@ module.exports = {
 };
 
 /***/ }),
-/* 184 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var moment = module.exports = __webpack_require__(185);
-moment.tz.load(__webpack_require__(183));
+var moment = module.exports = __webpack_require__(184);
+moment.tz.load(__webpack_require__(182));
 
 
 /***/ }),
-/* 185 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//! moment-timezone.js
@@ -55414,7 +55451,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 186 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -55663,14 +55700,14 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 186;
+webpackContext.id = 185;
 
 /***/ }),
-/* 187 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
- * sweetalert2 v6.6.3
+ * sweetalert2 v6.6.4
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -56811,18 +56848,6 @@ var sweetAlert = function sweetAlert() {
     /**
      * Show spinner instead of Confirm button and disable Cancel button
      */
-    sweetAlert.showLoading = sweetAlert.enableLoading = function () {
-      show(buttonsWrapper);
-      show(confirmButton, 'inline-block');
-      addClass(buttonsWrapper, swalClasses.loading);
-      addClass(modal, swalClasses.loading);
-      confirmButton.disabled = true;
-      cancelButton.disabled = true;
-    };
-
-    /**
-     * Show spinner instead of Confirm button and disable Cancel button
-     */
     sweetAlert.hideLoading = sweetAlert.disableLoading = function () {
       if (!params.showConfirmButton) {
         hide(confirmButton);
@@ -57267,6 +57292,26 @@ sweetAlert.clickCancel = function () {
 };
 
 /**
+ * Show spinner instead of Confirm button and disable Cancel button
+ */
+sweetAlert.showLoading = sweetAlert.enableLoading = function () {
+  var modal = getModal();
+  if (!modal) {
+    sweetAlert('');
+  }
+  var buttonsWrapper = getButtonsWrapper();
+  var confirmButton = getConfirmButton();
+  var cancelButton = getCancelButton();
+
+  show(buttonsWrapper);
+  show(confirmButton, 'inline-block');
+  addClass(buttonsWrapper, swalClasses.loading);
+  addClass(modal, swalClasses.loading);
+  confirmButton.disabled = true;
+  cancelButton.disabled = true;
+};
+
+/**
  * Set default params for each popup
  * @param {Object} userParams
  */
@@ -57294,7 +57339,7 @@ sweetAlert.resetDefaults = function () {
 
 sweetAlert.noop = function () {};
 
-sweetAlert.version = '6.6.3';
+sweetAlert.version = '6.6.4';
 
 sweetAlert.default = sweetAlert;
 
@@ -57305,7 +57350,7 @@ if (window.Sweetalert2) window.sweetAlert = window.swal = window.Sweetalert2;
 
 
 /***/ }),
-/* 188 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tether 1.4.0 */
@@ -59126,7 +59171,7 @@ return Tether;
 
 
 /***/ }),
-/* 189 */
+/* 188 */
 /***/ (function(module, exports) {
 
 
@@ -59171,12 +59216,12 @@ module.exports = function () {
 
 
 /***/ }),
-/* 190 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(157),
+  __webpack_require__(156),
   /* template */
   __webpack_require__(205),
   /* scopeId */
@@ -59184,7 +59229,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Avatar.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Avatar.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Avatar.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -59205,7 +59250,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 191 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -59214,7 +59259,7 @@ __webpack_require__(207)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(159),
+  __webpack_require__(158),
   /* template */
   __webpack_require__(198),
   /* scopeId */
@@ -59222,7 +59267,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Flash.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Flash.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Flash.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -59243,12 +59288,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 192 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(160),
+  __webpack_require__(159),
   /* template */
   __webpack_require__(202),
   /* scopeId */
@@ -59256,7 +59301,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Paginator.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Paginator.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Paginator.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -59277,12 +59322,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 193 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(161),
+  __webpack_require__(160),
   /* template */
   __webpack_require__(206),
   /* scopeId */
@@ -59290,7 +59335,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/QuickReply.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\QuickReply.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] QuickReply.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -59311,12 +59356,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 194 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(162),
+  __webpack_require__(161),
   /* template */
   __webpack_require__(201),
   /* scopeId */
@@ -59324,7 +59369,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Replies.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Replies.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Replies.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -59345,12 +59390,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 195 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(163),
+  __webpack_require__(162),
   /* template */
   __webpack_require__(200),
   /* scopeId */
@@ -59358,7 +59403,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Reply.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Reply.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Reply.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -59379,12 +59424,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 196 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(164),
+  __webpack_require__(163),
   /* template */
   null,
   /* scopeId */
@@ -59392,7 +59437,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/pages/Discussion.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\pages\\Discussion.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -59412,12 +59457,50 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(208)
+
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(164),
+  /* template */
+  __webpack_require__(204),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\pages\\Topic.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Topic.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b6976a82", Component.options)
+  } else {
+    hotAPI.reload("data-v-b6976a82", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
 /* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(166),
+  __webpack_require__(165),
   /* template */
   __webpack_require__(199),
   /* scopeId */
@@ -59425,7 +59508,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/pages/Topics.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\pages\\Topics.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Topics.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -59484,19 +59567,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "data-table striped bordered"
   }, _vm._l((_vm.items), function(topic, index) {
     return _c('div', {
-      key: topic.id,
+      key: topic.item.id,
       staticClass: "row"
     }, [_c('div', {
       staticClass: "col-12"
     }, [_c('topic', {
       attrs: {
-        "topic": topic,
-        "all-topics": _vm.items
-      },
-      on: {
-        "deleted": function($event) {
-          _vm.remove(index)
-        }
+        "topic": topic.item,
+        "all-topics": _vm.dataSet,
+        "is-child": topic.isChild
       }
     })], 1)])
   }))
@@ -60015,7 +60094,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "col-md-9 d-flex align-items-center"
   }, [_c('span', {
-    staticClass: "badge badge-pill",
+    class: _vm.pillClasses,
     style: ('background-color:' + _vm.topic.color)
   }, [_vm._v(" ")]), _vm._v(" "), _c('p', {
     staticClass: "lead pl-2"
@@ -60126,13 +60205,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Pick a topic")]), _vm._v(" "), _vm._l((_vm.replacementTopics), function(replacement) {
     return _c('option', {
       domProps: {
-        "value": replacement.id
+        "value": replacement.item.id
       }
-    }, [_vm._v(_vm._s(replacement.name))])
+    }, [_vm._v(_vm._s(replacement.item.name))])
   })], 2), _vm._v(" "), _c('span', {
     staticClass: "ml-auto"
   }, [_c('button', {
-    staticClass: "btn btn-outline-danger"
+    staticClass: "btn btn-outline-danger",
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.deleteTopic($event)
+      }
+    }
   }, [_vm._v("Delete")]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-secondary",
     on: {
@@ -60141,21 +60226,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.deleting = false
       }
     }
-  }, [_vm._v("Cancel")])])])]), _vm._v(" "), (_vm.hasChildren) ? _c('div', _vm._l((_vm.topic.children), function(child, index) {
-    return _c('div', {
-      key: child.id
-    }, [_c('topic', {
-      attrs: {
-        "topic": child,
-        "all-topics": _vm.items
-      },
-      on: {
-        "deleted": function($event) {
-          _vm.remove(index)
-        }
-      }
-    })], 1)
-  })) : _vm._e()])
+  }, [_vm._v("Cancel")])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('p', {
     staticClass: "mr-3"
@@ -60305,11 +60376,11 @@ if (false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(174);
+var content = __webpack_require__(173);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(132)("94f97e26", content, false);
+var update = __webpack_require__(131)("94f97e26", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -60331,11 +60402,11 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(175);
+var content = __webpack_require__(174);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(132)("722047fb", content, false);
+var update = __webpack_require__(131)("722047fb", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70085,10 +70156,10 @@ module.exports = Vue$3;
 /* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(134);
+__webpack_require__(133);
+__webpack_require__(135);
 __webpack_require__(136);
-__webpack_require__(137);
-module.exports = __webpack_require__(135);
+module.exports = __webpack_require__(134);
 
 
 /***/ })
