@@ -2,7 +2,7 @@
 	<div v-cloak>
 		<div class="row d-flex align-items-center">
 			<div class="col-md-9 d-flex align-items-center">
-				<span class="badge badge-pill" :style="'background-color:' + topic.color">&nbsp;</span>
+				<span :class="pillClasses" :style="'background-color:' + topic.color">&nbsp;</span>
 				<p class="lead pl-2">{{ topic.name }}</p>
 			</div>
 			<div class="col-md-3 controls">
@@ -36,30 +36,35 @@
 				<p class="mr-3"><strong>Which topic should discussions be moved to?</strong></p>
 				<select class="form-control" v-model="newTopic">
 					<option value="">Pick a topic</option>
-					<option v-for="replacement in replacementTopics" :value="replacement.id">{{ replacement.name }}</option>
+					<option v-for="replacement in replacementTopics" :value="replacement.item.id">{{ replacement.item.name }}</option>
 				</select>
 				<span class="ml-auto">
-					<button class="btn btn-outline-danger">Delete</button>
+					<button class="btn btn-outline-danger" @click.prevent="deleteTopic">Delete</button>
 					<button class="btn btn-secondary" @click.prevent="deleting = false">Cancel</button>
 				</span>
-			</div>
-		</div>
-
-		<div v-if="hasChildren">
-			<div v-for="(child, index) in topic.children" :key="child.id">
-				<topic :topic="child" :all-topics="items" @deleted="remove(index)"></topic>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-	import Topic from './Topic.vue'
+	import moment from 'moment'
 
 	export default {
-		props: ['topic', 'allTopics'],
-
-		components: { Topic },
+		props: {
+			topic: {
+				type: Object,
+				required: true
+			},
+			allTopics: {
+				type: Array,
+				required: true
+			},
+			isChild: {
+				type: Boolean,
+				default: false
+			}
+		},
 
 		data () {
 			return {
@@ -77,12 +82,37 @@
 				return this.topic.deleted_at != null
 			},
 
+			pillClasses () {
+				return ['badge', 'badge-pill', (this.isChild ? 'ml-4' : '')]
+			},
+
 			replacementTopics () {
 				var self = this
 
 				return self.allTopics.filter(function (topic) {
-					return topic.name != self.topic.name
+					return topic.item.name != self.topic.name
 				})
+			}
+		},
+
+		methods: {
+			deleteTopic () {
+				axios.delete('/admin/topics/' + this.topic.slug, {
+					data: {
+						newTopic: this.newTopic
+					}
+				})
+
+				this.deleting = false
+				this.topic.deleted_at = moment()
+
+				flash('Deleted the topic')
+			},
+
+			restore () {
+				axios.put('/admin/topics/' + this.topic.slug + '/restore')
+
+				this.topic.deleted_at = null
 			}
 		}
 	}
