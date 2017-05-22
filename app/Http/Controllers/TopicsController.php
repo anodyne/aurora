@@ -23,7 +23,9 @@ class TopicsController extends Controller
 	{
 		$this->authorize('manage', new Topic);
 
-		$topics = Topic::with('children')->parents()->withTrashed()->get();
+		$topics = Topic::with(['children' => function ($query) {
+			$query->withTrashed();
+		}])->parents()->withTrashed()->get();
 
 		return view('pages.topics.index', compact('topics'));
 	}
