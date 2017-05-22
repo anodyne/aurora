@@ -74,25 +74,6 @@ class TopicsController extends Controller
 			->with('flash', 'Topic updated.');
 	}
 
-	public function remove(Topic $topic)
-	{
-		$topics = Topic::where('id', '!=', $topic->id)->get()->pluck('name', 'id');
-
-		if (policy($topic)->remove(auth()->user())) {
-			$body = ($topic)
-				? view('pages.topics._remove', compact('topic', 'topics'))
-				: alert('danger', "Topic not found.");
-		} else {
-			$body = alert('danger', 'You do not have permission to remove topics.');
-		}
-
-		return partial('modal-content', [
-			'header' => "Remove Topic",
-			'body' => $body,
-			'footer' => false,
-		]);
-	}
-
 	public function destroy(Request $request, Topic $topic)
 	{
 		$this->authorize('delete', $topic);
