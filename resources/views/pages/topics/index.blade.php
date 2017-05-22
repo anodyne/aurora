@@ -11,6 +11,8 @@
 		</div>
 	</div>
 
+	<topics :topics="{{ $topics }}"></topics>
+
 	<div class="data-table striped bordered">
 		@foreach ($topics as $topic)
 			<div class="row d-flex align-items-center">
@@ -36,27 +38,32 @@
 
 			@if ($topic->has('children'))
 				@foreach ($topic->children()->withTrashed()->get() as $child)
-					<div class="row d-flex align-items-center">
-						<div class="col-md-9 d-flex align-items-center">
-							<span class="badge badge-pill ml-4" style="background-color:{{ $child->color }}">&nbsp;</span>
-							<p class="lead pl-2">{{ $child->name }}</p>
-						</div>
-						<div class="col-md-3 controls">
-							<div class="btn-toolbar float-right">
-								<div class="btn-group">
-									<a href="{{ route('topics.edit', [$child]) }}" class="btn btn-secondary">@icon('edit')</a>
-								</div>
-
-								@if ($child->trashed())
-									<div class="btn-group ml-2">
-										<a href="#" class="btn btn-outline-success" data-topic="{{ $child->slug }}" @click.prevent="restore">@icon('back-in-time')</a>
-									</div>
-								@else
-									<div class="btn-group ml-2">
-										<a href="#" class="btn btn-outline-danger js-remove">@icon('trash')</a>
-									</div>
-								@endif
+					<div>
+						<div class="row d-flex align-items-center">
+							<div class="col-md-9 d-flex align-items-center">
+								<span class="badge badge-pill ml-4" style="background-color:{{ $child->color }}">&nbsp;</span>
+								<p class="lead pl-2">{{ $child->name }}</p>
 							</div>
+							<div class="col-md-3 controls">
+								<div class="btn-toolbar float-right">
+									<div class="btn-group">
+										<a href="{{ route('topics.edit', [$child]) }}" class="btn btn-secondary">@icon('edit')</a>
+									</div>
+
+									@if ($child->trashed())
+										<div class="btn-group ml-2">
+											<a href="#" class="btn btn-outline-success" data-topic="{{ $child->slug }}" @click.prevent="restore">@icon('back-in-time')</a>
+										</div>
+									@else
+										<div class="btn-group ml-2">
+											<a href="#" class="btn btn-outline-danger" @click.prevent="deleting = true">@icon('trash')</a>
+										</div>
+									@endif
+								</div>
+							</div>
+						</div>
+						<div class="row" v-show="deleting">
+							<p>Deleting</p>
 						</div>
 					</div>
 				@endforeach
@@ -75,6 +82,10 @@
 	<script>
 		var vm = new Vue({
 			el: '#app',
+
+			data: {
+				deleting: false
+			},
 
 			methods: {
 				restore: function () {
