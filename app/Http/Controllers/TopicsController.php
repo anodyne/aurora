@@ -80,9 +80,22 @@ class TopicsController extends Controller
 	{
 		$this->authorize('delete', $topic);
 
-		// Reassign discussions that are in this topic
+		// Grab the topic ID that discussions should be re-assigned to
+		$newTopic = $request->get('newTopic');
+
+		// Update all of the discussions
+		$topic->discussions->each->update(['topic_id' => $newTopic]);
+
+		// If the topic has children, move those children to the root
+		if ($topic->children->count() > 0) {
+			$topic->children->each->update(['parent_id' => null]);
+		}
 
 		$topic->delete();
+
+		if ($request->expectsJson()) {
+			return $topic;
+		}
 
 		return redirect()->route('topics.index')
 			->with('flash', 'Topic deleted.');
