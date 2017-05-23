@@ -1,10 +1,81 @@
 <template>
 	<transition name="fade">
-		<div class="alert alert-success alert-flash" role="alert" v-show="show">
-			<strong>Success!</strong> {{ body }}
+		<div :class="classes" role="alert" v-show="show">
+			<strong v-text="exclamation"></strong> {{ body }}
 		</div>
 	</transition>
 </template>
+
+<script>
+	export default {
+		props: {
+			message: {
+				type: String,
+				required: true
+			},
+			type: {
+				type: String,
+				default: 'success'
+			}
+		},
+
+		data () {
+			return {
+				body: '',
+				level: 'success',
+				show: false
+			}
+		},
+
+		computed: {
+			classes () {
+				return ['alert', 'alert-flash', 'alert-' + this.level]
+			},
+
+			exclamation () {
+				switch (this.level) {
+					case 'success':
+					default:
+						return 'Success!'
+
+					case 'warning':
+						return 'Warning!'
+
+					case 'danger':
+						return 'Failed!'
+				}
+			}
+		},
+
+		methods: {
+			flash (message, type = 'success') {
+				this.body = message
+				this.show = true
+				this.level = type
+
+				this.hide()
+			},
+
+			hide () {
+				var self = this
+
+				$(this.$el).fadeOut(function () {
+					setTimeout(() => {
+						self.show = false
+					}, 3500)
+				})
+			}
+		},
+
+		created () {
+			if (this.message) {
+				this.flash(this.message, this.type)
+			}
+
+			window.events.$on('flash', (message, type) => this.flash(message, type))
+		}
+	}
+</script>
 
 <style lang="scss">
 	.alert-flash {
@@ -20,43 +91,7 @@
 		transition: opacity .5s
 	}
 
-	.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+	.fade-enter, .fade-leave-to {
 		opacity: 0
 	}
 </style>
-
-<script>
-	export default {
-		props: ['message'],
-
-		data () {
-			return {
-				body: '',
-				show: false
-			}
-		},
-
-		created () {
-			if (this.message) {
-				this.flash(this.message)
-			}
-
-			window.events.$on('flash', message => this.flash(message))
-		},
-
-		methods: {
-			flash (message) {
-				this.body = message
-				this.show = true
-
-				this.hide()
-			},
-
-			hide () {
-				setTimeout(() => {
-					this.show = false
-				}, 3000)
-			}
-		}
-	}
-</script>
