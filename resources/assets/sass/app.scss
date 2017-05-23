@@ -1,17 +1,7 @@
 @import "_variables";
-
-// Bootstrap
-@import "node_modules/bootstrap/scss/bootstrap";
-
-// SweetAlert2
-@import "node_modules/sweetalert2/src/sweetalert2";
-
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:400);
-@import url(http://fonts.googleapis.com/css?family=Exo+2:300,300italic,500,500italic,600,600italic);
-
+@import "~bootstrap/scss/bootstrap";
 @import "_data-tables", "_data-lists", "_panels", "_mixins", "_timeline";
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300,300i,500,500i|Roboto+Mono|Roboto+Slab:700|Roboto:400,500,700');
 
 body, html {
 	margin: 0;
@@ -944,6 +934,11 @@ svg.icon {
 			}
 		}
 	}
+}
+
+.discussion-offset {
+	position: relative;
+	margin: 0 0 $spacing-lg 70px;
 }
 
 .discussion-summary {
