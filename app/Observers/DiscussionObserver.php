@@ -22,5 +22,8 @@ class DiscussionObserver extends Observer
 
 		// Delete all of the activity
 		$discussion->activity()->delete();
+
+		// Delete all of the subscriptions
+		$discussion->subscriptions()->delete();
 	}
 }

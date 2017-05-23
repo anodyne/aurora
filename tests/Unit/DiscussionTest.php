@@ -44,4 +44,34 @@ class DiscussionTest extends DatabaseTestCase
 			$this->discussion->replies
 		);
     }
+
+    /** @test **/
+    public function it_can_be_subscribed_to()
+    {
+    	$this->signIn();
+
+    	// When the user subscribes to the discussion
+    	$this->discussion->subscribe();
+
+    	// Then we should be able to fetch all discussions the user has subscribed to
+    	$this->assertEquals(
+    		1,
+    		$this->discussion->subscriptions()->where('user_id', auth()->id())->count()
+    	);
+    }
+
+    /** @test **/
+    public function it_can_be_unsubscribed_from()
+    {
+    	$this->signIn();
+
+    	$this->discussion->subscribe();
+    	
+    	$this->discussion->unsubscribe();
+
+    	$this->assertEquals(
+    		0,
+    		$this->discussion->subscriptions()->where('user_id', auth()->id())->count()
+    	);
+    }
 }

@@ -68,4 +68,21 @@ class Discussion extends Eloquent
 	{
 		return $query->where('user_id', '=', $user->id);
 	}
+
+	public function subscribe()
+	{
+		$this->subscriptions()->create([
+			'user_id' => auth()->id()
+		]);
+	}
+
+	public function unsubscribe()
+	{
+		$this->subscriptions()->where('user_id', auth()->id())->delete();
+	}
+
+	public function subscriptions()
+	{
+		return $this->hasMany(DiscussionSubscription::class);
+	}
 }
