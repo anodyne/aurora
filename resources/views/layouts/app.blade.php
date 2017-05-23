@@ -14,12 +14,6 @@
 		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico?v1') }}">
 		<link rel="apple-touch-icon-precomposed" href="{{ asset('apple-touch-icon.png') }}">
 
-		<!-- Styles -->
-		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-		<link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-		@stack('styles')
-		@yield('css')
-
 		<!-- Scripts -->
 		<script>
 			window.App = {!! json_encode([
@@ -30,6 +24,12 @@
 				'user' => auth()->user(),
 			]) !!}
 		</script>
+
+		<!-- Styles -->
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+		@stack('styles')
+		@yield('css')
 	</head>
 	<body>
 		<div class="wrapper">
@@ -180,16 +180,6 @@
 				$('.js-tooltip-bottom').tooltip({ placement: 'bottom' })
 				$('.js-tooltip-left').tooltip({ placement: 'left' })
 				$('.js-tooltip-right').tooltip({ placement: 'right' })
-
-				@if (session()->has('flash_message'))
-					swal({
-						title: "{{ session('flash_message.title') }}",
-						text: "{{ session('flash_message.message') }}",
-						type: "{{ session('flash_message.level') }}",
-						timer: 2250,
-						showConfirmButton: false
-					}).then(function () {}, function (dismiss) {})
-				@endif
 			})
 		</script>
 		@yield('js')
