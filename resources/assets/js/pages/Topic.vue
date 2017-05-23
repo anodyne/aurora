@@ -8,14 +8,14 @@
 			<div class="col-md-3 controls">
 				<div class="btn-toolbar float-right">
 					<div class="btn-group">
-						<a href="route('topics.edit', [$child])" class="btn btn-secondary">
+						<a :href="editUrl" class="btn btn-secondary">
 							<svg class="icon">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-edit"></use>
 							</svg>
 						</a>
 					</div>
 					<div class="btn-group ml-2" v-show="isTrashed">
-						<a href="#" class="btn btn-outline-success" data-topic="$child->slug" @click.prevent="restore">
+						<a href="#" class="btn btn-outline-success" @click.prevent="restore">
 							<svg class="icon">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-back-in-time"></use>
 							</svg>
@@ -34,7 +34,7 @@
 		<div class="row" v-show="deleting" v-cloak>
 			<div class="col-12 d-flex align-items-center justify-content-start">
 				<p class="mr-3"><strong>Which topic should discussions be moved to?</strong></p>
-				<select class="form-control" v-model="newTopic">
+				<select class="form-control form-control-topic" v-model="newTopic">
 					<option value="">Pick a topic</option>
 					<option v-for="replacement in replacementTopics" :value="replacement.item.id">{{ replacement.item.name }}</option>
 				</select>
@@ -74,6 +74,10 @@
 		},
 
 		computed: {
+			editUrl () {
+				return window.App.siteUrl + '/admin/topics/' + this.topic.slug + '/edit'
+			},
+
 			hasChildren () {
 				return this.topic.children.length > 0
 			},
@@ -106,7 +110,7 @@
 				this.deleting = false
 				this.topic.deleted_at = moment()
 
-				flash('Deleted the topic')
+				flash('Topic was deleted')
 			},
 
 			restore () {
@@ -114,7 +118,7 @@
 
 				this.topic.deleted_at = null
 
-				flash('Restored the topic')
+				flash('Topic was restored')
 			}
 		}
 	}
@@ -123,7 +127,7 @@
 <style lang="scss">
 	@import "../../sass/_mixins", "../../sass/_variables";
 
-	.form-control {
+	.form-control-topic {
 		width: auto !important;
 
 		color: $color-dark;

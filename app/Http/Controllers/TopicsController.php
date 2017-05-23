@@ -34,6 +34,7 @@ class TopicsController extends Controller
 	{
 		$this->authorize('create', new Topic);
 
+		// Get only parent topics so we don't have infinite nesting
 		$topics = Topic::parents()->get()->pluck('name', 'id');
 
 		return view('pages.topics.create', compact('topics'));
@@ -50,7 +51,7 @@ class TopicsController extends Controller
 		$topic = Topic::create($request->all());
 
 		return redirect()->route('topics.index')
-			->with('flash', 'Topic added.');
+			->with('flash', 'Topic was created');
 	}
 
 	public function edit(Topic $topic)
@@ -73,7 +74,7 @@ class TopicsController extends Controller
 		$topic->update($request->all());
 
 		return redirect()->route('topics.index')
-			->with('flash', 'Topic updated.');
+			->with('flash', 'Topic was updated');
 	}
 
 	public function destroy(Request $request, Topic $topic)
@@ -98,7 +99,7 @@ class TopicsController extends Controller
 		}
 
 		return redirect()->route('topics.index')
-			->with('flash', 'Topic deleted.');
+			->with('flash', 'Topic was deleted');
 	}
 
 	public function restore(Request $request, Topic $topic)
@@ -108,10 +109,10 @@ class TopicsController extends Controller
 		$topic->restore();
 
 		if ($request->expectsJson()) {
-			return response(['status' => 'Reply deleted']);
+			return response(['status' => 'Reply restored']);
 		}
 
 		return redirect()->route('topics.index')
-			->with('flash', 'Topic restored.');
+			->with('flash', 'Topic was restored');
 	}
 }

@@ -14,9 +14,7 @@
 					{!! $errors->first('name', '<p class="form-control-feedback">:message</p>') !!}
 				</div>
 			</div>
-		</div>
 
-		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Slug</label>
@@ -26,19 +24,17 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-2">
-				<div class="form-group">
-					<label>Color</label>
-					{!! Form::text('color', null, ['class' => 'form-control jscolor {hash:true}']) !!}
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Parent Topic</label>
 					{!! Form::select('parent_id', $topics, null, ['class' => 'form-control', 'placeholder' => 'No parent']) !!}
+				</div>
+			</div>
+
+			<div class="col-md-2">
+				<div class="form-group">
+					<label>Color</label>
+					{!! Form::text('color', null, ['class' => 'form-control jscolor {hash:true}']) !!}
 				</div>
 			</div>
 		</div>

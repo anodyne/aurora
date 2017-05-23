@@ -10,7 +10,7 @@ class TopicPolicy
 
 	public function view(User $user, Topic $topic)
 	{
-		//
+		return true;
 	}
 
 	public function create(User $user)
