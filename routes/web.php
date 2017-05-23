@@ -24,6 +24,7 @@ Route::get('discussions/{topic}/{discussion}/replies', 'RepliesController@index'
 Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store')->name('discussions.replies');
 Route::patch('replies/{reply}', 'RepliesController@update')->name('replies.update');
 Route::delete('replies/{reply}', 'RepliesController@destroy')->name('replies.destroy');
+Route::post('discussions/{topic}/{discussion}/subscriptions', 'DiscussionSubscriptionsController@store')->name('subscriptions.store');
 
 Route::post('replies/{reply}/favorites', 'FavoritesController@store')->name('favorites.store');
 Route::delete('replies/{reply}/favorites', 'FavoritesController@destroy')->name('favorites.destroy');
