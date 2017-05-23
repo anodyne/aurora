@@ -113,6 +113,8 @@
 				axios.put('/admin/topics/' + this.topic.slug + '/restore')
 
 				this.topic.deleted_at = null
+
+				flash('Restored the topic')
 			}
 		}
 	}
