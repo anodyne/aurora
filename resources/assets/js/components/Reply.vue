@@ -154,14 +154,14 @@
 
 			createdAt (format) {
 				var date = this.reply.created_at
-				var format = 'YYYY-MM-DD hh:mm:ss'
+				var dateFormat = 'YYYY-MM-DD hh:mm:ss'
 				var timezone = window.App.timezone
 
 				if (format == 'relative') {
-					return moment(date, format).tz(timezone).fromNow()
+					return moment(date, dateFormat).tz(timezone).fromNow()
 				}
 
-				return moment(date, format).tz(timezone).format('LLL')
+				return moment(date, dateFormat).tz(timezone).format('LLL')
 			},
 
 			destroy () {
