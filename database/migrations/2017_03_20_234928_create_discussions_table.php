@@ -8,7 +8,7 @@ class CreateDiscussionsTable extends Migration
 {
     public function up()
     {
-        Schema::create('discussions', function (Blueprint $table) {
+        Schema::create('forum_discussions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->integer('topic_id')->unsigned();
@@ -25,6 +25,6 @@ class CreateDiscussionsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('discussions');
+        Schema::dropIfExists('forum_discussions');
     }
 }

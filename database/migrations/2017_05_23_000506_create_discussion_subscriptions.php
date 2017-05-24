@@ -8,7 +8,7 @@ class CreateDiscussionSubscriptions extends Migration
 {
     public function up()
     {
-        Schema::create('discussions_subscriptions', function (Blueprint $table) {
+        Schema::create('forum_discussions_subscriptions', function (Blueprint $table) {
         	$table->bigIncrements('id');
 			$table->integer('user_id')->unsigned();
 			$table->integer('discussion_id')->unsigned();
@@ -19,6 +19,6 @@ class CreateDiscussionSubscriptions extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('discussions_subscriptions');
+        Schema::dropIfExists('forum_discussions_subscriptions');
     }
 }

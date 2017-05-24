@@ -10,6 +10,7 @@ class Topic extends Eloquent
 {
 	use SoftDeletes, PresentableTrait;
 
+	protected $table = 'forum_topics';
 	protected $fillable = ['name', 'slug', 'parent_id', 'color', 'description'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = TopicPresenter::class;

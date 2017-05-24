@@ -9,7 +9,7 @@ class Favorite extends Eloquent
 {
 	use PresentableTrait, RecordsActivity;
 
-	protected $table = 'favorites';
+	protected $table = 'forum_favorites';
 	protected $fillable = ['user_id', 'favorited_id', 'favorited_type'];
 	protected $presenter = FavoritePresenter::class;
 

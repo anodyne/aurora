@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
 	use Authorizable, Authorization, Notifiable, PresentableTrait;
 
-	protected $connection = 'users';
+	protected $table = 'core_users';
 	protected $fillable = ['points', 'signature'];
 	protected $hidden = ['password', 'remember_token'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];

@@ -4,6 +4,7 @@ use Eloquent;
 
 class Activity extends Eloquent
 {
+	protected $table = 'forum_activities';
 	protected $fillable = ['user_id', 'type', 'subject_id', 'subject_type',
 		'created_at'];
 

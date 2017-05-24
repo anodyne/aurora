@@ -6,7 +6,7 @@ trait Authorization
 {
 	public function roles()
 	{
-		return $this->belongsToMany(Role::class, 'assigned_roles', 'user_id', 'role_id');
+		return $this->belongsToMany(Role::class, 'core_assigned_roles', 'user_id', 'role_id');
 	}
 
 	public function hasRole($role, $requireAll = false)

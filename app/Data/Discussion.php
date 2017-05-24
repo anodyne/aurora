@@ -10,6 +10,7 @@ class Discussion extends Eloquent
 {
 	use SoftDeletes, PresentableTrait, RecordsActivity;
 
+	protected $table = 'forum_discussions';
 	protected $fillable = ['title', 'body', 'user_id', 'topic_id', 'replies_count'];
 	protected $with = ['author', 'topic'];
 	protected $appends = ['isSubscribedTo'];

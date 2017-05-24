@@ -11,7 +11,7 @@ class Reply extends Eloquent
 {
 	use SoftDeletes, PresentableTrait, Favoritable, RecordsActivity;
 
-	protected $table = 'replies';
+	protected $table = 'forum_replies';
 	protected $fillable = ['discussion_id', 'body', 'user_id'];
 	protected $with = ['author', 'favorites'];
 	protected $appends = ['favoritesCount', 'isFavorited'];

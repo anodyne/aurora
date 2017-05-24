@@ -8,7 +8,7 @@ class CreateTopicsTable extends Migration
 {
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('forum_topics', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->nullable()->unsigned();
             $table->string('name', 50);
@@ -23,6 +23,6 @@ class CreateTopicsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('forum_topics');
     }
 }

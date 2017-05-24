@@ -8,7 +8,7 @@ class CreateFavoritesTable extends Migration
 {
 	public function up()
 	{
-		Schema::create('favorites', function (Blueprint $table) {
+		Schema::create('forum_favorites', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->integer('user_id')->unsigned();
 			$table->integer('favorited_id')->unsigned();
@@ -21,6 +21,6 @@ class CreateFavoritesTable extends Migration
 
 	public function down()
 	{
-		Schema::dropIfExists('favorites');
+		Schema::dropIfExists('forum_favorites');
 	}
 }

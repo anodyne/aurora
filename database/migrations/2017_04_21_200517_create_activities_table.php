@@ -13,7 +13,7 @@ class CreateActivitiesTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('activities', function (Blueprint $table) {
+		Schema::create('forum_activities', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->index();
 			$table->bigInteger('subject_id')->unsigned()->index();
@@ -31,6 +31,6 @@ class CreateActivitiesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('activities');
+		Schema::dropIfExists('forum_activities');
 	}
 }

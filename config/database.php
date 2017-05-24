@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'migrations' => 'migrations',
+    'migrations' => 'forum_migrations',
 
     /*
     |--------------------------------------------------------------------------
