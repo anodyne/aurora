@@ -7,8 +7,14 @@
 			</div>
 
 			<div class="item-content">
-				{!! $discussion->present()->titleAsLink !!}
-
+				<div class="d-flex align-items-center mb-1">
+					{!! $discussion->present()->titleAsLink !!}
+				
+					@if ($discussion->isSubscribedTo)
+						@icon('star', 'text-primary mb-1 ml-1')
+					@endif
+				</div>
+				
 				<div class="meta">
 					<div class="meta-item topic">
 						{!! $discussion->present()->topic !!}
