@@ -8,11 +8,11 @@ class Role extends Eloquent
 
 	public function perms()
 	{
-		return $this->belongsToMany(Permission::class, 'core_permission_role');
+		return $this->belongsToMany(Permission::class, 'core_permissions_roles');
 	}
 
 	public function users()
 	{
-		return $this->belongsToMany(User::class, 'core_assigned_roles');
+		return $this->belongsToMany(User::class, 'core_users_roles');
 	}
 }
