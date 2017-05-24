@@ -11,7 +11,7 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<title>{{ config('app.name', 'Laravel') }}</title>
-		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico?v1') }}">
+		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico?v2') }}">
 		<link rel="apple-touch-icon-precomposed" href="{{ asset('apple-touch-icon.png') }}">
 
 		<!-- Scripts -->
