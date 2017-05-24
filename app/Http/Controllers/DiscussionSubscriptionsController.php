@@ -21,4 +21,9 @@ class DiscussionSubscriptionsController extends Controller
 	{
 		$discussion->subscribe();
 	}
+
+	public function destroy(Request $request, $topic, Discussion $discussion)
+	{
+		$discussion->unsubscribe();
+	}
 }

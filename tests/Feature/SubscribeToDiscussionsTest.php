@@ -27,4 +27,16 @@ class SubscribeToDiscussionsTest extends DatabaseTestCase
 
 		$this->assertCount(1, $this->discussion->subscriptions);
 	}
+
+	/** @test **/
+	public function a_user_can_unsubscribe_from_discussions()
+	{
+		$this->signIn();
+
+		$this->discussion->subscribe();
+
+		$this->delete(route('subscriptions.store', [$this->discussion->topic, $this->discussion]));
+
+		$this->assertCount(0, $this->discussion->subscriptions);
+	}
 }

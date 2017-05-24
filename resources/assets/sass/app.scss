@@ -1233,9 +1233,18 @@ table {
 }
 .text-subtle-darker {
 	color: $color-gray-blue;
+	fill: $color-gray-blue;
 
 	path {
 		fill: $color-gray-blue;
+	}
+}
+.text-primary {
+	color: $color-primary;
+	fill: $color-primary;
+
+	path {
+		fill: $color-primary;
 	}
 }
 

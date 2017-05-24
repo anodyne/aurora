@@ -74,4 +74,18 @@ class DiscussionTest extends DatabaseTestCase
     		$this->discussion->subscriptions()->where('user_id', auth()->id())->count()
     	);
     }
+
+    /** @test **/
+    public function it_knows_if_the_authenticated_user_is_subscribed_to_it()
+    {
+    	$user = $this->createUser();
+
+    	$this->signIn($user);
+
+    	$this->assertFalse($this->discussion->isSubscribedTo);
+
+    	$this->discussion->subscribe();
+
+    	$this->assertTrue($this->discussion->isSubscribedTo);
+    }
 }

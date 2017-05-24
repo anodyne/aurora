@@ -6,16 +6,7 @@
 
 		<paginator :data-set="dataSet" @changed="fetch"></paginator>
 
-		<div>
-			<div class="discussion-summary">
-				<svg class="icon text-subtle">
-					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bell"></use>
-				</svg>
-				<label>
-					<input type="checkbox"> Notify me when there are replies to this discussion
-				</label>
-			</div>
-		</div>
+		<subscribe-control :initial-is-subscribed="discussion.isSubscribedTo"></subscribe-control>
 
 		<quick-reply @created="add"></quick-reply>
 	</div>
@@ -25,11 +16,12 @@
 	import Reply from './Reply.vue'
 	import QuickReply from './QuickReply.vue'
 	import collection from '../mixins/collection'
+	import SubscribeControl from './SubscribeControl.vue'
 
 	export default {
 		props: ['discussion'],
 
-		components: { Reply, QuickReply },
+		components: { Reply, QuickReply, SubscribeControl },
 
 		mixins: [collection],
 
