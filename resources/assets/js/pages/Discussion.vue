@@ -1,11 +1,12 @@
 <script>
 	import pluralize from 'pluralize'
 	import Replies from '../components/Replies.vue'
+	import SubscribeControl from '../components/SubscribeControl.vue'
 
 	export default {
 		props: ['initialRepliesCount'],
 
-		components: { Replies },
+		components: { Replies, SubscribeControl },
 
 		data () {
 			return {

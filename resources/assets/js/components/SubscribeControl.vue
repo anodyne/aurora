@@ -1,19 +1,14 @@
 <template>
-	<div>
-		<div class="discussion-summary">
-			<svg :class="iconClass">
-				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bell"></use>
-			</svg>
-			<label>
-				<input type="checkbox" v-model="isSubscribed" @click="subscribe"> Notify me when there are replies to this discussion
-			</label>
-		</div>
-	</div>
+	<button :class="classes" @click.prevent="subscribe">
+		<svg :class="iconClasses">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
+		</svg>
+	</button>
 </template>
 
 <script>
 	export default {
-		props: ['initialIsSubscribed'],
+		props: ['discussion'],
 
 		data () {
 			return {
@@ -22,6 +17,10 @@
 		},
 
 		computed: {
+			classes () {
+				return ['btn', 'btn-subscribe']
+			},
+
 			iconClass () {
 				if (this.isSubscribed) {
 					return ['icon', 'text-primary']
@@ -46,7 +45,13 @@
 		},
 
 		created () {
-			this.isSubscribed = this.initialIsSubscribed
+			this.isSubscribed = discussion.isSubscribedTo
 		}
 	}
 </script>
+
+<style lang="scss">
+	.btn-subscribe {
+		background: transparent;
+	}
+</style>
