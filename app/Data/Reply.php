@@ -15,7 +15,6 @@ class Reply extends Eloquent
 	protected $with = ['author', 'favorites'];
 	protected $appends = ['favoritesCount', 'isFavorited'];
 	protected $touches = ['discussion'];
-	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = Presenters\ReplyPresenter::class;
 
 	//--------------------------------------------------------------------------

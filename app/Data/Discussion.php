@@ -13,7 +13,6 @@ class Discussion extends Eloquent
 	protected $fillable = ['title', 'body', 'user_id', 'topic_id', 'replies_count'];
 	protected $with = ['author', 'topic'];
 	protected $appends = ['isSubscribedTo'];
-	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = Presenters\DiscussionPresenter::class;
 	protected $observables = ['answered'];
 

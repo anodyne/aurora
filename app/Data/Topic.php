@@ -11,7 +11,6 @@ class Topic extends Eloquent
 
 	protected $table = 'forum_topics';
 	protected $fillable = ['name', 'slug', 'parent_id', 'color', 'description'];
-	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $presenter = Presenters\TopicPresenter::class;
 
 	//--------------------------------------------------------------------------

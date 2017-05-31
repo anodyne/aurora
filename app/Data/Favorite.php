@@ -12,6 +12,10 @@ class Favorite extends Eloquent
 	protected $fillable = ['user_id', 'favorited_id', 'favorited_type'];
 	protected $presenter = Presenters\FavoritePresenter::class;
 
+	//--------------------------------------------------------------------------
+	// Relationships
+	//--------------------------------------------------------------------------
+	
 	public function favorited()
 	{
 		return $this->morphTo();
