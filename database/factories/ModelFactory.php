@@ -26,7 +26,9 @@ $factory->define(App\Data\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Data\Discussion::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => 1,
+        'user_id' => function () {
+        	return factory('App\Data\User')->create()->id;
+        },
         'topic_id' => function () {
             return factory('App\Data\Topic')->create()->id;
         },
