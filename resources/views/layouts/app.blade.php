@@ -29,7 +29,7 @@
 		@yield('css')
 	</head>
 	<body>
-		<div class="wrapper">
+		<div id="app" class="wrapper">
 			<header>
 				@include('partials.nav')
 
@@ -47,7 +47,7 @@
 				</div>
 			</div>
 
-			<main id="app">
+			<main>
 				<div class="container">
 					@if (session()->has('flash.message'))
 						@include('partials.flash')

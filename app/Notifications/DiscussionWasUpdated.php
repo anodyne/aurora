@@ -36,7 +36,8 @@ class DiscussionWasUpdated extends Notification
 	public function toArray($notifiable)
 	{
 		return [
-			'message' => "Temporary placeholder"
+			'message' => $this->reply->author->name.' replied to '.$this->discussion->title,
+			'link' => route('discussions.show', [$this->discussion->topic, $this->discussion])
 		];
 	}
 }
