@@ -22,7 +22,7 @@ class DiscussionTest extends DatabaseTestCase
     /** @test **/
     public function it_has_an_author()
     {
-        $this->assertInstanceOf('App\Data\User', $this->discussion->author);
+    	$this->assertInstanceOf('App\Data\User', $this->discussion->author);
     }
 
     /** @test **/

@@ -12,7 +12,7 @@ class AvatarTest extends DatabaseTestCase
 	public function setUp()
 	{
 		parent::setUp();
-
+		
 		$this->user = make(User::class);
 		$this->avatar = (new Avatar)->setUser($this->user);
 	}

@@ -13,7 +13,7 @@ class ActivityTest extends DatabaseTestCase
 
 		$discussion = create('App\Data\Discussion');
 
-		$this->assertDatabaseHas('activities', [
+		$this->assertDatabaseHas('forum_activities', [
 			'type' => 'created_discussion',
 			'user_id' => auth()->id(),
 			'subject_id' => $discussion->id,
@@ -36,7 +36,7 @@ class ActivityTest extends DatabaseTestCase
 
 		$this->assertEquals(2, Activity::count());
 
-		$this->assertDatabaseHas('activities', [
+		$this->assertDatabaseHas('forum_activities', [
 			'type' => 'created_reply',
 			'user_id' => auth()->id(),
 			'subject_id' => $reply->id,

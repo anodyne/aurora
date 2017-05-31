@@ -26,7 +26,7 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 			$reply->toArray()
 		);
 
-		$this->assertDatabaseHas('replies', ['body' => $reply->body]);
+		$this->assertDatabaseHas('forum_replies', ['body' => $reply->body]);
 		$this->assertEquals(1, $discussion->fresh()->replies_count);
 	}
 
@@ -76,7 +76,7 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 		$this->delete(route('replies.destroy', $reply1))
 			->assertStatus(302);
 		
-		$this->assertSoftDeleted('replies', ['id' => $reply1->id]);
+		$this->assertSoftDeleted('forum_replies', ['id' => $reply1->id]);
 		$this->assertEquals(0, $reply1->discussion->fresh()->replies_count);
 
 		$reply2 = create('App\Data\Reply');
@@ -86,7 +86,7 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 		$this->delete(route('replies.destroy', $reply2))
 			->assertStatus(302);
 		
-		$this->assertSoftDeleted('replies', ['id' => $reply2->id]);
+		$this->assertSoftDeleted('forum_replies', ['id' => $reply2->id]);
 		$this->assertEquals(0, $reply2->discussion->fresh()->replies_count);
 	}
 
@@ -99,7 +99,7 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 
 		$this->patch(route('replies.update', $reply), ['body' => 'Updated the body.']);
 		
-		$this->assertDatabaseHas('replies', ['id' => $reply->id, 'body' => 'Updated the body.']);
+		$this->assertDatabaseHas('forum_replies', ['id' => $reply->id, 'body' => 'Updated the body.']);
 	}
 
 	/** @test **/

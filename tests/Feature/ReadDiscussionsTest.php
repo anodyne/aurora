@@ -34,7 +34,7 @@ class ReadDiscussionsTest extends DatabaseTestCase
 			'discussion_id' => $this->discussion->id
 		]);
 
-		$this->assertDatabaseHas('replies', ['body' => $reply->body]);
+		$this->assertDatabaseHas('forum_replies', ['body' => $reply->body]);
 	}
 
 	/** @test **/

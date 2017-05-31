@@ -85,7 +85,7 @@ class ManageTopicsTest extends DatabaseTestCase
 		$topic2 = create('App\Data\Topic');
 
 		$this->delete(route('topics.destroy', $topic1), ['newTopic' => $topic2->id]);
-		$this->assertSoftDeleted('topics', ['id' => $topic1->id]);
+		$this->assertSoftDeleted('forum_topics', ['id' => $topic1->id]);
 
 		$this->signIn($userModerator);
 
@@ -95,7 +95,7 @@ class ManageTopicsTest extends DatabaseTestCase
 		$topic4 = create('App\Data\Topic');
 
 		$this->delete(route('topics.destroy', $topic3), ['newTopic' => $topic4->id]);
-		$this->assertDatabaseHas('topics', [
+		$this->assertDatabaseHas('forum_topics', [
 			'id' => $topic3->id,
 			'deleted_at' => null
 		]);
@@ -112,7 +112,7 @@ class ManageTopicsTest extends DatabaseTestCase
 
 		$this->delete(route('topics.destroy', $topic1), ['newTopic' => $topic2->id]);
 
-		$this->assertDatabaseHas('discussions', [
+		$this->assertDatabaseHas('forum_discussions', [
 			'id' => $discussion->id,
 			'topic_id' => $topic2->id
 		]);
@@ -128,7 +128,7 @@ class ManageTopicsTest extends DatabaseTestCase
 
 		$this->delete(route('topics.destroy', $topic1), ['newTopic' => $topic2->id]);
 
-		$this->assertDatabaseHas('topics', [
+		$this->assertDatabaseHas('forum_topics', [
 			'id' => $topic2->id,
 			'parent_id' => null
 		]);
@@ -142,11 +142,11 @@ class ManageTopicsTest extends DatabaseTestCase
 		$topic = create('App\Data\Topic');
 		$topic->delete();
 
-		$this->assertSoftDeleted('topics', ['id' => $topic->id]);
+		$this->assertSoftDeleted('forum_topics', ['id' => $topic->id]);
 
 		$this->put(route('topics.restore', $topic));
 
-		$this->assertDatabaseHas('topics', [
+		$this->assertDatabaseHas('forum_topics', [
 			'id' => $topic->id,
 			'deleted_at' => null
 		]);
@@ -161,10 +161,7 @@ class ManageTopicsTest extends DatabaseTestCase
 
 	protected function publishTopic(array $overrides = [])
 	{
-		$user = create('App\Data\User');
-		$user->attachRole(Role::find(10));
-
-		$this->withExceptionHandling()->signIn($user);
+		$this->withExceptionHandling()->signIn($this->createAdmin());
 
 		$topic = create('App\Data\Topic', $overrides);
 

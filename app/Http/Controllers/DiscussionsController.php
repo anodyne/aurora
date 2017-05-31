@@ -60,7 +60,7 @@ class DiscussionsController extends Controller
 		$this->validate($request, [
 			'title' => 'required',
 			'body' => 'required',
-			'topic_id' => 'required|exists:topics,id',
+			'topic_id' => 'required|exists:forum_topics,id',
 		]);
 
 		$discussion = Discussion::create([

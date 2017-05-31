@@ -97,8 +97,8 @@ class ManageDiscussionsTest extends DatabaseTestCase
 
 		$response->assertStatus(204);
 
-		$this->assertSoftDeleted('discussions', ['id' => $discussion->id]);
-		$this->assertSoftDeleted('replies', ['id' => $reply->id]);
+		$this->assertSoftDeleted('forum_discussions', ['id' => $discussion->id]);
+		$this->assertSoftDeleted('forum_replies', ['id' => $reply->id]);
 		$this->assertEquals(0, Activity::count());
 	}
 
