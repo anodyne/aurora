@@ -4,6 +4,7 @@ use Eloquent;
 use DiscussionPresenter;
 use App\RecordsActivity;
 use Laracasts\Presenter\PresentableTrait;
+use App\Notifications\DiscussionWasUpdated;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Discussion extends Eloquent
@@ -48,7 +49,14 @@ class Discussion extends Eloquent
 
 	public function addReply(array $data)
 	{
-		return $this->replies()->create($data);
+		$reply = $this->replies()->create($data);
+
+		$this->subscriptions
+			->filter(function ($subscription) use ($reply) {
+				return $subscription->user_id != $reply->user_id;
+			})->each->notify($reply);
+
+		return $reply;
 	}
 
 	public function answer()
@@ -76,6 +84,8 @@ class Discussion extends Eloquent
 		$this->subscriptions()->create([
 			'user_id' => auth()->id()
 		]);
+
+		return $this;
 	}
 
 	public function unsubscribe()

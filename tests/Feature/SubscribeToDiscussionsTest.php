@@ -20,12 +20,7 @@ class SubscribeToDiscussionsTest extends DatabaseTestCase
 
 		$this->post(route('subscriptions.store', [$this->discussion->topic, $this->discussion]));
 
-		$this->discussion->addReply([
-			'user_id' => auth()->id(),
-			'body' => 'Some content'
-		]);
-
-		$this->assertCount(1, $this->discussion->subscriptions);
+		$this->assertCount(1, $this->discussion->fresh()->subscriptions);
 	}
 
 	/** @test **/
