@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div class="discussion-offset">
-			<ul class="pagination" v-if="shouldPaginate">
-				<li class="page-item" v-show="previousPageUrl">
-					<a class="page-link" href="#" aria-label="Previous" rel="previous" @click.prevent="page--">
+			<div class="pagination" v-if="shouldPaginate">
+				<div :class="previousPageClasses">
+					<a class="page-link" href="#" aria-label="Previous" rel="previous" @click.prevent="previousPage()">
 						<span aria-hidden="true">
 							<svg class="icon">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-left"></use>
@@ -11,14 +11,14 @@
 						</span>
 						<span class="sr-only">Previous</span>
 					</a>
-				</li>
+				</div>
 
-				<li :class="pageItemClass(pageNum)" v-for="pageNum in this.dataSet.last_page">
+				<div :class="pageItemClass(pageNum)" v-for="pageNum in this.dataSet.last_page">
 					<a class="page-link" href="#" @click.prevent="page = pageNum">{{ pageNum }}</a>
-				</li>
+				</div>
 
-				<li class="page-item" v-show="nextPageUrl">
-					<a class="page-link" href="#" aria-label="Next" rel="next" @click.prevent="page++">
+				<div :class="nextPageClasses">
+					<a class="page-link" href="#" aria-label="Next" rel="next" @click.prevent="nextPage()">
 						<span aria-hidden="true">
 							<svg class="icon">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use>
@@ -26,8 +26,8 @@
 						</span>
 						<span class="sr-only">Next</span>
 					</a>
-				</li>
-			</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -45,38 +45,54 @@
 		},
 
 		computed: {
+			nextPageClasses () {
+				return ['page-item', (nextPageUrl) ? '' : 'disabled'];
+			},
+
+			previousPageClasses () {
+				return ['page-item', (previousPageUrl) ? '' : 'disabled'];
+			},
+
 			shouldPaginate () {
-				return !! this.previousPageUrl || !! this.nextPageUrl
+				return !! this.previousPageUrl || !! this.nextPageUrl;
 			}
 		},
 
 		methods: {
 			broadcast () {
-				return this.$emit('changed', this.page)
+				return this.$emit('changed', this.page);
+			},
+
+			nextPage () {
+				if (this.nextPageUrl) {
+					this.page++;
+				}
 			},
 
 			pageItemClass (page) {
-				if (page == this.page) {
-					return 'page-item active'
-				}
+				return ['page-item', (page == this.page) ? 'active' : ''];
+			},
 
-				return 'page-item'
+			previousPage () {
+				if (this.previousPageUrl) {
+					this.page--;
+				}
 			},
 
 			updateUrl () {
-				history.pushState(null, null, '?page=' + this.page)
+				history.pushState(null, null, '?page=' + this.page);
 			}
 		},
 
 		watch: {
 			dataSet () {
-				this.page = this.dataSet.current_page
-				this.previousPageUrl = this.dataSet.prev_page_url
-				this.nextPageUrl = this.dataSet.next_page_url
+				this.page = this.dataSet.current_page;
+				this.previousPageUrl = this.dataSet.prev_page_url;
+				this.nextPageUrl = this.dataSet.next_page_url;
 			},
 
 			page () {
-				this.broadcast().updateUrl()
+				this.broadcast().updateUrl();
 			}
 		}
 	}
