@@ -10,7 +10,12 @@ insert_final_newline = false
 indent_style = tab
 charset = utf-8
 
-[nova/vendor/**]
+[node_modules/**]
+indent_style = ignore
+charset = ignore
+end_of_line = ignore
+
+[vendor/**]
 indent_style = ignore
 charset = ignore
 end_of_line = ignore
