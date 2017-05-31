@@ -8,7 +8,7 @@ class CreateUsersForTesting extends Migration
 {
 	public function up()
 	{
-		//if (app()->environment() == 'testing') {
+		if (app()->environment() == 'testing') {
 			Schema::create('core_users', function (Blueprint $table) {
 				$table->increments('id');
 				$table->string('name');
@@ -72,18 +72,20 @@ class CreateUsersForTesting extends Migration
 			Eloquent::unguard();
 
 			$this->seed();
-		//}
+		}
 	}
 
 	public function down()
 	{
-		Schema::dropIfExists('core_password_resets');
-		Schema::dropIfExists('core_sessions');
-		Schema::dropIfExists('core_permissions_roles');
-		Schema::dropIfExists('core_users_roles');
-		Schema::dropIfExists('core_permissions');
-		Schema::dropIfExists('core_roles');
-		Schema::dropIfExists('core_users');
+		if (app()->environment() == 'testing') {
+			Schema::dropIfExists('core_password_resets');
+			Schema::dropIfExists('core_sessions');
+			Schema::dropIfExists('core_permissions_roles');
+			Schema::dropIfExists('core_users_roles');
+			Schema::dropIfExists('core_permissions');
+			Schema::dropIfExists('core_roles');
+			Schema::dropIfExists('core_users');
+		}
 	}
 
 	protected function seed()
