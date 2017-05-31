@@ -49,9 +49,9 @@
 </template>
 
 <script>
-	import md5 from 'md5'
-	import pluralize from 'pluralize'
-	import humanize from 'humanize-number'
+	import md5 from 'md5';
+	import pluralize from 'pluralize';
+	import humanize from 'humanize-number';
 
 	export default {
 		props: {
@@ -75,23 +75,23 @@
 
 		computed: {
 			classes () {
-				return ['avatar', this.size]
+				return ['avatar', this.size];
 			},
 
 			hasAfterLabel () {
-				return this.$slots.afterLabel != null
+				return this.$slots.afterLabel != null;
 			},
 
 			hasBeforeLabel () {
-				return this.$slots.beforeLabel != null
+				return this.$slots.beforeLabel != null;
 			},
 
 			points () {
-				return humanize(this.user.points) + ' XP'
+				return humanize(this.user.points) + ' XP';
 			},
 
 			profileLink () {
-				return window.App.siteUrl + '/user/' + this.user.username
+				return window.App.siteUrl + '/user/' + this.user.username;
 			},
 
 			url () {
@@ -101,9 +101,9 @@
 					'?s=240',
 					'&d=retro',
 					'&r=pg'
-				]
+				];
 
-				return img.join('')
+				return img.join('');
 			}
 		}
 	}

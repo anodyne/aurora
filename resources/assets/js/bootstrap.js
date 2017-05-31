@@ -1,4 +1,4 @@
-window._ = require('lodash')
+window._ = require('lodash');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -6,11 +6,11 @@ window._ = require('lodash')
  * code may be modified to fit the specific needs of your application.
  */
 
-window.$ = window.jQuery = require('jquery')
+window.$ = window.jQuery = require('jquery');
 
-window.Tether = require('tether')
+window.Tether = require('tether');
 
-require('bootstrap')
+require('bootstrap');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -18,7 +18,7 @@ require('bootstrap')
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = require('vue')
+window.Vue = require('vue');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -26,17 +26,17 @@ window.Vue = require('vue')
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios')
+window.axios = require('axios');
 
 window.axios.defaults.headers.common = {
 	'X-CSRF-TOKEN': window.App.csrfToken,
 	'X-Requested-With': 'XMLHttpRequest'
-}
+};
 
 //window.swal = require('sweetalert2')
 
-window.events = new Vue()
+window.events = new Vue();
 
 window.flash = function (message, type) {
-	window.events.$emit('flash', message, type)
-}
+	window.events.$emit('flash', message, type);
+};

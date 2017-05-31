@@ -16,7 +16,7 @@
 
 		computed: {
 			repliesLabel () {
-				return pluralize('reply', this.repliesCount)
+				return pluralize('reply', this.repliesCount);
 			}
 		}
 	}

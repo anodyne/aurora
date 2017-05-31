@@ -18,34 +18,30 @@
 
 		computed: {
 			classes () {
-				return ['btn', 'btn-subscribe']
+				return ['btn', 'btn-subscribe'];
 			},
 
 			iconClass () {
-				if (this.isSubscribed) {
-					return ['icon', 'text-primary']
-				}
-
-				return ['icon', 'text-subtle']
+				return ['icon', (this.isSubscribed) ? 'text-primary' : 'text-subtle'];
 			}
 		},
 
 		methods: {
 			subscribe () {
 				if (this.isSubscribed) {
-					axios.post(window.App.siteUrl + location.pathname + '/subscriptions')
+					axios.post(window.App.siteUrl + location.pathname + '/subscriptions');
 
-					flash('Subscribed to discussion')
+					flash('Subscribed to discussion');
 				} else {
-					axios.delete(window.App.siteUrl + location.pathname + '/subscriptions')
+					axios.delete(window.App.siteUrl + location.pathname + '/subscriptions');
 
-					flash('Unsubscribed from discussion')
+					flash('Unsubscribed from discussion');
 				}
 			}
 		},
 
 		created () {
-			this.isSubscribed = discussion.isSubscribedTo
+			this.isSubscribed = discussion.isSubscribedTo;
 		}
 	}
 </script>

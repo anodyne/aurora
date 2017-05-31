@@ -20,31 +20,31 @@
 
 		computed: {
 			classes () {
-				return ['btn', 'd-flex', 'align-items-center', this.active ? 'btn-liked' : '']
+				return ['btn', 'd-flex', 'align-items-center', this.active ? 'btn-liked' : ''];
 			},
 
 			endpoint () {
-				return window.App.siteUrl + '/replies/' + this.reply.id + '/favorites'
+				return window.App.siteUrl + '/replies/' + this.reply.id + '/favorites';
 			}
 		},
 
 		methods: {
 			create () {
-				axios.post(this.endpoint)
+				axios.post(this.endpoint);
 
-				this.active = true
-				this.count++
+				this.active = true;
+				this.count++;
 			},
 
 			destroy () {
-				axios.delete(this.endpoint)
+				axios.delete(this.endpoint);
 
-				this.active = false
-				this.count--
+				this.active = false;
+				this.count--;
 			},
 
 			toggle () {
-				return this.active ? this.destroy() : this.create()
+				return this.active ? this.destroy() : this.create();
 			}
 		}
 	}
