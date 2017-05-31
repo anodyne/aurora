@@ -21,7 +21,7 @@ class TopicPolicy
 	public function manage(User $user)
 	{
 		return $user->can('forums.topic.create')
-			or $user->can('forums.topic.update')
+			or $user->can('forums.topic.edit')
 			or $user->can('forums.topic.delete');
 	}
 

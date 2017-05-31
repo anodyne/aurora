@@ -20,12 +20,12 @@ class ReplyPolicy
 
 	public function update(User $user, Reply $reply)
 	{
-		return $user->can('forums.reply.edit')
+		return $user->can('forums.post.edit')
 			or (int) $reply->user_id === (int) $user->id;
 	}
 
 	public function delete(User $user, Reply $reply)
 	{
-		return $user->can('forums.reply.delete');
+		return $user->can('forums.post.delete');
 	}
 }
