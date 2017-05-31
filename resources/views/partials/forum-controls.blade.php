@@ -13,7 +13,7 @@
 				<a href="#" class="list-group-item disabled">@icon('icon-new') Unread Discussions</a>
 				<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('icon-user') My Discussions</a>
 				<a href="#" class="list-group-item disabled">@icon('icon-heart') My Favorites</a>
-				<a href="{{ request()->url() }}?subscribed=1" class="list-group-item disabled">@icon('icon-star') Subscribed</a>
+				<a href="{{ request()->url() }}?subscribed=1" class="list-group-item">@icon('icon-star') Subscribed</a>
 			@endif
 
 			<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('icon-flash') Popular This Week</a>
@@ -87,7 +87,7 @@
 						<a href="#" class="list-group-item disabled">@icon('icon-new') Unread Discussions</a>
 						<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('icon-user') My Discussions</a>
 						<a href="#" class="list-group-item disabled">@icon('icon-heart') My Favorites</a>
-						<a href="{{ request()->url() }}?subscribed=1" class="list-group-item disabled">@icon('icon-star') Subscribed</a>
+						<a href="{{ request()->url() }}?subscribed=1" class="list-group-item">@icon('icon-star') Subscribed</a>
 					@endif
 
 					<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('icon-flash') Popular This Week</a>

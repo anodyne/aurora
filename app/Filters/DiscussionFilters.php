@@ -9,7 +9,8 @@ class DiscussionFilters extends Filters
 		'by',
 		'popular',
 		'trending',
-		'answered'
+		'answered',
+		'subscribed'
 	];
 
 	protected function answered()
@@ -31,6 +32,16 @@ class DiscussionFilters extends Filters
 		$this->builder->getQuery()->orders = [];
 
 		return $this->builder->orderBy('replies_count', 'desc');
+	}
+
+	protected function subscribed()
+	{
+		// Clear out any existing ordering that we have
+		$this->builder->getQuery()->orders = [];
+
+		return $this->builder
+			->join('forum_discussions_subscriptions', 'forum_discussions.id', '=', 'forum_discussions_subscriptions.discussion_id')
+			->where('forum_discussions_subscriptions.user_id', auth()->id());
 	}
 
 	protected function trending()

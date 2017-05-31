@@ -35,6 +35,11 @@ class Discussion extends Eloquent
 		return $this->hasMany(Reply::class);
 	}
 
+	public function subscriptions()
+	{
+		return $this->hasMany(DiscussionSubscription::class);
+	}
+
 	public function topic()
 	{
 		return $this->belongsTo(Topic::class);
@@ -79,11 +84,6 @@ class Discussion extends Eloquent
 	public function unsubscribe()
 	{
 		$this->subscriptions()->where('user_id', auth()->id())->delete();
-	}
-
-	public function subscriptions()
-	{
-		return $this->hasMany(DiscussionSubscription::class);
 	}
 
 	public function getIsSubscribedToAttribute()

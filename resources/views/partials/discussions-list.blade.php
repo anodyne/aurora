@@ -10,6 +10,8 @@
 				<div class="d-flex align-items-center mb-1">
 					{!! $discussion->present()->titleAsLink !!}
 
+					{{ dd($discussion, $discussion->isSubscribedTo) }}
+
 					<subscribe-control :discussion="{{ $discussion }}"></subscribe-control>
 				</div>
 				
