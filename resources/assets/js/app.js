@@ -15,8 +15,8 @@ var marked = require('marked');
 
 Vue.prototype.authorize = function (handler) {
 	let user = window.App.user;
-	let admin = user.roles.find(role => role.name == 'Forum Administrator');
-	let moderator = user.roles.find(role => role.name == 'Forum Moderator');
+	let admin = user.roles.find(role => role.name == 'Forums Administrator');
+	let moderator = user.roles.find(role => role.name == 'Forums Moderator');
 
 	if (admin || moderator) {
 		return true;
