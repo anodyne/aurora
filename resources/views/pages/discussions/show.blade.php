@@ -3,10 +3,10 @@
 @section('content')
 	<discussion-view :initial-replies-count="{{ $discussion->replies_count }}" inline-template>
 		<div>
-			<h1>
-				{{ $discussion->title }}
-				<subscribe-control :discussion="{{ $discussion }}"></subscribe-control>
-			</h1>
+			<div class="d-flex align-items-center">
+				<h1 class="my-0">{{ $discussion->title }}</h1>
+				<subscribe-control size="lg" :discussion="{{ $discussion }}"></subscribe-control>
+			</div>
 
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="{{ route('home') }}">Forum</a></li>
