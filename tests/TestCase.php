@@ -2,6 +2,7 @@
 
 use App\Data\Role;
 use App\Exceptions\Handler;
+use App\Providers\AuthServiceProvider;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
@@ -14,6 +15,8 @@ abstract class TestCase extends BaseTestCase
 	protected function setUp()
 	{
 		parent::setUp();
+
+		$this->defineAuthorizationGates();
 
 		$this->disableExceptionHandling();
 	}
@@ -67,5 +70,10 @@ abstract class TestCase extends BaseTestCase
 		$this->app->instance(ExceptionHandler::class, $this->oldExceptionHandler);
 
 		return $this;
+	}
+
+	protected function defineAuthorizationGates()
+	{
+		return (new AuthServiceProvider(app()))->defineGates();
 	}
 }
