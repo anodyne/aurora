@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use Topic;
-use Discussion;
+use App\Data\Topic;
+use App\Data\Discussion;
 use Illuminate\Http\Request;
 use App\Filters\DiscussionFilters;
 

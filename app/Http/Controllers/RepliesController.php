@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use Reply;
-use Discussion;
+use App\Data\Reply;
+use App\Data\Discussion;
 use Illuminate\Http\Request;
 
 class RepliesController extends Controller
