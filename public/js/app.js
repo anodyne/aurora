@@ -17402,7 +17402,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Favorite.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Favorite.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Favorite.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -17440,7 +17440,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/SubscribeControl.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\SubscribeControl.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SubscribeControl.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -19008,6 +19008,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 	computed: {
+		nextPageClasses: function nextPageClasses() {
+			return ['page-item', nextPageUrl ? '' : 'disabled'];
+		},
+		previousPageClasses: function previousPageClasses() {
+			return ['page-item', previousPageUrl ? '' : 'disabled'];
+		},
 		shouldPaginate: function shouldPaginate() {
 			return !!this.previousPageUrl || !!this.nextPageUrl;
 		}
@@ -19017,12 +19023,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		broadcast: function broadcast() {
 			return this.$emit('changed', this.page);
 		},
-		pageItemClass: function pageItemClass(page) {
-			if (page == this.page) {
-				return 'page-item active';
+		nextPage: function nextPage() {
+			if (this.nextPageUrl) {
+				this.page++;
 			}
-
-			return 'page-item';
+		},
+		pageItemClass: function pageItemClass(page) {
+			return ['page-item', page == this.page ? 'active' : ''];
+		},
+		previousPage: function previousPage() {
+			if (this.previousPageUrl) {
+				this.page--;
+			}
 		},
 		updateUrl: function updateUrl() {
 			history.pushState(null, null, '?page=' + this.page);
@@ -19345,7 +19357,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return this.discussion.answer_id == this.reply.id;
 		},
 		panelClasses: function panelClasses() {
-			return this.isAnswer ? ['panel', 'panel-success'] : ['panel', 'panel-default'];
+			return ['panel', this.isAnswer ? 'panel-success' : 'panel-default'];
 		},
 		signedIn: function signedIn() {
 			return window.App.signedIn;
@@ -19425,11 +19437,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return ['btn', 'btn-subscribe'];
 		},
 		iconClass: function iconClass() {
-			if (this.isSubscribed) {
-				return ['icon', 'text-primary'];
-			}
-
-			return ['icon', 'text-subtle'];
+			return ['icon', this.isSubscribed ? 'text-primary' : 'text-subtle'];
 		}
 	},
 
@@ -57715,7 +57723,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Avatar.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Avatar.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Avatar.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -57753,7 +57761,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Flash.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Flash.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Flash.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -57787,7 +57795,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Paginator.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Paginator.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Paginator.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -57821,7 +57829,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/QuickReply.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\QuickReply.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] QuickReply.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -57855,7 +57863,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Replies.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Replies.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Replies.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -57889,7 +57897,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/components/Reply.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\components\\Reply.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Reply.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -57923,7 +57931,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/pages/Discussion.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\pages\\Discussion.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -57960,7 +57968,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/pages/Topic.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\pages\\Topic.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Topic.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -57994,7 +58002,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/DVS/Sites/anodyne/aurora/resources/assets/js/pages/Topics.vue"
+Component.options.__file = "C:\\mamp\\htdocs\\anodyne\\aurora\\resources\\assets\\js\\pages\\Topics.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Topics.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -58453,16 +58461,10 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('div', {
     staticClass: "discussion-offset"
-  }, [(_vm.shouldPaginate) ? _c('ul', {
+  }, [(_vm.shouldPaginate) ? _c('div', {
     staticClass: "pagination"
-  }, [_c('li', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.previousPageUrl),
-      expression: "previousPageUrl"
-    }],
-    staticClass: "page-item"
+  }, [_c('div', {
+    class: _vm.previousPageClasses
   }, [_c('a', {
     staticClass: "page-link",
     attrs: {
@@ -58473,7 +58475,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": function($event) {
         $event.preventDefault();
-        _vm.page--
+        _vm.previousPage()
       }
     }
   }, [_c('span', {
@@ -58490,7 +58492,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])]), _vm._v(" "), _c('span', {
     staticClass: "sr-only"
   }, [_vm._v("Previous")])])]), _vm._v(" "), _vm._l((this.dataSet.last_page), function(pageNum) {
-    return _c('li', {
+    return _c('div', {
       class: _vm.pageItemClass(pageNum)
     }, [_c('a', {
       staticClass: "page-link",
@@ -58504,14 +58506,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_vm._v(_vm._s(pageNum))])])
-  }), _vm._v(" "), _c('li', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.nextPageUrl),
-      expression: "nextPageUrl"
-    }],
-    staticClass: "page-item"
+  }), _vm._v(" "), _c('div', {
+    class: _vm.nextPageClasses
   }, [_c('a', {
     staticClass: "page-link",
     attrs: {
@@ -58522,7 +58518,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": function($event) {
         $event.preventDefault();
-        _vm.page++
+        _vm.nextPage()
       }
     }
   }, [_c('span', {
