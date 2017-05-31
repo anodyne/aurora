@@ -8,7 +8,16 @@
 
 <script>
 	export default {
-		props: ['discussion'],
+		props: {
+			discussion: {
+				type: Object,
+				required: true
+			},
+			size: {
+				type: String,
+				default: ''
+			}
+		},
 
 		data () {
 			return {
@@ -21,8 +30,8 @@
 				return ['btn', 'btn-subscribe'];
 			},
 
-			iconClass () {
-				return ['icon', (this.isSubscribed) ? 'text-primary' : 'text-subtle'];
+			iconClasses () {
+				return ['icon', this.size, (this.isSubscribed) ? 'text-primary' : 'text-subtle'];
 			}
 		},
 
@@ -41,7 +50,7 @@
 		},
 
 		created () {
-			this.isSubscribed = discussion.isSubscribedTo;
+			this.isSubscribed = this.discussion.isSubscribedTo;
 		}
 	}
 </script>
