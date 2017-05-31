@@ -23,7 +23,7 @@
 					<div class="dropdown">
 						<a href="#" data-toggle="dropdown" class="dropdown-toggle d-flex align-items-center user-avatar">
 							<span class="pr-2">{!! avatar($_user)->image()->tiny() !!}</span>
-							{{ $_user->present()->name }}
+							<span>{{ $_user->present()->name }}</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
 							<a href="{{ route('profile', $_user) }}" class="dropdown-item">My Profile</a>
