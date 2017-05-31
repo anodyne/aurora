@@ -11,8 +11,8 @@
 </template>
 
 <script>
-	import Topic from './Topic.vue'
-	import collection from '../mixins/collection'
+	import Topic from './Topic.vue';
+	import collection from '../mixins/collection';
 
 	export default {
 		props: ['topics'],
@@ -33,34 +33,34 @@
 					item: topic,
 					hasChildren: false,
 					isChild: false
-				}
+				};
 
 				if (isParent && topic.children && topic.children.length > 0) {
-					item.hasChildren = true
+					item.hasChildren = true;
 				}
 
 				if (! isParent) {
-					item.isChild = true
+					item.isChild = true;
 				}
 
-				return item
+				return item;
 			}
 		},
 
 		created () {
 			for (var t = 0; t < this.topics.length; t++) {
-				var topic = this.extract(this.topics[t], true)
+				var topic = this.extract(this.topics[t], true);
 
-				this.dataSet.push(topic)
+				this.dataSet.push(topic);
 
 				if (topic.hasChildren) {
 					for (var c = 0; c < topic.item.children.length; c++) {
-						this.dataSet.push(this.extract(topic.item.children[c], false))
+						this.dataSet.push(this.extract(topic.item.children[c], false));
 					}
 				}
 			}
 
-			this.items = this.dataSet
+			this.items = this.dataSet;
 		}
 	}
 </script>

@@ -1,7 +1,5 @@
 <?php namespace App\Configuration;
 
-use Status;
-
 trait ProvidesScriptVariables
 {
 	public function scriptVariables()

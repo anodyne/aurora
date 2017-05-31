@@ -2,9 +2,9 @@
 	<div class="pagination">
 		{{-- Previous Page Link --}}
 		@if ($paginator->onFirstPage())
-			<div class="page-item disabled"><span class="page-link">{{ svg_icon('chevron-left')->inline() }}</span></div>
+			<div class="page-item disabled"><span class="page-link">@icon('icon-chevron-left')</span></div>
 		@else
-			<div class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">{{ svg_icon('chevron-left')->inline() }}</a></div>
+			<div class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">@icon('icon-chevron-left')</a></div>
 		@endif
 
 		{{-- Pagination Elements --}}

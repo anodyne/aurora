@@ -107,10 +107,10 @@
 </template>
 
 <script>
-	import Favorite from './Favorite.vue'
-	import moment from 'moment-timezone'
-	import autosize from 'autosize'
-	import copy from 'copy-to-clipboard'
+	import Favorite from './Favorite.vue';
+	import moment from 'moment-timezone';
+	import autosize from 'autosize';
+	import copy from 'copy-to-clipboard';
 
 	export default {
 		props: ['discussion', 'reply'],
@@ -127,70 +127,70 @@
 
 		computed: {
 			canDelete () {
-				return this.authorize(user => false)
+				return this.authorize(user => false);
 			},
 			
 			canUpdate () {
-				return this.authorize(user => this.reply.user_id == user.id)
+				return this.authorize(user => this.reply.user_id == user.id);
 			},
 
 			isAnswer () {
-				return this.discussion.answer_id == this.reply.id
+				return this.discussion.answer_id == this.reply.id;
 			},
 
 			panelClasses () {
-				return this.isAnswer ? ['panel', 'panel-success'] : ['panel', 'panel-default']
+				return ['panel', (this.isAnswer) ? 'panel-success' : 'panel-default'];
 			},
 
 			signedIn () {
-				return window.App.signedIn
+				return window.App.signedIn;
 			}
 		},
 
 		methods: {
 			copyLink () {
-				copy(window.App.siteUrl + '/discussions/' + this.discussion.topic.slug + '/' + this.discussion.id + '#reply-' + this.reply.id)
+				copy(window.App.siteUrl + '/discussions/' + this.discussion.topic.slug + '/' + this.discussion.id + '#reply-' + this.reply.id);
 			},
 
 			createdAt (format) {
-				var date = this.reply.created_at
-				var dateFormat = 'YYYY-MM-DD hh:mm:ss'
-				var timezone = window.App.timezone
+				var date = this.reply.created_at;
+				var dateFormat = 'YYYY-MM-DD hh:mm:ss';
+				var timezone = window.App.timezone;
 
 				if (format == 'relative') {
-					return moment(date, dateFormat).tz(timezone).fromNow()
+					return moment(date, dateFormat).tz(timezone).fromNow();
 				}
 
-				return moment(date, dateFormat).tz(timezone).format('LLL')
+				return moment(date, dateFormat).tz(timezone).format('LLL');
 			},
 
 			destroy () {
-				axios.delete('/replies/' + this.reply.id)
+				axios.delete('/replies/' + this.reply.id);
 
-				this.$emit('deleted', this.reply.id)
+				this.$emit('deleted', this.reply.id);
 
-				flash('Deleted the reply')
+				flash('Deleted the reply');
 			},
 
 			like () {
-				axios.post('/replies/' + this.reply.id + '/favorites')
+				axios.post('/replies/' + this.reply.id + '/favorites');
 
-				flash('Liked the reply')
+				flash('Liked the reply');
 			},
 
 			update () {
 				axios.patch('/replies/' + this.reply.id, {
 					body: this.body
-				})
+				});
 
-				this.editing = false
+				this.editing = false;
 
-				flash('Updated the reply.')
+				flash('Updated the reply.');
 			}
 		},
 
 		mounted () {
-			autosize($('textarea'))
+			autosize($('textarea'));
 		}
 	}
 </script>

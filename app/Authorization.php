@@ -1,6 +1,6 @@
 <?php namespace App;
 
-use Role;
+use App\Data\Role;
 
 trait Authorization
 {

@@ -48,7 +48,7 @@
 </template>
 
 <script>
-	import moment from 'moment'
+	import moment from 'moment';
 
 	export default {
 		props: {
@@ -75,27 +75,27 @@
 
 		computed: {
 			editUrl () {
-				return window.App.siteUrl + '/admin/topics/' + this.topic.slug + '/edit'
+				return window.App.siteUrl + '/admin/topics/' + this.topic.slug + '/edit';
 			},
 
 			hasChildren () {
-				return this.topic.children.length > 0
+				return this.topic.children.length > 0;
 			},
 
 			isTrashed () {
-				return this.topic.deleted_at != null
+				return this.topic.deleted_at != null;
 			},
 
 			pillClasses () {
-				return ['badge', 'badge-pill', (this.isChild ? 'ml-4' : '')]
+				return ['badge', 'badge-pill', (this.isChild ? 'ml-4' : '')];
 			},
 
 			replacementTopics () {
-				var self = this
+				var self = this;
 
 				return self.allTopics.filter(function (topic) {
-					return topic.item.name != self.topic.name
-				})
+					return topic.item.name != self.topic.name;
+				});
 			}
 		},
 
@@ -105,20 +105,20 @@
 					data: {
 						newTopic: this.newTopic
 					}
-				})
+				});
 
-				this.deleting = false
-				this.topic.deleted_at = moment()
+				this.deleting = false;
+				this.topic.deleted_at = moment();
 
-				flash('Topic was deleted')
+				flash('Topic was deleted');
 			},
 
 			restore () {
-				axios.put('/admin/topics/' + this.topic.slug + '/restore')
+				axios.put('/admin/topics/' + this.topic.slug + '/restore');
 
-				this.topic.deleted_at = null
+				this.topic.deleted_at = null;
 
-				flash('Topic was restored')
+				flash('Topic was restored');
 			}
 		}
 	}

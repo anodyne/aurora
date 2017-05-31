@@ -4,8 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap')
-var marked = require('marked')
+require('./bootstrap');
+var marked = require('marked');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -14,28 +14,29 @@ var marked = require('marked')
  */
 
 Vue.prototype.authorize = function (handler) {
-	let user = window.App.user
-	let admin = user.roles.find(role => role.name == 'Forum Administrator')
-	let moderator = user.roles.find(role => role.name == 'Forum Moderator')
+	let user = window.App.user;
+	let admin = user.roles.find(role => role.name == 'Forums Administrator');
+	let moderator = user.roles.find(role => role.name == 'Forums Moderator');
 
 	if (admin || moderator) {
-		return true
+		return true;
 	}
 
-	return user ? handler(user) : false
+	return user ? handler(user) : false;
 }
 
-Vue.component('flash', require('./components/Flash.vue'))
-Vue.component('avatar', require('./components/Avatar.vue'))
-Vue.component('favorite', require('./components/Favorite.vue'))
-Vue.component('topics', require('./pages/Topics.vue'))
-Vue.component('paginator', require('./components/Paginator.vue'))
-Vue.component('discussion-view', require('./pages/Discussion.vue'))
+Vue.component('flash', require('./components/Flash.vue'));
+Vue.component('avatar', require('./components/Avatar.vue'));
+Vue.component('favorite', require('./components/Favorite.vue'));
+Vue.component('topics', require('./pages/Topics.vue'));
+Vue.component('paginator', require('./components/Paginator.vue'));
+Vue.component('discussion-view', require('./pages/Discussion.vue'));
+Vue.component('subscribe-control', require('./components/SubscribeControl.vue'));
 
 Vue.mixin({
 	methods: {
 		marked: function (input) {
-			return marked(input)
+			return marked(input);
 		}
 	}
-})
+});

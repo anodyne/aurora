@@ -1,7 +1,6 @@
 <?php namespace App\Data;
 
 use Eloquent;
-use ReplyPresenter;
 use App\Favoritable;
 use App\RecordsActivity;
 use Laracasts\Presenter\PresentableTrait;
@@ -16,8 +15,7 @@ class Reply extends Eloquent
 	protected $with = ['author', 'favorites'];
 	protected $appends = ['favoritesCount', 'isFavorited'];
 	protected $touches = ['discussion'];
-	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-	protected $presenter = ReplyPresenter::class;
+	protected $presenter = Presenters\ReplyPresenter::class;
 
 	//--------------------------------------------------------------------------
 	// Relationships

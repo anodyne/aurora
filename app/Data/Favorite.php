@@ -1,7 +1,6 @@
 <?php namespace App\Data;
 
 use Eloquent;
-use FavoritePresenter;
 use App\RecordsActivity;
 use Laracasts\Presenter\PresentableTrait;
 
@@ -11,8 +10,12 @@ class Favorite extends Eloquent
 
 	protected $table = 'forum_favorites';
 	protected $fillable = ['user_id', 'favorited_id', 'favorited_type'];
-	protected $presenter = FavoritePresenter::class;
+	protected $presenter = Presenters\FavoritePresenter::class;
 
+	//--------------------------------------------------------------------------
+	// Relationships
+	//--------------------------------------------------------------------------
+	
 	public function favorited()
 	{
 		return $this->morphTo();

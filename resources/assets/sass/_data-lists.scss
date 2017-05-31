@@ -44,6 +44,12 @@
 					}
 				}
 
+				.btn-subscribe {
+					.text-subtle {
+						visibility: hidden;
+					}
+				}
+
 				.meta {
 					display: flex;
 					align-items: center;
@@ -93,6 +99,16 @@
 									fill: $color-green-600;
 								}
 							}
+						}
+					}
+				}
+			}
+
+			&:hover {
+				.item-content {
+					.btn-subscribe {
+						.text-subtle {
+							visibility: visible;
 						}
 					}
 				}

@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use Discussion;
+use App\Data\Discussion;
 use Illuminate\Http\Request;
 
 class DiscussionSubscriptionsController extends Controller

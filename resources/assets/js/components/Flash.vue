@@ -29,50 +29,50 @@
 
 		computed: {
 			classes () {
-				return ['alert', 'alert-flash', 'alert-' + this.level]
+				return ['alert', 'alert-flash', 'alert-' + this.level];
 			},
 
 			exclamation () {
 				switch (this.level) {
 					case 'success':
 					default:
-						return 'Success!'
+						return 'Success!';
 
 					case 'warning':
-						return 'Warning!'
+						return 'Warning!';
 
 					case 'danger':
-						return 'Failed!'
+						return 'Failed!';
 				}
 			}
 		},
 
 		methods: {
 			flash (message, type = 'success') {
-				this.body = message
-				this.show = true
-				this.level = type
+				this.body = message;
+				this.show = true;
+				this.level = type;
 
-				this.hide()
+				this.hide();
 			},
 
 			hide () {
-				var self = this
+				var self = this;
 
 				$(this.$el).fadeOut(function () {
 					setTimeout(() => {
 						self.show = false
-					}, 3500)
+					}, 3500);
 				})
 			}
 		},
 
 		created () {
 			if (this.message) {
-				this.flash(this.message, this.type)
+				this.flash(this.message, this.type);
 			}
 
-			window.events.$on('flash', (message, type) => this.flash(message, type))
+			window.events.$on('flash', (message, type) => this.flash(message, type));
 		}
 	}
 </script>

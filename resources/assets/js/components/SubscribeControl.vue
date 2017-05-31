@@ -1,5 +1,5 @@
 <template>
-	<button :class="classes" @click.prevent="subscribe">
+	<button :title="tooltipText" :class="classes" @click.prevent="subscribe">
 		<svg :class="iconClasses">
 			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
 		</svg>
@@ -8,7 +8,16 @@
 
 <script>
 	export default {
-		props: ['discussion'],
+		props: {
+			discussion: {
+				type: Object,
+				required: true
+			},
+			size: {
+				type: String,
+				default: ''
+			}
+		},
 
 		data () {
 			return {
@@ -18,40 +27,76 @@
 
 		computed: {
 			classes () {
-				return ['btn', 'btn-subscribe']
+				return ['btn', 'btn-subscribe', 'js-tooltip-bottom'];
 			},
 
-			iconClass () {
+			endpoint () {
+				let pieces = [
+					window.App.siteUrl,
+					'discussions',
+					this.discussion.topic.slug,
+					this.discussion.id,
+					'subscriptions'
+				];
+
+				return pieces.join('/')
+			},
+
+			iconClasses () {
+				return ['icon', this.size, (this.isSubscribed) ? 'text-primary' : 'text-subtle'];
+			},
+
+			tooltipText () {
 				if (this.isSubscribed) {
-					return ['icon', 'text-primary']
+					return 'Unsubscribe from this discussion';
 				}
 
-				return ['icon', 'text-subtle']
+				return 'Subscribe to this discussion';
 			}
 		},
 
 		methods: {
 			subscribe () {
-				if (this.isSubscribed) {
-					axios.post(window.App.siteUrl + location.pathname + '/subscriptions')
+				console.log(this.isSubscribed);
 
-					flash('Subscribed to discussion')
+				if (! this.isSubscribed) {
+					axios.post(this.endpoint);
+
+					this.isSubscribed = true;
+
+					flash('Subscribed to discussion');
 				} else {
-					axios.delete(window.App.siteUrl + location.pathname + '/subscriptions')
+					axios.delete(this.endpoint);
 
-					flash('Unsubscribed from discussion')
+					this.isSubscribed = false;
+
+					flash('Unsubscribed from discussion');
 				}
 			}
 		},
 
 		created () {
-			this.isSubscribed = discussion.isSubscribedTo
+			this.isSubscribed = this.discussion.isSubscribedTo;
 		}
 	}
 </script>
 
 <style lang="scss">
+	@import "../../sass/_mixins", "../../sass/_variables";
+
 	.btn-subscribe {
+		padding: 1px 6px;
+
 		background: transparent;
+
+		&:hover {
+			.text-primary {
+				fill: darken($color-primary, 5%);
+			}
+
+			.text-subtle {
+				fill: $color-subtle-darker;
+			}
+		}
 	}
 </style>

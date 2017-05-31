@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
 
-use User;
-use Discussion;
+use App\Data\User;
 use App\Data\Activity;
+use App\Data\Discussion;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -12,7 +12,7 @@ class ProfilesController extends Controller
 		parent::__construct();
 		
 		if (app()->environment() != 'testing') {
-			auth()->setUser(\User::find(1));
+			auth()->setUser(User::find(1));
 			view()->share('_user', auth()->user());
 		}
 	}

@@ -14,8 +14,7 @@ class User extends Authenticatable
 	protected $table = 'core_users';
 	protected $fillable = ['points', 'signature'];
 	protected $hidden = ['password', 'remember_token'];
-	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-	protected $presenter = UserPresenter::class;
+	protected $presenter = Presenters\UserPresenter::class;
 
 	//--------------------------------------------------------------------------
 	// Relationships
@@ -37,20 +36,16 @@ class User extends Authenticatable
 	}
 
 	//--------------------------------------------------------------------------
-	// Model Scopes
-	//--------------------------------------------------------------------------
-
-	public function scopeUsername($query, $username)
-	{
-		$query->where('username', $username);
-	}
-
-	//--------------------------------------------------------------------------
 	// Model Methods
 	//--------------------------------------------------------------------------
 
 	public function getRouteKeyName()
 	{
 		return 'username';
+	}
+
+	public function scopeUsername($query, $username)
+	{
+		$query->where('username', $username);
 	}
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "91308c3d96af4dc7ff7cbf2a4b164f98",
+    "content-hash": "aa0e30094ed87a46b82a1280b8aec3c5",
     "packages": [
         {
             "name": "andreasindal/laravel-markdown",

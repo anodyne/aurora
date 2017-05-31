@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use Reply;
-use Favorite;
+use App\Data\Reply;
+use App\Data\Favorite;
 use Illuminate\Http\Request;
 
 class FavoritesController extends Controller

@@ -39,11 +39,11 @@
 
 		computed: {
 			signedIn () {
-				return window.App.signedIn
+				return window.App.signedIn;
 			},
 
 			user () {
-				return window.App.user
+				return window.App.user;
 			}
 		},
 
@@ -51,12 +51,12 @@
 			addReply () {
 				axios.post(location.pathname + '/replies', { body: this.body })
 					.then(response => {
-						this.body = ''
+						this.body = '';
 
-						this.$emit('created', response.data)
+						this.$emit('created', response.data);
 
-						flash('Your reply has been posted.')
-					})
+						flash('Your reply has been posted.');
+					});
 			}
 		}
 	}

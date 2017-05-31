@@ -6,6 +6,10 @@ class Role extends Eloquent
 {
 	protected $table = 'core_roles';
 
+	//--------------------------------------------------------------------------
+	// Relationships
+	//--------------------------------------------------------------------------
+
 	public function perms()
 	{
 		return $this->belongsToMany(Permission::class, 'core_permissions_roles');
@@ -15,6 +19,10 @@ class Role extends Eloquent
 	{
 		return $this->belongsToMany(User::class, 'core_users_roles');
 	}
+
+	//--------------------------------------------------------------------------
+	// Model Methods
+	//--------------------------------------------------------------------------
 
 	public function scopeName($query, $roleName)
 	{

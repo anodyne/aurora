@@ -236,30 +236,11 @@ return [
 		'Markdown' => Indal\Markdown\Facade::class,
         'Str' => Illuminate\Support\Str::class,
 
-        'Repository' => App\Data\Repositories\Repository::class,
-        'RepositoryContract' => App\Data\Contracts\RepositoryContract::class,
-
 		'Discussion' => App\Data\Discussion::class,
-        'DiscussionPresenter' => App\Data\Presenters\DiscussionPresenter::class,
-		//'DiscussionRepository' => App\Data\Repositories\DiscussionRepository::class,
-        //'DiscussionRepositoryContract' => App\Data\Contracts\DiscussionRepositoryContract::class,
-
 		'Reply' => App\Data\Reply::class,
-        'ReplyPresenter' => App\Data\Presenters\ReplyPresenter::class,
-		//'ReplyRepository' => App\Data\Repositories\ReplyRepository::class,
-        //'ReplyRepositoryContract' => App\Data\Contracts\ReplyRepositoryContract::class,
-
 		'User' => App\Data\User::class,
-        'UserPresenter' => App\Data\Presenters\UserPresenter::class,
-		//'UserRepository' => App\Data\Repositories\UserRepository::class,
-        //'UserRepositoryContract' => App\Data\Contracts\UserRepositoryContract::class,
-
         'Topic' => App\Data\Topic::class,
-        'TopicPresenter' => App\Data\Presenters\TopicPresenter::class,
-
         'Favorite' => App\Data\Favorite::class,
-        'FavoritePresenter' => App\Data\Presenters\FavoritePresenter::class,
-
         'Permission' => App\Data\Permission::class,
         'Role' => App\Data\Role::class,
 
