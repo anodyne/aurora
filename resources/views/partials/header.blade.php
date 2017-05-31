@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center justify-content-end flex-column flex-lg-row py-4 my-4">
 	<div class="mr-lg-auto hidden-sm-down">
-		<a href="{{ route('home') }}" class="brand d-flex align-items-center">@icon('anodyne') Anodyne Forums</a>
+		<a href="{{ route('home') }}" class="brand d-flex align-items-center">{{ svg_icon('anodyne')->inline() }} Anodyne Forums</a>
 	</div>
 	<div>
 		<nav class="nav-sub">

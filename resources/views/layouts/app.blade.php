@@ -49,7 +49,7 @@
 								<a href="{{ config('anodyne.links.www') }}">Anodyne<div class="arrow"></div></a>
 								<a href="{{ config('anodyne.links.nova') }}">Nova<div class="arrow"></div></a>
 								<a href="{{ config('anodyne.links.xtras') }}">Xtras<div class="arrow"></div></a>
-								<a href="{{ route('home') }}" class="active logo">@icon('anodyne') Forums<div class="arrow"></div></a>
+								<a href="{{ route('home') }}" class="active logo">{{ svg_icon('anodyne')->inline() }} Forums<div class="arrow"></div></a>
 								<a href="{{ config('anodyne.links.help') }}">Help<div class="arrow"></div></a>
 							</div>
 							<div class="d-flex align-items-center">
@@ -66,7 +66,7 @@
 											<a href="{{ config('anodyne.links.www') }}admin/users/{{ $_user->username }}/edit" class="dropdown-item">Edit My Profile</a>
 											<div class="dropdown-divider"></div>
 
-											@if ($_user->can('forums.admin'))
+											@if ($_user->hasRole('Forums Administrator'))
 												<h6 class="dropdown-header">Admin</h6>
 												<a href="{{ route('topics.index') }}" class="dropdown-item">Manage Topics</a>
 												<div class="dropdown-divider"></div>

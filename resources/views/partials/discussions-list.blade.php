@@ -11,7 +11,7 @@
 					{!! $discussion->present()->titleAsLink !!}
 				
 					@if ($discussion->isSubscribedTo)
-						@icon('star', 'text-primary mb-1 ml-1')
+						@icon('icon-star', 'text-primary mb-1 ml-1')
 					@endif
 				</div>
 				
@@ -22,13 +22,13 @@
 
 					@if ($discussion->replies_count > 0)
 						<div class="meta-item replies">
-							@icon('chat')
+							@icon('icon-chat')
 							<span>{{ $discussion->replies_count }} {{ str_plural('reply', $discussion->replies_count) }}</span>
 						</div>
 					@endif
 
 					<div class="meta-item timestamp">
-						@icon('clock')
+						@icon('icon-clock')
 						<span>
 							{!! $discussion->present()->updated('relative') !!}
 							by&nbsp;{!! $discussion->present()->updatedBy !!}
@@ -37,7 +37,7 @@
 
 					@if ($discussion->answer_count > 0)
 						<div class="meta-item answered">
-							@icon('check')
+							@icon('icon-check')
 							<span>answered</span>
 						</div>
 					@endif

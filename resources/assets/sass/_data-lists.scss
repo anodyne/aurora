@@ -61,6 +61,8 @@
 							width: 1rem;
 							margin-right: $space-xs;
 
+							fill: $color-subtle-darker;
+
 							path {
 								fill: $color-subtle-darker;
 							}
@@ -85,6 +87,8 @@
 							font-weight: 500;
 
 							.icon {
+								fill: $color-green-600;
+								
 								path {
 									fill: $color-green-600;
 								}

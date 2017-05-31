@@ -7,18 +7,18 @@
 		<h6>Choose a Filter</h6>
 
 		<div class="list-group">
-			<a href="{{ route('home') }}" class="list-group-item">@icon('list') All Discussions</a>
+			<a href="{{ route('home') }}" class="list-group-item">@icon('icon-list') All Discussions</a>
 			
 			@if (auth()->check())
-				<a href="#" class="list-group-item disabled">@icon('new') Unread Discussions</a>
-				<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('user') My Discussions</a>
-				<a href="#" class="list-group-item disabled">@icon('heart') My Favorites</a>
-				<a href="{{ request()->url() }}?subscribed=1" class="list-group-item disabled">@icon('star') Subscribed</a>
+				<a href="#" class="list-group-item disabled">@icon('icon-new') Unread Discussions</a>
+				<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('icon-user') My Discussions</a>
+				<a href="#" class="list-group-item disabled">@icon('icon-heart') My Favorites</a>
+				<a href="{{ request()->url() }}?subscribed=1" class="list-group-item disabled">@icon('icon-star') Subscribed</a>
 			@endif
 
-			<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('flash') Popular This Week</a>
-			<a href="{{ request()->url() }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
-			<a href="{{ request()->url() }}?answered=1" class="list-group-item">@icon('check') Answered</a>
+			<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('icon-flash') Popular This Week</a>
+			<a href="{{ request()->url() }}?popular=1" class="list-group-item">@icon('icon-rocket') Popular All Time</a>
+			<a href="{{ request()->url() }}?answered=1" class="list-group-item">@icon('icon-check') Answered</a>
 		</div>
 
 		<h6>Or Pick a Topic</h6>
@@ -55,13 +55,13 @@
 			<div class="row">
 				<div class="col">
 					<p><a href="{{ route('discussions.create') }}" class="btn btn-primary btn-lg btn-block">
-						<span class="hidden-sm-up">@icon('new-message')</span>
+						<span class="hidden-sm-up">@icon('icon-new-message')</span>
 						<span class="hidden-xs-down">Start Discussion</span>
 					</a></p>
 				</div>
 				<div class="col">
 					<p><a href="#" data-toggle="modal" data-target="#discussionFiltersMobile" class="btn btn-outline-secondary btn-lg btn-block">
-						<span class="hidden-sm-up">@icon('funnel')</span>
+						<span class="hidden-sm-up">@icon('icon-funnel')</span>
 						<span class="hidden-xs-down">Filter</span>
 					</a></p>
 				</div>
@@ -81,18 +81,18 @@
 				<h6>Choose a Filter</h6>
 
 				<div class="list-group">
-					<a href="{{ route('home') }}" class="list-group-item">@icon('list') All Discussions</a>
+					<a href="{{ route('home') }}" class="list-group-item">@icon('icon-list') All Discussions</a>
 					
 					@if (auth()->check())
-						<a href="#" class="list-group-item disabled">@icon('new') Unread Discussions</a>
-						<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('user') My Discussions</a>
-						<a href="#" class="list-group-item disabled">@icon('heart') My Favorites</a>
-						<a href="{{ request()->url() }}?subscribed=1" class="list-group-item disabled">@icon('star') Subscribed</a>
+						<a href="#" class="list-group-item disabled">@icon('icon-new') Unread Discussions</a>
+						<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('icon-user') My Discussions</a>
+						<a href="#" class="list-group-item disabled">@icon('icon-heart') My Favorites</a>
+						<a href="{{ request()->url() }}?subscribed=1" class="list-group-item disabled">@icon('icon-star') Subscribed</a>
 					@endif
 
-					<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('flash') Popular This Week</a>
-					<a href="{{ request()->url() }}?popular=1" class="list-group-item">@icon('rocket') Popular All Time</a>
-					<a href="{{ request()->url() }}?answered=1" class="list-group-item">@icon('check') Answered Questions</a>
+					<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('icon-flash') Popular This Week</a>
+					<a href="{{ request()->url() }}?popular=1" class="list-group-item">@icon('icon-rocket') Popular All Time</a>
+					<a href="{{ request()->url() }}?answered=1" class="list-group-item">@icon('icon-check') Answered Questions</a>
 				</div>
 
 				<h6>Or Pick a Topic</h6>

@@ -59,6 +59,8 @@ nav.nav-main {
 				width: 1.75rem;
 				margin-right: 0.125rem;
 
+				fill: rgba(255, 255, 255, 1) !important;
+
 				path {
 					fill: rgba(255, 255, 255, 1) !important;
 				}
@@ -72,6 +74,8 @@ nav.nav-main {
 
 			.user-icon {
 				.icon {
+					fill: $color-subtle;
+
 					path {
 						fill: $color-subtle;
 					}
@@ -156,6 +160,8 @@ nav.nav-main {
 			margin: 0 5px 0 0;
 			vertical-align: text-bottom;
 
+			fill: $color-gray;
+
 			path {
 				fill: $color-gray;
 			}
@@ -212,6 +218,8 @@ header {
 			height: 2em;
 			width: 2em;
 			margin-right: $space-xs;
+
+			fill: $color-white !important;
 
 			path {
 				fill: $color-white !important;
@@ -318,6 +326,8 @@ header {
 			height: 35px;
 			width: 35px;
 
+			fill: $color-primary;
+
 			path {
 				fill: $color-primary;
 			}
@@ -334,6 +344,8 @@ main {
 		outline: none;
 
 		.icon {
+			fill: $color-primary;
+
 			path {
 				fill: $color-primary;
 			}
@@ -343,6 +355,8 @@ main {
 			color: $color-primary-light;
 
 			.icon {
+				fill: $color-primary-light;
+
 				path {
 					fill: $color-primary-light;
 				}
@@ -617,6 +631,7 @@ svg.icon {
 				color: $color-danger-dark;
 				border: 1px solid transparent;
 				border-radius: $radius;
+				fill: $color-danger-dark;
 
 				path {
 					fill: $color-danger-dark;
@@ -627,6 +642,7 @@ svg.icon {
 					text-decoration: none;
 					border-color: lighten($color-danger-light, 17%);
 					background-color: lighten($color-danger-bright, 10%);
+					fill: darken($color-danger-dark, 15%);
 
 					path {
 						fill: darken($color-danger-dark, 15%);
@@ -656,6 +672,7 @@ svg.icon {
 				color: $color-warning-dark;
 				border: 1px solid transparent;
 				border-radius: $radius;
+				fill: $color-warning-dark;
 
 				path {
 					fill: $color-warning-dark;
@@ -666,6 +683,7 @@ svg.icon {
 					text-decoration: none;
 					border-color: lighten($color-warning-light, 10%);
 					background-color: lighten($color-warning-bright, 6.5%);
+					fill: darken($color-warning-dark, 15%);
 
 					path {
 						fill: darken($color-warning-dark, 15%);
@@ -695,6 +713,7 @@ svg.icon {
 				color: $color-info-dark;
 				border: 1px solid transparent;
 				border-radius: $radius;
+				fill: $color-info-dark;
 
 				path {
 					fill: $color-info-dark;
@@ -705,6 +724,7 @@ svg.icon {
 					text-decoration: none;
 					border-color: lighten($color-info-light, 17%);
 					background-color: lighten($color-info-bright, 10%);
+					fill: darken($color-info-dark, 15%);
 
 					path {
 						fill: darken($color-info-dark, 15%);
@@ -927,6 +947,8 @@ svg.icon {
 
 			&.disabled {
 				.icon {
+					fill: $list-group-disabled-color;
+
 					path {
 						fill: $list-group-disabled-color;
 					}
@@ -1067,12 +1089,15 @@ svg.icon {
 		background: transparent;
 		border: none;
 		color: $color-gray-blue;
+		fill: $color-gray-blue;
 
 		path {
 			fill: $color-gray-blue;
 		}
 
 		&:hover {
+			fill: $color-pink-300 !important;
+
 			path {
 				fill: $color-pink-300 !important;
 			}
@@ -1260,6 +1285,7 @@ table {
 
 .liked {
 	color: $color-pink-300 !important;
+	fill: $color-pink-300 !important;
 
 	path {
 		fill: $color-pink-300 !important;
@@ -1318,6 +1344,8 @@ table {
 
 	&.alert-success {
 		.icon {
+			fill: $color-success-dark;
+
 			path {
 				fill: $color-success-dark;
 			}
