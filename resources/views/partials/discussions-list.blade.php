@@ -9,10 +9,8 @@
 			<div class="item-content">
 				<div class="d-flex align-items-center mb-1">
 					{!! $discussion->present()->titleAsLink !!}
-				
-					@if ($discussion->isSubscribedTo)
-						@icon('icon-star', 'text-primary mb-1 ml-1')
-					@endif
+
+					<subscribe-control :discussion="{{ $discussion }}"></subscribe-control>
 				</div>
 				
 				<div class="meta">
