@@ -22,7 +22,7 @@
 
 			<div>
 				<div class="discussion-summary">
-					@icon('chat', 'text-subtle')
+					@icon('icon-chat', 'text-subtle')
 
 					<span>
 						<span v-text="repliesCount"></span>

@@ -48,7 +48,7 @@
 					<div>&nbsp;</div>
 					<div class="dropdown dropup">
 						<a href="#" id="dropdownMenuButton" class="btn" data-toggle="dropdown">
-							@icon('dots-three-vertical')
+							@icon('icon-dots-three-vertical')
 						</a>
 						
 						<div class="dropdown-menu dropdown-menu-right">
