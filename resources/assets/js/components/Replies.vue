@@ -6,8 +6,6 @@
 
 		<paginator :data-set="dataSet" @changed="fetch"></paginator>
 
-		<subscribe-control :initial-is-subscribed="discussion.isSubscribedTo"></subscribe-control>
-
 		<quick-reply @created="add"></quick-reply>
 	</div>
 </template>
