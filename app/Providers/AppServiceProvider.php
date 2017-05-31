@@ -1,6 +1,7 @@
 <?php namespace App\Providers;
 
 use Form;
+use Schema;
 use App\Data;
 use App\Observers;
 use Illuminate\Support\ServiceProvider;
@@ -9,6 +10,8 @@ class AppServiceProvider extends ServiceProvider
 {
 	public function boot()
 	{
+		Schema::defaultStringLength(191);
+
 		// Set the container bindings
 		$this->bindings();
 
