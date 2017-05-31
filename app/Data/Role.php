@@ -15,4 +15,9 @@ class Role extends Eloquent
 	{
 		return $this->belongsToMany(User::class, 'core_users_roles');
 	}
+
+	public function scopeName($query, $roleName)
+	{
+		return $query->where('name', $roleName);
+	}
 }

@@ -31,7 +31,7 @@ abstract class TestCase extends BaseTestCase
 	protected function createUser()
 	{
 		$user = create('App\Data\User');
-		$user->attachRole(Role::find(11));
+		$user->attachRole(Role::name('Forums User')->first());
 
 		return $user;
 	}
@@ -39,7 +39,7 @@ abstract class TestCase extends BaseTestCase
 	protected function createAdmin()
 	{
 		$user = $this->createModerator();
-		$user->attachRole(Role::find(10));
+		$user->attachRole(Role::name('Forums Administrator')->first());
 
 		return $user;
 	}
@@ -47,7 +47,7 @@ abstract class TestCase extends BaseTestCase
 	protected function createModerator()
 	{
 		$user = $this->createUser();
-		$user->attachRole(Role::find(12));
+		$user->attachRole(Role::name('Forums Moderator')->first());
 
 		return $user;
 	}
