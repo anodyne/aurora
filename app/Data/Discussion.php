@@ -1,7 +1,6 @@
 <?php namespace App\Data;
 
 use Eloquent;
-use DiscussionPresenter;
 use App\RecordsActivity;
 use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,7 +14,7 @@ class Discussion extends Eloquent
 	protected $with = ['author', 'topic'];
 	protected $appends = ['isSubscribedTo'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-	protected $presenter = DiscussionPresenter::class;
+	protected $presenter = Presenters\DiscussionPresenter::class;
 	protected $observables = ['answered'];
 
 	//--------------------------------------------------------------------------

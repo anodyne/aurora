@@ -15,7 +15,7 @@ class User extends Authenticatable
 	protected $fillable = ['points', 'signature'];
 	protected $hidden = ['password', 'remember_token'];
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-	protected $presenter = UserPresenter::class;
+	protected $presenter = Presenters\UserPresenter::class;
 
 	//--------------------------------------------------------------------------
 	// Relationships
