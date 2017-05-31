@@ -41,7 +41,7 @@
 			<div class="search-forums">
 				<div class="container">
 					<div class="input-group">
-						<span class="input-group-addon">@icon('magnifying-glass')</span>
+						<span class="input-group-addon">@icon('icon-magnifying-glass')</span>
 						{!! Form::text('q', null, ['placeholder' => 'Search the forums', 'class' => 'form-control form-control-lg search-field']) !!}
 					</div>
 				</div>
