@@ -1,7 +1,7 @@
 <nav class="nav-main hidden-lg-up">
 	<div class="container">
 		<ul>
-			<li><a href="#" class="active logo" data-toggle="modal" data-target="#navGlobalMobile">@icon('anodyne') Forums</a></li>
+			<li><a href="#" class="active logo" data-toggle="modal" data-target="#navGlobalMobile">{{ svg_icon('anodyne')->inline() }} Forums</a></li>
 		</ul>
 	</div>
 </nav>
