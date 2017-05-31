@@ -2,7 +2,7 @@
 
 use UserPresenter;
 use App\Authorization;
-use Illuminate\Notifications\Notifiable;
+use App\Notifications\Notifiable;
 use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

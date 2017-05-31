@@ -35,6 +35,10 @@ Route::delete('replies/{reply}/favorites', 'FavoritesController@destroy')->name(
 
 Route::get('user/{user}', 'ProfilesController@show')->name('profile');
 
+Route::get('user/{user}/notifications', 'UserNotificationsController@index')->name('notifications.index');
+Route::delete('user/{user}/notifications/{notification}', 'UserNotificationsController@destroy')
+	->name('notifications.destroy');
+
 Route::get('login', function () {
 	//
 })->name('auth.login');
