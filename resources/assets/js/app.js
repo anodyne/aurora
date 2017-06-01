@@ -38,7 +38,7 @@ Vue.component('notification-panel', require('./components/NotificationPanel.vue'
 
 Vue.mixin({
 	methods: {
-		formatDate (date, format) {
+		formatDate: function (date, format) {
 			var dateFormat = 'YYYY-MM-DD hh:mm:ss';
 			var timezone = window.App.timezone;
 
@@ -49,7 +49,7 @@ Vue.mixin({
 			return moment(date, dateFormat).tz(timezone).format('LLL');
 		},
 
-		marked (input) {
+		marked: function (input) {
 			return marked(input);
 		}
 	}
