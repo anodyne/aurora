@@ -20,7 +20,7 @@
 				<a href="#" class="js-contact">Contact</a>
 
 				@if (auth()->check())
-					<user-notifications></user-notifications>
+					<a href="#" class="js-notifications">@icon('icon-bell')</a>
 					<div class="dropdown">
 						<a href="#" data-toggle="dropdown" class="dropdown-toggle d-flex align-items-center user-avatar">
 							<span class="pr-2">{!! avatar($_user)->image()->tiny() !!}</span>

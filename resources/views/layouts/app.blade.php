@@ -59,6 +59,8 @@
 				<flash message="{{ session('flash') }}"></flash>
 			</main>
 
+			<notification-panel></notification-panel>
+
 			@include('partials.footer')
 		</div>
 
@@ -74,11 +76,17 @@
 		<script>
 			window.Anodyne = <?php echo json_encode(app('anodyne')->scriptVariables());?>
 
-			$(function() {
+			$(function () {
 				$('.js-tooltip-top').tooltip({ placement: 'top' });
 				$('.js-tooltip-bottom').tooltip({ placement: 'bottom' });
 				$('.js-tooltip-left').tooltip({ placement: 'left' });
 				$('.js-tooltip-right').tooltip({ placement: 'right' });
+
+				$('.js-notifications').click(function (e) {
+					e.preventDefault();
+
+					$('#notification-panel').modal('show');
+				});
 			});
 		</script>
 		@yield('js')

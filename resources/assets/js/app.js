@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 var marked = require('marked');
+var moment = require('moment-timezone');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,10 +34,22 @@ Vue.component('paginator', require('./components/Paginator.vue'));
 Vue.component('discussion-view', require('./pages/Discussion.vue'));
 Vue.component('subscribe-control', require('./components/SubscribeControl.vue'));
 Vue.component('user-notifications', require('./components/UserNotifications.vue'));
+Vue.component('notification-panel', require('./components/NotificationPanel.vue'));
 
 Vue.mixin({
 	methods: {
-		marked: function (input) {
+		formatDate (date, format) {
+			var dateFormat = 'YYYY-MM-DD hh:mm:ss';
+			var timezone = window.App.timezone;
+
+			if (format == 'relative') {
+				return moment(date, dateFormat).tz(timezone).fromNow();
+			}
+
+			return moment(date, dateFormat).tz(timezone).format('LLL');
+		},
+
+		marked (input) {
 			return marked(input);
 		}
 	}
