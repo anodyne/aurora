@@ -10,11 +10,11 @@
 			<div :class="panelClasses">
 				<div class="panel-heading hidden-sm-down">
 					<h3 class="panel-title mr-auto"><a :href="'/profiles/' + reply.author.username" v-text="reply.author.name"></a></h3>
-					<small class="timestamp text-subtle js-tooltip-top" :title="createdAt()">Replied {{ createdAt('relative') }}</small>
+					<small class="timestamp text-subtle js-tooltip-top" :title="formatDate(reply.created_at, '')">Replied {{ formatDate(reply.created_at, 'relative') }}</small>
 				</div>
 				<div class="panel-heading hidden-md-up">
 					<avatar :user="reply.author" :has-label="true">
-						<span slot="beforeLabel" v-cloak>{{ createdAt('relative') }}</span>
+						<span slot="beforeLabel" v-cloak>{{ formatDate(reply.created_at, 'relative') }}</span>
 					</avatar>
 					<div class="dropdown">
 						<a href="#" id="dropdownMenuButton" data-toggle="dropdown">
@@ -108,7 +108,6 @@
 
 <script>
 	import Favorite from './Favorite.vue';
-	import moment from 'moment-timezone';
 	import autosize from 'autosize';
 	import copy from 'copy-to-clipboard';
 
@@ -150,18 +149,6 @@
 		methods: {
 			copyLink () {
 				copy(window.App.siteUrl + '/discussions/' + this.discussion.topic.slug + '/' + this.discussion.id + '#reply-' + this.reply.id);
-			},
-
-			createdAt (format) {
-				var date = this.reply.created_at;
-				var dateFormat = 'YYYY-MM-DD hh:mm:ss';
-				var timezone = window.App.timezone;
-
-				if (format == 'relative') {
-					return moment(date, dateFormat).tz(timezone).fromNow();
-				}
-
-				return moment(date, dateFormat).tz(timezone).format('LLL');
 			},
 
 			destroy () {
