@@ -1,44 +1,36 @@
 <template>
-	<div class="dropdown" v-if="notifications.length">
-		<a href="#" data-toggle="dropdown" class="dropdown-toggle d-flex align-items-center">
-			<svg class="icon">
-				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bell"></use>
-			</svg>
-		</a>
-		<div class="dropdown-menu">
-			<a :href="notification.data.link" 
-			   class="dropdown-item" 
-			   v-for="notification in notifications" 
-			   @click="markAsRead(notification)">{{ notification.data.message }}</a>
-		</div>
-	</div>
+	<a href="#" class="js-notifications" @click.prevent="openNotificationsPanel">
+		<div class="unread" v-show="hasUnreadNotifications"></div>
+		<svg class="icon">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bell"></use>
+		</svg>
+	</a>
 </template>
 
 <script>
 	export default {
+		props: ['initialNotificationsCount'],
+
 		data () {
 			return {
-				notifications: false
+				count: 0
+			}
+		},
+
+		computed: {
+			hasUnreadNotifications () {
+				return this.count > 0;
 			}
 		},
 
 		methods: {
-			markAsRead (notification) {
-				let urlSegments = [
-					window.App.siteUrl,
-					'user',
-					window.App.user.username,
-					'notifications',
-					notification.id
-				];
-
-				axios.delete(urlSegments.join('/'));
+			openNotificationsPanel () {
+				$('#notification-panel').modal('show');
 			}
 		},
 
 		created () {
-			axios.get(window.App.siteUrl + '/user/' + window.App.user.username + '/notifications')
-				.then(response => this.notifications = response.data);
+			this.count = this.initialNotificationsCount;
 		}
 	}
 </script>
