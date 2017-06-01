@@ -23,17 +23,61 @@ body {
 }
 
 nav.nav-main {
+	display: flex;
+	align-items: center;
 	position: relative;
 	z-index: 20;
 	height: 40px;
 	line-height: 40px;
 
-	background: $color-nav-main;
-	color: $color-white;
-
 	background: rgba(0, 0, 0, 0.3);
 	color: rgba(255, 255, 255, 0.3);
 	border-bottom: 1px solid rgb(0, 75, 118);
+
+	.nav-container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.nav-left {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-right: auto;
+	}
+
+	.nav-right {
+		display: flex;
+		align-items: center;
+
+		.js-contact {
+			padding: 0 0.75rem;
+		}
+
+		.js-notifications {
+			position: relative;
+			padding: 0 0.75rem;
+
+			.unread {
+				position: absolute;
+				bottom: 8px;
+				right: 6px;
+				height: 8px;
+				width: 8px;
+
+				border-radius: 100px;
+				background: $color-amber-700;
+			}
+		}
+
+		.dropdown {
+			.dropdown-toggle {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
 
 	a {
 		position: relative;
@@ -41,15 +85,13 @@ nav.nav-main {
 		padding: 0 1.5rem;
 
 		font-size: $font-size-sm;
-		color: $color-gray;
 		font-family: $font-special;
-		font-weight: 500;
-
 		font-weight: 300;
 		color: rgba(255, 255, 255, 0.3);
 
 		.icon {
 			fill: rgba(255, 255, 255, 0.3);
+			vertical-align: text-top;
 		}
 
 		&.logo {
@@ -92,87 +134,13 @@ nav.nav-main {
 		}
 
 		&.active {
-			color: #ffba00;
-			background: darken($color-nav-main, 3%);
+			padding-bottom: 1px;
 
 			font-weight: 500;
 			color: $color-white;
 			background: $color-primary;
-			padding-bottom: 1px;
 			border-left: 1px solid rgb(0, 75, 118);
 			border-right: 1px solid rgb(0, 75, 118);
-
-			.arrow {
-				display: block;
-				display: none;
-			}
-		}
-
-		.arrow {
-			position: absolute;
-			z-index: 10;
-			width: 10px;
-			height: 10px;
-			bottom: -5px;
-			left: 50%;
-			margin-left: -6px;
-			display: none;
-
-			border-left: 1px solid rgba(0, 0, 0, .5);
-			border-top: 1px solid rgba(0, 0, 0, .5);
-			background: darken($color-nav-main, 3%);
-			transform: rotate(-135deg);
-			border-top-left-radius: 3px;
-		}
-
-		.badge {
-			margin-left: $spacing-sm;
-
-			font-family: $font-base;
-			font-weight: 500;
-		}
-	}
-
-	ul {
-		position: relative;
-		margin: 0;
-		padding: 0;
-
-		list-style: none;
-
-		li {
-			position: relative;
-			float: left;
-			margin: 0 0 -1px 0;
-			padding: 0;
-		}
-
-		&.dd {
-			position: absolute;
-			margin: 2px 0 0;
-			padding: 5px 0;
-
-			li {
-				float: none;
-
-				a {
-					display: block;
-					padding: 3px 20px;
-				}
-			}
-		}
-	}
-
-	.user-icon {
-		.icon {
-			margin: 0 5px 0 0;
-			vertical-align: text-bottom;
-
-			fill: $color-gray;
-
-			path {
-				fill: $color-gray;
-			}
 		}
 	}
 

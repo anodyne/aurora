@@ -1,3 +1,4 @@
+<!-- Nav for XS, SM, and MD screens -->
 <nav class="nav-main hidden-lg-up">
 	<div class="container">
 		<ul>
@@ -6,24 +7,25 @@
 	</div>
 </nav>
 
-<nav class="nav-main hidden-md-down d-flex align-items-center">
+<!-- Nav for LG and XL screens -->
+<nav class="nav-main hidden-md-down">
 	<div class="container">
-		<div class="d-flex align-items-center justify-content-start">
-			<div class="mr-auto d-flex justify-content-between">
-				<a href="{{ config('anodyne.links.www') }}">Anodyne<div class="arrow"></div></a>
-				<a href="{{ config('anodyne.links.nova') }}">Nova<div class="arrow"></div></a>
-				<a href="{{ config('anodyne.links.xtras') }}">Xtras<div class="arrow"></div></a>
-				<a href="{{ route('home') }}" class="active logo">{{ svg_icon('anodyne')->inline() }} Forums<div class="arrow"></div></a>
-				<a href="{{ config('anodyne.links.help') }}">Help<div class="arrow"></div></a>
+		<div class="nav-container">
+			<div class="nav-left">
+				<a href="{{ config('anodyne.links.www') }}">Anodyne</a>
+				<a href="{{ config('anodyne.links.nova') }}">Nova</a>
+				<a href="{{ config('anodyne.links.xtras') }}">Xtras</a>
+				<a href="{{ route('home') }}" class="active logo">{{ svg_icon('anodyne')->inline() }} Forums</a>
+				<a href="{{ config('anodyne.links.help') }}">Help</a>
 			</div>
-			<div class="d-flex align-items-center">
-				<a href="#" class="js-contact">Contact</a>
+			<div class="nav-right">
+				<a href="#" class="js-contact">@icon('icon-paper-plane')</a>
 
 				@if (auth()->check())
-					<a href="#" class="js-notifications">@icon('icon-bell')</a>
+					<user-notifications :initial-notifications-count="{{ $_user->unreadNotifications->count() }}"></user-notifications>
 					<div class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle d-flex align-items-center user-avatar">
-							<span class="pr-2">{!! avatar($_user)->image()->tiny() !!}</span>
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+							<span class="mr-2">{!! avatar($_user)->image()->tiny() !!}</span>
 							<span>{{ $_user->present()->name }}</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
@@ -33,7 +35,8 @@
 
 							@if ($_user->hasRole('Forums Administrator'))
 								<h6 class="dropdown-header">Admin</h6>
-								<a href="{{ route('topics.index') }}" class="dropdown-item">Manage Topics</a>
+								<a href="#" class="dropdown-item">Announcements</a>
+								<a href="{{ route('topics.index') }}" class="dropdown-item">Topics</a>
 								<div class="dropdown-divider"></div>
 							@endif
 

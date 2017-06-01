@@ -82,10 +82,14 @@
 				$('.js-tooltip-left').tooltip({ placement: 'left' });
 				$('.js-tooltip-right').tooltip({ placement: 'right' });
 
-				$('.js-notifications').click(function (e) {
+				$('.js-contact').click(function (e) {
 					e.preventDefault();
+					
+					var contactUrl = "{{ config('anodyne.links.www') }}contact";
 
-					$('#notification-panel').modal('show');
+					$('#contactModal .modal-dialog .modal-content').load(contactUrl);
+
+					$('#contactModal').modal('show');
 				});
 			});
 		</script>
