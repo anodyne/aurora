@@ -1,6 +1,7 @@
 <?php namespace App\Data;
 
 use Eloquent;
+use App\Events;
 use App\RecordsActivity;
 use Laracasts\Presenter\PresentableTrait;
 use App\Notifications\DiscussionWasUpdated;
@@ -54,10 +55,7 @@ class Discussion extends Eloquent
 	{
 		$reply = $this->replies()->create($data);
 
-		$this->subscriptions
-			->filter(function ($subscription) use ($reply) {
-				return $subscription->user_id != $reply->user_id;
-			})->each->notify($reply);
+		event(new Events\DiscussionHasNewReply($this, $reply));
 
 		return $reply;
 	}

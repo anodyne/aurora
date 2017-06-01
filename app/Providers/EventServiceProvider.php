@@ -6,15 +6,13 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 class EventServiceProvider extends ServiceProvider
 {
 	protected $listen = [
-		'App\Events\SomeEvent' => [
-			'App\Listeners\EventListener',
+		'App\Events\DiscussionHasNewReply' => [
+			'App\Listeners\NotifyDiscussionSubscribers',
 		],
 	];
 
 	public function boot()
 	{
 		parent::boot();
-
-		//
 	}
 }
