@@ -4,5 +4,5 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 abstract class DatabaseTestCase extends TestCase
 {
-    use DatabaseMigrations;
+	use DatabaseMigrations;
 }

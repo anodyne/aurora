@@ -13,13 +13,13 @@ class ReplyTest extends DatabaseTestCase
 		$this->reply = create('App\Data\Reply');
 	}
 
-    /** @test **/
-    public function it_has_an_author()
-    {
-        $this->reply = create('App\Data\Reply');
+	/** @test **/
+	public function it_has_an_author()
+	{
+		$this->reply = create('App\Data\Reply');
 
-        $this->assertInstanceOf('App\Data\User', $this->reply->author);
-    }
+		$this->assertInstanceOf('App\Data\User', $this->reply->author);
+	}
 
 	/** @test **/
 	public function it_belongs_to_a_discussion()
