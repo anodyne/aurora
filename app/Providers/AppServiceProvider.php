@@ -12,6 +12,10 @@ class AppServiceProvider extends ServiceProvider
 	{
 		Schema::defaultStringLength(191);
 
+		$this->app['view']->composer('*', function ($view) {
+			$view->with('_user', auth()->user());
+		});
+
 		// Set the container bindings
 		$this->bindings();
 

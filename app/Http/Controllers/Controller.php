@@ -11,6 +11,6 @@ class Controller extends BaseController
 
 	public function __construct()
 	{
-		view()->share('_user', auth()->user());
+		//
 	}
 }
