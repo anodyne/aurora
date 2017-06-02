@@ -21,7 +21,7 @@
 			<div class="nav-right">
 				<a href="#" class="js-contact">@icon('icon-email')</a>
 
-				@if (auth()->check())
+				@if ($_user)
 					<user-notifications :initial-notifications-count="{{ $_user->unreadNotifications->count() }}"></user-notifications>
 					<div class="dropdown">
 						<a href="#" data-toggle="dropdown" class="dropdown-toggle">
@@ -40,12 +40,16 @@
 								<div class="dropdown-divider"></div>
 							@endif
 
-							<a href="#" class="dropdown-item">Logout</a>
+							<a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();flash('See you next time!');">Sign Out</a>
+
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								{{ csrf_field() }}
+							</form>
 						</div>
 					</div>
 				@else
 					<a href="{{ config('anodyne.links.www') }}register">Register</a>
-					<a href="{{ route('login') }}">Log In</a>
+					<a href="{{ route('login') }}">Sign In</a>
 				@endif
 			</div>
 		</div>
