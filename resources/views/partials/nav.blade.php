@@ -19,7 +19,7 @@
 				<a href="{{ config('anodyne.links.help') }}">Help</a>
 			</div>
 			<div class="nav-right">
-				<a href="#" class="js-contact">@icon('icon-paper-plane')</a>
+				<a href="#" class="js-contact">@icon('icon-email')</a>
 
 				@if (auth()->check())
 					<user-notifications :initial-notifications-count="{{ $_user->unreadNotifications->count() }}"></user-notifications>
