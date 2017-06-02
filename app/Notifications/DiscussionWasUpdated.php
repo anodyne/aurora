@@ -36,8 +36,9 @@ class DiscussionWasUpdated extends Notification
 	public function toArray($notifiable)
 	{
 		return [
-			'message' => $this->reply->author->name.' replied to '.$this->discussion->title,
-			'link' => route('discussions.show', [$this->discussion->topic, $this->discussion])
+			'message' => $this->reply->author->name.' added a reply to <em>'.$this->discussion->title.'</em>',
+			'link' => route('discussions.show', [$this->discussion->topic, $this->discussion]).'#reply-'.$this->reply->id,
+			'author' => $this->reply->author,
 		];
 	}
 }

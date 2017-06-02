@@ -20,34 +20,8 @@
 					</div>
 
 					<div class="notification-container" v-show="showingNotifications">
-						<div class="notification" v-for="notification in notifications">
-							<figure class="d-flex mr-3">
-								<img v-if="notification.creator" :src="notification.creator.photo_url" class="spark-profile-photo">
-
-								<svg class="icon text-subtle-darker lg" v-else>
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-reply"></use>
-								</svg>
-							</figure>
-
-							<div class="notification-content">
-								<div class="meta">
-									<p class="title">
-										<span v-if="notification.creator" v-text="notification.creator.name"></span>
-										<span v-else>Spark</span>
-									</p>
-
-									<div class="date">
-										{{ formatDate(notification.created_at, 'relative') }}
-									</div>
-								</div>
-
-								<div class="notification-body" v-html="notification.data.message"></div>
-
-								<!-- Notification Action -->
-								<a :href="notification.data.link" class="btn btn-outline-dark">
-									Go there!
-								</a>
-							</div>
+						<div v-for="notification in notifications">
+							<notification :item="notification"></notification>
 						</div>
 					</div>
 
@@ -65,7 +39,11 @@
 </template>
 
 <script>
+	import Notification from './Notification.vue';
+
 	export default {
+		components: { Notification },
+
 		data () {
 			return {
 				announcements: false,
@@ -114,8 +92,10 @@
 			// Get the notifications
 			// Get the announcements
 
-			axios.get(window.App.siteUrl + '/user/' + window.App.user.username + '/notifications')
-				.then(response => this.notifications = response.data);
+			if (window.App.user != null) {
+				axios.get(window.App.siteUrl + '/user/' + window.App.user.username + '/notifications')
+					.then(response => this.notifications = response.data);
+			}
 		}
 	}
 </script>
