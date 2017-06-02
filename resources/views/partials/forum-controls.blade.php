@@ -1,6 +1,6 @@
 <div class="forum-controls">
 	<div class="hidden-sm-down">
-		@if (auth()->check())
+		@if ($_user)
 			<p><a href="{{ route('discussions.create') }}" class="btn btn-primary btn-lg btn-block">Start a Discussion</a></p>
 		@endif
 
@@ -9,7 +9,7 @@
 		<div class="list-group">
 			<a href="{{ route('home') }}" class="list-group-item">@icon('icon-list') All Discussions</a>
 			
-			@if (auth()->check())
+			@if ($_user)
 				<a href="#" class="list-group-item disabled">@icon('icon-new') Unread Discussions</a>
 				<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('icon-user') My Discussions</a>
 				<a href="#" class="list-group-item disabled">@icon('icon-heart') My Favorites</a>
@@ -51,7 +51,7 @@
 	</div>
 
 	<div class="hidden-md-up">
-		@if (auth()->check())
+		@if ($_user)
 			<div class="row">
 				<div class="col">
 					<p><a href="{{ route('discussions.create') }}" class="btn btn-primary btn-lg btn-block">
@@ -83,7 +83,7 @@
 				<div class="list-group">
 					<a href="{{ route('home') }}" class="list-group-item">@icon('icon-list') All Discussions</a>
 					
-					@if (auth()->check())
+					@if ($_user)
 						<a href="#" class="list-group-item disabled">@icon('icon-new') Unread Discussions</a>
 						<a href="{{ request()->url() }}?by={{ $_user->username }}" class="list-group-item">@icon('icon-user') My Discussions</a>
 						<a href="#" class="list-group-item disabled">@icon('icon-heart') My Favorites</a>
