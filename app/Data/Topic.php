@@ -52,4 +52,9 @@ class Topic extends Eloquent
 	{
 		return $query->where('parent_id', '=', null);
 	}
+
+	public function scopeSlug($query, $slug)
+	{
+		return $query->where('slug', '=', $slug);
+	}
 }
