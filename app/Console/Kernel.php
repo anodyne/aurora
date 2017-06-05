@@ -5,12 +5,13 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-	protected $commands = [];
+	protected $commands = [
+		//Commands\ExpireAnnouncements::class
+	];
 
 	protected function schedule(Schedule $schedule)
 	{
-		// $schedule->command('inspire')
-		//          ->hourly();
+		//$schedule->command('anodyne:expire-announcements')->weekly();
 	}
 
 	protected function commands()
