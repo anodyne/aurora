@@ -30,6 +30,7 @@ Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('avatar', require('./components/Avatar.vue'));
 Vue.component('favorite', require('./components/Favorite.vue'));
 Vue.component('topics', require('./pages/Topics.vue'));
+Vue.component('announcements', require('./pages/Announcements.vue'));
 Vue.component('paginator', require('./components/Paginator.vue'));
 Vue.component('discussion-view', require('./pages/Discussion.vue'));
 Vue.component('subscribe-control', require('./components/SubscribeControl.vue'));

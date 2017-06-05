@@ -125,6 +125,9 @@ class CreateUsersForTesting extends Migration
 			['key' => 'forums.topic.create', 'name' => "Create Forum Topic"],
 			['key' => 'forums.topic.edit', 'name' => "Edit Forum Topic"],
 			['key' => 'forums.topic.delete', 'name' => "Delete Forum Topic"],
+			['key' => 'forums.announcement.create', 'name' => "Create Forum Announcement"],
+			['key' => 'forums.announcement.edit', 'name' => "Edit Forum Announcement"],
+			['key' => 'forums.announcement.delete', 'name' => "Delete Forum Announcement"],
 		];
 
 		foreach ($permissions as $permission) {
@@ -174,7 +177,7 @@ class CreateUsersForTesting extends Migration
 
 			"Users Administrator" => ['www.admin', 'www.admin.users', 'www.admin.authorization'],
 
-			"Forums Administrator" => ['forums.topic.create', 'forums.topic.edit', 'forums.topic.delete'],
+			"Forums Administrator" => ['forums.topic.create', 'forums.topic.edit', 'forums.topic.delete', 'forums.announcement.create', 'forums.announcement.edit', 'forums.announcement.delete'],
 			"Forums Moderator" => ['forums.discussion.edit', 'forums.discussion.delete', 'forums.post.edit', 'forums.post.delete'],
 			"Forums User" => ['forums.discussion.create', 'forums.post.create'],
 		];

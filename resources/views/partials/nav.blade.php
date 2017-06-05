@@ -35,7 +35,7 @@
 
 							@if ($_user->hasRole('Forums Administrator'))
 								<h6 class="dropdown-header">Admin</h6>
-								<a href="#" class="dropdown-item">Announcements</a>
+								<a href="{{ route('announcements.index') }}" class="dropdown-item">Announcements</a>
 								<a href="{{ route('topics.index') }}" class="dropdown-item">Topics</a>
 								<div class="dropdown-divider"></div>
 							@endif
