@@ -19058,6 +19058,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['item'],
@@ -56958,7 +56979,37 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": _vm.item.data.link
     }
-  }, [_vm._v("See the reply")])])]) : _vm._e()])
+  }, [_vm._v("See the reply")])])]) : _vm._e(), _vm._v(" "), (_vm.type == 'App.Notifications.DiscussionWasAnswered') ? _c('div', {
+    staticClass: "notification"
+  }, [_c('figure', {
+    staticClass: "d-flex mr-3"
+  }, [_c('avatar', {
+    attrs: {
+      "user": _vm.item.data.author,
+      "size": "sm"
+    }
+  })], 1), _vm._v(" "), _c('div', {
+    staticClass: "notification-content"
+  }, [_c('div', {
+    staticClass: "meta"
+  }, [_c('p', {
+    staticClass: "title",
+    domProps: {
+      "textContent": _vm._s(_vm.item.data.author.name)
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "date"
+  }, [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.formatDate(_vm.item.created_at, 'relative')) + "\n\t\t\t\t")])]), _vm._v(" "), _c('div', {
+    staticClass: "notification-body",
+    domProps: {
+      "innerHTML": _vm._s(_vm.item.data.message)
+    }
+  }), _vm._v(" "), _c('a', {
+    staticClass: "btn btn-outline-dark",
+    attrs: {
+      "href": _vm.item.data.link
+    }
+  }, [_vm._v("See the answer")])])]) : _vm._e()])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
