@@ -21,4 +21,13 @@ class UserNotificationsController extends Controller
 	{
 		auth()->user()->notifications()->findOrFail($notificationId)->markAsRead();
 	}
+
+	public function destroyAll(Request $request, User $user)
+	{
+		// Get the IDs we want to mark as read
+		$marked = $request->get('notifications');
+		//dd($marked, auth()->user()->notifications()->whereIn('id', $marked)->get());
+
+		auth()->user()->notifications()->whereIn('id', $marked)->get()->each->markAsRead();
+	}
 }
