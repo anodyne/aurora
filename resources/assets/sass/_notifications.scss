@@ -1,16 +1,28 @@
 @import "_variables", "_mixins";
 
+$notificationPanelHeaderHeight: 50px;
+
 #notification-panel {
 	.modal-header {
 		display: flex;
-
-		background: $color-white;
-		border-bottom: 0;
+		align-items: center;
+		justify-content: initial;
 		margin-bottom: 0;
-		height: 70px;
+		height: $notificationPanelHeaderHeight;
 		width: 100%;
 		position: fixed;
 		z-index: 100;
+
+		background: $color-white;
+		border-bottom: none;
+
+		.modal-title {
+			width: 100%;
+
+			color: $color-subtle-darker;
+			font-weight: 300;
+			text-align: center;
+		}
 	}
 
 	.modal-dialog {
@@ -19,11 +31,12 @@
 	}
 
 	.modal-content {
-		background: $color-blue-grey-50;
-		border: none;
-		overflow-y: scroll;
 		height: 100vh;
 		min-height: 100vh;
+		overflow-y: scroll;
+
+		background: $color-blue-grey-50;
+		border: none;
 	}
 
 	.modal-body {
@@ -33,12 +46,11 @@
 	}
 
 	.modal-footer {
-		background: $color-white;
-		/*border-top: 1px solid rgba(0,0,0,.1);*/
-		width: 350px;
-
 		display: flex;
 		justify-content: space-between;
+		width: 350px;
+
+		background: $color-white;
 	}
 
 	.btn {
@@ -58,27 +70,6 @@
 		&:first-child {
 			margin-right: 0.5em;
 		}
-
-		span {
-			display: flex;
-			align-items: center;
-
-			.icon {
-				margin-right: 0.25em;
-				height: 1.25em;
-				width: 1.25em;
-
-				fill: $color-subtle-darker;
-			}
-		}
-
-		.badge {
-			height: 10px;
-			width: 10px;
-
-			border-radius: 20px;
-			background-color: $color-success;
-		}
 	}
 
 	.notification-container {
@@ -90,12 +81,8 @@
 	}
 
 	.notification-container {
-		padding-top: 70px;
+		padding-top: $notificationPanelHeaderHeight;
 	}
-
-	/*.notification-container:last-child {
-	  padding-bottom: 65px + 23px;
-	}*/
 
 	.notification:not(:first-child) {
 		padding-top: 25px;
@@ -108,10 +95,8 @@
 	.notification {
 		display: flex;
 		align-items: flex-start;
-
 		position: relative;
 		padding: $space-md $space;
-		/*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
 	}
 
 	.notification-content {
@@ -147,17 +132,6 @@
 		}
 	}
 
-	.spark-profile-photo {
-		height: 5.2rem;
-		width: 5.2rem;
-	}
-
-
-	.fa-stack {
-		/*color: @spark-border-color;*/
-		font-size: 2.6rem;
-	}
-
 	h4 {
 		margin-bottom: 1.5rem;
 		margin-top: 0.3rem;
@@ -176,8 +150,9 @@
 .modal.docked.docked-right .modal-dialog { right: 0; }
 
 .modal.docked .modal-content {
-	border-radius: 0;
 	height: 100vh;
+
+	border-radius: 0;
 }
 
 .modal.docked .modal-footer {

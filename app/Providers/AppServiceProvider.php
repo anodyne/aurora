@@ -69,7 +69,6 @@ class AppServiceProvider extends ServiceProvider
 		Data\Topic::observe(Observers\TopicObserver::class);
 		Data\Favorite::observe(Observers\FavoriteObserver::class);
 		Data\Discussion::observe(Observers\DiscussionObserver::class);
-		Data\Announcement::observe(Observers\AnnouncementObserver::class);
 	}
 
 	protected function macros()

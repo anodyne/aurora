@@ -45,11 +45,6 @@ Route::group(['prefix' => 'admin'], function () {
 	// Add a route for restoring deleted topics
 	Route::put('topics/{deletedTopic}/restore', 'TopicsController@restore')
 		->name('topics.restore');
-
-	/**
-	 * Announcement management
-	 */
-	Route::resource('announcements', 'AnnouncementsController', ['except' => ['show']]);
 });
 
 Route::get('topics/{topic}', 'DiscussionsController@index')->name('topics.discussions');

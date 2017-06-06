@@ -68,13 +68,3 @@ $factory->define(App\Notifications\DatabaseNotification::class, function (Faker\
 		'data' => ['foo' => 'bar']
 	];
 });
-
-$factory->define(App\Data\Announcement::class, function (Faker\Generator $faker) {
-	return [
-		'user_id' => function () {
-			return auth()->id() ?: factory('App\Data\User')->create()->id;
-		},
-		'title' => $faker->sentence,
-		'body' => $faker->paragraph
-	];
-});
