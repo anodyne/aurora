@@ -71,6 +71,8 @@ class DiscussionsController extends Controller
 			'body' => $request->get('body'),
 		]);
 
+		auth()->user()->read($discussion);
+
 		return redirect()->route('discussions.show', [$discussion->topic->slug, $discussion])
 			->with('flash', 'Your discussion has been created.');
 	}

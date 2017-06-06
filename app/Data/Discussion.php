@@ -57,6 +57,8 @@ class Discussion extends Eloquent
 
 		event(new Events\DiscussionHasNewReply($this, $reply));
 
+		auth()->user()->read($this);
+
 		return $reply;
 	}
 
