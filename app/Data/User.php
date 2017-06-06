@@ -1,5 +1,6 @@
 <?php namespace App\Data;
 
+use Date;
 use UserPresenter;
 use App\Authorization;
 use App\Notifications\Notifiable;
@@ -47,5 +48,18 @@ class User extends Authenticatable
 	public function scopeUsername($query, $username)
 	{
 		$query->where('username', $username);
+	}
+
+	public function read(Discussion $discussion)
+	{
+		cache()->forever(
+			$this->visitedDiscussionCacheKey($discussion),
+			Date::now()
+		);
+	}
+
+	public function visitedDiscussionCacheKey(Discussion $discussion)
+	{
+		return sprintf('users.%s.visited.%s', $this->id, $discussion->id);
 	}
 }

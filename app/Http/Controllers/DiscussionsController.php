@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Date;
 use App\Data\Topic;
 use App\Data\Discussion;
 use Illuminate\Http\Request;
@@ -42,6 +43,11 @@ class DiscussionsController extends Controller
 
 	public function show($topic, Discussion $discussion)
 	{
+		// Record that the user visited the page
+		if (auth()->check()) {
+			auth()->user()->read($discussion);
+		}
+
 		// Figure out if we need to load a parent topic
 		$topic = ($discussion->topic->parent_id !== null)
 			? $discussion->topic->load('parent')

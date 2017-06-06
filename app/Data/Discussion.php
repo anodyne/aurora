@@ -100,4 +100,15 @@ class Discussion extends Eloquent
 			->where('user_id', auth()->id())
 			->exists();
 	}
+
+	public function hasUpdatesFor(User $user = null)
+	{
+		$user = $user ?: auth()->user();
+
+		if ($user === null) {
+			return false;
+		}
+
+		return $this->updated_at > cache($user->visitedDiscussionCacheKey($this));
+	}
 }

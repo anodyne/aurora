@@ -1,5 +1,6 @@
 <?php namespace Tests\Unit;
 
+use Date;
 use Notification;
 use Tests\DatabaseTestCase;
 use App\Notifications\DiscussionWasUpdated;
@@ -106,5 +107,17 @@ class DiscussionTest extends DatabaseTestCase
 		$this->discussion->subscribe();
 
 		$this->assertTrue($this->discussion->isSubscribedTo);
+	}
+
+	/** @test **/
+	public function it_can_check_if_an_authenticated_user_has_read_all_replies()
+	{
+		$this->signIn();
+
+		$this->assertTrue($this->discussion->hasUpdatesFor());
+
+		auth()->user()->read($this->discussion);
+
+		$this->assertFalse($this->discussion->hasUpdatesFor());
 	}
 }

@@ -23,7 +23,7 @@ class DiscussionPresenter extends Presenter
 	{
 		// Get the status for the discussion
 		//$status = (auth()->check()) ? $this->entity->getStatusAttribute() : false;
-		$status = false;
+		$status = ($this->entity->hasUpdatesFor()) ? ' updated' : false;
 
 		return link_to_route(
 			'discussions.show',
