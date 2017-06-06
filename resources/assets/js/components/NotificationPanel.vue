@@ -59,23 +59,29 @@
 
 		methods: {
 			markAllAsRead () {
+				let self = this;
+
 				axios.delete('/user/' + window.App.user.username + '/notifications', {
 					data: {
-						notifications: _.map(this.notifications, 'id')
+						notifications: _.map(self.notifications, 'id')
 					}
+				}).then(response => {
+					self.notifications = [];
+					flash('All your notifications have been marked as read.');
 				});
 			}
 		},
 
 		created () {
 			if (this.signedIn) {
+				let self = this;
 				let user = window.App.user;
 				let siteUrl = window.App.siteUrl;
 			
 				axios.get(siteUrl + '/user/' + user.username + '/notifications')
 					.then(response => {
-						this.notifications = response.data;
-						this.loadingNotifications = false;
+						self.notifications = response.data;
+						self.loadingNotifications = false;
 					});
 			}
 		}

@@ -19144,24 +19144,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		markAllAsRead: function markAllAsRead() {
+			var self = this;
+
 			axios.delete('/user/' + window.App.user.username + '/notifications', {
 				data: {
-					notifications: _.map(this.notifications, 'id')
+					notifications: _.map(self.notifications, 'id')
 				}
+			}).then(function (response) {
+				self.notifications = [];
+				flash('All your notifications have been marked as read.');
 			});
 		}
 	},
 
 	created: function created() {
-		var _this = this;
-
 		if (this.signedIn) {
+			var self = this;
 			var user = window.App.user;
 			var siteUrl = window.App.siteUrl;
 
 			axios.get(siteUrl + '/user/' + user.username + '/notifications').then(function (response) {
-				_this.notifications = response.data;
-				_this.loadingNotifications = false;
+				self.notifications = response.data;
+				self.loadingNotifications = false;
 			});
 		}
 	}
