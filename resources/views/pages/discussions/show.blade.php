@@ -52,6 +52,7 @@
 
 @push('styles')
 	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/solarized-dark.min.css" rel="stylesheet">
+	{!! HTML::style('css/medium-editor.css') !!}
 @endpush
 
 @section('js')

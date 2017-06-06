@@ -39,7 +39,7 @@
 				<div class="panel-body">
 					<div v-show="editing">
 						<div class="form-group">
-							<textarea class="form-control" v-model="body">{{ body }}</textarea>
+							<div class="editor" v-html="body"></div>
 						</div>
 
 						<div class="btn-toolbar">
@@ -53,7 +53,7 @@
 					</div>
 
 					<div v-show="!editing">
-						<div v-html="marked(body)"></div>
+						<div v-html="body"></div>
 
 						<div class="post-signature" v-if="signature">
 							<div v-html="marked(signature)"></div>
@@ -110,6 +110,7 @@
 	import Favorite from './Favorite.vue';
 	import autosize from 'autosize';
 	import copy from 'copy-to-clipboard';
+	import MediumEditor from 'medium-editor';
 
 	export default {
 		props: ['discussion', 'reply'],
@@ -120,7 +121,9 @@
 			return {
 				body: this.reply.body,
 				editing: false,
-				signature: this.reply.author.signature
+				editor: false,
+				signature: this.reply.author.signature,
+				updatedBody: ''
 			}
 		},
 
@@ -166,18 +169,25 @@
 			},
 
 			update () {
+				this.editing = false;
+				this.body = this.updatedBody;
+
 				axios.patch('/replies/' + this.reply.id, {
 					body: this.body
 				});
-
-				this.editing = false;
 
 				flash('Updated the reply.');
 			}
 		},
 
 		mounted () {
-			autosize($('textarea'));
+			let self = this;
+			let id = "#" + this.$el.id;
+
+			this.editor = new MediumEditor(id + ' .editor');
+			this.editor.subscribe('editableInput', function (event, editable) {
+				self.updatedBody = event.target.innerHTML;
+			});
 		}
 	}
 </script>
