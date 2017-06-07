@@ -106,7 +106,7 @@ class DiscussionTest extends DatabaseTestCase
 
 		$this->discussion->subscribe();
 
-		$this->assertTrue($this->discussion->isSubscribedTo);
+		$this->assertTrue($this->discussion->fresh()->isSubscribedTo);
 	}
 
 	/** @test **/
