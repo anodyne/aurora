@@ -19,7 +19,7 @@ class DiscussionsController extends Controller
 	{
 		// Get all the discussions sorted by the latest
 		$discussions = Discussion::with([
-			'replies.author',
+			'replies.author'
 		])->latest()->filter($filters);
 
 		if ($topic->exists) {
