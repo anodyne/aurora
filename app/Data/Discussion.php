@@ -13,7 +13,7 @@ class Discussion extends Eloquent
 
 	protected $table = 'forum_discussions';
 	protected $fillable = ['title', 'body', 'user_id', 'topic_id', 'replies_count'];
-	protected $with = ['author', 'topic'];
+	protected $with = ['author', 'topic', 'subscriptions'];
 	protected $appends = ['isSubscribedTo'];
 	protected $presenter = Presenters\DiscussionPresenter::class;
 	protected $observables = ['answered'];
@@ -100,9 +100,9 @@ class Discussion extends Eloquent
 
 	public function getIsSubscribedToAttribute()
 	{
-		return $this->subscriptions()
+		return $this->subscriptions
 			->where('user_id', auth()->id())
-			->exists();
+			->count() > 0;
 	}
 
 	public function hasUpdatesFor(User $user = null)
