@@ -2,7 +2,7 @@
 	@slot('type', 'favorite')
 
 	@slot('icon')
-		@icon('thumbs-up')
+		@icon('icon-thumbs-up')
 	@endslot
 
 	@slot('body')

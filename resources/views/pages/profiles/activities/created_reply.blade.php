@@ -2,7 +2,7 @@
 	@slot('type', 'reply')
 	
 	@slot('icon')
-		@icon('chat')
+		@icon('icon-reply')
 	@endslot
 
 	@slot('body')
