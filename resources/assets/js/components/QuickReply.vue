@@ -11,12 +11,8 @@
 				</div>
 				<div class="media-body">
 					<div class="form-group">
-						<textarea name="body" 
-								  class="form-control" 
-								  rows="5"
-								  placeholder="Reply to this discussion now..."
-								  required
-								  v-model="body"></textarea>
+						<div class="quill-editor-sm" id="quick-reply-editor"></div>
+						<textarea name="body" class="form-control hidden" v-model="body"></textarea>
 					</div>
 					<div class="form-group">
 						<button type="submit"
@@ -34,10 +30,13 @@
 </template>
 
 <script>
+	import Quill from 'quill';
+
 	export default {
 		data () {
 			return {
-				body: ''
+				body: '',
+				editor: false
 			}
 		},
 
@@ -53,15 +52,40 @@
 
 		methods: {
 			addReply () {
+				var self = this;
+
 				axios.post(location.pathname + '/replies', { body: this.body })
 					.then(response => {
-						this.body = '';
+						self.body = '';
+						self.editor.container.firstChild.innerHTML = '';
 
-						this.$emit('created', response.data);
+						self.$emit('created', response.data);
 
 						flash('Your reply has been posted.');
 					});
 			}
+		},
+
+		mounted () {
+			let self = this;
+
+			this.editor = new Quill('#quick-reply-editor', {
+				modules: {
+					toolbar: [
+						['bold', 'italic', 'underline'],
+						['blockquote', 'code-block'],
+						['link', 'image'],
+						[{ 'header': [2, 3, false] }],
+						[{ 'list': 'ordered'}, { 'list': 'bullet' }]
+					]
+				},
+				placeholder: "Reply to this discussion now...",
+				theme: 'bubble'
+			});
+
+			this.editor.on('text-change', function (delta) {
+				self.body = self.editor.container.firstChild.innerHTML;
+			});
 		}
 	}
 </script>

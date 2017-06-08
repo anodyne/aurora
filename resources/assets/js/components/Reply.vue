@@ -40,6 +40,7 @@
 					<div v-show="editing">
 						<div class="form-group">
 							<div class="editor" v-html="body"></div>
+							<textarea name="body" class="form-control hidden" v-model="body"></textarea>
 						</div>
 
 						<div class="btn-toolbar">
@@ -107,10 +108,9 @@
 </template>
 
 <script>
-	import Favorite from './Favorite.vue';
-	import autosize from 'autosize';
+	import Quill from 'quill';
 	import copy from 'copy-to-clipboard';
-	import MediumEditor from 'medium-editor';
+	import Favorite from './Favorite.vue';
 
 	export default {
 		props: ['discussion', 'reply'],
@@ -184,9 +184,21 @@
 			let self = this;
 			let id = "#" + this.$el.id;
 
-			this.editor = new MediumEditor(id + ' .editor');
-			this.editor.subscribe('editableInput', function (event, editable) {
-				self.updatedBody = event.target.innerHTML;
+			this.editor = new Quill(id + ' .editor', {
+				modules: {
+					toolbar: [
+						['bold', 'italic', 'underline'],
+						['blockquote', 'code-block'],
+						['link', 'image'],
+						[{ 'header': [2, 3, false] }],
+						[{ 'list': 'ordered'}, { 'list': 'bullet' }]
+					]
+				},
+				theme: 'bubble'
+			});
+
+			this.editor.on('text-change', function (delta) {
+				self.updatedBody = self.editor.container.firstChild.innerHTML;
 			});
 		}
 	}
