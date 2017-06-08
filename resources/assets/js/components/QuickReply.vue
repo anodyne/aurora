@@ -1,31 +1,35 @@
 <template>
 	<div>
-		<hr>
+		<div v-if="signedIn">
+			<hr>
 
-		<div class="media" v-if="signedIn">
-			<div class="media-left">
-				<span class="hidden-sm-down">
-					<avatar type="image" :user="user"></avatar>
-				</span>
-			</div>
-			<div class="media-body">
-				<div class="form-group">
-					<textarea name="body" 
-							  class="form-control" 
-							  rows="5"
-							  placeholder="Reply to this discussion now..."
-							  required
-							  v-model="body"></textarea>
+			<div class="media">
+				<div class="media-left">
+					<span class="hidden-sm-down">
+						<avatar type="image" :user="user"></avatar>
+					</span>
 				</div>
-				<div class="form-group">
-					<button type="submit"
-						    class="btn btn-primary"
-						    @click="addReply">Reply</button>
+				<div class="media-body">
+					<div class="form-group">
+						<textarea name="body" 
+								  class="form-control" 
+								  rows="5"
+								  placeholder="Reply to this discussion now..."
+								  required
+								  v-model="body"></textarea>
+					</div>
+					<div class="form-group">
+						<button type="submit"
+							    class="btn btn-primary"
+							    @click="addReply">Reply</button>
+					</div>
 				</div>
 			</div>
 		</div>
-		
-		<p class="lead text-center" v-if="!signedIn">Please log in to participate in this discussion.</p>
+
+		<div v-else>
+			<p class="lead text-center">Please sign in to participate in this discussion.</p>
+		</div>
 	</div>
 </template>
 
