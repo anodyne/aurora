@@ -113,6 +113,24 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 			->assertRedirect(route('login'));
 	}
 
+	/** @test **/
+	public function replies_that_contain_spam_cannot_be_created()
+	{
+		$this->signIn();
+
+		$discussion = create('App\Data\Discussion');
+		$reply = make('App\Data\Reply', [
+			'body' => 'Yahoo Customer Support'
+		]);
+
+		$this->expectException(\Exception::class);
+
+		$this->post(
+			route('discussions.replies', [$discussion->topic, $discussion]),
+			$reply->toArray()
+		);
+	}
+
 	// TODO: the_discussion_author_can_mark_a_reply_as_the_correct_answer
 	// TODO: a_user_who_is_not_the_author_cannot_set_the_answer_reply
 }

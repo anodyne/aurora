@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Spam;
 use App\Data\Reply;
 use App\Data\Discussion;
 use Illuminate\Http\Request;
@@ -18,9 +19,11 @@ class RepliesController extends Controller
 		return $discussion->replies()->paginate(20);
 	}
 
-	public function store(Request $request, $topic, Discussion $discussion)
+	public function store(Request $request, Spam $spam, $topic, Discussion $discussion)
 	{
 		$this->validate($request, ['body' => 'required']);
+
+		$spam->detect($request->get('body'));
 		
 		$reply = $discussion->addReply([
 			'body' => $request->get('body'),
