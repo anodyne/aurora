@@ -34,7 +34,7 @@
 			</div>
 
 			<div class="panel-body">
-				@markdown($post->body)
+				{!! $post->body !!}
 
 				@if ($post->author->signature)
 					<div class="post-signature">
