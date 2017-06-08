@@ -10,7 +10,8 @@ class DiscussionFilters extends Filters
 		'popular',
 		'trending',
 		'answered',
-		'subscribed'
+		'subscribed',
+		'updated',
 	];
 
 	protected function answered()
@@ -24,6 +25,14 @@ class DiscussionFilters extends Filters
 		$user = User::username($username)->firstOrFail();
 		
 		return $this->builder->where('user_id', $user->id);
+	}
+
+	protected function updated()
+	{
+		// Clear out any existing ordering that we have
+		$this->builder->getQuery()->orders = [];
+
+		return $this->builder->orderBy('updated_at', 'desc');
 	}
 
 	protected function popular()

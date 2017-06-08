@@ -19,6 +19,7 @@
 			<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('icon-flash') Popular This Week</a>
 			<a href="{{ request()->url() }}?popular=1" class="list-group-item">@icon('icon-rocket') Popular All Time</a>
 			<a href="{{ request()->url() }}?answered=1" class="list-group-item">@icon('icon-check') Answered</a>
+			<a href="{{ request()->url() }}?updated=1" class="list-group-item">@icon('icon-clock') Recently Replied</a>
 		</div>
 
 		<h6>Or Pick a Topic</h6>
@@ -93,6 +94,7 @@
 					<a href="{{ request()->url() }}?trending=1" class="list-group-item">@icon('icon-flash') Popular This Week</a>
 					<a href="{{ request()->url() }}?popular=1" class="list-group-item">@icon('icon-rocket') Popular All Time</a>
 					<a href="{{ request()->url() }}?answered=1" class="list-group-item">@icon('icon-check') Answered Questions</a>
+					<a href="{{ request()->url() }}?updated=1" class="list-group-item">@icon('icon-clock') Recently Replied</a>
 				</div>
 
 				<h6>Or Pick a Topic</h6>
