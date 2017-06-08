@@ -89,7 +89,7 @@ class AppServiceProvider extends ServiceProvider
 				}
 			}
 
-			return Form::select('topic_id', $topicsArr, null, ['class' => 'form-control', 'placeholder' => 'Choose a topic']);
+			return Form::select('topic_id', $topicsArr, null, ['class' => 'form-control', 'placeholder' => 'Pick a topic']);
 		});
 	}
 }
