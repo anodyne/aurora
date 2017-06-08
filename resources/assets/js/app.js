@@ -32,6 +32,7 @@ Vue.component('favorite', require('./components/Favorite.vue'));
 Vue.component('topics', require('./pages/Topics.vue'));
 Vue.component('paginator', require('./components/Paginator.vue'));
 Vue.component('discussion-view', require('./pages/Discussion.vue'));
+Vue.component('create-discussion', require('./pages/CreateDiscussion.vue'));
 Vue.component('subscribe-control', require('./components/SubscribeControl.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
 Vue.component('notification-panel', require('./components/NotificationPanel.vue'));
