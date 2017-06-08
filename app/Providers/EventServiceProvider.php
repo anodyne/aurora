@@ -9,6 +9,10 @@ class EventServiceProvider extends ServiceProvider
 		'App\Events\DiscussionHasNewReply' => [
 			'App\Listeners\NotifyDiscussionSubscribers',
 		],
+
+		'App\Events\ItemWasFavorited' => [
+			'App\Listeners\NotifyItemAuthorOfFavorite',
+		],
 	];
 
 	public function boot()

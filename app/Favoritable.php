@@ -26,7 +26,11 @@ trait Favoritable
 		$attributes = ['user_id' => auth()->id()];
 
 		if (! $this->favorites()->where($attributes)->exists()) {
-			return $this->favorites()->create($attributes);
+			$favorite = $this->favorites()->create($attributes);
+
+			event(new Events\ItemWasFavorited($favorite));
+
+			return $favorite;
 		}
 	}
 

@@ -36,6 +36,24 @@ class NotificationsTest extends DatabaseTestCase
 	}
 
 	/** @test **/
+	public function a_notification_is_prepared_when_a_new_favorite_is_left_on_a_reply()
+	{
+		$user1 = $this->createUser();
+		$user2 = $this->createUser();
+
+		$this->assertCount(0, $user1->notifications);
+
+		$discussion = create('App\Data\Discussion');
+		$reply = create('App\Data\Reply', ['user_id' => $user1->id]);
+
+		$this->signIn($user2);
+
+		$this->post(route('favorites.store', $reply));
+
+		$this->assertCount(1, $user1->fresh()->notifications);
+	}
+
+	/** @test **/
 	public function a_user_can_fetch_their_unread_notifications()
 	{
 		create('App\Notifications\DatabaseNotification');

@@ -16,6 +16,11 @@ class Favorite extends Eloquent
 	// Relationships
 	//--------------------------------------------------------------------------
 	
+	public function author()
+	{
+		return $this->belongsTo(User::class, 'user_id');
+	}
+
 	public function favorited()
 	{
 		return $this->morphTo();

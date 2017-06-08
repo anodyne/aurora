@@ -26,6 +26,11 @@ class User extends Authenticatable
 		return $this->hasMany(Discussion::class)->latest();
 	}
 
+	public function favorites()
+	{
+		return $this->hasMany(Favorite::class);
+	}
+
 	public function replies()
 	{
 		return $this->hasMany(Reply::class);
