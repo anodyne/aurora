@@ -27,7 +27,7 @@
 
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Copy Link</a>
-						<a class="dropdown-item" href="#">Message {{ $post->author->name }}</a>
+						<!--<a class="dropdown-item" href="#">Message {{ $post->author->name }}</a>-->
 						<a class="dropdown-item" href="#">Report</a>
 					</div>
 				</div>

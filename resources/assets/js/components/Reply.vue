@@ -30,7 +30,7 @@
 							<a class="dropdown-item" href="#">Mark as Answer</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#" @click.prevent="copyLink">Copy Link</a>
-							<a class="dropdown-item" href="#">Message {{ reply.author.name }}</a>
+							<!--<a class="dropdown-item" href="#">Message {{ reply.author.name }}</a>-->
 							<a class="dropdown-item" href="#">Report</a>
 						</div>
 					</div>
@@ -86,7 +86,7 @@
 								<a class="dropdown-item" href="#" @click.prevent="destroy" v-if="canDelete">Delete</a>
 								<div class="dropdown-divider" v-if="canUpdate"></div>
 								<a class="dropdown-item" href="#" @click.prevent="copyLink">Copy Link</a>
-								<a class="dropdown-item" href="#">Message {{ reply.author.name }}</a>
+								<!--<a class="dropdown-item" href="#">Message {{ reply.author.name }}</a>-->
 								<a class="dropdown-item" href="#">Report</a>
 							</div>
 						</div>
