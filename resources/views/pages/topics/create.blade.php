@@ -64,3 +64,11 @@
 @push('scripts')
 	<script src="{{ asset('js/jscolor.min.js') }}"></script>
 @endpush
+
+@section('js')
+	<script>
+		var vue = new Vue({
+			el: "#app"
+		});
+	</script>
+@endsection

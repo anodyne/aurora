@@ -23,3 +23,11 @@
 		{!! alert('warning', "No activity found.") !!}
 	@endforelse
 @endsection
+
+@section('js')
+	<script>
+		var vue = new Vue({
+			el: "#app"
+		});
+	</script>
+@endsection
