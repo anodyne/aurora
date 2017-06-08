@@ -47,20 +47,23 @@
 @endsection
 
 @push('scripts')
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+	<script src="{{ asset('js/highlight.pack.js') }}"></script>
 @endpush
 
 @push('styles')
-	<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/solarized-dark.min.css" rel="stylesheet">
-	{!! HTML::style('css/medium-editor.css') !!}
+	<link rel="stylesheet" href="{{ asset('css/highlight-solarized-dark.css') }}">
 @endpush
 
 @section('js')
 	<script>
 		var vue = new Vue({
-			el: "#app"
-		})
-		
-		hljs.initHighlightingOnLoad()
+			el: "#app",
+
+			mounted () {
+				$('pre.ql-syntax').each(function (i, block) {
+					hljs.highlightBlock(block);
+				});
+			}
+		});
 	</script>
 @endsection
