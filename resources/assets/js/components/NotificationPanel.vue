@@ -39,6 +39,7 @@
 
 <script>
 	import Notification from './Notification.vue';
+	import { EventBus } from '../mixins/EventBus.js';
 
 	export default {
 		components: { Notification },
@@ -74,6 +75,9 @@
 					}
 				}).then(response => {
 					self.notifications = [];
+
+					EventBus.$emit('mark-all-notifications-as-read');
+
 					flash('All your notifications have been marked as read.');
 				});
 			}

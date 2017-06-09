@@ -55,6 +55,8 @@
 </template>
 
 <script>
+	import { EventBus } from '../mixins/EventBus.js';
+
 	export default {
 		props: ['item'],
 
@@ -67,6 +69,8 @@
 		methods: {
 			markAsRead (notification) {
 				axios.delete('/user/' + window.App.user.username + '/notifications/' + this.item.id);
+
+				EventBus.$emit('mark-notification-as-read', this.item.id);
 			}
 		}
 	}
