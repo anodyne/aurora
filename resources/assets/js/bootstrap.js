@@ -33,8 +33,6 @@ window.axios.defaults.headers.common = {
 	'X-Requested-With': 'XMLHttpRequest'
 };
 
-//window.swal = require('sweetalert2')
-
 window.events = new Vue();
 
 window.flash = function (message, type) {
