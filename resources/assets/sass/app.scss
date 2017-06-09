@@ -241,6 +241,10 @@ header {
 			&:hover {
 				background-color: $color-white !important;
 			}
+
+			&:focus {
+				box-shadow: none !important;
+			}
 		}
 	}
 }
