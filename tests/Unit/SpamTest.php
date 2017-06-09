@@ -1,15 +1,34 @@
 <?php namespace Tests\Unit;
 
-use App\Spam;
+use App\Inspections\Spam;
 use Tests\DatabaseTestCase;
 
 class SpamTest extends DatabaseTestCase
 {
-	/** @test **/
-	public function it_validates_spam()
-	{
-		$spam = new Spam;
+	protected $spam;
 
-		$this->assertFalse($spam->detect('Innocent reply here.'));
+	public function setUp()
+	{
+		parent::setUp();
+
+		$this->spam = new Spam;
+	}
+
+	/** @test **/
+	public function it_checks_for_invalid_keywords()
+	{
+		$this->assertFalse($this->spam->detect('Innocent reply here.'));
+
+		$this->expectException(\Exception::class);
+
+		$this->spam->detect('Yahoo Customer Support');
+	}
+
+	/** @test **/
+	public function it_checks_for_any_key_being_held_down()
+	{
+		$this->expectException(\Exception::class);
+
+		$this->spam->detect('Hello world aaaaaaaa');
 	}
 }

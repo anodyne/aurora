@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
 
-use App\Spam;
 use App\Data\Reply;
 use App\Data\Discussion;
+use App\Inspections\Spam;
 use Illuminate\Http\Request;
 
 class RepliesController extends Controller
