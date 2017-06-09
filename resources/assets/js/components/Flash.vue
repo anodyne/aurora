@@ -23,7 +23,8 @@
 			return {
 				body: '',
 				level: 'success',
-				show: false
+				show: false,
+				startTransition: false
 			}
 		},
 
@@ -59,11 +60,21 @@
 			hide () {
 				var self = this;
 
-				$(this.$el).fadeOut(function () {
-					setTimeout(() => {
-						self.show = false
-					}, 3500);
-				})
+				setTimeout(() => {
+					self.startTransition = true;
+				}, 3500);
+			}
+		},
+
+		watch: {
+			startTransition (newValue, oldValue) {
+				if (newValue) {
+					var self = this;
+
+					$('.alert-flash').fadeOut(() => {
+						self.show = false;
+					});
+				}
 			}
 		},
 
@@ -74,7 +85,7 @@
 
 			window.events.$on('flash', (message, type) => this.flash(message, type));
 		}
-	}
+	};
 </script>
 
 <style lang="scss">
