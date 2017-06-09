@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Start a Discussion')
+
 @section('content')
 	<h1>Start a Discussion</h1>
 

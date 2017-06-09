@@ -8,7 +8,7 @@
 		<meta name="description" content="Anodyne Productions specializes in RPG management software and tools to help game masters play and run their games with powerful and easy-to-use software.">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
-		<title>{{ config('app.name', 'Laravel') }}</title>
+		<title>@yield('title') &bull; {{ config('app.name', 'Laravel') }}</title>
 		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico?v2') }}">
 		<link rel="apple-touch-icon-precomposed" href="{{ asset('apple-touch-icon.png') }}">
 
