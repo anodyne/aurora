@@ -3,7 +3,8 @@
 		<!-- DiscussionWasUpdated notification -->
 		<a :href="item.data.link"
 		   class="notification"
-		   v-if="type == 'App.Notifications.DiscussionWasUpdated'">
+		   v-if="type == 'App.Notifications.DiscussionWasUpdated'"
+		   @click="markAsRead">
 			<figure class="d-flex mr-3">
 				<!--<avatar :user="item.data.author" size="sm"></avatar>
 				<div class="type-icon reply"></div>-->
@@ -28,7 +29,8 @@
 		<!-- ItemWasFavorited notification -->
 		<a :href="item.data.link"
 		   class="notification"
-		   v-if="type == 'App.Notifications.ItemWasFavorited'">
+		   v-if="type == 'App.Notifications.ItemWasFavorited'"
+		   @click="markAsRead">
 			<figure class="d-flex mr-3">
 				<!--<avatar :user="item.data.author" size="sm"></avatar>
 				<div class="type-icon favorite"></div>-->
@@ -64,7 +66,7 @@
 
 		methods: {
 			markAsRead (notification) {
-				axios.delete('/user/' + window.App.user.username + '/notifications/' + item.id);
+				axios.delete('/user/' + window.App.user.username + '/notifications/' + this.item.id);
 			}
 		}
 	}

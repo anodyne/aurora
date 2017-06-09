@@ -29622,6 +29622,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['item'],
@@ -29634,7 +29636,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		markAsRead: function markAsRead(notification) {
-			axios.delete('/user/' + window.App.user.username + '/notifications/' + item.id);
+			axios.delete('/user/' + window.App.user.username + '/notifications/' + this.item.id);
 		}
 	}
 });
@@ -69805,6 +69807,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "notification",
     attrs: {
       "href": _vm.item.data.link
+    },
+    on: {
+      "click": _vm.markAsRead
     }
   }, [_c('figure', {
     staticClass: "d-flex mr-3"
@@ -69832,6 +69837,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "notification",
     attrs: {
       "href": _vm.item.data.link
+    },
+    on: {
+      "click": _vm.markAsRead
     }
   }, [_c('figure', {
     staticClass: "d-flex mr-3"
