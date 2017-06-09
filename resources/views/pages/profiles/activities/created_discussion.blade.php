@@ -2,7 +2,7 @@
 	@slot('type', 'discussion')
 
 	@slot('icon')
-		@icon('icon-chat')
+		@icon('icon-new-message')
 	@endslot
 
 	@slot('body')

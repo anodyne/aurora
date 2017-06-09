@@ -4,6 +4,9 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title">Notifications</h5>
+					<h5 class="my-0">
+						<span class="badge badge-dark">{{ notificationCount }}</span>
+					</h5>
 				</div>
 
 				<div class="modal-body">
@@ -50,6 +53,10 @@
 		computed: {
 			hasNotifications() {
 				return this.notifications.length > 0;
+			},
+
+			notificationCount () {
+				return this.notifications.length;
 			},
 
 			signedIn () {

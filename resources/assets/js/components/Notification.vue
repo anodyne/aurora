@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<!-- DiscussionWasUpdated notification -->
-		<div class="notification" v-if="type == 'App.Notifications.DiscussionWasUpdated'">
+		<a :href="item.data.link"
+		   class="notification"
+		   v-if="type == 'App.Notifications.DiscussionWasUpdated'">
 			<figure class="d-flex mr-3">
 				<!--<avatar :user="item.data.author" size="sm"></avatar>
 				<div class="type-icon reply"></div>-->
@@ -13,22 +15,20 @@
 			</figure>
 
 			<div class="notification-content">
-				<div class="meta">
-					<p class="title" v-text="item.data.author.name"></p>
+				<div class="notification-body" v-html="item.data.message"></div>
 
+				<div class="meta">
 					<div class="date">
 						{{ formatDate(item.created_at, 'relative') }}
 					</div>
 				</div>
-
-				<div class="notification-body" v-html="item.data.message"></div>
-
-				<a :href="item.data.link" class="btn btn-outline-dark">See the reply</a>
 			</div>
-		</div>
+		</a>
 
 		<!-- ItemWasFavorited notification -->
-		<div class="notification" v-if="type == 'App.Notifications.ItemWasFavorited'">
+		<a :href="item.data.link"
+		   class="notification"
+		   v-if="type == 'App.Notifications.ItemWasFavorited'">
 			<figure class="d-flex mr-3">
 				<!--<avatar :user="item.data.author" size="sm"></avatar>
 				<div class="type-icon favorite"></div>-->
@@ -40,19 +40,15 @@
 			</figure>
 
 			<div class="notification-content">
-				<div class="meta">
-					<p class="title" v-text="item.data.author.name"></p>
+				<div class="notification-body" v-html="item.data.message"></div>
 
+				<div class="meta">
 					<div class="date">
 						{{ formatDate(item.created_at, 'relative') }}
 					</div>
 				</div>
-
-				<div class="notification-body" v-html="item.data.message"></div>
-
-				<a :href="item.data.link" class="btn btn-outline-dark">{{ item.data.linkText }}</a>
 			</div>
-		</div>
+		</a>
 	</div>
 </template>
 

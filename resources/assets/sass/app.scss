@@ -1348,50 +1348,12 @@ form {
 	display: block;
 }
 
-.quill-editor-sm {
-	min-height: 5rem !important;
+.badge {
+	font-weight: 400;
 
-	.ql-editor {
-		min-height: 5rem !important;
+	&.badge-dark {
+		background-color: $color-gray-blue;
 	}
-}
-
-.ql-toolbar {
-	border-color: rgba(0, 0, 0, 0.15) !important;
-	border-bottom: none !important;
-	background-color: $color-white;
-	border-top-left-radius: $radius;
-	border-top-right-radius: $radius;
-
-	.ql-stroke {
-		stroke: $color-subtle-dark !important;
-	}
-
-	.ql-fill {
-		fill: $color-subtle-dark !important;
-	}
-
-	button {
-		&:hover {
-			.ql-stroke {
-				stroke: $color-gray-blue !important;
-			}
-
-			.ql-fill {
-				fill: $color-gray-blue !important;
-			}
-		}
-	}
-}
-
-.ql-container {
-	min-height: 15rem;
-
-	background: $color-white;
-	border-bottom-left-radius: $radius;
-	border-bottom-right-radius: $radius;
-	font-size: $font-size !important;
-	color: $color-dark !important;
 }
 
 .swal2-modal {
@@ -1463,6 +1425,52 @@ form {
 	.avatar-text-sm {
 		margin-left: 65px;
 	}
+}
+
+.quill-editor-sm {
+	min-height: 5rem !important;
+
+	.ql-editor {
+		min-height: 5rem !important;
+	}
+}
+
+.ql-toolbar {
+	border-color: rgba(0, 0, 0, 0.15) !important;
+	border-bottom: none !important;
+	background-color: $color-white;
+	border-top-left-radius: $radius;
+	border-top-right-radius: $radius;
+
+	.ql-stroke {
+		stroke: $color-subtle-dark !important;
+	}
+
+	.ql-fill {
+		fill: $color-subtle-dark !important;
+	}
+
+	button {
+		&:hover {
+			.ql-stroke {
+				stroke: $color-gray-blue !important;
+			}
+
+			.ql-fill {
+				fill: $color-gray-blue !important;
+			}
+		}
+	}
+}
+
+.ql-container {
+	min-height: 15rem;
+
+	background: $color-white;
+	border-bottom-left-radius: $radius;
+	border-bottom-right-radius: $radius;
+	font-size: $font-size !important;
+	color: $color-dark !important;
 }
 
 .ql-container {

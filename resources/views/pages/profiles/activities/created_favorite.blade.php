@@ -6,7 +6,7 @@
 	@endslot
 
 	@slot('body')
-		<p>Liked a reply by <a href="{{ route('profile', $activity->subject->favorited->author) }}">{{ $activity->subject->favorited->author->present()->name }}</a>.</p>
+		<p>Liked a reply by <a href="{{ route('profile', $activity->subject->favorited->author) }}">{{ $activity->subject->favorited->author->present()->name }}</a> on the <em>{{ $activity->subject->favorited->discussion->present()->title }}</em> discussion.</p>
 
 		<a href="{{ route('discussions.show', [$activity->subject->favorited->discussion->topic, $activity->subject->favorited->discussion]) }}#reply-{{ $activity->subject->favorited->id }}" class="btn btn-outline-favorite">View</a>
 	@endslot

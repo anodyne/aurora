@@ -86,8 +86,10 @@
 	left: 0;
 	width: 40px;
 	height: 40px;
+
 	border-radius: 50%;
-	box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+	border: 2px solid;
+	// box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 
 	.icon {
 		display: block;
@@ -99,23 +101,22 @@
 		margin-left: -0.9rem;
 		margin-top: -0.9rem;
 
-		fill: rgba(255, 255, 255, 0.75);
-
-		path {
-			fill: rgba(255, 255, 255, 0.75);
-		}
+		fill: rgba(255, 255, 255, 0.85);
 	}
 
 	&.cd-discussion {
-		background: $color-discussion;
+		border-color: darken($color-blue-grey-400, 4%);
+		@include gradient($color-blue-grey-300, $color-blue-grey-400);
 	}
 
 	&.cd-reply {
-		background: $color-reply;
+		border-color: $color-blue-600;
+		@include gradient($color-blue-400, $color-blue-500);
 	}
 
 	&.cd-favorite {
-		background: $color-favorite;
+		border-color: $color-amber-700;
+		@include gradient($color-amber-500, $color-amber-600);
 	}
 }
 
@@ -213,15 +214,15 @@
 	}
 
 	.btn-outline-discussion {
-		@include button-outline-variant($color-discussion);
+		@include button-outline-variant($color-blue-grey-500);
 	}
 
 	.btn-outline-reply {
-		@include button-outline-variant($color-reply);
+		@include button-outline-variant($color-blue-500);
 	}
 
 	.btn-outline-favorite {
-		@include button-outline-variant($color-favorite);
+		@include button-outline-variant($color-amber-700);
 	}
 }
 

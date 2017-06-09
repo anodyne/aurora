@@ -6,7 +6,7 @@ $notificationPanelHeaderHeight: 50px;
 	.modal-header {
 		display: flex;
 		align-items: center;
-		justify-content: initial;
+		justify-content: space-between;
 		margin-bottom: 0;
 		height: $notificationPanelHeaderHeight;
 		width: 100%;
@@ -17,11 +17,14 @@ $notificationPanelHeaderHeight: 50px;
 		border-bottom: none;
 
 		.modal-title {
-			width: 100%;
-
 			color: $color-subtle-darker;
 			font-weight: 300;
 			text-align: center;
+		}
+
+		.badge {
+			background-color: $color-subtle-dark;
+			color: $color-white;
 		}
 	}
 
@@ -84,41 +87,59 @@ $notificationPanelHeaderHeight: 50px;
 		padding-top: $notificationPanelHeaderHeight;
 	}
 
-	.notification:not(:first-child) {
+	/*.notification:not(:first-child) {
 		padding-top: 25px;
 	}
 
 	.notification:not(:last-child) {
 		margin-bottom: 23px;
-	}
+	}*/
 
 	.notification {
 		display: flex;
 		align-items: flex-start;
 		position: relative;
-		padding: $space-md $space;
+		padding: $space;
+
+		color: $color-blue-grey-600;
+
+		&:hover {
+			text-decoration: none;
+			color: $color-blue-grey-600;
+			background: darken($color-blue-grey-50, 5%);
+		}
 
 		figure {
 			position: relative;
 
 			.notification-type {
-				height: 36px;
-				width: 36px;
-				padding: 8px 0 0 8px;
+				height: 2.5rem;
+				width: 2.5rem;
 
 				border-radius: 50%;
-				/*box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);*/
+				border: 1px solid;
 
 				&.favorite {
-					background-color: $color-amber-700;
+					border-color: $color-amber-700;
+					@include gradient($color-amber-500, $color-amber-600);
 				}
 
 				&.reply {
-					background-color: $color-blue-500;
+					border-color: $color-blue-600;
+					@include gradient($color-blue-400, $color-blue-500);
 				}
 
 				.icon {
-					fill: rgba(255, 255, 255, 0.75);
+					display: block;
+					width: 1.2rem;
+					height: 1.2rem;
+					position: relative;
+					left: 50%;
+					top: 50%;
+					margin-left: -0.6rem;
+					margin-top: -0.6rem;
+
+					fill: rgba(255, 255, 255, 0.85);
 				}
 			}
 
@@ -156,6 +177,10 @@ $notificationPanelHeaderHeight: 50px;
 			align-content: flex-end;
 			align-items: center;
 			margin-bottom: 0.5em;
+
+			.btn {
+				padding: 0.5rem 0.75rem;
+			}
 		}
 
 		.title {
@@ -168,10 +193,11 @@ $notificationPanelHeaderHeight: 50px;
 
 		.date {
 			color: $color-subtle-dark;
+			font-size: $font-xs;
 		}
 
 		.notification-body {
-			margin-bottom: 15px;
+			margin-bottom: 5px;
 		}
 
 		.btn {

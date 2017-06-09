@@ -193,3 +193,8 @@ $border-radius: $radius;
 		}
 	}
 }
+
+@mixin gradient ($start, $end) {
+	background: $end;
+	background: linear-gradient(to bottom, $start 0%, $end 100%);
+}
