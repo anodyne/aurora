@@ -7,8 +7,8 @@ use App\Notifications\UserWasMentioned as UserWasMentionedNotification;
 
 class NotifyMentionedUser
 {
-    public function handle(UserWasMentioned $event)
-    {
-        $event->user->notify(new UserWasMentionedNotification($event->model));
-    }
+	public function handle(UserWasMentioned $event)
+	{
+		$event->user->notify(new UserWasMentionedNotification($event->model));
+	}
 }
