@@ -7,10 +7,10 @@ class Spam
 		KeyHeldDown::class
 	];
 
-	public function detect($text)
+	public function inspect($text)
 	{
 		foreach ($this->inspections as $inspection) {
-			app($inspection)->detect($text);
+			app($inspection)->inspect($text);
 		}
 
 		return false;

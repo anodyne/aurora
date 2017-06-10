@@ -17,11 +17,11 @@ class SpamTest extends DatabaseTestCase
 	/** @test **/
 	public function it_checks_for_invalid_keywords()
 	{
-		$this->assertFalse($this->spam->detect('Innocent reply here.'));
+		$this->assertFalse($this->spam->inspect('Innocent reply here.'));
 
 		$this->expectException(\Exception::class);
 
-		$this->spam->detect('Yahoo Customer Support');
+		$this->spam->inspect('Yahoo Customer Support');
 	}
 
 	/** @test **/
@@ -29,6 +29,6 @@ class SpamTest extends DatabaseTestCase
 	{
 		$this->expectException(\Exception::class);
 
-		$this->spam->detect('Hello world aaaaaaaa');
+		$this->spam->inspect('Hello world aaaaaaaa');
 	}
 }
