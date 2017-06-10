@@ -120,13 +120,27 @@ $notificationPanelHeaderHeight: 50px;
 				border: 1px solid;
 
 				&.favorite {
-					border-color: $color-amber-700;
-					@include gradient($color-amber-500, $color-amber-600);
+					/*border-color: $color-deep-orange-300;
+					@include gradient($color-amber-500, $color-deep-orange-300);*/
+					border-color: $color-amber-800;
+					@include gradient($color-amber-500, $color-amber-700);
 				}
 
 				&.reply {
+					/*border-color: $color-light-blue-600;
+					@include gradient($color-cyan-300, $color-light-blue-500);*/
 					border-color: $color-blue-600;
 					@include gradient($color-blue-400, $color-blue-500);
+				}
+
+				&.answer {
+					border-color: $color-green-600;
+					@include gradient($color-green-400, $color-green-500);
+				}
+
+				&.mention {
+					border-color: $color-red-600;
+					@include gradient($color-red-400, $color-red-500);
 				}
 
 				.icon {

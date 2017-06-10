@@ -115,8 +115,8 @@
 	}
 
 	&.cd-favorite {
-		border-color: $color-amber-700;
-		@include gradient($color-amber-500, $color-amber-600);
+		border-color: $color-amber-800;
+		@include gradient($color-amber-500, $color-amber-700);
 	}
 }
 

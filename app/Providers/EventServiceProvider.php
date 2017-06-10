@@ -13,6 +13,10 @@ class EventServiceProvider extends ServiceProvider
 		'App\Events\ItemWasFavorited' => [
 			'App\Listeners\NotifyItemAuthorOfFavorite',
 		],
+
+		'App\Events\UserWasMentioned' => [
+			'App\Listeners\NotifyMentionedUser',
+		],
 	];
 
 	public function boot()

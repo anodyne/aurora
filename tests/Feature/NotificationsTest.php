@@ -79,4 +79,20 @@ class NotificationsTest extends DatabaseTestCase
 			$this->assertCount(0, $user->fresh()->unreadNotifications);
 		});
 	}
+
+	/** @test **/
+	public function a_notification_is_prepared_when_a_user_is_mentioned()
+	{
+		$user1 = create('App\Data\User', ['username' => 'johnny']);
+		$user2 = create('App\Data\User', ['username' => 'billy']);
+
+		$discussion = make('App\Data\Discussion', [
+			'user_id' => $user1->id,
+			'body' => "@{$user2->username} hello world"
+		]);
+
+		$this->post(route('discussions.store'), $discussion->toArray());
+
+		$this->assertCount(1, $user2->fresh()->notifications);
+	}
 }

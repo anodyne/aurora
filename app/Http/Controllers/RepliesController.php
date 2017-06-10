@@ -2,8 +2,8 @@
 
 use App\Data\Reply;
 use App\Data\Discussion;
-use App\Inspections\Spam;
 use Illuminate\Http\Request;
+use App\Inspections\InspectionManager;
 
 class RepliesController extends Controller
 {
@@ -19,16 +19,18 @@ class RepliesController extends Controller
 		return $discussion->replies()->paginate(20);
 	}
 
-	public function store(Request $request, Spam $spam, $topic, Discussion $discussion)
+	public function store(Request $request, InspectionManager $inspector, $topic, Discussion $discussion)
 	{
 		$this->validate($request, ['body' => 'required']);
 
-		$spam->detect($request->get('body'));
+		$inspector->inspectBefore($request->get('body'));
 		
 		$reply = $discussion->addReply([
 			'body' => $request->get('body'),
 			'user_id' => auth()->id()
 		]);
+
+		$inspector->inspectAfter($request->get('body'), $reply);
 
 		if ($request->expectsJson()) {
 			return $reply->load('author');

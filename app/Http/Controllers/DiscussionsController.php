@@ -5,6 +5,7 @@ use App\Data\Topic;
 use App\Data\Discussion;
 use Illuminate\Http\Request;
 use App\Filters\DiscussionFilters;
+use App\Inspections\InspectionManager;
 
 class DiscussionsController extends Controller
 {
@@ -56,7 +57,7 @@ class DiscussionsController extends Controller
 		return view('pages.discussions.show', compact('discussion', 'topic'));
 	}
 
-	public function store(Request $request)
+	public function store(Request $request, InspectionManager $inspector)
 	{
 		$this->validate($request, [
 			'title' => 'required',
@@ -64,12 +65,16 @@ class DiscussionsController extends Controller
 			'topic_id' => 'required|exists:forum_topics,id',
 		]);
 
+		$inspector->inspectBefore($request->get('body'));
+
 		$discussion = Discussion::create([
 			'user_id' => auth()->id(),
 			'topic_id' => $request->get('topic_id'),
 			'title' => $request->get('title'),
 			'body' => $request->get('body'),
 		]);
+
+		$inspector->inspectAfter($request->get('body'), $discussion);
 
 		if (auth()->check()) {
 			auth()->user()->read($discussion);

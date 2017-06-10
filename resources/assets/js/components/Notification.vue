@@ -51,6 +51,30 @@
 				</div>
 			</div>
 		</a>
+
+		<!-- UserWasMentioned notification -->
+		<a :href="item.data.link"
+		   class="notification"
+		   v-if="type == 'App.Notifications.UserWasMentioned'"
+		   @click="markAsRead">
+			<figure class="d-flex mr-3">
+				<div class="notification-type mention">
+					<svg class="icon">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-email"></use>
+					</svg>
+				</div>
+			</figure>
+
+			<div class="notification-content">
+				<div class="notification-body" v-html="item.data.message"></div>
+
+				<div class="meta">
+					<div class="date">
+						{{ formatDate(item.created_at, 'relative') }}
+					</div>
+				</div>
+			</div>
+		</a>
 	</div>
 </template>
 
