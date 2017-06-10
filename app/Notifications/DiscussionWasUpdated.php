@@ -5,7 +5,6 @@ use App\Data\Discussion;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 
 class DiscussionWasUpdated extends Notification
 {
@@ -23,14 +22,6 @@ class DiscussionWasUpdated extends Notification
 	public function via($notifiable)
 	{
 		return ['database'];
-	}
-
-	public function toMail($notifiable)
-	{
-		return (new MailMessage)
-					->line('The introduction to the notification.')
-					->action('Notification Action', url('/'))
-					->line('Thank you for using our application!');
 	}
 
 	public function toArray($notifiable)
