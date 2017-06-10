@@ -8,7 +8,7 @@ class InvalidKeywords implements Inspectable
 		'yahoo customer support',
 	];
 
-	public function detect($text)
+	public function inspect($text, $model = null)
 	{
 		foreach ($this->keywords as $keyword) {
 			if (stripos($text, $keyword) !== false) {

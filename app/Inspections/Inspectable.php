@@ -2,5 +2,5 @@
 
 interface Inspectable
 {
-	public function detect($text);
+	public function inspect($text, $model = null);
 }
