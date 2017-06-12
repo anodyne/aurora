@@ -13,8 +13,10 @@ class Mentions implements Inspectable
 					// Find the user by their username
 					$user = User::username($match)->first();
 
-					// Fire the event to notify them
-					event(new UserWasMentioned($user, $model));
+					if ($user) {
+						// Fire the event to notify them
+						event(new UserWasMentioned($user, $model));
+					}
 				});
 			}
 		}
