@@ -52,6 +52,7 @@
 
 @push('scripts')
 	<script src="{{ asset('js/highlight.pack.js') }}"></script>
+	<script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
 @endpush
 
 @push('styles')
