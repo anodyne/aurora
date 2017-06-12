@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class ForumDevelopmentSeeder extends Seeder
 {
 	protected $discussionCount = 50;
-	protected $replyCount = 10;
+	protected $replyCount = 25;
 
 	public function run()
 	{

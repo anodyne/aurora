@@ -18,7 +18,7 @@ $factory->define(App\Data\User::class, function (Faker\Generator $faker) {
 	return [
 		'name' => $faker->name,
 		'email' => $faker->unique()->safeEmail,
-		'username' => $faker->userName,
+		'username' => str_replace(['.', ',', '\'', '"', ' '], '', $faker->userName),
 		'password' => $password ?: $password = bcrypt('secret'),
 		'remember_token' => str_random(10),
 	];
@@ -42,7 +42,9 @@ $factory->define(App\Data\Reply::class, function (Faker\Generator $faker) {
 		'discussion_id' => function () {
 			return factory('App\Data\Discussion')->create()->id;
 		},
-		'user_id' => 1,
+		'user_id' => function () {
+			return factory('App\Data\User')->create()->id;
+		},
 		'body' => $faker->paragraph
 	];
 });
