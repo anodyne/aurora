@@ -49,6 +49,12 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('topics/{topic}', 'DiscussionsController@index')->name('topics.discussions');
 
+Route::group(['prefix' => 'api'], function () {
+	Route::get('users', function () {
+		return User::get();
+	});
+});
+
 Route::get('test', function () {
 	auth()->setUser(User::find(1));
 	view()->share('_user', auth()->user());
