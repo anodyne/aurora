@@ -27,10 +27,11 @@
 
 			<div class="row">
 				<div class="col-md-8">
-					<div class="form-group">
+					<div class="form-group" v-cloak>
 						<label class="sr-only">Content</label>
 						<div id="editor"></div>
 						<textarea name="body" class="form-control hidden" v-model="body"></textarea>
+						<p class="form-text text-muted pl-1"><strong>Hint:</strong> You can mention a user by typing "@" and starting to type their name.</p>
 					</div>
 				</div>
 			</div>

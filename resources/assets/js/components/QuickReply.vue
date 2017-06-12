@@ -31,12 +31,14 @@
 
 <script>
 	import Quill from 'quill';
+	import Tribute from 'tributejs';
 
 	export default {
 		data () {
 			return {
 				body: '',
-				editor: false
+				editor: false,
+				tribute: false
 			}
 		},
 
@@ -77,7 +79,15 @@
 						['link', 'image'],
 						[{ 'header': [2, 3, false] }],
 						[{ 'list': 'ordered'}, { 'list': 'bullet' }]
-					]
+					],
+					keyboard: {
+						bindings: {
+							enter: {
+								key: 'enter',
+								handler () {}
+							},
+						}
+					}
 				},
 				placeholder: "Reply to this discussion now...",
 				theme: 'bubble'
@@ -85,6 +95,29 @@
 
 			this.editor.on('text-change', function (delta) {
 				self.body = self.editor.container.firstChild.innerHTML;
+			});
+
+			axios.get('/api/users').then(response => {
+				self.tribute = new Tribute({
+					collection: [
+						{
+							trigger: '@',
+							lookup (user) {
+								return user.username + user.name;
+							},
+							fillAttr: 'username',
+							menuItemTemplate (item) {
+								return item.original.name + ' <small>' + item.original.username + '</small>';
+							},
+							selectTemplate (item) {
+								return '<a href="/user/' + item.original.username + '" class="mention-token">@' + item.original.username + '</a>';
+							},
+							values: response.data
+						}
+					]
+				});
+
+				self.tribute.attach(self.editor.root);
 			});
 		}
 	}
