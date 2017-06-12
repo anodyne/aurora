@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+	{{ $discussion->title }} - {{ $discussion->topic->name }}
+@endsection
+
 @section('content')
 	<discussion-view :initial-replies-count="{{ $discussion->replies_count }}" inline-template>
 		<div>
