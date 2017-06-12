@@ -38,7 +38,13 @@
 				this.dataSet = data;
 				this.items = data.data;
 
-				window.scrollTo(0, 0);
+				setTimeout(() => {
+					if (location.hash) {
+						$.scrollTo(location.hash, 500);
+					} else {
+						$.scrollTo(0, 500);
+					}
+				}, 1000);
 			},
 
 			url (page) {
