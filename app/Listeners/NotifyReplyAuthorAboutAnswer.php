@@ -10,11 +10,11 @@ class NotifyReplyAuthorAboutAnswer
 	public function handle(DiscussionWasAnswered $event)
 	{
 		$event->reply
-			  ->author
-			  ->notify(new ReplyWasChosenAsBestAnswer(
-			  		$event->user,
-			  		$event->reply,
-			  		$event->discussion
-			  	));
+			->author
+			->notify(new ReplyWasChosenAsBestAnswer(
+				$event->user,
+				$event->reply,
+				$event->discussion
+			));
 	}
 }
