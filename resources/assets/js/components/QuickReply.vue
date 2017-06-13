@@ -133,5 +133,5 @@
 				self.tribute.attach(self.editor.root);
 			});
 		}
-	}
+	};
 </script>

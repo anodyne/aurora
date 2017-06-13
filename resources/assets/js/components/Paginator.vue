@@ -95,5 +95,5 @@
 				this.broadcast().updateUrl();
 			}
 		}
-	}
+	};
 </script>

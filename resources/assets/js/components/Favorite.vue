@@ -47,5 +47,5 @@
 				return this.active ? this.destroy() : this.create();
 			}
 		}
-	}
+	};
 </script>

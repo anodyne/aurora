@@ -78,7 +78,7 @@
 		created () {
 			this.isSubscribed = this.discussion.isSubscribedTo;
 		}
-	}
+	};
 </script>
 
 <style lang="scss">

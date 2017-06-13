@@ -106,5 +106,5 @@
 				return img.join('');
 			}
 		}
-	}
+	};
 </script>

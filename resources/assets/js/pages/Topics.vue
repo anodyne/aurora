@@ -62,5 +62,5 @@
 
 			this.items = this.dataSet;
 		}
-	}
+	};
 </script>

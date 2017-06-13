@@ -121,7 +121,7 @@
 				flash('Topic was restored');
 			}
 		}
-	}
+	};
 </script>
 
 <style lang="scss">

@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<div v-for="(reply, index) in items" :key="reply.id">
-			<reply :discussion="discussion" :reply="reply" @deleted="remove(index)"></reply>
+			<reply :discussion="discussion" 
+				   :reply="reply"
+				   @deleted="remove(index)"></reply>
 		</div>
 
 		<paginator :data-set="dataSet" @changed="fetch"></paginator>
@@ -61,5 +63,5 @@
 		created () {
 			this.fetch();
 		}
-	}
+	};
 </script>
