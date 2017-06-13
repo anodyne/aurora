@@ -75,6 +75,54 @@
 				</div>
 			</div>
 		</a>
+
+		<!-- ReplyWasChosenAsBestAnswer notification -->
+		<a :href="item.data.link"
+		   class="notification"
+		   v-if="type == 'App.Notifications.ReplyWasChosenAsBestAnswer'"
+		   @click="markAsRead">
+			<figure class="d-flex mr-3">
+				<div class="notification-type answer">
+					<svg class="icon">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-check"></use>
+					</svg>
+				</div>
+			</figure>
+
+			<div class="notification-content">
+				<div class="notification-body" v-html="item.data.message"></div>
+
+				<div class="meta">
+					<div class="date">
+						{{ formatDate(item.created_at, 'relative') }}
+					</div>
+				</div>
+			</div>
+		</a>
+
+		<!-- UserHitPointMilestone notification -->
+		<a :href="item.data.link"
+		   class="notification"
+		   v-if="type == 'App.Notifications.UserHitPointMilestone'"
+		   @click="markAsRead">
+			<figure class="d-flex mr-3">
+				<div class="notification-type award">
+					<svg class="icon">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-trophy"></use>
+					</svg>
+				</div>
+			</figure>
+
+			<div class="notification-content">
+				<div class="notification-body" v-html="item.data.message"></div>
+
+				<div class="meta">
+					<div class="date">
+						{{ formatDate(item.created_at, 'relative') }}
+					</div>
+				</div>
+			</div>
+		</a>
 	</div>
 </template>
 
@@ -97,5 +145,5 @@
 				EventBus.$emit('mark-notification-as-read', this.item.id);
 			}
 		}
-	}
+	};
 </script>
