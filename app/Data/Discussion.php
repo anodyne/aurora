@@ -3,16 +3,17 @@
 use Eloquent;
 use App\Events;
 use App\RecordsActivity;
+use App\AnswersDiscussion;
 use Laracasts\Presenter\PresentableTrait;
 use App\Notifications\DiscussionWasUpdated;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Discussion extends Eloquent
 {
-	use SoftDeletes, PresentableTrait, RecordsActivity;
+	use SoftDeletes, PresentableTrait, RecordsActivity, AnswersDiscussion;
 
 	protected $table = 'forum_discussions';
-	protected $fillable = ['title', 'body', 'user_id', 'topic_id', 'replies_count'];
+	protected $fillable = ['title', 'body', 'user_id', 'topic_id', 'replies_count', 'answer_id'];
 	protected $with = ['author', 'topic', 'subscriptions'];
 	protected $appends = ['isSubscribedTo'];
 	protected $presenter = Presenters\DiscussionPresenter::class;
@@ -21,11 +22,6 @@ class Discussion extends Eloquent
 	//--------------------------------------------------------------------------
 	// Relationships
 	//--------------------------------------------------------------------------
-
-	/*public function answer()
-	{
-		return $this->hasOne(Reply::class, 'id', 'answer_id');
-	}*/
 
 	public function author()
 	{
@@ -55,23 +51,11 @@ class Discussion extends Eloquent
 	{
 		$reply = $this->replies()->create($data);
 
-		event(new Events\DiscussionHasNewReply($this, $reply));
-
 		if (auth()->check()) {
 			auth()->user()->read($this);
 		}
 
 		return $reply;
-	}
-
-	public function answer()
-	{
-		return $this->replies->where('id', $this->answer_id)->first();
-	}
-
-	public function isAnswered()
-	{
-		return $this->answer_id !== null;
 	}
 
 	public function scopeFilter($query, $filters)

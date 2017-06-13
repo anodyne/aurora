@@ -8,6 +8,9 @@ Route::get('discussions/{topic}/{discussion}', 'DiscussionsController@show')
 Route::delete('discussions/{topic}/{discussion}', 'DiscussionsController@destroy')
 	->name('discussions.destroy');
 
+Route::post('discussions/{topic}/{discussion}/answer', 'DiscussionAnswersController@store')
+	->name('discussions.answer');
+
 Route::get('/', 'DiscussionsController@index')->name('home');
 Route::get('discussions/{topic}/{discussion}/replies', 'RepliesController@index')->name('replies.index');
 Route::post('discussions/{topic}/{discussion}/replies', 'RepliesController@store')->name('discussions.replies');

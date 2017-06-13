@@ -95,4 +95,66 @@ class NotificationsTest extends DatabaseTestCase
 
 		$this->assertCount(1, $user2->fresh()->notifications);
 	}
+
+	/** @test **/
+	public function a_notification_is_prepared_when_a_reply_is_marked_as_the_best_answer()
+	{
+		$this->signOut();
+		
+		$discussionAuthor = $this->createUser();
+		$replyAuthor = $this->createUser();
+		$user = $this->createUser();
+
+		$discussion = create('App\Data\Discussion', [
+			'user_id' => $discussionAuthor->id
+		]);
+
+		$reply = create('App\Data\Reply', [
+			'user_id' => $replyAuthor->id
+		]);
+
+		$this->signIn($user);
+		$discussion->subscribe();
+		$this->signOut();
+
+		$this->signIn($discussionAuthor);
+
+		$discussion->markAsBestAnswer($reply->id);
+
+		$this->assertCount(1, $replyAuthor->fresh()->notifications);
+		$this->assertCount(0, $discussionAuthor->fresh()->notifications);
+		$this->assertCount(1, $user->fresh()->notifications);
+	}
+
+	/** @test **/
+	public function a_notification_is_prepared_when_a_reply_is_marked_as_the_best_answer_by_an_admin()
+	{
+		$this->signOut();
+
+		$discussionAuthor = $this->createUser();
+		$replyAuthor = $this->createUser();
+		$user = $this->createUser();
+		$admin = $this->createAdmin();
+
+		$discussion = create('App\Data\Discussion', [
+			'user_id' => $discussionAuthor->id
+		]);
+
+		$reply = create('App\Data\Reply', [
+			'user_id' => $replyAuthor->id
+		]);
+
+		$this->signIn($user);
+		$discussion->subscribe();
+		$this->signOut();
+
+		$this->signIn($admin);
+
+		$discussion->markAsBestAnswer($reply->id);
+
+		$this->assertCount(1, $replyAuthor->fresh()->notifications);
+		$this->assertCount(1, $discussionAuthor->fresh()->notifications);
+		$this->assertCount(1, $user->fresh()->notifications);
+		$this->assertCount(0, $admin->fresh()->notifications);
+	}
 }

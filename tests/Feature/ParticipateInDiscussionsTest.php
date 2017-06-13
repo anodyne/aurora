@@ -131,6 +131,42 @@ class ParticipateInDiscussionsTest extends DatabaseTestCase
 		);
 	}
 
-	// TODO: the_discussion_author_can_mark_a_reply_as_the_correct_answer
-	// TODO: a_user_who_is_not_the_author_cannot_set_the_answer_reply
+	/** @test **/
+	public function the_discussion_author_can_mark_a_reply_as_the_best_answer()
+	{
+		$this->signIn();
+
+		$discussion = create('App\Data\Discussion', [
+			'user_id' => auth()->id()
+		]);
+		$reply = create('App\Data\Reply');
+
+		$this->post(
+			route('discussions.answer', [$discussion->topic, $discussion]),
+			['reply' => $reply->id]
+		);
+
+		$this->assertDatabaseHas('forum_discussions', [
+			'id' => $discussion->id,
+			'answer_id' => $reply->id
+		]);
+
+		//$this->assertEquals($reply->id, $discussion->fresh()->answer_id);
+	}
+
+	/** @test **/
+	public function a_user_who_is_not_the_author_cannot_set_the_best_answer()
+	{
+		$this->withExceptionHandling();
+
+		$this->signIn();
+
+		$discussion = create('App\Data\Discussion');
+		$reply = create('App\Data\Reply');
+
+		$this->post(
+			route('discussions.answer', [$discussion->topic, $discussion]),
+			['reply' => $reply->id]
+		)->assertStatus(403);
+	}
 }

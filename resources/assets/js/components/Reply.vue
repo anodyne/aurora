@@ -27,7 +27,7 @@
 							<a class="dropdown-item" href="#" @click.prevent="editing = true" v-if="canUpdate">Edit</a>
 							<a class="dropdown-item" href="#" @click.prevent="destroy" v-if="canDelete">Delete</a>
 							<div class="dropdown-divider" v-if="canUpdate"></div>
-							<a class="dropdown-item" href="#">Mark as Answer</a>
+							<a class="dropdown-item" href="#" @click.prevent="markAsBestAnswer">Mark as Answer</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#" @click.prevent="copyLink">Copy Link</a>
 							<!--<a class="dropdown-item" href="#">Message {{ reply.author.name }}</a>-->
@@ -68,7 +68,7 @@
 							<div>
 								<favorite :reply="reply"></favorite>
 							</div>
-							<a href="#" class="btn">
+							<a href="#" class="btn" @click.prevent="markAsBestAnswer">
 								<svg class="icon">
 									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-check"></use>
 								</svg>
@@ -111,6 +111,7 @@
 	import Quill from 'quill';
 	import copy from 'copy-to-clipboard';
 	import Favorite from './Favorite.vue';
+	import { EventBus } from '../mixins/EventBus.js';
 
 	export default {
 		props: ['discussion', 'reply'],
@@ -122,6 +123,7 @@
 				body: this.reply.body,
 				editing: false,
 				editor: false,
+				isAnswer: false,
 				signature: this.reply.author.signature,
 				updatedBody: ''
 			}
@@ -134,10 +136,6 @@
 			
 			canUpdate () {
 				return this.authorize(user => this.reply.user_id == user.id);
-			},
-
-			isAnswer () {
-				return this.discussion.answer_id == this.reply.id;
 			},
 
 			panelClasses () {
@@ -159,13 +157,37 @@
 
 				this.$emit('deleted', this.reply.id);
 
-				flash('Deleted the reply');
+				flash('Deleted the reply.');
 			},
 
 			like () {
 				axios.post('/replies/' + this.reply.id + '/favorites');
 
-				flash('Liked the reply');
+				flash('Liked the reply.');
+			},
+
+			markAsBestAnswer () {
+				let self = this;
+
+				let url = [
+					'/discussions',
+					this.discussion.topic.slug,
+					this.discussion.id,
+					'answer'
+				];
+
+				axios.post(url.join('/'), {
+					reply: this.reply.id
+				}).then(() => {
+					EventBus.$emit('discussion-answered', self.reply.id);
+
+					self.discussion.answer_id = self.reply.id;
+					self.isAnswer = true;
+
+					flash('Marked the reply as the best answer.');
+				}).catch(error => {
+					flash('There was a problem marking the best answer.', 'danger');
+				});
 			},
 
 			update () {
@@ -183,6 +205,7 @@
 		mounted () {
 			let self = this;
 			let id = "#" + this.$el.id;
+			this.isAnswer = this.discussion.answer_id == this.reply.id;
 
 			this.editor = new Quill(id + ' .editor', {
 				modules: {
@@ -201,5 +224,5 @@
 				self.updatedBody = self.editor.container.firstChild.innerHTML;
 			});
 		}
-	}
+	};
 </script>

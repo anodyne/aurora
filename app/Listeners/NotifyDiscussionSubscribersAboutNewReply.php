@@ -4,7 +4,7 @@ use App\Events\DiscussionHasNewReply;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NotifyDiscussionSubscribers
+class NotifyDiscussionSubscribersAboutNewReply
 {
 	public function handle(DiscussionHasNewReply $event)
 	{

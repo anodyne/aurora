@@ -28,4 +28,9 @@ class DiscussionPolicy
 	{
 		//return $user->can('forums.discussion.delete');
 	}
+
+	public function answer(User $user, Discussion $discussion)
+	{
+		return $discussion->user_id == $user->id;
+	}
 }

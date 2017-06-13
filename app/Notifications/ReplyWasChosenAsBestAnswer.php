@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class DiscussionWasAnswered extends Notification
+class ReplyWasChosenAsBestAnswer extends Notification
 {
 	use Queueable;
 
@@ -39,7 +39,7 @@ class DiscussionWasAnswered extends Notification
 	public function toArray($notifiable)
 	{
 		return [
-			'message' => $this->user->name.' marked a reply to the <em>'.$this->discussion->title.'</em> discussion as the best answer.',
+			'message' => $this->user->name.' marked your reply to the <em>'.$this->discussion->title.'</em> discussion as the best answer.',
 			'link' => route('discussions.show', [$this->discussion->topic, $this->discussion]).'#reply-'.$this->reply->id,
 			'author' => $this->reply->author,
 		];
