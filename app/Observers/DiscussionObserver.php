@@ -1,5 +1,6 @@
 <?php namespace App\Observers;
 
+use App\Events;
 use App\Data\Discussion;
 
 class DiscussionObserver extends Observer
@@ -13,6 +14,9 @@ class DiscussionObserver extends Observer
 	{
 		// Record the activity for creating a discussion
 		$this->recordActivity($discussion, 'created');
+
+		// Fire an event that a discussion was created
+		event(new Events\DiscussionWasStarted($discussion));
 	}
 
 	public function deleting(Discussion $discussion)

@@ -45,12 +45,12 @@ class ItemWasFavorited extends Notification
 			$discussion = $favorited->discussion;
 			$linkAppend = "#reply-{$favorited->id}";
 			$linkText = 'See the reply';
-			$message = "{$favoriteAuthor->name} liked your reply to <em>{$discussion->title}</em>";
+			$message = "{$favoriteAuthor->name} liked your reply to <em>{$discussion->title}</em>.";
 		} else {
 			$discussion = $favorited;
 			$linkAppend = false;
 			$linkText = 'See the discussion';
-			$message = "{$favoriteAuthor->name} liked your discussion <em>{$discussion->title}</em>";
+			$message = "{$favoriteAuthor->name} liked your discussion <em>{$discussion->title}</em>.";
 		}
 
 		return [

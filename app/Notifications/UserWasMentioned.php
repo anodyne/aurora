@@ -27,11 +27,11 @@ class UserWasMentioned extends Notification
 		if ($this->model instanceof Reply) {
 			$discussion = $this->model->discussion;
 			$linkAppend = "#reply-{$this->model->id}";
-			$message = "{$this->model->author->name} mentioned you in a reply on the <em>{$discussion->title}</em> discussion";
+			$message = "{$this->model->author->name} mentioned you in a reply on the <em>{$discussion->title}</em> discussion.";
 		} else {
 			$discussion = $this->model;
 			$linkAppend = false;
-			$message = "{$this->model->author->name} mentioned you in the <em>{$discussion->title}</em> discussion";
+			$message = "{$this->model->author->name} mentioned you in the <em>{$discussion->title}</em> discussion.";
 		}
 
 		return [

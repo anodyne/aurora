@@ -7,16 +7,29 @@ class EventServiceProvider extends ServiceProvider
 {
 	protected $listen = [
 		'App\Events\DiscussionHasNewReply' => [
-			'App\Listeners\NotifyDiscussionSubscribers',
+			'App\Listeners\NotifyDiscussionSubscribersAboutNewReply',
+		],
+
+		'App\Events\DiscussionWasAnswered' => [
+			'App\Listeners\NotifyReplyAuthorAboutAnswer',
+			'App\Listeners\NotifyDiscussionSubscribersAboutAnswer',
 		],
 
 		'App\Events\ItemWasFavorited' => [
-			'App\Listeners\NotifyItemAuthorOfFavorite',
+			'App\Listeners\NotifyItemAuthorAboutFavorite',
 		],
 
 		'App\Events\UserWasMentioned' => [
 			'App\Listeners\NotifyMentionedUser',
 		],
+
+		'App\Events\UserPointsWereUpdated' => [
+			'App\Listeners\NotifyUserAboutPointMilestones',
+		],
+	];
+
+	protected $subscribe = [
+		'App\Listeners\ExperiencePointsSubscriber',
 	];
 
 	public function boot()
