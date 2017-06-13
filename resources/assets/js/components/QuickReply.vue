@@ -30,6 +30,7 @@
 </template>
 
 <script>
+	import md5 from 'md5';
 	import Quill from 'quill';
 	import Tribute from 'tributejs';
 
@@ -65,6 +66,18 @@
 
 						flash('Your reply has been posted.');
 					});
+			},
+
+			avatarUrl (user) {
+				const img = [
+					'https://www.gravatar.com/avatar/',
+					md5(user.email.trim().toLowerCase()),
+					'?s=240',
+					'&d=retro',
+					'&r=pg'
+				];
+
+				return img.join('');
 			}
 		},
 
@@ -107,7 +120,7 @@
 							},
 							fillAttr: 'username',
 							menuItemTemplate (item) {
-								return item.original.name + ' <small>' + item.original.username + '</small>';
+								return '<div class="d-flex align-items-center"><div class="avatar-container"><div class="avatar sm" style="background-image:url(' + self.avatarUrl(item.original) + ');"></div></div><div class="d-flex flex-column pl-3"><div>' + item.original.name + '</div><small>@' + item.original.username + '</small></div></div>';
 							},
 							selectTemplate (item) {
 								return '<a href="/user/' + item.original.username + '" class="mention-token">@' + item.original.username + '</a>';

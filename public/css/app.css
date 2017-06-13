@@ -15801,26 +15801,38 @@ form label {
 .tribute-container {
   margin-top: 5px;
   border-radius: 0.25rem;
-  border: 1px solid #cfd8dc;
+  border: none;
+  background: rgba(0, 0, 0, 0.9);
+  -webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
 }
 
 .tribute-container ul {
   padding: 0;
   margin-top: 0;
   border-radius: 0.25rem;
-  background: #fff;
+  background: transparent;
 }
 
 .tribute-container ul li {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tribute-container ul li small {
+  display: block;
+  margin: -2px;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .tribute-container ul li:hover {
-  background: #bbdefb;
+  background: #42a5f5;
+  color: #fff;
 }
 
 .tribute-container ul li.highlight {
-  background: #e3f2fd;
+  background: #42a5f5;
+  color: #fff;
 }
 
 .tribute-container ul li:first-child {
@@ -15843,8 +15855,8 @@ form label {
 }
 
 .mention-token:hover {
-  background: #bbdefb;
-  border-color: #90caf9;
+  background: #cbe7fb;
+  border-color: #a3d2fa;
   color: #1565c0;
   text-decoration: none;
 }
