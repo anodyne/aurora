@@ -28,6 +28,11 @@ abstract class TestCase extends BaseTestCase
 		$this->actingAs($user);
 	}
 
+	protected function signOut()
+	{
+		auth()->logout();
+	}
+
 	protected function createUser()
 	{
 		$user = create('App\Data\User');
