@@ -21,6 +21,7 @@ class CreateUsersForTesting extends Migration
 				$table->string('twitter')->nullable();
 				$table->string('facebook')->nullable();
 				$table->string('google')->nullable();
+				$table->unsignedInteger('points')->default(0);
 				$table->timestamps();
 				$table->softDeletes();
 			});

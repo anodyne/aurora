@@ -3,6 +3,7 @@
 use Date;
 use UserPresenter;
 use App\Authorization;
+use App\AwardsExperiencePoints;
 use App\Notifications\Notifiable;
 use Laracasts\Presenter\PresentableTrait;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -10,7 +11,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-	use Authorizable, Authorization, Notifiable, PresentableTrait;
+	use Authorizable, Authorization, Notifiable, PresentableTrait,
+		AwardsExperiencePoints;
 
 	protected $table = 'core_users';
 	protected $fillable = ['points', 'signature'];

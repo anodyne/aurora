@@ -143,6 +143,11 @@ $notificationPanelHeaderHeight: 50px;
 					@include gradient($color-red-400, $color-red-500);
 				}
 
+				&.award {
+					border-color: $color-purple-500;
+					@include gradient($color-purple-300, $color-purple-400);
+				}
+
 				.icon {
 					display: block;
 					width: 1.2rem;

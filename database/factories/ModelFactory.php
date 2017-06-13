@@ -21,6 +21,7 @@ $factory->define(App\Data\User::class, function (Faker\Generator $faker) {
 		'username' => str_replace(['.', ',', '\'', '"', ' '], '', $faker->userName),
 		'password' => $password ?: $password = bcrypt('secret'),
 		'remember_token' => str_random(10),
+		'points' => 0,
 	];
 });
 
