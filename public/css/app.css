@@ -13489,6 +13489,13 @@ a.text-gray-dark:hover {
   background: linear-gradient(to bottom, #ef5350 0%, #f44336 100%);
 }
 
+#notification-panel .notification figure .notification-type.award {
+  border-color: #9c27b0;
+  background: #ab47bc;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ba68c8), to(#ab47bc));
+  background: linear-gradient(to bottom, #ba68c8 0%, #ab47bc 100%);
+}
+
 #notification-panel .notification figure .notification-type .icon {
   display: block;
   width: 1.2rem;
