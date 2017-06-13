@@ -1,7 +1,6 @@
 @import "_variables";
 @import "~bootstrap/scss/bootstrap";
-@import "~quill/dist/quill.core.css", "~quill/dist/quill.bubble.css";
-//@import "~at.js/dist/css/jquery.atwho.css";
+@import "~quill/dist/quill.core", "~quill/dist/quill.bubble";
 @import "~tributejs/scss/tribute";
 @import "_data-tables", "_data-lists", "_panels", "_mixins", "_timeline", "_notifications";
 @import url('https://fonts.googleapis.com/css?family=Exo+2:300,300i,500,500i|Roboto+Mono|Roboto+Slab:700|Roboto:400,500,700');
