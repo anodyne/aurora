@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-	<discussion-view :initial-replies-count="{{ $discussion->replies_count }}" inline-template>
+	<discussion-view :initial-replies-count="{{ $discussion->replies_count }}"
+					 :discussion="{{ $discussion }}"
+					 inline-template>
 		<div>
 			<div class="d-flex align-items-center">
 				<h1 class="my-0">{{ $discussion->title }}</h1>
@@ -29,19 +31,16 @@
 					@icon('icon-chat', 'text-subtle')
 
 					<span>
+						<span v-if="hasAnswer" v-cloak>Answered with </span>
 						<span v-text="repliesCount"></span>
 						<span v-text="repliesLabel"></span>
-
-						@if ($discussion->isAnswered())
-							with 1 correct answer
-						@endif
 					</span>
 				</div>
 			</div>
 
-			@if ($discussion->isAnswered())
-				{!! view('pages.discussions._post-reply', ['reply' => $discussion->answer(), 'discussion' => $discussion]) !!}
-			@endif
+			<div v-if="discussion.replies_count > 1">
+				<reply :discussion="discussion" :reply="discussion.answer"></reply>
+			</div>
 
 			<replies :discussion="{{ $discussion }}"
 					 @added="repliesCount++"
