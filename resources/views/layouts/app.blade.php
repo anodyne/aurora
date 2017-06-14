@@ -67,6 +67,14 @@
 		@include('partials.site-modals')
 		@yield('modals')
 
+		<div>
+			<span class="hidden-sm-up"><code>xs</code></span>
+			<span class="hidden-xs-down hidden-md-up"><code>sm</code></span>
+			<span class="hidden-sm-down hidden-lg-up"><code>md</code></span>
+			<span class="hidden-md-down hidden-xl-up"><code>lg</code></span>
+			<span class="hidden-lg-down"><code>xl</code></span>
+		</div>
+
 		{{ svg_spritesheet() }}
 
 		<!-- Scripts -->
