@@ -31,10 +31,10 @@
 	<body>
 		<div id="app" class="wrapper">
 			<header>
-				@include('partials.nav')
+				@include('layouts._nav')
 
 				<div class="container">
-					@include('partials.header')
+					@include('layouts._header')
 				</div>
 			</header>
 
@@ -61,7 +61,7 @@
 
 			<notification-panel></notification-panel>
 
-			@include('partials.footer')
+			@include('layouts._footer')
 		</div>
 
 		@include('partials.site-modals')
