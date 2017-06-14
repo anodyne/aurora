@@ -34,6 +34,8 @@ Route::delete('user/{user}/notifications', 'UserNotificationsController@destroyA
 Route::delete('user/{user}/notifications/{notification}', 'UserNotificationsController@destroy')
 	->name('notifications.destroy');
 
+Route::get('leaderboard', 'LeaderboardController@index')->name('leaderboard');
+
 Route::group(['prefix' => 'admin'], function () {
 	/**
 	 * Topic Management
