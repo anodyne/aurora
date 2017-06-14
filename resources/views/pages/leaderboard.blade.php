@@ -13,7 +13,7 @@
 					<div class="d-flex align-items-center">
 						{!! avatar($user)->medium()->link() !!}
 						<div class="d-flex flex-column pl-3">
-							<p class="lead my-0">{{ $user->name }}</p>
+							<p class="lead my-0"><a href="{{ route('profile', $user) }}">{{ $user->name }}</a></p>
 							<p class="mt-1 mb-0">{{ number_format($user->countBestAnswers()) }} Best Answer {{ str_plural('Award', $user->countBestAnswers()) }}</p>
 							<p class="mt-1 mb-0">{{ number_format($user->points) }} Experience</p>
 						</div>
