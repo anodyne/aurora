@@ -10,7 +10,9 @@
 				<div class="d-flex align-items-center mb-1">
 					{!! $discussion->present()->titleAsLink !!}
 
-					<subscribe-control :discussion="{{ $discussion }}"></subscribe-control>
+					@if (auth()->check())
+						<subscribe-control :discussion="{{ $discussion }}"></subscribe-control>
+					@endif
 				</div>
 				
 				<div class="meta">
