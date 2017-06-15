@@ -8,7 +8,7 @@ class LeaderboardController extends Controller
 	public function index()
 	{
 		// Get all users who have more than 0 points
-		$users = User::with('replies')
+		$users = User::with('replies.isTheAnswer')
 			->where('points', '>', 0)
 			->orderBy('points', 'desc')
 			->get();
