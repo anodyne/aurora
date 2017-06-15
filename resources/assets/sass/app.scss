@@ -941,6 +941,19 @@ svg.icon {
 					}
 				}
 			}
+
+			&.active {
+				background: $color-body;
+				border-color: rgba(0, 0, 0, 0.125);
+				border-right-color: $color-body;
+				color: $color-primary;
+				box-shadow: inset 4px 0 0 $color-primary;
+				background: linear-gradient(to right, hsl(201, 98%, 90%) 0%, $color-body 100%);
+
+				&:hover {
+					color: $color-primary-light;
+				}
+			}
 		}
 	}
 }

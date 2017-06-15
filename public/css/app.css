@@ -2759,11 +2759,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control::-moz-placeholder {
-  color: #636c72;
-  opacity: 1;
-}
-
 .form-control:-ms-input-placeholder {
   color: #636c72;
   opacity: 1;
@@ -5225,10 +5220,8 @@ tbody.collapse.show {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
-       -moz-column-count: 3;
             column-count: 3;
     -webkit-column-gap: 1.25rem;
-       -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
   }
 
@@ -14592,6 +14585,21 @@ svg.icon.lg {
 
 .forum-controls .list-group .list-group-item.disabled .icon path {
   fill: #90a4ae;
+}
+
+.forum-controls .list-group .list-group-item.active {
+  background: #fbfbfb;
+  border-color: rgba(0, 0, 0, 0.125);
+  border-right-color: #fbfbfb;
+  color: #0288d1;
+  -webkit-box-shadow: inset 4px 0 0 #0288d1;
+          box-shadow: inset 4px 0 0 #0288d1;
+  background: -webkit-gradient(linear, left top, right top, from(#cdedfe), to(#fbfbfb));
+  background: linear-gradient(to right, #cdedfe 0%, #fbfbfb 100%);
+}
+
+.forum-controls .list-group .list-group-item.active:hover {
+  color: #03a9f4;
 }
 
 .discussion-offset {

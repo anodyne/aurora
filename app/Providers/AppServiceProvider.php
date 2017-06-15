@@ -16,6 +16,10 @@ class AppServiceProvider extends ServiceProvider
 			$view->with('_user', auth()->user());
 		});
 
+		view()->composer('partials.forum-controls', function ($view) {
+			$view->with('_query', collect(request()->query()));
+		});
+
 		// Set the container bindings
 		$this->bindings();
 
