@@ -41808,7 +41808,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['discussion', 'reply'],
+	props: {
+		discussion: {
+			type: Object,
+			required: true
+		},
+		reply: {
+			type: Object,
+			required: true
+		},
+		isFirst: {
+			type: Boolean,
+			default: false
+		}
+	},
 
 	components: { Favorite: __WEBPACK_IMPORTED_MODULE_2__Favorite_vue___default.a },
 
