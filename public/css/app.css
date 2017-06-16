@@ -1,4 +1,163 @@
-@import url(https://fonts.googleapis.com/css?family=Exo+2:300,300i,500,500i|Roboto+Mono|Roboto+Slab:700|Roboto:400,500,700);/*!
+@import url(https://fonts.googleapis.com/css?family=Exo+2:600i|Overpass:200,300,400,600,700,700i);@font-face {
+  font-family: "Overpass Mono";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/overpass-mono/overpass-mono-regular.eot");
+  src: url("/fonts/overpass-mono/overpass-mono-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass-mono/overpass-mono-regular.woff2") format("woff2"), url("/fonts/overpass-mono/overpass-mono-regular.svg#font") format("svg"), url("/fonts/overpass-mono/overpass-mono-regular.otf") format("opentype"), url("/fonts/overpass-mono/overpass-mono-regular.ttf") format("truetype"), url("/fonts/overpass-mono/overpass-mono-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Spectral";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/spectral/spectral-regular.eot");
+  src: url("/fonts/spectral/spectral-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/spectral/spectral-regular.woff2") format("woff2"), url("/fonts/spectral/spectral-regular.svg#font") format("svg"), url("/fonts/spectral/spectral-regular.otf") format("opentype"), url("/fonts/spectral/spectral-regular.ttf") format("truetype"), url("/fonts/spectral/spectral-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Spectral";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/spectral/spectral-bold.eot");
+  src: url("/fonts/spectral/spectral-bold.eot?#iefix") format("embedded-opentype"), url("/fonts/spectral/spectral-bold.woff2") format("woff2"), url("/fonts/spectral/spectral-bold.svg#font") format("svg"), url("/fonts/spectral/spectral-bold.otf") format("opentype"), url("/fonts/spectral/spectral-bold.ttf") format("truetype"), url("/fonts/spectral/spectral-bold.woff") format("woff");
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@font-face {
+    font-family: "Overpass Mono";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/fonts/overpass-mono/overpass-mono-regular.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Spectral";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/fonts/spectral/spectral-regular.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Spectral";
+    font-weight: 700;
+    font-style: normal;
+    src: url("/fonts/spectral/spectral-bold.svg") format("svg");
+}
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 100;
+  font-style: normal;
+  src: url("/fonts/overpass-thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 100;
+  font-style: italic;
+  src: url("/fonts/overpass-thin-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/fonts/overpass-extralight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 200;
+  font-style: italic;
+  src: url("/fonts/overpass-extralight-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/fonts/overpass-light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 300;
+  font-style: italic;
+  src: url("/fonts/overpass-light-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/overpass-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 400;
+  font-style: italic;
+  src: url("/fonts/overpass-regular-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/fonts/overpass-semibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 600;
+  font-style: italic;
+  src: url("/fonts/overpass-semibold-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/overpass-bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 700;
+  font-style: italic;
+  src: url("/fonts/overpass-bold-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 800;
+  font-style: normal;
+  src: url("/fonts/overpass-extrabold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 800;
+  font-style: italic;
+  src: url("/fonts/overpass-extrabold-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/fonts/overpass-black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 900;
+  font-style: italic;
+  src: url("/fonts/overpass-black-italic.otf") format("opentype");
+}
+
+/*!
  * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
  * Copyright 2011-2017 Twitter, Inc.
@@ -352,7 +511,7 @@ html {
 }
 
 body {
-  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
@@ -2755,11 +2914,6 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #636c72;
-  opacity: 1;
-}
-
-.form-control::-moz-placeholder {
   color: #636c72;
   opacity: 1;
 }
@@ -5225,10 +5379,8 @@ tbody.collapse.show {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
-       -moz-column-count: 3;
             column-count: 3;
     -webkit-column-gap: 1.25rem;
-       -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
   }
 
@@ -6073,7 +6225,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6185,7 +6337,7 @@ button.close {
   display: block;
   max-width: 276px;
   padding: 1px;
-  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -12017,12 +12169,11 @@ a.text-gray-dark:hover {
   /*margin-bottom: $space-xs;
 					display: block;*/
   font-size: 18px;
-  font-weight: 400;
   color: #78909c;
 }
 
 .data-list > .block .item .item-content .title.updated {
-  font-weight: 500;
+  font-weight: 700;
   color: #455a64;
 }
 
@@ -12212,6 +12363,7 @@ a.text-gray-dark:hover {
   margin-bottom: 0;
   font-size: 18px;
   color: inherit;
+  font-weight: 600;
 }
 
 .panel-title > a,
@@ -12821,7 +12973,7 @@ a.text-gray-dark:hover {
   color: #fff;
   background-color: #0288d1;
   border-radius: 0.25rem;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-weight: 300;
   font-style: italic;
 }
@@ -13619,6 +13771,7 @@ body {
   z-index: -100;
   background: #fbfbfb;
   color: #444;
+  -webkit-font-smoothing: antialiased;
 }
 
 .wrapper {
@@ -13704,13 +13857,16 @@ nav.nav-main .nav-right .dropdown .dropdown-toggle {
           align-items: center;
 }
 
+nav.nav-main .nav-right .dropdown .dropdown-toggle::after {
+  margin-top: 0.2em;
+}
+
 nav.nav-main a {
   position: relative;
   display: inline-block;
   padding: 0 1.5rem;
   font-size: 0.875rem;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 300;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   color: rgba(255, 255, 255, 0.3);
 }
 
@@ -13733,11 +13889,11 @@ nav.nav-main a.logo .icon {
   height: 1.75rem;
   width: 1.75rem;
   margin-right: 0.125rem;
-  fill: white !important;
+  fill: #fff !important;
 }
 
 nav.nav-main a.logo .icon path {
-  fill: white !important;
+  fill: #fff !important;
 }
 
 nav.nav-main a:hover {
@@ -13750,17 +13906,8 @@ nav.nav-main a:hover .icon {
   fill: rgba(255, 255, 255, 0.65);
 }
 
-nav.nav-main a:hover .user-icon .icon {
-  fill: #ededed;
-}
-
-nav.nav-main a:hover .user-icon .icon path {
-  fill: #ededed;
-}
-
 nav.nav-main a.active {
-  padding-bottom: 1px;
-  font-weight: 500;
+  font-weight: 700;
   color: #fff;
   background: #0288d1;
   border-left: 1px solid #004b76;
@@ -13768,9 +13915,10 @@ nav.nav-main a.active {
 }
 
 nav.nav-main .dropdown-menu .dropdown-header {
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-style: italic;
+  font-family: "Overpass", helvetica, arial, sans-serif;
+  font-weight: 600;
   color: #b0bec5;
+  text-transform: uppercase;
 }
 
 nav.nav-main .dropdown-menu .dropdown-item {
@@ -13778,7 +13926,6 @@ nav.nav-main .dropdown-menu .dropdown-item {
   padding: 3px 1.5rem;
   line-height: 1.75;
   color: #78909c;
-  font-weight: normal;
 }
 
 nav.nav-main .dropdown-menu .dropdown-item:hover {
@@ -13846,8 +13993,8 @@ header nav.nav-sub a {
   display: inline-block;
   margin-left: 2rem;
   color: rgba(255, 255, 255, 0.6);
-  font-weight: 500;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
+  font-weight: 600;
+  font-family: "Overpass", helvetica, arial, sans-serif;
 }
 
 header nav.nav-sub a:hover {
@@ -13917,10 +14064,8 @@ header nav.nav-sub .btn-outline-primary:focus {
   padding: 15px 0;
   background: #bae6fe;
   border-bottom: 1px solid #88d4fe;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 500;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-size: 20px;
-  font-style: italic;
   color: #01579b;
 }
 
@@ -13945,8 +14090,7 @@ header nav.nav-sub .btn-outline-primary:focus {
   color: #01579b;
   -webkit-box-shadow: none;
           box-shadow: none;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-style: italic;
+  font-family: "Overpass", helvetica, arial, sans-serif;
 }
 
 .search-forums .form-control::-webkit-input-placeholder {
@@ -13975,10 +14119,6 @@ header nav.nav-sub .btn-outline-primary:focus {
 .search-forums .input-group-addon svg {
   height: 35px;
   width: 35px;
-  fill: #0288d1;
-}
-
-.search-forums .input-group-addon svg path {
   fill: #0288d1;
 }
 
@@ -14020,7 +14160,7 @@ main a:active {
 main h1 {
   margin-top: 0;
   margin-bottom: 15px;
-  font-family: "Roboto Slab", georgia, times, serif;
+  font-family: "Spectral", georgia, times, serif;
   font-weight: 700;
   color: #0288d1;
 }
@@ -14033,9 +14173,7 @@ main h2,
 main h3,
 main h4 {
   margin-top: 0;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 500;
-  font-style: italic;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   color: #03a9f4;
 }
 
@@ -14062,7 +14200,7 @@ main ul {
 main dl dt {
   margin-top: 8px;
   line-height: 1.75;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-size: 18px;
   font-weight: 600;
 }
@@ -14094,10 +14232,9 @@ footer {
 footer h2 {
   margin-top: 0;
   line-height: 1.75;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-size: 20px;
-  font-style: italic;
   color: #fff;
 }
 
@@ -14117,7 +14254,7 @@ footer ul.list-unstyled li {
 }
 
 .form-control {
-  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
 }
 
 .has-danger label,
@@ -14160,7 +14297,7 @@ svg.icon.lg {
 
 .panel .panel-heading .panel-title {
   font-weight: 500;
-  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-style: normal;
 }
 
@@ -14541,15 +14678,14 @@ svg.icon.lg {
 }
 
 .breadcrumb .breadcrumb-item a {
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 500;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   font-size: 14px;
-  font-style: italic;
   color: #607d8b;
 }
 
 .breadcrumb .breadcrumb-item.active a {
   color: #0288d1;
+  font-weight: 600;
 }
 
 .list-group {
@@ -14566,9 +14702,8 @@ svg.icon.lg {
 
 .forum-controls h6 {
   padding-left: 0.15rem;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 500;
-  font-style: italic;
+  font-family: "Overpass", helvetica, arial, sans-serif;
+  font-weight: 400;
   color: #607d8b;
 }
 
@@ -14613,9 +14748,7 @@ svg.icon.lg {
   background-color: #fcfcfc;
   font-size: 14px;
   color: #607d8b;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 500;
-  font-style: italic;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   border-radius: 0.2rem;
 }
 
@@ -14640,8 +14773,7 @@ svg.icon.lg {
 
 .btn {
   line-height: 1;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 500;
+  font-family: "Overpass", helvetica, arial, sans-serif;
   border-width: 2px;
 }
 
@@ -15497,7 +15629,7 @@ table .btn {
   border: none;
   background-color: transparent;
   font-weight: 600;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
 }
 
 .page-item:first-child .page-link {
@@ -15517,7 +15649,7 @@ table .btn {
   color: #607d8b;
   border-radius: 4px;
   font-weight: 600;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
 }
 
 .text-subtle {
@@ -15547,12 +15679,8 @@ table .btn {
   fill: #0288d1;
 }
 
-.font-special {
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-}
-
 .font-mono {
-  font-family: "Roboto Mono", monospaced;
+  font-family: "Overpass Mono", monospaced;
 }
 
 .font-weight-3 {
@@ -15622,9 +15750,8 @@ table .btn {
 
 .modal .modal-header .modal-title {
   color: #444;
-  font-family: "Exo 2", helvetica, arial, sans-serif;
-  font-weight: 500;
-  font-style: italic;
+  font-family: "Overpass", helvetica, arial, sans-serif;
+  font-weight: 200;
 }
 
 .alert p:last-child {
@@ -15640,7 +15767,7 @@ table .btn {
 }
 
 form label {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .desktop {
@@ -15660,12 +15787,19 @@ form label {
 }
 
 .swal2-modal {
-  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
 }
 
 .hljs {
   padding: 1rem !important;
   border-radius: 0.25rem;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "Overpass Mono", monospaced;
 }
 
 .post-signature {
@@ -15779,7 +15913,7 @@ form label {
 }
 
 .ql-container {
-  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-family: "Overpass", helvetica, arial, sans-serif;
 }
 
 .ql-container .ql-editor {

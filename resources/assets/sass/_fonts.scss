@@ -1,0 +1,156 @@
+@font-face {
+	font-family: "Overpass Mono";
+	font-weight: 400;
+	font-style: normal;
+	src: url('/fonts/overpass-mono/overpass-mono-regular.eot');
+	src: url('/fonts/overpass-mono/overpass-mono-regular.eot?#iefix') format('embedded-opentype'),
+	url('/fonts/overpass-mono/overpass-mono-regular.woff2') format('woff2'),
+	url('/fonts/overpass-mono/overpass-mono-regular.svg#font') format('svg'),
+	url('/fonts/overpass-mono/overpass-mono-regular.otf') format('opentype'),
+	url('/fonts/overpass-mono/overpass-mono-regular.ttf') format('truetype'),
+	url('/fonts/overpass-mono/overpass-mono-regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: "Spectral";
+	font-weight: 400;
+	font-style: normal;
+	src: url('/fonts/spectral/spectral-regular.eot');
+	src: url('/fonts/spectral/spectral-regular.eot?#iefix') format('embedded-opentype'),
+	url('/fonts/spectral/spectral-regular.woff2') format('woff2'),
+	url('/fonts/spectral/spectral-regular.svg#font') format('svg'),
+	url('/fonts/spectral/spectral-regular.otf') format('opentype'),
+	url('/fonts/spectral/spectral-regular.ttf') format('truetype'),
+	url('/fonts/spectral/spectral-regular.woff') format('woff');
+}
+@font-face {
+	font-family: "Spectral";
+	font-weight: 700;
+	font-style: normal;
+	src: url('/fonts/spectral/spectral-bold.eot');
+	src: url('/fonts/spectral/spectral-bold.eot?#iefix') format('embedded-opentype'),
+	url('/fonts/spectral/spectral-bold.woff2') format('woff2'),
+	url('/fonts/spectral/spectral-bold.svg#font') format('svg'),
+	url('/fonts/spectral/spectral-bold.otf') format('opentype'),
+	url('/fonts/spectral/spectral-bold.ttf') format('truetype'),
+	url('/fonts/spectral/spectral-bold.woff') format('woff');
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: "Overpass Mono";
+		font-weight: 400;
+		font-style: normal;
+		src: url('/fonts/overpass-mono/overpass-mono-regular.svg') format('svg');
+	}
+
+	@font-face {
+		font-family: "Spectral";
+		font-weight: 400;
+		font-style: normal;
+		src: url('/fonts/spectral/spectral-regular.svg') format('svg');
+	}
+	@font-face {
+		font-family: "Spectral";
+		font-weight: 700;
+		font-style: normal;
+		src: url('/fonts/spectral/spectral-bold.svg') format('svg');
+	}
+}
+
+@font-face {
+	font-family: "Overpass";
+	font-weight: 100;
+	font-style: normal;
+	src: url('/fonts/overpass-thin.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 100;
+	font-style: italic;
+	src: url('/fonts/overpass-thin-italic.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 200;
+	font-style: normal;
+	src: url('/fonts/overpass-extralight.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 200;
+	font-style: italic;
+	src: url('/fonts/overpass-extralight-italic.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 300;
+	font-style: normal;
+	src: url('/fonts/overpass-light.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 300;
+	font-style: italic;
+	src: url('/fonts/overpass-light-italic.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 400;
+	font-style: normal;
+	src: url('/fonts/overpass-regular.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 400;
+	font-style: italic;
+	src: url('/fonts/overpass-regular-italic.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 600;
+	font-style: normal;
+	src: url('/fonts/overpass-semibold.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 600;
+	font-style: italic;
+	src: url('/fonts/overpass-semibold-italic.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 700;
+	font-style: normal;
+	src: url('/fonts/overpass-bold.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 700;
+	font-style: italic;
+	src: url('/fonts/overpass-bold-italic.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 800;
+	font-style: normal;
+	src: url('/fonts/overpass-extrabold.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 800;
+	font-style: italic;
+	src: url('/fonts/overpass-extrabold-italic.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 900;
+	font-style: normal;
+	src: url('/fonts/overpass-black.otf') format('opentype');
+}
+@font-face {
+	font-family: "Overpass";
+	font-weight: 900;
+	font-style: italic;
+	src: url('/fonts/overpass-black-italic.otf') format('opentype');
+}

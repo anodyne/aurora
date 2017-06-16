@@ -35,11 +35,12 @@
 					display: block;*/
 
 					font-size: $font-md;
-					font-weight: 400;
+					// font-weight: 400;
 					color: $color-blue-grey-400;
 
 					&.updated {
-						font-weight: 500;
+						// font-weight: 500;
+						font-weight: 700;
 						color: $color-blue-grey-700;
 					}
 				}
