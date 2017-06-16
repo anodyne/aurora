@@ -32,7 +32,7 @@
 
 					<span>
 						<span v-if="hasAnswer" v-cloak>Answered with </span>
-						<span v-text="repliesCount"></span>
+						<span v-text="repliesCountNice"></span>
 						<span v-text="repliesLabel"></span>
 					</span>
 				</div>

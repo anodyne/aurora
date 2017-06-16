@@ -18,6 +18,14 @@
 		},
 
 		computed: {
+			repliesCountNice () {
+				if (this.repliesCount == 0) {
+					return 'No';
+				}
+
+				return this.repliesCount;
+			},
+
 			repliesLabel () {
 				return pluralize('reply', this.repliesCount);
 			}
