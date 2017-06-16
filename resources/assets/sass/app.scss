@@ -1,9 +1,9 @@
-@import "_variables";
+@import "_fonts", "_variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~quill/dist/quill.core", "~quill/dist/quill.bubble";
 @import "~tributejs/scss/tribute";
 @import "_data-tables", "_data-lists", "_panels", "_mixins", "_timeline", "_notifications";
-@import url('https://fonts.googleapis.com/css?family=Exo+2:300,300i,500,500i|Roboto+Mono|Roboto+Slab:700|Roboto:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Exo+2:600i|Overpass:200,300,400,600,700,700i');
 
 body, html {
 	margin: 0;
@@ -17,6 +17,7 @@ body {
 
 	background: $color-body;
 	color: $color-dark;
+	-webkit-font-smoothing: antialiased;
 }
 
 .wrapper {
@@ -77,6 +78,10 @@ nav.nav-main {
 			.dropdown-toggle {
 				display: flex;
 				align-items: center;
+
+				&::after {
+					margin-top: 0.2em;
+				}
 			}
 		}
 	}
@@ -87,8 +92,9 @@ nav.nav-main {
 		padding: 0 1.5rem;
 
 		font-size: $font-size-sm;
-		font-family: $font-special;
-		font-weight: 300;
+		// font-family: $font-special;
+		font-family: $font-base;
+		// font-weight: 300;
 		color: rgba(255, 255, 255, 0.3);
 
 		.icon {
@@ -107,10 +113,10 @@ nav.nav-main {
 				width: 1.75rem;
 				margin-right: 0.125rem;
 
-				fill: rgba(255, 255, 255, 1) !important;
+				fill: $color-white !important;
 
 				path {
-					fill: rgba(255, 255, 255, 1) !important;
+					fill: $color-white !important;
 				}
 			}
 		}
@@ -123,22 +129,12 @@ nav.nav-main {
 			.icon {
 				fill: rgba(255, 255, 255, 0.65);
 			}
-
-			.user-icon {
-				.icon {
-					fill: $color-subtle;
-
-					path {
-						fill: $color-subtle;
-					}
-				}
-			}
 		}
 
 		&.active {
-			padding-bottom: 1px;
+			// padding-bottom: 1px;
 
-			font-weight: 500;
+			font-weight: 700;
 			color: $color-white;
 			background: $color-primary;
 			border-left: 1px solid rgb(0, 75, 118);
@@ -148,9 +144,11 @@ nav.nav-main {
 
 	.dropdown-menu {
 		.dropdown-header {
-			font-family: $font-special;
-			font-style: italic;
+			font-family: $font-base;
+			// font-style: italic;
+			font-weight: 600;
 			color: $color-subtle-dark;
+			text-transform: uppercase;
 		}
 
 		.dropdown-item {
@@ -159,7 +157,7 @@ nav.nav-main {
 			line-height: 1.75;
 
 			color: $color-subtle-darker;
-			font-weight: normal;
+			// font-weight: normal;
 
 			&:hover {
 				color: $color-blue-grey-600;
@@ -227,8 +225,10 @@ header {
 			margin-left: 2rem;
 
 			color: rgba(255, 255, 255, .6);
-			font-weight: 500;
-			font-family: $font-special;
+			// font-weight: 500;
+			font-weight: 600;
+			// font-family: $font-special;
+			font-family: $font-base;
 
 			&:hover {
 				text-decoration: none;
@@ -255,10 +255,12 @@ header {
 
 	background: lighten($color-primary, 45%);
 	border-bottom: 1px solid lighten($color-primary, 35%);
-	font-family: $font-special;
-	font-weight: 500;
+	// font-family: $font-special;
+	// font-weight: 500;
+	font-family: $font-base;
+	// font-weight: 200;
 	font-size: $font-lg;
-	font-style: italic;
+	// font-style: italic;
 	color: $color-primary-dark;
 
 	a {
@@ -281,8 +283,10 @@ header {
 		background: transparent;
 		color: $color-primary-dark;
 		box-shadow: none;
-		font-family: $font-special;
-		font-style: italic;
+		// font-family: $font-special;
+		font-family: $font-base;
+		// font-weight: 300;
+		// font-style: italic;
 
 		&::-webkit-input-placeholder {
 		    color: $color-primary-light;
@@ -309,10 +313,6 @@ header {
 			width: 35px;
 
 			fill: $color-primary;
-
-			path {
-				fill: $color-primary;
-			}
 		}
 	}
 }
@@ -367,9 +367,7 @@ main {
 	h2, h3, h4 {
 		margin-top: 0;
 
-		font-family: $font-special;
-		font-weight: 500;
-		font-style: italic;
+		font-family: $font-base;
 		color: $color-primary-light;
 	}
 
@@ -400,7 +398,8 @@ main {
 			margin-top: 8px;
 			line-height: $line-height;
 
-			font-family: $font-special;
+			// font-family: $font-special;
+			font-family: $font-base;
 			font-size: $font-md;
 			font-weight: 600;
 		}
@@ -436,10 +435,12 @@ footer {
 		margin-top: 0;
 		line-height: $line-height;
 
-		font-family: $font-special;
-		font-weight: 500;
+		// font-family: $font-special;
+		// font-weight: 500;
+		font-weight: 600;
+		font-family: $font-base;
 		font-size: $font-lg;
-		font-style: italic;
+		// font-style: italic;
 		color: $color-white;
 	}
 
@@ -879,16 +880,18 @@ svg.icon {
 
 	.breadcrumb-item {
 		a {
-			font-family: $font-special;
-			font-weight: 500;
+			// font-family: $font-special;
+			// font-weight: 500;
+			font-family: $font-base;
 			font-size: $font-sm;
-			font-style: italic;
+			// font-style: italic;
 			color: $color-gray-blue;
 		}
 
 		&.active {
 			a {
 				color: $color-primary;
+				font-weight: 600;
 			}
 		}
 	}
@@ -912,9 +915,11 @@ svg.icon {
 	h6 {
 		padding-left: 0.15rem;
 
-		font-family: $font-special;
-		font-weight: 500;
-		font-style: italic;
+		// font-family: $font-special;
+		font-family: $font-base;
+		// font-weight: 500;
+		font-weight: 400;
+		// font-style: italic;
 		color: $color-gray-blue;
 	}
 
@@ -974,9 +979,10 @@ svg.icon {
 	background-color: lighten($color-subtle, 6%);
 	font-size: $font-sm;
 	color: $color-gray-blue;
-	font-family: $font-special;
-	font-weight: 500;
-	font-style: italic;
+	// font-family: $font-special;
+	// font-weight: 500;
+	// font-style: italic;
+	font-family: $font-base;
 	border-radius: $radius-sm;
 
 	.icon {
@@ -999,8 +1005,9 @@ svg.icon {
 .btn {
 	line-height: 1;
 
-	font-family: $font-special;
-	font-weight: 500;
+	// font-family: $font-special;
+	// font-weight: 500;
+	font-family: $font-base;
 	border-width: 2px;
 
 	&:focus {
@@ -1216,7 +1223,8 @@ table {
 			border: none;
 			background-color: transparent;
 			font-weight: 600;
-			font-family: $font-special;
+			// font-family: $font-special;
+			font-family: $font-base;
 		}
 	}
 
@@ -1245,7 +1253,8 @@ table {
 	color: $color-gray-blue;
 	border-radius: 4px;
 	font-weight: 600;
-	font-family: $font-special;
+	// font-family: $font-special;
+	font-family: $font-base;
 }
 
 .text-subtle {
@@ -1273,7 +1282,7 @@ table {
 	}
 }
 
-.font-special { font-family: $font-special; }
+// .font-special { font-family: $font-special; }
 .font-mono { font-family: $font-mono; }
 
 .font-weight-3 { font-weight: 300; }
@@ -1328,9 +1337,11 @@ table {
 	.modal-header {
 		.modal-title {
 			color: $color-dark;
-			font-family: $font-special;
-			font-weight: 500;
-			font-style: italic;
+			// font-family: $font-special;
+			// font-weight: 500;
+			// font-style: italic;
+			font-family: $font-base;
+			font-weight: 200;
 		}
 	}
 }
@@ -1355,7 +1366,7 @@ table {
 
 form {
 	label {
-		font-weight: 500;
+		font-weight: 600;
 	}
 }
 
@@ -1382,6 +1393,10 @@ form {
 	padding: 1rem !important;
 
 	border-radius: $radius;
+}
+
+code, pre, kbd, samp {
+	font-family: $font-mono;
 }
 
 .post-signature {

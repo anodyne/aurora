@@ -42,9 +42,13 @@
 
 				setTimeout(() => {
 					if (location.hash) {
-						$.scrollTo(location.hash, 500);
+						$.scrollTo(location.hash, 500, {
+							interrupt: true
+						});
 					} else {
-						$.scrollTo(0, 500);
+						$.scrollTo(0, 500, {
+							interrupt: true
+						});
 					}
 				}, 1000);
 			},

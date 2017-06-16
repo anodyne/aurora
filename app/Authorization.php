@@ -74,4 +74,13 @@ trait Authorization
 			$this->detachRole($role);
 		}
 	}
+
+	public function abilities()
+	{
+		return $this->roles->map(function ($role) {
+			return $role->perms->map(function ($permission) {
+				return $permission->key;
+			})->all();
+		})->flatten()->all();
+	}
 }
