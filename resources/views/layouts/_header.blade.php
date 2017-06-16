@@ -5,7 +5,7 @@
 	<div>
 		<nav class="nav-sub">
 			<a href="{{ route('home') }}">All Discussions</a>
-			<!--<a href="#">Leaderboard</a>-->
+			<a href="{{ route('leaderboard') }}">Leaderboard</a>
 			<a href="#">Advanced Search</a>
 
 			@if (auth()->check())

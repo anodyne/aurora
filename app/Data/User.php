@@ -69,4 +69,11 @@ class User extends Authenticatable
 	{
 		return sprintf('users.%s.visited.%s', $this->id, $discussion->id);
 	}
+
+	public function countBestAnswers()
+	{
+		return $this->replies->filter(function ($reply) {
+			return $reply->isTheAnswer;
+		})->count();
+	}
 }
