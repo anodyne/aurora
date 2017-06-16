@@ -19,6 +19,7 @@
 				'siteUrl' => request()->root(),
 				'timezone' => config('app.timezone'),
 				'user' => auth()->user(),
+				'abilities' => (auth()->check()) ? auth()->user()->abilities() : null,
 			]) !!}
 		</script>
 
