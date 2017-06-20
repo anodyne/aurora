@@ -7,6 +7,8 @@ Route::get('discussions/{topic}/{discussion}', 'DiscussionsController@show')
 	->name('discussions.show');
 Route::delete('discussions/{topic}/{discussion}', 'DiscussionsController@destroy')
 	->name('discussions.destroy');
+Route::patch('discussions/{topic}/{discussion}', 'DiscussionsController@update')
+	->name('discussions.update');
 
 Route::post('discussions/{topic}/{discussion}/answer', 'DiscussionAnswersController@store')
 	->name('discussions.answer');
