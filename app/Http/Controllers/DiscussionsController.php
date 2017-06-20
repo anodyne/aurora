@@ -84,6 +84,26 @@ class DiscussionsController extends Controller
 			->with('flash', 'Your discussion has been created.');
 	}
 
+	public function update(Request $request, Topic $topic, Discussion $discussion)
+	{
+		$this->authorize('update', $discussion);
+
+		$this->validate($request, [
+			'title' => 'required',
+			'body' => 'required',
+			// 'topic_id' => 'required|exists:forum_topics,id',
+		]);
+
+		$discussion->fill($request->all())->save();
+
+		if ($request->wantsJson()) {
+			return response([], 200);
+		}
+
+		return back()
+			->with('flash', 'Your discussion has been updated.');
+	}
+
 	public function destroy(Topic $topic, Discussion $discussion)
 	{
 		$this->authorize('update', $discussion);

@@ -102,6 +102,27 @@ class ManageDiscussionsTest extends DatabaseTestCase
 		$this->assertEquals(0, Activity::count());
 	}
 
+	/** @test **/
+	public function authorized_users_can_update_discussions()
+	{
+		$this->signIn();
+
+		$discussion = create('App\Data\Discussion', ['user_id' => auth()->id()]);
+
+		$response = $this->json(
+			'PATCH',
+			route('discussions.update', [$discussion->topic, $discussion]),
+			[
+				'title' => 'New title',
+				'body' => 'New body'
+			]
+		);
+
+		$response->assertStatus(200);
+
+		$this->assertDatabaseHas('forum_discussions', ['title' => 'New title', 'body' => 'New body']);
+	}
+
 	protected function publishDiscussion(array $overrides = [])
 	{
 		$this->withExceptionHandling()->signIn();
