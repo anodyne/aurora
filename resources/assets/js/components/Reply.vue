@@ -37,7 +37,7 @@
 				</div>
 
 				<div class="panel-body">
-					<div v-show="editing">
+					<div v-show="editing" v-cloak>
 						<div class="form-group">
 							<div class="editor" v-html="body"></div>
 							<textarea name="body" class="form-control hidden" v-model="body"></textarea>
@@ -150,6 +150,8 @@
 		methods: {
 			copyLink () {
 				copy(window.App.siteUrl + '/discussions/' + this.discussion.topic.slug + '/' + this.discussion.id + '#reply-' + this.reply.id);
+
+				flash('Link to reply copied to clipboard.');
 			},
 
 			destroy () {
