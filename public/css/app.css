@@ -1,9 +1,281 @@
-@import url(https://fonts.googleapis.com/css?family=Exo+2:600i|Overpass:200,300,400,600,700,700i);@font-face {
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 100;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-thin.eot");
+  src: url("/fonts/exo-2/exo2-thin.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-thin.woff2") format("woff2"), url("/fonts/exo-2/exo2-thin.svg#font") format("svg"), url("/fonts/exo-2/exo2-thin.otf") format("opentype"), url("/fonts/exo-2/exo2-thin.ttf") format("truetype"), url("/fonts/exo-2/exo2-thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 100;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-thinitalic.eot");
+  src: url("/fonts/exo-2/exo2-thinitalic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-thinitalic.woff2") format("woff2"), url("/fonts/exo-2/exo2-thinitalic.svg#font") format("svg"), url("/fonts/exo-2/exo2-thinitalic.otf") format("opentype"), url("/fonts/exo-2/exo2-thinitalic.ttf") format("truetype"), url("/fonts/exo-2/exo2-thinitalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-extralight.eot");
+  src: url("/fonts/exo-2/exo2-extralight.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-extralight.woff2") format("woff2"), url("/fonts/exo-2/exo2-extralight.svg#font") format("svg"), url("/fonts/exo-2/exo2-extralight.otf") format("opentype"), url("/fonts/exo-2/exo2-extralight.ttf") format("truetype"), url("/fonts/exo-2/exo2-extralight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 200;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-extralightitalic.eot");
+  src: url("/fonts/exo-2/exo2-extralightitalic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-extralightitalic.woff2") format("woff2"), url("/fonts/exo-2/exo2-extralightitalic.svg#font") format("svg"), url("/fonts/exo-2/exo2-extralightitalic.otf") format("opentype"), url("/fonts/exo-2/exo2-extralightitalic.ttf") format("truetype"), url("/fonts/exo-2/exo2-extralightitalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-light.eot");
+  src: url("/fonts/exo-2/exo2-light.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-light.woff2") format("woff2"), url("/fonts/exo-2/exo2-light.svg#font") format("svg"), url("/fonts/exo-2/exo2-light.otf") format("opentype"), url("/fonts/exo-2/exo2-light.ttf") format("truetype"), url("/fonts/exo-2/exo2-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 300;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-lightitalic.eot");
+  src: url("/fonts/exo-2/exo2-lightitalic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-lightitalic.woff2") format("woff2"), url("/fonts/exo-2/exo2-lightitalic.svg#font") format("svg"), url("/fonts/exo-2/exo2-lightitalic.otf") format("opentype"), url("/fonts/exo-2/exo2-lightitalic.ttf") format("truetype"), url("/fonts/exo-2/exo2-lightitalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-regular.eot");
+  src: url("/fonts/exo-2/exo2-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-regular.woff2") format("woff2"), url("/fonts/exo-2/exo2-regular.svg#font") format("svg"), url("/fonts/exo-2/exo2-regular.otf") format("opentype"), url("/fonts/exo-2/exo2-regular.ttf") format("truetype"), url("/fonts/exo-2/exo2-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 400;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-italic.eot");
+  src: url("/fonts/exo-2/exo2-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-italic.woff2") format("woff2"), url("/fonts/exo-2/exo2-italic.svg#font") format("svg"), url("/fonts/exo-2/exo2-italic.otf") format("opentype"), url("/fonts/exo-2/exo2-italic.ttf") format("truetype"), url("/fonts/exo-2/exo2-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-medium.eot");
+  src: url("/fonts/exo-2/exo2-medium.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-medium.woff2") format("woff2"), url("/fonts/exo-2/exo2-medium.svg#font") format("svg"), url("/fonts/exo-2/exo2-medium.otf") format("opentype"), url("/fonts/exo-2/exo2-medium.ttf") format("truetype"), url("/fonts/exo-2/exo2-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 500;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-mediumitalic.eot");
+  src: url("/fonts/exo-2/exo2-mediumitalic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-mediumitalic.woff2") format("woff2"), url("/fonts/exo-2/exo2-mediumitalic.svg#font") format("svg"), url("/fonts/exo-2/exo2-mediumitalic.otf") format("opentype"), url("/fonts/exo-2/exo2-mediumitalic.ttf") format("truetype"), url("/fonts/exo-2/exo2-mediumitalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-semibold.eot");
+  src: url("/fonts/exo-2/exo2-semibold.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-semibold.woff2") format("woff2"), url("/fonts/exo-2/exo2-semibold.svg#font") format("svg"), url("/fonts/exo-2/exo2-semibold.otf") format("opentype"), url("/fonts/exo-2/exo2-semibold.ttf") format("truetype"), url("/fonts/exo-2/exo2-semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-semibolditalic.eot");
+  src: url("/fonts/exo-2/exo2-semibolditalic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-semibolditalic.woff2") format("woff2"), url("/fonts/exo-2/exo2-semibolditalic.svg#font") format("svg"), url("/fonts/exo-2/exo2-semibolditalic.otf") format("opentype"), url("/fonts/exo-2/exo2-semibolditalic.ttf") format("truetype"), url("/fonts/exo-2/exo2-semibolditalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-bold.eot");
+  src: url("/fonts/exo-2/exo2-bold.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-bold.woff2") format("woff2"), url("/fonts/exo-2/exo2-bold.svg#font") format("svg"), url("/fonts/exo-2/exo2-bold.otf") format("opentype"), url("/fonts/exo-2/exo2-bold.ttf") format("truetype"), url("/fonts/exo-2/exo2-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 700;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-bolditalic.eot");
+  src: url("/fonts/exo-2/exo2-bolditalic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-bolditalic.woff2") format("woff2"), url("/fonts/exo-2/exo2-bolditalic.svg#font") format("svg"), url("/fonts/exo-2/exo2-bolditalic.otf") format("opentype"), url("/fonts/exo-2/exo2-bolditalic.ttf") format("truetype"), url("/fonts/exo-2/exo2-bolditalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 800;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-extrabold.eot");
+  src: url("/fonts/exo-2/exo2-extrabold.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-extrabold.woff2") format("woff2"), url("/fonts/exo-2/exo2-extrabold.svg#font") format("svg"), url("/fonts/exo-2/exo2-extrabold.otf") format("opentype"), url("/fonts/exo-2/exo2-extrabold.ttf") format("truetype"), url("/fonts/exo-2/exo2-extrabold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 800;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-extrabolditalic.eot");
+  src: url("/fonts/exo-2/exo2-extrabolditalic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-extrabolditalic.woff2") format("woff2"), url("/fonts/exo-2/exo2-extrabolditalic.svg#font") format("svg"), url("/fonts/exo-2/exo2-extrabolditalic.otf") format("opentype"), url("/fonts/exo-2/exo2-extrabolditalic.ttf") format("truetype"), url("/fonts/exo-2/exo2-extrabolditalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/fonts/exo-2/exo2-black.eot");
+  src: url("/fonts/exo-2/exo2-black.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-black.woff2") format("woff2"), url("/fonts/exo-2/exo2-black.svg#font") format("svg"), url("/fonts/exo-2/exo2-black.otf") format("opentype"), url("/fonts/exo-2/exo2-black.ttf") format("truetype"), url("/fonts/exo-2/exo2-black.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-weight: 900;
+  font-style: italic;
+  src: url("/fonts/exo-2/exo2-blackitalic.eot");
+  src: url("/fonts/exo-2/exo2-blackitalic.eot?#iefix") format("embedded-opentype"), url("/fonts/exo-2/exo2-blackitalic.woff2") format("woff2"), url("/fonts/exo-2/exo2-blackitalic.svg#font") format("svg"), url("/fonts/exo-2/exo2-blackitalic.otf") format("opentype"), url("/fonts/exo-2/exo2-blackitalic.ttf") format("truetype"), url("/fonts/exo-2/exo2-blackitalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 100;
+  font-style: normal;
+  src: url("/fonts/overpass/overpass-thin.eot");
+  src: url("/fonts/overpass/overpass-thin.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-thin.woff2") format("woff2"), url("/fonts/overpass/overpass-thin.otf") format("opentype"), url("/fonts/overpass/overpass-thin.ttf") format("truetype"), url("/fonts/overpass/overpass-thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 100;
+  font-style: italic;
+  src: url("/fonts/overpass/overpass-thin-italic.eot");
+  src: url("/fonts/overpass/overpass-thin-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-thin-italic.woff2") format("woff2"), url("/fonts/overpass/overpass-thin-italic.otf") format("opentype"), url("/fonts/overpass/overpass-thin-italic.ttf") format("truetype"), url("/fonts/overpass/overpass-thin-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/fonts/overpass/overpass-extralight.eot");
+  src: url("/fonts/overpass/overpass-extralight.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-extralight.woff2") format("woff2"), url("/fonts/overpass/overpass-extralight.otf") format("opentype"), url("/fonts/overpass/overpass-extralight.ttf") format("truetype"), url("/fonts/overpass/overpass-extralight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 200;
+  font-style: italic;
+  src: url("/fonts/overpass/overpass-extralight-italic.eot");
+  src: url("/fonts/overpass/overpass-extralight-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-extralight-italic.woff2") format("woff2"), url("/fonts/overpass/overpass-extralight-italic.otf") format("opentype"), url("/fonts/overpass/overpass-extralight-italic.ttf") format("truetype"), url("/fonts/overpass/overpass-extralight-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/fonts/overpass/overpass-light.eot");
+  src: url("/fonts/overpass/overpass-light.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-light.woff2") format("woff2"), url("/fonts/overpass/overpass-light.otf") format("opentype"), url("/fonts/overpass/overpass-light.ttf") format("truetype"), url("/fonts/overpass/overpass-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 300;
+  font-style: italic;
+  src: url("/fonts/overpass/overpass-light-italic.eot");
+  src: url("/fonts/overpass/overpass-light-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-light-italic.woff2") format("woff2"), url("/fonts/overpass/overpass-light-italic.otf") format("opentype"), url("/fonts/overpass/overpass-light-italic.ttf") format("truetype"), url("/fonts/overpass/overpass-light-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/overpass/overpass-regular.eot");
+  src: url("/fonts/overpass/overpass-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-regular.woff2") format("woff2"), url("/fonts/overpass/overpass-regular.otf") format("opentype"), url("/fonts/overpass/overpass-regular.ttf") format("truetype"), url("/fonts/overpass/overpass-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 400;
+  font-style: italic;
+  src: url("/fonts/overpass/overpass-italic.eot");
+  src: url("/fonts/overpass/overpass-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-italic.woff2") format("woff2"), url("/fonts/overpass/overpass-italic.otf") format("opentype"), url("/fonts/overpass/overpass-italic.ttf") format("truetype"), url("/fonts/overpass/overpass-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/fonts/overpass/overpass-semibold.eot");
+  src: url("/fonts/overpass/overpass-semibold.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-semibold.woff2") format("woff2"), url("/fonts/overpass/overpass-semibold.otf") format("opentype"), url("/fonts/overpass/overpass-semibold.ttf") format("truetype"), url("/fonts/overpass/overpass-semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 600;
+  font-style: italic;
+  src: url("/fonts/overpass/overpass-semibold-italic.eot");
+  src: url("/fonts/overpass/overpass-semibold-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-semibold-italic.woff2") format("woff2"), url("/fonts/overpass/overpass-semibold-italic.otf") format("opentype"), url("/fonts/overpass/overpass-semibold-italic.ttf") format("truetype"), url("/fonts/overpass/overpass-semibold-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/overpass/overpass-bold.eot");
+  src: url("/fonts/overpass/overpass-bold.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-bold.woff2") format("woff2"), url("/fonts/overpass/overpass-bold.otf") format("opentype"), url("/fonts/overpass/overpass-bold.ttf") format("truetype"), url("/fonts/overpass/overpass-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 700;
+  font-style: italic;
+  src: url("/fonts/overpass/overpass-bold-italic.eot");
+  src: url("/fonts/overpass/overpass-bold-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-bold-italic.woff2") format("woff2"), url("/fonts/overpass/overpass-bold-italic.otf") format("opentype"), url("/fonts/overpass/overpass-bold-italic.ttf") format("truetype"), url("/fonts/overpass/overpass-bold-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 800;
+  font-style: normal;
+  src: url("/fonts/overpass/overpass-extrabold.eot");
+  src: url("/fonts/overpass/overpass-extrabold.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-extrabold.woff2") format("woff2"), url("/fonts/overpass/overpass-extrabold.otf") format("opentype"), url("/fonts/overpass/overpass-extrabold.ttf") format("truetype"), url("/fonts/overpass/overpass-extrabold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 800;
+  font-style: italic;
+  src: url("/fonts/overpass/overpass-extrabold-italic.eot");
+  src: url("/fonts/overpass/overpass-extrabold-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-extrabold-italic.woff2") format("woff2"), url("/fonts/overpass/overpass-extrabold-italic.otf") format("opentype"), url("/fonts/overpass/overpass-extrabold-italic.ttf") format("truetype"), url("/fonts/overpass/overpass-extrabold-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/fonts/overpass/overpass-heavy.eot");
+  src: url("/fonts/overpass/overpass-heavy.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-heavy.woff2") format("woff2"), url("/fonts/overpass/overpass-heavy.otf") format("opentype"), url("/fonts/overpass/overpass-heavy.ttf") format("truetype"), url("/fonts/overpass/overpass-heavy.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Overpass";
+  font-weight: 900;
+  font-style: italic;
+  src: url("/fonts/overpass/overpass-heavy-italic.eot");
+  src: url("/fonts/overpass/overpass-heavy-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass/overpass-heavy-italic.woff2") format("woff2"), url("/fonts/overpass/overpass-heavy-italic.otf") format("opentype"), url("/fonts/overpass/overpass-heavy-italic.ttf") format("truetype"), url("/fonts/overpass/overpass-heavy-italic.woff") format("woff");
+}
+
+@font-face {
   font-family: "Overpass Mono";
   font-weight: 400;
   font-style: normal;
   src: url("/fonts/overpass-mono/overpass-mono-regular.eot");
-  src: url("/fonts/overpass-mono/overpass-mono-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass-mono/overpass-mono-regular.woff2") format("woff2"), url("/fonts/overpass-mono/overpass-mono-regular.svg#font") format("svg"), url("/fonts/overpass-mono/overpass-mono-regular.otf") format("opentype"), url("/fonts/overpass-mono/overpass-mono-regular.ttf") format("truetype"), url("/fonts/overpass-mono/overpass-mono-regular.woff") format("woff");
+  src: url("/fonts/overpass-mono/overpass-mono-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/overpass-mono/overpass-mono-regular.woff2") format("woff2"), url("/fonts/overpass-mono/overpass-mono-regular.otf") format("opentype"), url("/fonts/overpass-mono/overpass-mono-regular.ttf") format("truetype"), url("/fonts/overpass-mono/overpass-mono-regular.woff") format("woff");
 }
 
 @font-face {
@@ -24,10 +296,129 @@
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
 @font-face {
-    font-family: "Overpass Mono";
+    font-family: "Exo 2";
+    font-weight: 100;
+    font-style: normal;
+    src: url("/fonts/exo-2/exo2-thin.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 100;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-thinitalic.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 200;
+    font-style: normal;
+    src: url("/fonts/exo-2/exo2-extralight.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 200;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-extralightitalic.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 300;
+    font-style: normal;
+    src: url("/fonts/exo-2/exo2-light.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 300;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-lightitalic.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
     font-weight: 400;
     font-style: normal;
-    src: url("/fonts/overpass-mono/overpass-mono-regular.svg") format("svg");
+    src: url("/fonts/exo-2/exo2-regular.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 400;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-italic.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 500;
+    font-style: normal;
+    src: url("/fonts/exo-2/exo2-medium.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 500;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-mediumitalic.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-style: normal;
+    src: url("/fonts/exo-2/exo2-semibold.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-semibolditalic.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 700;
+    font-style: normal;
+    src: url("/fonts/exo-2/exo2-bold.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 700;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-bolditalic.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 800;
+    font-style: normal;
+    src: url("/fonts/exo-2/exo2-extrabold.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 800;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-extrabolditalic.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 900;
+    font-style: normal;
+    src: url("/fonts/exo-2/exo2-black.svg") format("svg");
+}
+
+@font-face {
+    font-family: "Exo 2";
+    font-weight: 900;
+    font-style: italic;
+    src: url("/fonts/exo-2/exo2-blackitalic.svg") format("svg");
 }
 
 @font-face {
@@ -43,118 +434,6 @@
     font-style: normal;
     src: url("/fonts/spectral/spectral-bold.svg") format("svg");
 }
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 100;
-  font-style: normal;
-  src: url("/fonts/overpass-thin.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 100;
-  font-style: italic;
-  src: url("/fonts/overpass-thin-italic.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 200;
-  font-style: normal;
-  src: url("/fonts/overpass-extralight.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 200;
-  font-style: italic;
-  src: url("/fonts/overpass-extralight-italic.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 300;
-  font-style: normal;
-  src: url("/fonts/overpass-light.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 300;
-  font-style: italic;
-  src: url("/fonts/overpass-light-italic.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 400;
-  font-style: normal;
-  src: url("/fonts/overpass-regular.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 400;
-  font-style: italic;
-  src: url("/fonts/overpass-regular-italic.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 600;
-  font-style: normal;
-  src: url("/fonts/overpass-semibold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 600;
-  font-style: italic;
-  src: url("/fonts/overpass-semibold-italic.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 700;
-  font-style: normal;
-  src: url("/fonts/overpass-bold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 700;
-  font-style: italic;
-  src: url("/fonts/overpass-bold-italic.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 800;
-  font-style: normal;
-  src: url("/fonts/overpass-extrabold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 800;
-  font-style: italic;
-  src: url("/fonts/overpass-extrabold-italic.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 900;
-  font-style: normal;
-  src: url("/fonts/overpass-black.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Overpass";
-  font-weight: 900;
-  font-style: italic;
-  src: url("/fonts/overpass-black-italic.otf") format("opentype");
 }
 
 /*!
@@ -13788,8 +14067,8 @@ nav.nav-main {
           align-items: center;
   position: relative;
   z-index: 20;
-  height: 40px;
-  line-height: 40px;
+  height: 2.5rem;
+  line-height: 2.5rem;
   background: rgba(0, 0, 0, 0.3);
   color: rgba(255, 255, 255, 0.3);
   border-bottom: 1px solid #004b76;
