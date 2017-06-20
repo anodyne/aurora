@@ -3,7 +3,6 @@
 @import "~quill/dist/quill.core", "~quill/dist/quill.bubble";
 @import "~tributejs/scss/tribute";
 @import "_data-tables", "_data-lists", "_panels", "_mixins", "_timeline", "_notifications";
-@import url('https://fonts.googleapis.com/css?family=Exo+2:600i|Overpass:200,300,400,600,700,700i');
 
 body, html {
 	margin: 0;
@@ -30,8 +29,8 @@ nav.nav-main {
 	align-items: center;
 	position: relative;
 	z-index: 20;
-	height: 40px;
-	line-height: 40px;
+	height: 2.5rem;
+	line-height: 2.5rem;
 
 	background: rgba(0, 0, 0, 0.3);
 	color: rgba(255, 255, 255, 0.3);
