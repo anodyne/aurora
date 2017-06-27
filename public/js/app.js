@@ -40058,8 +40058,10 @@ window.axios.defaults.headers.common = {
 
 window.events = new Vue();
 
-window.flash = function (message, type) {
-  window.events.$emit('flash', message, type);
+window.flash = function (message) {
+  var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'success';
+
+  window.events.$emit('flash', { message: message, level: level });
 };
 
 /***/ }),
@@ -76712,6 +76714,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -76755,12 +76758,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 
 	methods: {
-		flash: function flash(message) {
-			var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'success';
-
-			this.body = message;
+		flash: function flash(data) {
+			this.body = data.message;
 			this.show = true;
-			this.level = type;
+			this.level = data.level;
 
 			this.hide();
 		},
@@ -76792,8 +76793,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.flash(this.message, this.type);
 		}
 
-		window.events.$on('flash', function (message, type) {
-			return _this.flash(message, type);
+		window.events.$on('flash', function (data) {
+			return _this.flash(data);
 		});
 	}
 });
@@ -76817,12 +76818,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: _vm.classes,
     attrs: {
       "role": "alert"
-    }
-  }, [_c('strong', {
+    },
     domProps: {
-      "textContent": _vm._s(_vm.exclamation)
+      "textContent": _vm._s(_vm.body)
     }
-  }), _vm._v(" " + _vm._s(_vm.body) + "\n\t")])])
+  })])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -80003,22 +80003,22 @@ function placeHoldersCount (b64) {
 
 function byteLength (b64) {
   // base64 is 4/3 + up to two characters of the original data
-  return b64.length * 3 / 4 - placeHoldersCount(b64)
+  return (b64.length * 3 / 4) - placeHoldersCount(b64)
 }
 
 function toByteArray (b64) {
-  var i, j, l, tmp, placeHolders, arr
+  var i, l, tmp, placeHolders, arr
   var len = b64.length
   placeHolders = placeHoldersCount(b64)
 
-  arr = new Arr(len * 3 / 4 - placeHolders)
+  arr = new Arr((len * 3 / 4) - placeHolders)
 
   // if there are placeholders, only get up to the last complete 4 chars
   l = placeHolders > 0 ? len - 4 : len
 
   var L = 0
 
-  for (i = 0, j = 0; i < l; i += 4, j += 3) {
+  for (i = 0; i < l; i += 4) {
     tmp = (revLookup[b64.charCodeAt(i)] << 18) | (revLookup[b64.charCodeAt(i + 1)] << 12) | (revLookup[b64.charCodeAt(i + 2)] << 6) | revLookup[b64.charCodeAt(i + 3)]
     arr[L++] = (tmp >> 16) & 0xFF
     arr[L++] = (tmp >> 8) & 0xFF
@@ -81002,7 +81002,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		addReply: function addReply() {
 			var self = this;
 
-			axios.post(location.pathname + '/replies', { body: this.body }).then(function (response) {
+			axios.post(location.pathname + '/replies', { body: this.body }).catch(function (error) {
+				flash(error.response.data, 'danger');
+			}).then(function (response) {
 				self.body = '';
 				self.editor.container.firstChild.innerHTML = '';
 
