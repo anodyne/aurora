@@ -35,6 +35,6 @@ window.axios.defaults.headers.common = {
 
 window.events = new Vue();
 
-window.flash = function (message, type) {
-	window.events.$emit('flash', message, type);
+window.flash = function (message, level = 'success') {
+	window.events.$emit('flash', { message, level });
 };

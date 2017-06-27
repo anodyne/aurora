@@ -58,6 +58,9 @@
 				var self = this;
 
 				axios.post(location.pathname + '/replies', { body: this.body })
+					.catch(error => {
+						flash(error.response.data, 'danger');
+					})
 					.then(response => {
 						self.body = '';
 						self.editor.container.firstChild.innerHTML = '';

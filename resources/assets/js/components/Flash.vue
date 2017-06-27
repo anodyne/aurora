@@ -1,8 +1,9 @@
 <template>
 	<transition name="fade">
-		<div :class="classes" role="alert" v-show="show">
-			<strong v-text="exclamation"></strong> {{ body }}
-		</div>
+		<div :class="classes"
+			 role="alert"
+			 v-show="show"
+			 v-text="body"></div>
 	</transition>
 </template>
 
@@ -49,10 +50,10 @@
 		},
 
 		methods: {
-			flash (message, type = 'success') {
-				this.body = message;
+			flash (data) {
+				this.body = data.message;
 				this.show = true;
-				this.level = type;
+				this.level = data.level;
 
 				this.hide();
 			},
@@ -83,7 +84,7 @@
 				this.flash(this.message, this.type);
 			}
 
-			window.events.$on('flash', (message, type) => this.flash(message, type));
+			window.events.$on('flash', data => this.flash(data));
 		}
 	};
 </script>
