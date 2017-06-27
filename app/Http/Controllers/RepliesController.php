@@ -23,14 +23,18 @@ class RepliesController extends Controller
 	{
 		$this->validate($request, ['body' => 'required']);
 
-		$inspector->inspectBefore($request->get('body'));
-		
-		$reply = $discussion->addReply([
-			'body' => $request->get('body'),
-			'user_id' => auth()->id()
-		]);
+		try {
+			$inspector->inspectBefore($request->get('body'));
+			
+			$reply = $discussion->addReply([
+				'body' => $request->get('body'),
+				'user_id' => auth()->id()
+			]);
 
-		$inspector->inspectAfter($request->get('body'), $reply);
+			$inspector->inspectAfter($request->get('body'), $reply);
+		} catch (\Exception $e) {
+			return response("Sorry, your reply couldn't be saved.", 422);
+		}
 
 		if ($request->expectsJson()) {
 			return $reply->load('author');
@@ -39,11 +43,19 @@ class RepliesController extends Controller
 		return back()->with('flash', 'Your reply has been added.');
 	}
 
-	public function update(Request $request, Reply $reply)
+	public function update(Request $request, InspectionManager $inspector, Reply $reply)
 	{
 		$this->authorize('update', $reply);
 
-		$reply->update($request->all());
+		try {
+			$inspector->inspectBefore($request->get('body'));
+
+			$reply->update($request->all());
+
+			$inspector->inspectAfter($request->get('body'), $reply);
+		} catch (\Exception $e) {
+			return response("Sorry, your reply couldn't be saved.", 422);
+		}
 
 		return back();
 	}
