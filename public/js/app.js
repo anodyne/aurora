@@ -80438,6 +80438,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			axios.patch('/replies/' + this.reply.id, {
 				body: this.body
+			}).catch(function (error) {
+				flash(error.response.data, 'danger');
 			});
 
 			flash('Updated the reply.');
